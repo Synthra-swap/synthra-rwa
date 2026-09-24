@@ -9,3 +9,4 @@ __pycache__/
 config/source.json
 config/destination.json
 config/pair.json
+config/deployments/

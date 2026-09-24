@@ -1,0 +1,406 @@
+{
+  "observedAtUTC": "2026-09-24T11:31:34.089365+00:00",
+  "publicTransactionsSent": false,
+  "privateBundleSha256": "db9a649c5e772cf92d8a20d19f2e6c1497c4fadc6540c9373f553603f6ddc094",
+  "simulationsPassed": 24,
+  "simulations": [
+    {
+      "symbol": "NVDA",
+      "side": "source",
+      "chainId": 4663,
+      "estimatedGas": 5616173,
+      "estimatedNative": "0.000481463284560173",
+      "nativeCurrency": "ETH",
+      "passed": true,
+      "snapshot": {
+        "number": "0x4407452",
+        "hash": "0xc2a0f69055a61d4a178f78e67616f7507d349a1009d7d9ca55da94ab117f2122",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "META",
+      "side": "source",
+      "chainId": 4663,
+      "estimatedGas": 5616173,
+      "estimatedNative": "0.000478587803984173",
+      "nativeCurrency": "ETH",
+      "passed": true,
+      "snapshot": {
+        "number": "0x44074ca",
+        "hash": "0xfaf508e04284f246ccf0fef91543ee034d2a70722bac299e95ecbdc28861f4fd",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "PLTR",
+      "side": "source",
+      "chainId": 4663,
+      "estimatedGas": 5616173,
+      "estimatedNative": "0.000478879844980173",
+      "nativeCurrency": "ETH",
+      "passed": true,
+      "snapshot": {
+        "number": "0x440753a",
+        "hash": "0xbd63f78e376a1d3be5736a280c64b87b13c6126c39af1daa1f9267475dd1dbff",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "GOOGL",
+      "side": "source",
+      "chainId": 4663,
+      "estimatedGas": 5616173,
+      "estimatedNative": "0.000476902952084173",
+      "nativeCurrency": "ETH",
+      "passed": true,
+      "snapshot": {
+        "number": "0x44075b0",
+        "hash": "0x16f663ea5006487a18b21c39fa15b3d4da61ffe7c2afb9d8e2769ac65287c132",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "AAPL",
+      "side": "source",
+      "chainId": 4663,
+      "estimatedGas": 5616173,
+      "estimatedNative": "0.000477734145688173",
+      "nativeCurrency": "ETH",
+      "passed": true,
+      "snapshot": {
+        "number": "0x4407629",
+        "hash": "0xbca3c1f5ca4c6b5575a4850b03315b11088404c7dbdf818d1e104023f86bcc7c",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "MSFT",
+      "side": "source",
+      "chainId": 4663,
+      "estimatedGas": 5616173,
+      "estimatedNative": "0.000477891398532173",
+      "nativeCurrency": "ETH",
+      "passed": true,
+      "snapshot": {
+        "number": "0x440769c",
+        "hash": "0xf7ed9574bc2a14382c328ea704f1bd22943354b34ff3e0ba4593f8b9052a2b81",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "INTC",
+      "side": "source",
+      "chainId": 4663,
+      "estimatedGas": 5616173,
+      "estimatedNative": "0.000481508213944173",
+      "nativeCurrency": "ETH",
+      "passed": true,
+      "snapshot": {
+        "number": "0x4407710",
+        "hash": "0x4b809d5a3e9cec00ba5f4848d98b02939e41a4dbd3cb407d7b5c7ede50ef95e6",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "AMZN",
+      "side": "source",
+      "chainId": 4663,
+      "estimatedGas": 5616173,
+      "estimatedNative": "0.000476790628624173",
+      "nativeCurrency": "ETH",
+      "passed": true,
+      "snapshot": {
+        "number": "0x4407783",
+        "hash": "0x1ae6141d26af6eb853b8f447c7e6d4ba5930808aa768add3b3426c466e2012cb",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "AMD",
+      "side": "source",
+      "chainId": 4663,
+      "estimatedGas": 5616173,
+      "estimatedNative": "0.000476745699240173",
+      "nativeCurrency": "ETH",
+      "passed": true,
+      "snapshot": {
+        "number": "0x44077f1",
+        "hash": "0x95e2178e7b7d98c41d96ab6fc529d24a34e6dcc30628eec1f3206773196a1d30",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "TSLA",
+      "side": "source",
+      "chainId": 4663,
+      "estimatedGas": 5616158,
+      "estimatedNative": "0.000483663532576158",
+      "nativeCurrency": "ETH",
+      "passed": true,
+      "snapshot": {
+        "number": "0x440785e",
+        "hash": "0x25621519a30d7abeaca9f4c56f5694136de9580eab81c9ba1bc621d0c451b404",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "COIN",
+      "side": "source",
+      "chainId": 4663,
+      "estimatedGas": 5616158,
+      "estimatedNative": "0.000480203979248158",
+      "nativeCurrency": "ETH",
+      "passed": true,
+      "snapshot": {
+        "number": "0x44078d6",
+        "hash": "0x39b67c250d955f5c74b3a4953d67ca9bbbed108978d7b3c1b4cef284d4ece2bf",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "AVGO",
+      "side": "source",
+      "chainId": 4663,
+      "estimatedGas": 5616158,
+      "estimatedNative": "0.000477373435616158",
+      "nativeCurrency": "ETH",
+      "passed": true,
+      "snapshot": {
+        "number": "0x440795f",
+        "hash": "0x87fe78a0fd5bd6f8bf45526e25ed8211dd6fdf53aaed4d2014b714da188ce44b",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "NVDA",
+      "side": "destination",
+      "chainId": 5042,
+      "estimatedGas": 6274571,
+      "estimatedNative": "0.2516102971",
+      "nativeCurrency": "USDC",
+      "passed": true,
+      "snapshot": {
+        "number": "0x1577aaf",
+        "hash": "0x318fd09a7c7b51be29c2e94ebcaa2157bbc5cd1eb8981fc4fb6dab249440a9d4",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "META",
+      "side": "destination",
+      "chainId": 5042,
+      "estimatedGas": 6274571,
+      "estimatedNative": "0.2516102971",
+      "nativeCurrency": "USDC",
+      "passed": true,
+      "snapshot": {
+        "number": "0x1577ac0",
+        "hash": "0x6b4b50366abc64f6304a7fcca88190f5f8a22a44f2813fb06d63bcb4d9c76e4b",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "PLTR",
+      "side": "destination",
+      "chainId": 5042,
+      "estimatedGas": 6274571,
+      "estimatedNative": "0.2516102971",
+      "nativeCurrency": "USDC",
+      "passed": true,
+      "snapshot": {
+        "number": "0x1577ad1",
+        "hash": "0x4896d17a561246f23a6e4549d5caab6bb2459b454b84712a7976f2017c28b6cd",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "GOOGL",
+      "side": "destination",
+      "chainId": 5042,
+      "estimatedGas": 6274602,
+      "estimatedNative": "0.2516115402",
+      "nativeCurrency": "USDC",
+      "passed": true,
+      "snapshot": {
+        "number": "0x1577ae1",
+        "hash": "0x9e36a41b2fdaf02c88213d89836dd50ba7aa9fec97aaa500e1a2e52f76878550",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "AAPL",
+      "side": "destination",
+      "chainId": 5042,
+      "estimatedGas": 6274571,
+      "estimatedNative": "0.2516102971",
+      "nativeCurrency": "USDC",
+      "passed": true,
+      "snapshot": {
+        "number": "0x1577af2",
+        "hash": "0x7306106fc4b43e80e7aed05f77be73cc3ad7dc0119d732c0a8a2cd3a9f640466",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "MSFT",
+      "side": "destination",
+      "chainId": 5042,
+      "estimatedGas": 6274571,
+      "estimatedNative": "0.251704415665",
+      "nativeCurrency": "USDC",
+      "passed": true,
+      "snapshot": {
+        "number": "0x1577b00",
+        "hash": "0xaf9f45583274a5a2e112a3ffb53f58d9845d83d93dfed8b1c05ebd4b03c443fe",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "INTC",
+      "side": "destination",
+      "chainId": 5042,
+      "estimatedGas": 6274571,
+      "estimatedNative": "0.2516102971",
+      "nativeCurrency": "USDC",
+      "passed": true,
+      "snapshot": {
+        "number": "0x1577b10",
+        "hash": "0xbda52936bb2aacc53f3d868913e5675b2004a7be7c0c9509e991ad6d55813afc",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "AMZN",
+      "side": "destination",
+      "chainId": 5042,
+      "estimatedGas": 6274571,
+      "estimatedNative": "0.2516102971",
+      "nativeCurrency": "USDC",
+      "passed": true,
+      "snapshot": {
+        "number": "0x1577b20",
+        "hash": "0xdaee5fd194c5fb61c4943838014c7acd9ada929d727f249edd4b907e21213e73",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "AMD",
+      "side": "destination",
+      "chainId": 5042,
+      "estimatedGas": 6274540,
+      "estimatedNative": "0.251609054",
+      "nativeCurrency": "USDC",
+      "passed": true,
+      "snapshot": {
+        "number": "0x1577b2f",
+        "hash": "0x111cb3524347b73b736e34c227c80d0c99ef7eab193aead5428b6bbae8af72c3",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "TSLA",
+      "side": "destination",
+      "chainId": 5042,
+      "estimatedGas": 6274556,
+      "estimatedNative": "0.2516096956",
+      "nativeCurrency": "USDC",
+      "passed": true,
+      "snapshot": {
+        "number": "0x1577b3f",
+        "hash": "0x29d6ef404b0bba2e5a0b745610f99afca5e4844e79f47f7385e086d9b01cbdb7",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "COIN",
+      "side": "destination",
+      "chainId": 5042,
+      "estimatedGas": 6274556,
+      "estimatedNative": "0.2516096956",
+      "nativeCurrency": "USDC",
+      "passed": true,
+      "snapshot": {
+        "number": "0x1577b4e",
+        "hash": "0x81b3734e7f8be5702549322381c6d37096711356072b76454bd1c49d3e9b2e9e",
+        "finalized": false
+      }
+    },
+    {
+      "symbol": "AVGO",
+      "side": "destination",
+      "chainId": 5042,
+      "estimatedGas": 6274556,
+      "estimatedNative": "0.2516096956",
+      "nativeCurrency": "USDC",
+      "passed": true,
+      "snapshot": {
+        "number": "0x1577b5d",
+        "hash": "0xb397702fa578d0f78d3291d938741eda936a8a92cf11090ed2f903e2004b5e7f",
+        "finalized": false
+      }
+    }
+  ],
+  "referenceLimitUsd": "100000",
+  "referenceTestUsd": "10",
+  "amountPolicyApproved": true,
+  "compilerProfileComparison": {
+    "passed": true,
+    "contractsCompared": [
+      "SourceVault",
+      "DestinationBridge",
+      "WrappedAsset",
+      "WormholeEndpoint",
+      "BridgeMessage",
+      "TimelockController",
+      "Deploy"
+    ],
+    "creationAndRuntimeTemplatesIdentical": true,
+    "defaultCompilerTarget": "paris",
+    "deploymentExecutionRules": "cancun",
+    "notice": "Exact artifact comparison; constructor immutable values remain deployment-specific."
+  },
+  "artifactIdentities": {
+    "SourceVault": {
+      "evmVersion": "paris",
+      "creationSha256": "7fc5f5a0189172b6e71d0241ee5a7a9d755d74a4530b0a3ada41e58e17f36b95",
+      "runtimeTemplateSha256": "dbc07b05ef5def2cd1beec7df918b2169baeedae37c1078087c3ac1a3e150742"
+    },
+    "DestinationBridge": {
+      "evmVersion": "paris",
+      "creationSha256": "dc45547666b9cd97162f909378e22d412559581ccfe37485fdb3e8a01558515a",
+      "runtimeTemplateSha256": "d50548b0813472f7322c4f3a9dcf75d4cd5b89dd924699bf79e49e799ec649d8"
+    },
+    "WrappedAsset": {
+      "evmVersion": "paris",
+      "creationSha256": "ad3debc3c43bb8515b7098990792e98e29c781bacdbef3cda2084d4a440d8113",
+      "runtimeTemplateSha256": "3ca369d0b6fa2b630c2e9e80bb690e97ca97f802ddbdba3ee2cc02a41668b18b"
+    },
+    "WormholeEndpoint": {
+      "evmVersion": "paris",
+      "creationSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeTemplateSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3"
+    },
+    "BridgeMessage": {
+      "evmVersion": "paris",
+      "creationSha256": "a18e85fc27a867c8fc0d38307a30a59c8d7e1120ca6585f1f52134fcd6446850",
+      "runtimeTemplateSha256": "7fefaa8d1db2837b2c7fd6d6fad8c96b3540ded9e89c93a489543c6761a60848"
+    },
+    "TimelockController": {
+      "evmVersion": "paris",
+      "creationSha256": "c2d2778ff6acc386484007a3f08c3043d6089cd0034134b880730b6bb6f4ebd4",
+      "runtimeTemplateSha256": "a3c5b5f9b5ec5bc05e1e5cde708b8a927723563b8c277cc1cffd40231289eca8"
+    },
+    "Deploy": {
+      "evmVersion": "paris",
+      "creationSha256": "b2294766fb32d8014c213b660365bcf448ada6061b55ab3d246eb93d1e87c47e",
+      "runtimeTemplateSha256": "8240c5241e2bb4f87de12955aeb1f686f984a3bc7646178b2ed2e6212a325db6"
+    }
+  },
+  "latestStateOnly": true,
+  "sourceFinalizedRpcAvailable": false,
+  "liveRoundTripCompleted": false,
+  "noAutomaticRelayer": true,
+  "endpointsInitiallyPaused": true,
+  "notice": "Local independent deployment simulations with the selected sender and parameters. No keys or public transactions. Individual simulations reuse current nonces; predicted addresses are not a batch deployment address plan. Private configs/raw receipts are excluded from this archive. Compiler comparison covers pre-constructor runtime templates, not runtime hashes with deployed immutable values."
+}

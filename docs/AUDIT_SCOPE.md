@@ -8,7 +8,8 @@ Any post-review code change requires a new manifest and review of its impact.
 ## In scope
 
 All `src/**/*.sol`, the deployment procedure in `script/Deploy.s.sol`, `tools/preflight.py`,
-`tools/prepare_relay.py`, dependency selection and administrative configuration. Review the
+`tools/prepare_relay.py`, `tools/prepare_deployment.py`, `tools/deploy_asset.py`, dependency selection
+and administrative configuration. The deployment helpers are operational tooling, not deployed contracts. Review the
 financial consequences of instant fee payout and the independent metadata channel.
 
 Primary contracts: SourceVault, DestinationBridge, WrappedAsset, WormholeEndpoint,

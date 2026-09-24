@@ -6,6 +6,9 @@ unverified guesses. Scripts do not load or print private keys.
 
 ## 1. Before deployment
 
+For multiple selected stocks, use the [deployment bundle workflow](DEPLOYMENT_BUNDLE.md) to generate
+paired configurations, record exact amount conversions and simulate each asset with the actual sender.
+
 Complete one deployment JSON per chain from `config/deployment.example.json` and a pair file from
 `config/pair.example.json`. Store reviewed real copies outside the audit archive. Verify against dated
 primary sources and RPC reads:
@@ -43,7 +46,7 @@ administrative signer and timelock. `Deploy` creates a TimelockController and on
 wrapped ERC20 internally. Source feeRecipient is initialized from configuration. The script never unpauses.
 
 ```sh
-DEPLOY_CONFIG=config/source.json forge script script/Deploy.s.sol:Deploy \
+FOUNDRY_PROFILE=deployment DEPLOY_CONFIG=config/source.json forge script script/Deploy.s.sol:Deploy \
   --rpc-url "$SOURCE_RPC_URL" --account deployer
 ```
 

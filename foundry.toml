@@ -38,3 +38,13 @@ fail_on_revert = true
 # Explicit opt-in: live public RPC reads and local fork execution; never broadcasts.
 [profile.integration]
 test = "integration"
+
+# Execute fork simulations with current opcodes, but compile the deployment and all
+# production dependencies with the same Paris target used by the audit artifacts.
+[profile.deployment]
+evm_version = "cancun"
+additional_compiler_profiles = [{ name = "audited-paris", evm_version = "paris" }]
+compilation_restrictions = [
+  { paths = "src/**", evm_version = "paris" },
+  { paths = "script/Deploy.s.sol", evm_version = "paris" }
+]

@@ -4,13 +4,20 @@ Local toolchain: Foundry 1.5.1-stable (b0a9dd9ceda36f63e2326ce530c10e6916f4b8a2)
 Solidity 0.8.28 (7893614a), Slither 0.11.3, Python 3.14.6. EVM Paris, optimizer 200,
 no CBOR/bytecode metadata. CI declares Foundry 1.5.1 and Python 3.11 but has not been run remotely.
 
-`bash tools/check.sh` completed successfully for this source candidate. The reports below are
-packaged and hashed with the source snapshot; the independent audit remains outstanding.
-The latest revision allows a shared hardware-wallet EOA as governance account and emergency guardian
-in deployment and preflight. Endpoints remain timelock-owned with an initial delay of at least 48 hours.
+All stages of `tools/check.sh` passed for this candidate. This run isolated Foundry output directories
+while deployment simulations ran concurrently; Slither was rerun with the matching
+`--foundry-out-directory` after its default path caused an artifact-parser error. The reports below
+are packaged and hashed with the source snapshot; the independent audit remains outstanding.
+The latest revision adds reviewed deployment bundles and an explicit per-asset operator runner.
+It also separates Cancun fork execution from Paris compilation, resolving `NotActivated` when a
+Robinhood token uses newer opcodes. Creation bytecode and runtime templates match the default
+audit profile exactly for all seven compared artifacts, including the deployment script and timelock.
+Endpoints remain timelock-owned with an initial delay of at least 48 hours.
 Production `src/` contracts, monthly metadata policy, message format, and transfer accounting are
 unchanged. Full local checks were rerun; upstream comparison and the preceding fork run remain
-explicitly dated evidence, not new executions for this deployment-policy change.
+explicitly dated evidence, not new executions for this operational-tooling change. Twenty-four fresh,
+independent deployment simulations cover the selected twelve stocks on both chains; they do not
+replace finalized-state verification or live signed-VAA round trips.
 See `SPECIFICATION.md` for current behavior, `OPERATIONS.md` for governance ordering, and
 `INTEGRATION_REVIEW.md` for fork block pins.
 
@@ -28,7 +35,8 @@ See `SPECIFICATION.md` for current behavior, `OPERATIONS.md` for governance orde
 | Monthly metadata | 12 tests at 30 days: early renewal, changed/scheduled values, cancellation, exact expiry, delayed delivery, replay, raw redemption, and constructor bounds; 8 existing metadata cases also run at one day | `test/Metadata.t.sol` |
 | Asset expansion | 2 local tests: add a thirteenth pair; isolate messages and pauses | `test/AssetExpansion.t.sol` |
 | Deployment simulation | Both sides created paused and timelock-owned; shared EOA roles, immediate pause, delayed resume/treasury changes, zero-authority and short-delay rejection | `test/DeploymentConfig.t.sol`, `test/HardwareWalletGovernance.t.sol` |
-| Operational-tool validation | 67 Python tests passed, including limit updates, historical ceilings and maintenance preflight | `audit/python-tests.log`, `tools/test_*.py` |
+| Operational-tool validation | 80 Python tests passed, including exact multiplier conversion, rounding, stale inputs, config tampering, duplicate assets, wrong networks and compiler override isolation | `audit/python-tests.log`, `tools/test_*.py` |
+| Selected deployment preparation | 24/24 latest-state simulations passed; all 12 stocks on both chains; 7/7 artifact comparisons byte-identical to the default audit profile | `audit/deployment-preparation.json` |
 | Real-network fork simulations | 19 passed on the preceding unchanged production source; all 12 selected stocks, treasury rotation and issuer interference | `audit/live-fork-tests.log`, `docs/INTEGRATION_REVIEW.md` |
 | Mutation sensitivity | All 27 compiling mutations detected, including outgoing/incoming maxima and receive-preparation authority, reentrancy and monotonicity, plus deployment owner, bootstrap admin, minimum delay and zero-authority guards | `audit/mutation-report.json` |
 | Upstream provenance | Historical: 63 files byte-matched on 23 September; dependencies unchanged and local lock rechecked | `audit/dependency-verification.json` |
@@ -67,7 +75,8 @@ includes artificial mock overhead; it is not a gas-cost estimate for the live ch
   Guardian observation remain unproven by this evidence.
 - All twelve selected stocks passed compatibility and issuer-interference scenarios. The preceding token identity
   snapshot showed a shared implementation; identities were not recollected at the new fork pins. Deployed escrow/treasury
-  eligibility, issuer role governance, production risk values and remaining operator addresses remain unresolved.
+  eligibility and issuer role governance require deployment-specific verification. Operator addresses and the
+  USD reference policy are now supplied; exact raw amounts/configurations are prepared privately.
 - Production pair preflight/relay execution still needs deployed endpoints and approved real configs.
   Robinhood's public RPC returned no historical state for the finalized block; latest reads are
   separately labeled and do not satisfy that gate.
@@ -84,14 +93,15 @@ validity is checked explicitly. Disposition is documented, not represented as a 
 ## Current source and package identity
 
 `audit/current-review-snapshot.json` records the source, configuration, and evidence hashes for
-this revision. Full local checks and mutation testing were rerun for the shared hardware-wallet
-policy. The twelve-stock fork evidence is retained from the monthly metadata revision: production
+this revision. Full local checks and mutation testing were rerun for deployment-bundle preparation.
+The twelve-stock bridge fork evidence is retained from the monthly metadata revision: production
 contracts, integration test source, and fixture hashes are unchanged. It does not exercise the new
 deployment governance policy; local deployment and adversarial RPC tests cover that policy.
 Example deployment parsing still verifies the 30-day value.
 
-The Solidity production source and runtime sizes above remain unchanged; deployment script and
-preflight behavior differ from the previous candidate. Earlier manifests and test counts must not
+The Solidity production source, deployment script, preflight implementation and runtime sizes above
+remain unchanged from the shared-wallet candidate. The new helpers and deployment execution profile
+are part of this revision's operational scope. Earlier manifests and test counts must not
 be reused as the identity of this revision. The current package is identified by
 `audit/RELEASE_MANIFEST.json` and `audit/SHA256SUMS`; superseded evidence is linked in
 [ARCHIVE_HISTORY.md](ARCHIVE_HISTORY.md).

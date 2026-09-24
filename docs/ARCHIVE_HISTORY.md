@@ -63,3 +63,10 @@ Their original identities remain available in Git history:
 
 - [audit/synthra-rwa-bridge-audit.tar.gz](https://github.com/Synthra-swap/synthra-rwa/blob/8ff05bf0d33cde331369ef8d95f549a628756617/audit/synthra-rwa-bridge-audit.tar.gz), SHA-256 `816c5b5f4e7db18012c887d753449fd4565bbcc87a609fe6c0634c266cfa340e`.
 - [audit/current-review-snapshot.json](https://github.com/Synthra-swap/synthra-rwa/blob/8ff05bf0d33cde331369ef8d95f549a628756617/audit/current-review-snapshot.json), SHA-256 `1f85c4e5da0fb173d1eb42b650b5d6885ff5555282536a108a2e2c13c4315e82`.
+
+## Before deployment-bundle preparation
+
+The shared-wallet candidate, before the per-asset helpers and separate deployment execution profile,
+remains available at [commit `aceccd7`](https://github.com/Synthra-swap/synthra-rwa/tree/aceccd785b9e0c96eeff857b63967c305f257ae9).
+Its [audit archive](https://github.com/Synthra-swap/synthra-rwa/blob/aceccd785b9e0c96eeff857b63967c305f257ae9/audit/synthra-rwa-bridge-audit.tar.gz)
+has SHA-256 `a5b36989fdb47921eba56b0ed1b9fafc2376ba5462849a0ce5ee08ab0917df16`.

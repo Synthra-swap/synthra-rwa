@@ -36,6 +36,7 @@ Metadata updates likewise require publication and destination completion; they a
 - [Trust model](docs/THREAT_MODEL.md)
 - [Static analysis and security decisions](docs/SECURITY_ANALYSIS.md)
 - [Deployment, relay, and incident response](docs/OPERATIONS.md)
+- [Per-asset deployment bundles and operator commands](docs/DEPLOYMENT_BUNDLE.md)
 - [Validation performed and its limitations](docs/VALIDATION.md)
 - [Package manifest](audit/RELEASE_MANIFEST.json)
 - [Historical audit archives](docs/ARCHIVE_HISTORY.md)
@@ -97,7 +98,7 @@ finality, and Wormhole Guardians/Core; a pause can delay redemptions.
 
 ## Current validation
 
-The current source passed 125 Solidity tests, 67 Python tests, 27 security mutations, and 19 fork
+The current source passed 125 Solidity tests, 80 Python tests, 27 security mutations, and 19 fork
 checks covering all twelve selected stocks. Slither reported no High/Medium findings and four
 reviewed Low timestamp findings. These are internal results, not an independent audit opinion.
 See [VALIDATION.md](docs/VALIDATION.md) for evidence and limitations and

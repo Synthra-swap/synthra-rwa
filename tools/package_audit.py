@@ -8,7 +8,7 @@ roots={'README.md','foundry.toml','.gitignore','SECURITY.md','LICENSE'}
 reports={'audit-tests.log','unit-tests.log','coverage.log','coverage.lcov','slither.json','slither.log','gas-report.log','demo.log',
          'python-tests.log','mutation-report.json','mutation.log','dependency-verification.json',
          'live-fork-tests.log'}
-review_paths = {'audit/current-review-snapshot.json'}
+review_paths = {'audit/current-review-snapshot.json', 'audit/deployment-preparation.json'}
 review_paths.update('audit/readiness-review/' + name for name in (
     'initial-asset-candidates.json', 'selection-assets.json', 'selection-prices.json',
     'selection-dex-pairs.json', 'fork-assets-registry-20260924.json', 'fork-pins-20260924.json',

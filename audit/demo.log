@@ -1,38 +1,38 @@
 Compiling 1 files with Solc 0.8.28
-Solc 0.8.28 finished in 1.48s
+Solc 0.8.28 finished in 1.39s
 Compiler run successful!
-2026-09-24T10:10:28.431348Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for script/Deploy.s.sol
-2026-09-24T10:10:28.431734Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/DeploymentConfig.t.sol
-2026-09-24T10:10:28.431783Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/HardwareWalletGovernance.t.sol
-2026-09-24T10:10:28.431984Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/forge-std/src/StdAssertions.sol
-2026-09-24T10:10:28.432104Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/forge-std/src/StdError.sol
-2026-09-24T10:10:28.432150Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/forge-std/src/StdInvariant.sol
-2026-09-24T10:10:28.432332Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/forge-std/src/StdToml.sol
-2026-09-24T10:10:28.432407Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/forge-std/src/Test.sol
-2026-09-24T10:10:28.432940Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/openzeppelin-contracts/contracts/access/AccessControl.sol
-2026-09-24T10:10:28.432994Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/openzeppelin-contracts/contracts/access/IAccessControl.sol
-2026-09-24T10:10:28.433115Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/openzeppelin-contracts/contracts/governance/TimelockController.sol
-2026-09-24T10:10:28.433309Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/openzeppelin-contracts/contracts/token/ERC1155/IERC1155Receiver.sol
-2026-09-24T10:10:28.433354Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/openzeppelin-contracts/contracts/token/ERC1155/utils/ERC1155Holder.sol
-2026-09-24T10:10:28.433545Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol
-2026-09-24T10:10:28.433586Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/openzeppelin-contracts/contracts/token/ERC721/utils/ERC721Holder.sol
-2026-09-24T10:10:28.433960Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/AssetExpansion.t.sol
-2026-09-24T10:10:28.433996Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/Bridge.t.sol
-2026-09-24T10:10:28.434038Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/BridgeInvariant.t.sol
-2026-09-24T10:10:28.434077Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/EdgeCases.t.sol
-2026-09-24T10:10:28.434114Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/Fixture.sol
-2026-09-24T10:10:28.434149Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/Governance.t.sol
-2026-09-24T10:10:28.434235Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/InternalAudit.t.sol
-2026-09-24T10:10:28.434272Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/Metadata.t.sol
-2026-09-24T10:10:28.434312Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/SignedVAA.t.sol
-2026-09-24T10:10:28.434354Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/TransferLimitGovernance.t.sol
-2026-09-24T10:10:28.434393Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/TreasuryGovernance.t.sol
-2026-09-24T10:10:28.434434Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/mocks/VerifiedCoreHarness.sol
-2026-09-24T10:10:28.434613Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/wormhole/ethereum/contracts/Getters.sol
-2026-09-24T10:10:28.434654Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/wormhole/ethereum/contracts/Messages.sol
-2026-09-24T10:10:28.434692Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/wormhole/ethereum/contracts/State.sol
-2026-09-24T10:10:28.434729Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/wormhole/ethereum/contracts/Structs.sol
-2026-09-24T10:10:28.434777Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/wormhole/ethereum/contracts/libraries/external/BytesLib.sol
+2026-09-24T11:28:08.654370Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for script/Deploy.s.sol
+2026-09-24T11:28:08.654907Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/AssetExpansion.t.sol
+2026-09-24T11:28:08.654988Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/Bridge.t.sol
+2026-09-24T11:28:08.655059Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/BridgeInvariant.t.sol
+2026-09-24T11:28:08.655118Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/DeploymentConfig.t.sol
+2026-09-24T11:28:08.655185Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/EdgeCases.t.sol
+2026-09-24T11:28:08.655251Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/Fixture.sol
+2026-09-24T11:28:08.655308Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/Governance.t.sol
+2026-09-24T11:28:08.655367Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/HardwareWalletGovernance.t.sol
+2026-09-24T11:28:08.655426Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/InternalAudit.t.sol
+2026-09-24T11:28:08.655487Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/Metadata.t.sol
+2026-09-24T11:28:08.655547Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/SignedVAA.t.sol
+2026-09-24T11:28:08.655606Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/TransferLimitGovernance.t.sol
+2026-09-24T11:28:08.655663Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/TreasuryGovernance.t.sol
+2026-09-24T11:28:08.655786Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for test/mocks/VerifiedCoreHarness.sol
+2026-09-24T11:28:08.655962Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/forge-std/src/StdAssertions.sol
+2026-09-24T11:28:08.656140Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/forge-std/src/StdError.sol
+2026-09-24T11:28:08.656197Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/forge-std/src/StdInvariant.sol
+2026-09-24T11:28:08.656457Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/forge-std/src/StdToml.sol
+2026-09-24T11:28:08.656583Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/forge-std/src/Test.sol
+2026-09-24T11:28:08.657330Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/openzeppelin-contracts/contracts/access/AccessControl.sol
+2026-09-24T11:28:08.657396Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/openzeppelin-contracts/contracts/access/IAccessControl.sol
+2026-09-24T11:28:08.657589Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/openzeppelin-contracts/contracts/governance/TimelockController.sol
+2026-09-24T11:28:08.657873Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/openzeppelin-contracts/contracts/token/ERC1155/IERC1155Receiver.sol
+2026-09-24T11:28:08.657946Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/openzeppelin-contracts/contracts/token/ERC1155/utils/ERC1155Holder.sol
+2026-09-24T11:28:08.658208Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol
+2026-09-24T11:28:08.658268Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/openzeppelin-contracts/contracts/token/ERC721/utils/ERC721Holder.sol
+2026-09-24T11:28:08.658850Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/wormhole/ethereum/contracts/Getters.sol
+2026-09-24T11:28:08.658916Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/wormhole/ethereum/contracts/Messages.sol
+2026-09-24T11:28:08.658971Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/wormhole/ethereum/contracts/State.sol
+2026-09-24T11:28:08.659032Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/wormhole/ethereum/contracts/Structs.sol
+2026-09-24T11:28:08.659099Z  WARN foundry_evm_traces::debug::sources: failed to parse contract definitions for vendor/wormhole/ethereum/contracts/libraries/external/BytesLib.sol
 Script ran successfully.
 Gas used: 9463136
 
