@@ -1,0 +1,48 @@
+# Historical evidence
+
+The current documentation describes the current source. Superseded design notes, intermediate test
+logs, and duplicate archives have been removed from the working tree. Their original bytes remain
+in the pinned Git commit below; history has not been rewritten. Some historical documents are in
+Italian. Current documentation and the current audit package are in English.
+
+Use [VALIDATION.md](VALIDATION.md) for current results, `audit/RELEASE_MANIFEST.json` for the current
+package contents, and `audit/SHA256SUMS` for its checksum. Historical counts and source hashes
+must not be treated as validation of a later revision.
+
+## Previous archives
+
+| Archive | SHA-256 |
+| --- | --- |
+| [baseline-20260923.tar.gz](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/baseline-20260923.tar.gz) | `1cb14ba96e6717186201c226980b4fea8c7a00c740c0428a5c694b7c1027527c` |
+| [baseline-before-mutable-transfer-limit-20260924.tar.gz](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/baseline-before-mutable-transfer-limit-20260924.tar.gz) | `4645e24a606295be9d2e3bf30c3709b29e02743d07805f46f13f446bfdbc1cad` |
+| [baseline-before-rate-removal-20260924.tar.gz](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/baseline-before-rate-removal-20260924.tar.gz) | `c07531620a448f076dfdd5a311417b489cad83bad509cea23368c9b73dd6507c` |
+| [baseline-before-total-cap-removal-20260924.tar.gz](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/baseline-before-total-cap-removal-20260924.tar.gz) | `411a1ac8f2e662cd483fdfb775ce28f7507f6b74d1d68769aa30b594a1c4e7d2` |
+| [baseline-pre-treasury-20260923.tar.gz](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/baseline-pre-treasury-20260923.tar.gz) | `d73adc2b2c1b0c596aec41cc7edbb0ff5035d3a282db30aac28e404c530d0ed0` |
+| [Package before English documentation and cleanup](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/synthra-rwa-bridge-audit.tar.gz) | `f8d8d5f976730e505a9dde0b846876140d06bbbe574d9275e96780bd86b3160c` |
+
+## Superseded notes and intermediate evidence
+
+All removed files are available in [commit `25a83a9`](https://github.com/Synthra-swap/synthra-rwa/tree/25a83a974a72aeae0d87989cf1dbb0af8286ba2c).
+
+- [docs/TOTAL_CAP_REMOVAL.md](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/docs/TOTAL_CAP_REMOVAL.md)
+- [docs/TRANSFER_LIMIT_GOVERNANCE.md](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/docs/TRANSFER_LIMIT_GOVERNANCE.md)
+- [docs/TREASURY_CHANGE.md](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/docs/TREASURY_CHANGE.md)
+- [docs/TWELVE_ASSET_VALIDATION.md](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/docs/TWELVE_ASSET_VALIDATION.md)
+- [docs/NO_RATE_LIMIT.md](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/docs/NO_RATE_LIMIT.md)
+- [audit/READINESS_REVIEW_2026-09-23.md](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/READINESS_REVIEW_2026-09-23.md)
+- [audit/readiness-review/PRODUCT_DECISIONS.md](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/readiness-review/PRODUCT_DECISIONS.md)
+- [audit/internal-review-snapshot.json](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/internal-review-snapshot.json)
+- [audit/treasury-review-snapshot.json](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/treasury-review-snapshot.json)
+- [audit/twelve-asset-review-snapshot.json](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/twelve-asset-review-snapshot.json)
+- [audit/no-total-cap-review-snapshot.json](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/no-total-cap-review-snapshot.json)
+- [audit/mutable-transfer-limit-review-snapshot.json](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/mutable-transfer-limit-review-snapshot.json)
+- [audit/readiness-review/forge-audit.log](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/readiness-review/forge-audit.log)
+- [audit/readiness-review/forge-audit-expanded.log](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/readiness-review/forge-audit-expanded.log)
+- [audit/readiness-review/forge-audit-assets.log](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/readiness-review/forge-audit-assets.log)
+- [audit/readiness-review/no-total-cap-fork-pins.json](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/readiness-review/no-total-cap-fork-pins.json)
+- [audit/readiness-review/mutable-transfer-limit-fork-pins.json](https://github.com/Synthra-swap/synthra-rwa/blob/25a83a974a72aeae0d87989cf1dbb0af8286ba2c/audit/readiness-review/mutable-transfer-limit-fork-pins.json)
+
+The current source/evidence snapshot retains its original baseline archive hash. That baseline is
+listed above; removing a duplicate local copy does not change the historical hash. Dependency,
+registry, code-identity, and network observations remain in the current package where they support
+explicitly dated claims. Their inclusion does not imply that those checks were rerun.

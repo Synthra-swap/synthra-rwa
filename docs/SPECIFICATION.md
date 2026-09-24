@@ -127,3 +127,25 @@ of ERC-8056 UI consumers, which must handle reverts and check metadataFresh. ERC
 A source cancellation cannot be known before its message arrives; a schedule may temporarily be
 wrong within the freshness bound. These values are **not a price oracle**. No double application
 to an already multiplier-adjusted price is permitted in an integrating frontend.
+
+### Metadata age and clock skew
+
+The constructor's `maxAge` becomes immutable `metadataMaxAge`, measured in seconds. It must be
+positive and no greater than seven days; example configurations use 86,400 seconds (24 hours).
+It is measured from the source observation timestamp, not the time the destination receives it.
+A delayed relay therefore consumes part of the freshness window. A snapshot is fresh through
+`observedAt + metadataMaxAge`, inclusive; after that boundary, UI accessors/conversions revert
+with `StaleMetadata` until a valid fresh snapshot is delivered.
+
+`MAX_CLOCK_SKEW` is a constant 300 seconds (five minutes). During snapshot application, the source
+observation may be at most five minutes ahead of the destination block timestamp. This tolerates
+small clock differences while rejecting observations too far in the future. An observation exactly
+five minutes ahead is accepted if all other checks pass. It can correspondingly extend the apparent
+freshness window by at most that skew allowance. This constant does not delay transfers, enforce
+transfer deadlines, or guarantee precise synchronization of scheduled changes across chains.
+
+Neither value is a per-transfer limit. Stale metadata affects `uiMultiplier`, `newUIMultiplier`,
+`effectiveAt`, `toUIAmount`, `fromUIAmount`, `balanceOfUI`, and `totalSupplyUI`; ordinary raw ERC20
+balances/transfers and bridge mint/burn/redemption do not use those freshness checks. Integrations
+should show that display metadata is unavailable and continue to distinguish raw amounts from
+share-equivalent display values. A keeper must publish and relay fresh observations before expiry.

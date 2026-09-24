@@ -73,11 +73,6 @@ neither constitutes a third-party audit or live integration test.
 The source archive is deterministic for a given set of files; test timings and gas-report logs can
 change when re-run, and therefore regenerate the archive hash. This is not a hermetic OS image.
 
-Current cap-removal revision and fresh validation: `TOTAL_CAP_REMOVAL.md`. Earlier checkpoint
-reports and snapshots are retained as history, not as hashes of the current production source.
-
-Latest candidate: `TRANSFER_LIMIT_GOVERNANCE.md`, covering mutable outgoing maxima through the
-timelock and nondecreasing inbound ceilings. Prior reports remain historical checkpoints.
-
-Latest candidate: `NO_RATE_LIMIT.md`; shared capacity, refill and mandatory update pauses have
-been removed. Earlier transfer-limit reports are retained as historical checkpoints.
+Current behavior is specified in [SPECIFICATION.md](SPECIFICATION.md); validation and its limits
+are in [VALIDATION.md](VALIDATION.md). Superseded checkpoints are indexed in
+[ARCHIVE_HISTORY.md](ARCHIVE_HISTORY.md).

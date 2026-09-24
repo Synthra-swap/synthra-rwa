@@ -6,17 +6,13 @@ root=Path(__file__).resolve().parents[1]
 allowed={'src','test','integration','script','tools','docs','vendor','.github'}
 roots={'README.md','foundry.toml','.gitignore','SECURITY.md','LICENSE'}
 reports={'audit-tests.log','unit-tests.log','coverage.log','coverage.lcov','slither.json','slither.log','gas-report.log','demo.log',
-         'python-tests.log','mutation-report.json','mutation.log','dependency-verification.json','internal-review-snapshot.json',
+         'python-tests.log','mutation-report.json','mutation.log','dependency-verification.json',
          'live-fork-tests.log'}
-review_paths = {'audit/READINESS_REVIEW_2026-09-23.md', 'audit/treasury-review-snapshot.json',
-                'audit/twelve-asset-review-snapshot.json', 'audit/no-total-cap-review-snapshot.json',
-                'audit/mutable-transfer-limit-review-snapshot.json', 'audit/no-rate-limit-review-snapshot.json'}
+review_paths = {'audit/no-rate-limit-review-snapshot.json'}
 review_paths.update('audit/readiness-review/' + name for name in (
-    'PRODUCT_DECISIONS.md', 'initial-asset-candidates.json', 'selection-assets.json',
-    'selection-prices.json', 'selection-dex-pairs.json', 'forge-audit.log',
-    'forge-audit-expanded.log', 'forge-audit-assets.log',
-    'fork-assets-registry-20260924.json', 'fork-pins-20260924.json',
-    'twelve-asset-code-identities.json', 'no-total-cap-fork-pins.json', 'mutable-transfer-limit-fork-pins.json', 'no-rate-limit-fork-pins.json'))
+    'initial-asset-candidates.json', 'selection-assets.json', 'selection-prices.json',
+    'selection-dex-pairs.json', 'fork-assets-registry-20260924.json', 'fork-pins-20260924.json',
+    'twelve-asset-code-identities.json', 'no-rate-limit-fork-pins.json'))
 network_reports={'asset-registry.json','observations-both-finalized.json','observations-robinhood-latest.json',
                  'robinhood-finalized-rpc.json','arc-finalized-rpc.json','robinhood-latest-rpc.json',
                  'token-implementation-sourcify.json','token-source-check.json','live-vaa-verification.json'}

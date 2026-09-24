@@ -1,43 +1,74 @@
-# Real-network integration review — 23 September 2026
+# Network and asset integration evidence
 
-Historical evidence: these live-fork results predate the treasury-rotation change of 24 September.
-The expanded rerun on the current revision is documented in `TWELVE_ASSET_VALIDATION.md`: all
-twelve selected stocks passed on 24 September. The remainder of this report records the earlier run.
+Evidence collected September 23–24, 2026. The latest fork run against the current production source
+passed **19 tests, with none failed or skipped**, including all twelve selected stocks. All network
+interactions were read-only; fork state changes were local. No public Synthra deployment or
+transaction was performed. These checks are internal compatibility evidence, not launch approval.
 
-Status: local suite and ten live-fork tests pass. **Not production approval.** All network interaction
-was read-only; no deployment, signature, transaction, auditor contact or payment was made. Mutations
-of fork state never reached a public chain. Production `src/` was not changed.
+## Selected stocks and scenarios
 
-The operational RPC client now sends an explicit User-Agent, which resolved the observed public
-provider HTTP 403 response in our collection client, and checks JSON-RPC response identity. Four
-transport regressions supplement nine collector tests; the full Python suite has 47 passing tests.
-This does not resolve missing historical state or certify production pair preflight.
+The fixture `config/stock-assets.example.json` contains NVDA, META, PLTR, GOOGL, AAPL, MSFT, INTC,
+AMZN, AMD, TSLA, COIN, and AVGO. It contains public asset addresses, not production operator settings.
+Selection research and registry snapshots are retained under `audit/readiness-review/`.
+The selection is not a comprehensive ranking by token trading volume: DEX observations are provider
+pool snapshots, while Robinhood's `dailyTradingVolume` describes underlying equities.
 
-## What changed in the evidence
+The suite contains twelve individual stock tests, four issuer-interference tests that each loop
+over all twelve stocks, one SPY regression, and two Core/VAA tests: 19 test functions total.
+Every selected stock passes the nominal path and all four issuer scenarios.
 
-| Check | Result | Limit |
-| --- | --- | --- |
-| Core identity, runtime and proxy implementation | Robinhood EVM 4663 / Wormhole 72; Arc EVM 5042 / Wormhole 71; both Guardian set 7 | One public RPC per network; external governance not audited |
-| Finalized state reads | Arc passed | Robinhood returned `historical state ... is not available`; no silent fallback to latest |
-| Robinhood recent pinned state | Required reads passed for AAPL, NVDA, TSLA, SPY; block hash rechecked | Explicit `latest` diagnostic; not proof of finalized state availability |
-| Real token compatibility | All four support 18 decimals, current/pending multiplier, effective timestamp and expected registry UID | Research sample, not launch asset selection or issuer approval |
-| Local fork deposit | All four: 100 raw tokens → 99.5 escrow + immediate 0.5 treasury; real Core publication and metadata call succeed | `deal` injects test balances; arbitrary test treasury/recipient addresses |
-| Local fork return | All four return exactly 99.5 original tokens, with no additional protocol fee | Mock attestations; not a live cross-chain round trip |
-| Issuer interference | Blocked treasury rolls back deposit; blocked recipient and paused token preserve retry; reserve burn blocks release/new deposits | Issuer role/block responses mocked locally; actual role holders not audited |
-| Real signed VAA | Existing Robinhood publication matched to receipt, body and timestamp; valid on both live Core implementations in forks | Third-party emitter, consistency **202**, not Synthra's intended **0** |
-| Authentication boundary | Foreign signed VAA rejected by Synthra; changed payload invalidates real signatures; truncated VAA cannot mint | Finite positive/negative cases |
-| Arc-origin message | No Core logs in queried 10,000 finalized blocks; Wormholescan chain-71 list empty | Does not establish absence of historical messages or lack of support; reverse-route liveness remains unproven |
-| Stateful model | Distinct EVM domains 111/222 now exercised throughout randomized actions | Same local EVM storage with chain-ID switching, mock attestations |
+Nominal checks cover ticker/UID, 18 decimals, current/pending UI metadata, deposit fees, treasury
+rotation, and return. A 100-token deposit locks 99.5 and immediately pays 0.5 in fees. The real source
+Core publishes the expected payload locally. A later deposit pays its fee to the new treasury while
+preserving previous fees and backing. A separate mock-attested route mints, burns, and returns
+99.5 originals, ending with zero supply/backing for that route. Current tests also complete claims
+initiated before outgoing maxima are lowered, without requiring a pause or time advance.
 
-The historical log is preserved in `audit/baseline-pre-treasury-20260923.tar.gz`;
-`audit/live-fork-tests.log` now contains the expanded 24 September run. The ten-test run used Robinhood block
-**70,805,974**, Arc block **22,405,344**, and Arc block **22,405,357** for the signed-VAA test.
-The separate RPC observation snapshots are pinned in their JSON reports, with raw requests/responses.
-Historical fork replay requires an archive-capable provider; public pruning can prevent later replay.
+Issuer scenarios cover blocked treasury with atomic rollback and treasury replacement, blocked
+recipient with retry after unblocking, issuer pause with retry after resumption, and reserve
+destruction that blocks unsafe operations until externally supplied collateral restores backing.
+The latter is test-funded recapitalization, not insurance or automatic recovery.
+
+Two additional Core tests cover Arc identity/unsigned-message rejection and an existing signed
+Guardian VAA accepted by both Core implementations but rejected as a foreign Synthra emitter;
+tampering invalidates its signatures.
+
+## Latest fork pins and simulation boundaries
+
+| Network | EVM / Wormhole chain IDs | Block | Hash |
+| --- | --- | --- | --- |
+| Robinhood | 4663 / 72 | 71245557 | `0x4079974e6e3bde1455e9c573359fe412ddfb44e98325a06113f5314372aeb601` |
+| Arc | 5042 / 71 | 22492863 | `0xd31e04a06af52d83673a284cdac83f42afee137807dbe1cabdf99257529da530` |
+
+Both block hashes were rechecked after execution. These are recent/latest pins, not finalized-state
+evidence. See `audit/readiness-review/no-rate-limit-fork-pins.json`, `audit/live-fork-tests.log`, and
+`audit/no-rate-limit-review-snapshot.json` for observations, output, and source/evidence hashes.
+
+Balances are injected locally with Foundry `deal`. Issuer role/block responses are mocked while
+real token bytecode executes transfers, pauses, and burns. Bridge instances, treasury addresses,
+and return attestations are test fixtures. The destination route uses chain-ID switching within
+shared local storage. This is not a live Synthra round trip, proof of future Guardian availability,
+or verification of real operator-address eligibility.
+
+## Dated identity and RPC observations
+
+At the earlier Robinhood block 71216322, all twelve token proxies resolved to implementation
+`0xb35490d6f9163de4f80d88dc75c3516eb64c5ae2`, runtime Keccak-256
+`0xdc07e86ee482f99641bdafb9a0d772846b167401e094d90a666b94dbdcd1eec7`.
+Identities were not recollected at the latest fork pins and do not constrain future issuer upgrades.
+The earlier registry, pins, and identities remain in `fork-assets-registry-20260924.json`,
+`fork-pins-20260924.json`, and `twelve-asset-code-identities.json` under `audit/readiness-review/`.
+
+The September 23 network collectors observed Guardian set 7 on both Core contracts and inspected
+runtime/proxy identities. Arc finalized-state reads succeeded; the Robinhood public provider returned
+`historical state ... is not available`. A separately labelled latest-state diagnostic succeeded
+for AAPL, NVDA, TSLA, and SPY. Latest-state results do not satisfy the finalized-state preflight gate.
+Raw observations are under `audit/network/`; these are dated observations, not current provider-status
+claims. Old test runs are available through [ARCHIVE_HISTORY.md](ARCHIVE_HISTORY.md).
 
 ## Verified issuer powers: a material launch dependency
 
-The four observed token proxies use beacon `0xe10b6f6b275de231345c20d14ab812db62151b00`, resolving to
+The September 23 four-token observation recorded beacon `0xe10b6f6b275de231345c20d14ab812db62151b00`, resolving to
 implementation `0xb35490d6f9163de4f80d88dc75c3516eb64c5ae2`.
 Observed implementation runtime Keccak-256:
 `0xdc07e86ee482f99641bdafb9a0d772846b167401e094d90a666b94dbdcd1eec7`.
@@ -89,49 +120,43 @@ expire after future Guardian changes; pin the historical fork or obtain a newly 
 The [Wormhole finality table](https://wormhole.com/docs/reference/consistency-levels/) documents level
 0 for these chains. The observed level-202 message does not establish that policy in practice.
 
-## Remaining gates before launch and final audit freeze
+## Remaining launch gates
 
-1. Choose the actual initial asset and accept/document issuer block, burn, pause and upgrade risk;
-   inspect live registry/beacon control, and obtain the required issuer/distribution assessment.
-2. Obtain reliable finalized/archive reads on Robinhood. Independently confirm Core deployments,
-   implementations and finality policy. A public endpoint returning headers without historical state
-   is insufficient for the production preflight.
-3. Select actual multisig/guardian/treasury addresses, signer thresholds/modules, timelock policy and
-   paired immutable caps/rate limits. Research addresses do not fill `deployment.example.json`.
-4. Deploy a rehearsal pair when separately authorized, then exercise deposit, mint, burn and release
-   with real Guardian attestations in both directions at the selected consistency level. Include
-   pauses, failed relays, delayed delivery, exact fee accounting and reconciliation.
-5. Rehearse Guardian expiry/re-signing, hosted keeper/relay restart and durable message retention;
-   establish monitoring and response to original-token balance deficits or issuer changes.
-6. Freeze source plus configuration, obtain independent external review, resolve findings and retest.
-   The quote can be requested now with the unresolved integration/governance items made explicit.
-
-No local test can establish issuer solvency, future governance behavior, legal permission or 100%
-security. These specific unresolved dependencies are not counted as passed tests.
+- Verify current token registry/beacon control and escrow/treasury eligibility; complete the issuer
+  and distribution assessment. Fork compatibility does not establish permission or issuer solvency.
+- Obtain reliable finalized/archive state on both networks and independently approve Core
+  implementations, governance, finality policy, and observation in both directions.
+- Select actual governance/guardian/treasury addresses, Safe thresholds/modules, per-stock raw-token
+  maxima, receiving ceilings, and metadata lifetime. There is no aggregate cap or rate bucket.
+- Freeze source and permitted configuration, obtain independent external review, resolve its findings,
+  and retest before production deployment. Public deployment is not a prerequisite for that audit.
+- After audit and deployment approval, verify deployed code/configuration and exercise both directions
+  with real Guardian attestations, including fees, failed relays, delayed delivery, and reconciliation.
+- Rehearse signature replacement and relay/keeper restart; retain messages durably and monitor issuer,
+  governance, metadata, and collateral changes. The repository provides manual unsigned relay tools,
+  not a hosted worker or durable indexer.
 
 ## Reproduction
 
 ```sh
-bash tools/check.sh
-python3 tools/mutation_check.py
-bash tools/check_live.sh
+ROBINHOOD_REVIEW_BLOCK=71245557 ARC_REVIEW_BLOCK=22492863 bash tools/check_live.sh
 python3 tools/network_probe.py
 python3 tools/network_probe.py --network robinhood --block-tag latest
 python3 tools/verify_live_vaa.py
 ```
 
-The last three commands are read-only evidence collectors. `network_probe.py` exits nonzero for
-incomplete required reads (currently Robinhood finalized state). `verify_live_vaa.py` exits nonzero
-unless both source directions are observed and verified; its current reverse-direction failure is
-expected, recorded and unresolved. Never interpret an exit code from a separate successful command
-as converting those failures into passes.
+Historical replay needs archive-capable RPCs. Override `ROBINHOOD_REVIEW_RPC` and `ARC_REVIEW_RPC`
+if public providers have pruned state. Omitting block overrides checks a different snapshot.
+`check_live.sh` runs only fork tests, never broadcasts. Local checks use a separate profile and do
+not silently skip network tests. Do not publish private RPC credentials in evidence logs.
 
-`check_live.sh` uses public RPC defaults and accepts `ROBINHOOD_REVIEW_RPC`, `ARC_REVIEW_RPC` and
-optional `ROBINHOOD_REVIEW_BLOCK` / `ARC_REVIEW_BLOCK` pins. It runs only `forge test`, not broadcasts.
-The local suite does not quietly skip these tests: network tests are in a separate explicit profile.
-Do not share logs containing private RPC credentials. Packaged observations use only public URLs.
+The collectors are read-only. `network_probe.py` fails on incomplete required state reads.
+`verify_live_vaa.py` requires verified observations in both source directions; the recorded reverse
+route check failed. A successful unrelated command does not convert that failure into a pass.
+The limited 10,000-block Arc scan and empty chain-71 API result do not prove absence of historical
+messages or unsupported routing. No later successful reverse-route observation is claimed here.
 
-Public references: [Robinhood connection details](https://docs.robinhood.com/chain/connecting/),
+Public references used for the recorded research: [Robinhood connection details](https://docs.robinhood.com/chain/connecting/),
 [official asset registry API](https://docs.robinhood.com/chain/stock-token-apis/),
-[Arc connection details](https://docs.arc.io/arc/references/connect-to-arc),
+[Arc connection details](https://docs.arc.io/arc/references/connect-to-arc), and
 [Wormhole Core addresses](https://wormhole.com/docs/reference/contract-addresses/).
