@@ -1,6 +1,7 @@
 # Audit scope
 
-Review candidate v0.1, single source asset and one destination representation. No public deployment.
+Review candidate v0.1, single source asset and one destination representation. An operator-controlled
+initial mainnet pair has been deployed for a pre-audit pilot; deployment alone is not activation or audit sign-off.
 The authoritative source snapshot is `audit/RELEASE_MANIFEST.json`; the archive checksum is in
 `audit/SHA256SUMS`. Hashes, not a moving branch name, identify the version handed to the auditor.
 Any post-review code change requires a new manifest and review of its impact.
@@ -8,7 +9,7 @@ Any post-review code change requires a new manifest and review of its impact.
 ## In scope
 
 All `src/**/*.sol`, the deployment procedure in `script/Deploy.s.sol`, `tools/preflight.py`,
-`tools/prepare_relay.py`, `tools/prepare_deployment.py`, `tools/deploy_asset.py`, `tools/rpc_policy.py`, dependency selection
+`tools/prepare_relay.py`, `tools/fetch_vaa.py`, `tools/prepare_deployment.py`, `tools/deploy_asset.py`, `tools/rpc_policy.py`, dependency selection
 and administrative configuration. The deployment helpers are operational tooling, not deployed contracts. Review the
 financial consequences of instant fee payout and the independent metadata channel.
 

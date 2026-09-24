@@ -152,7 +152,9 @@ Follow [OPERATIONS.md](OPERATIONS.md#3-bind-and-activate-the-initial-pair-withou
 token; destination `remoteToken` must be the original stock. Peer bindings are irreversible.
 
 Then submit `activate()` directly from that wallet on each endpoint after the documented audit sign-off
-and readiness checks. This immediately enables both lanes and permanently clears the bootstrap authority.
+and readiness checks, or for an explicitly operator-approved pre-audit mainnet pilot as described in
+`OPERATIONS.md`. The prepared finalized preflight remains required. This immediately enables both lanes
+for everyone and permanently clears the bootstrap authority.
 The deployer cannot perform these actions. Subsequent unpauses and administrative changes use the timelock.
 Publish and deliver metadata, then deposit the recorded test gross amount, retrieve the signed VAA,
 complete on Arc, redeem the net amount and complete the return on Robinhood. Assert the fee recipient
@@ -162,3 +164,27 @@ transactions/emitter sequences and VAAs so interrupted user completion can be re
 The initial live pilot may use one stock; the other pairs still need individual configuration checks.
 The generated USD 10 amounts are optional per-asset test references, not a requirement to fund all twelve
 before the pilot. A successful pilot does not establish every issuer's transfer eligibility.
+
+## Fetch signed messages for manual completion
+
+Save each publication receipt with `cast send --json`. The helper below retrieves the unique message
+emitted by the configured endpoint in that transaction. It requires source finality, compares the entire
+VAA body to the canonical Core event, validates the application route and action, and asks the receiving
+Core to verify the signatures. It never signs, broadcasts, or automatically repeats a publication.
+
+```sh
+python3 tools/fetch_vaa.py --pair config/deployments/mainnet/NVDA/pair.json \
+  --kind metadata --receipt config/deployments/mainnet/NVDA/pilot/metadata.receipt.json \
+  --output config/deployments/mainnet/NVDA/pilot/metadata.hex
+```
+
+Use `--kind deposit` for Robinhood-to-Arc transfers and `--kind redemption` for Arc-to-Robinhood returns.
+`--tx TRANSACTION_HASH` can replace `--receipt FILE`. If finality or indexing is pending, repeat only
+the fetch later. Do not issue another deposit/redemption to recover a delayed message. An existing
+output file cannot be replaced with different VAA bytes.
+
+Before signing `completeMetadata`, `completeDeposit`, or `completeRedemption`, simulate it using
+`tools/prepare_relay.py` with the retrieved `.hex` file and the actual receiving endpoint. Fetching
+does not apply the message; completion still requires a separate user transaction. Publish and
+complete metadata before the first test deposit so the message path is exercised without locking stock.
+The initial live pilot is not evidence of liveness until actual Synthra publications and completions succeed.

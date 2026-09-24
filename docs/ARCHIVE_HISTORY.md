@@ -85,3 +85,11 @@ is preserved at [commit `fbd37ef`](https://github.com/Synthra-swap/synthra-rwa/t
 Its [audit archive](https://github.com/Synthra-swap/synthra-rwa/blob/fbd37ef4f740a248863ba04957088db91f559cf9/audit/synthra-rwa-bridge-audit.tar.gz)
 has SHA-256 `4258f0c7d854cda4d0b2ae0f73166823de5d7bce21a9088ea7d1e053e2f6fa6a`.
 The free-RPC change affects operational Python tooling, not deployed Solidity or asset parameters.
+
+## Before manual pilot VAA retrieval
+
+The free-RPC tooling snapshot is preserved at
+[commit `6370d7f`](https://github.com/Synthra-swap/synthra-rwa/tree/6370d7f).
+Its [audit archive](https://github.com/Synthra-swap/synthra-rwa/blob/6370d7f/audit/synthra-rwa-bridge-audit.tar.gz)
+has SHA-256 `0a856851c13395e1aa19300f0dad973767815a2df6eea7ac641928f54b11984c`.
+The manual pilot helper changes no deployed contract or deployment configuration.

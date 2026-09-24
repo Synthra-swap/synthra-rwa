@@ -91,7 +91,10 @@ RoleGranted/RoleRevoked and scheduled/cancelled/executed operations from each ti
 Proxy runtime hashes do not validate implementation addresses or issuer control powers.
 
 After all checks and the audit sign-off, call `activate()` directly on each endpoint from the hardware
-governance wallet. The first activation is immediate and permanently clears `bootstrapper` to zero.
+governance wallet. An explicitly operator-approved mainnet pilot may precede audit sign-off; this
+opens the pair publicly and does not constitute production launch approval. Complete the prepared
+finalized preflight first, deliver metadata successfully before locking test assets, and preserve
+all pilot receipts and VAAs. The first activation is immediate and permanently clears `bootstrapper` to zero.
 Check both endpoints are active and their bootstrap authorities are cleared. Every later resumption
 uses the ordinary timelocked `unpause` path; emergency pause is immediate throughout.
 Any ordinary unpause, including a partial one, also closes bootstrap. Ownership nomination closes it

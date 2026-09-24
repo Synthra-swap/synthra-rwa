@@ -1,7 +1,7 @@
 {
   "date": "2026-09-24",
-  "revision": "Free public RPC deployment: optional finalized provider, shared pacing and execution-provider block agreement",
-  "baselineArchiveSha256": "4258f0c7d854cda4d0b2ae0f73166823de5d7bce21a9088ea7d1e053e2f6fa6a",
+  "revision": "Manual pre-audit mainnet pilot and finalized-publication VAA retrieval",
+  "baselineArchiveSha256": "0a856851c13395e1aa19300f0dad973767815a2df6eea7ac641928f54b11984c",
   "changedProductionFiles": [],
   "deletedProductionFiles": [],
   "productionSourceSha256": {
@@ -33,7 +33,7 @@
     "audit/live-fork-tests.log": "18edba80ace6b44b1e3c106b10d61346638e3cbea05f179d2203db6134a5999e",
     "audit/unit-tests.log": "4497cf480f3854d3ebd041cc988e7629838a3b361d56b253c2ec4cbbf354ffe8",
     "audit/audit-tests.log": "3f74dbad07bafca757b74b51a3b406d9c0b29e6c960e2b5c1ddcaf95541108cc",
-    "audit/python-tests.log": "649df54220456418af54aecb7ea4debda4493c3b301dd5d756039577d8891048",
+    "audit/python-tests.log": "c4affcd19bee46c7e7c30741a5fde0caf15379648091a462b793f51be67f5030",
     "audit/mutation-report.json": "305e2c044974ae55e48e33f0e74316288e9511a5c94c8f2a2f9efac300d25482",
     "audit/mutation.log": "c6728974048e7d71c9c5d5ac75767896a4e4bce7409795dfdf0a404622d559c1",
     "audit/coverage.log": "46af7dcbcf87d050a6800f0ee36db6b9959fc56b879c921ef494c0176ade7d8d",
@@ -52,10 +52,12 @@
     "test/Bootstrap.t.sol": "7cb77cf53c5625a6e081612bb1b95ad9c130854f69cde4972d06e0a0aaadcc6d",
     "tools/rpc_policy.py": "cd14cc27bb5a963f6a8906c16eeb386ccd0fd9c5f3340f906cab3bfa048ef4eb",
     "tools/test_rpc_policy.py": "c5e94c089b77eb896c6c3bba6492f6d3c86b0baa7254327136d5632d8f8c8d4f",
-    "audit/network/free-rpc-validation.json": "88194914b5252be54ea58c9f6f9ff6f32b0e1f7e24b38ead908fdeee70d64547"
+    "audit/network/free-rpc-validation.json": "88194914b5252be54ea58c9f6f9ff6f32b0e1f7e24b38ead908fdeee70d64547",
+    "tools/fetch_vaa.py": "9781641625746656b4601d845a4edb9cd8e881fde40cd7c4906259278fe234b6",
+    "tools/test_fetch_vaa.py": "91af2f81bf2ba6c7fd18259ab53af12b8199a5e38e5c39a8bfb5cbf13ae5e31c"
   },
   "solidityTests": 135,
-  "pythonTests": 94,
+  "pythonTests": 101,
   "forkTests": 20,
   "selectedStocks": [
     "NVDA",
@@ -83,7 +85,7 @@
   "outgoingMaximumTimelocked": true,
   "productionLimitValuesApproved": true,
   "initialReferenceUsdEquivalentPerTransfer": 100000,
-  "publicTransactionsSent": false,
+  "publicTransactionsSent": true,
   "forkPins": {
     "observedAtUTC": "2026-09-24T12:18:07.896882+00:00",
     "notice": "Immediate-bootstrap regression; latest pins, not finalized-state proof. All transactions execute only in local forks.",
@@ -110,9 +112,9 @@
     "postTestRecheckedAtUTC": "2026-09-24T12:18:34.750702+00:00",
     "testsPassed": true
   },
-  "notice": "Operational Python changes only. 94 Python tests and two NVDA read-only finalized-preflight/deployment simulations passed using free public RPCs. Solidity sources, Solidity deployment script, compiler settings, dependencies and all twelve asset configurations are unchanged from fbd37ef. Its 135 Solidity tests, 20 local fork tests, 32 detected mutations, Slither results, compiler comparison and 24 independent deployment simulations are retained as prior evidence, not rerun for this tooling-only change. Deployment bundle regenerated to fingerprint updated tooling. No public transactions, independent audit sign-off or live Synthra VAA round trip.",
-  "recordedAtUTC": "2026-09-24T17:06:21.945898+00:00",
-  "baselineCommit": "fbd37ef4f740a248863ba04957088db91f559cf9",
+  "notice": "Manual VAA retrieval added: 101 Python tests passed and one previously recorded real third-party publication/VAA body matched. Deployed Solidity, compiler settings, dependency inputs and asset parameters are unchanged. Prior Solidity/fork/mutation/Slither evidence is retained, not rerun for this tooling-only change. The operator has deployed and linked the initial NVDA mainnet pair and explicitly requested a pilot before external audit. At this snapshot activation, live Synthra VAA delivery and round-trip success are not established. A successful prepared finalized preflight remains required before activation. Operational addresses/receipts are kept in the local deployment folder.",
+  "recordedAtUTC": "2026-09-24T18:20:42.507380+00:00",
+  "baselineCommit": "6370d7f4560db2b5e8e5131877b6d003a5c42a6d",
   "metadataMaxAgeSeconds": 2592000,
   "metadataAgeConstructorCeilingSeconds": 2592000,
   "metadataEarlyRefreshPermissionless": true,
@@ -120,10 +122,7 @@
   "maxClockSkewSeconds": 300,
   "hostedKeeperIncluded": false,
   "changedDeploymentAndOperationalFiles": [
-    "tools/deploy_asset.py",
-    "tools/preflight.py",
-    "tools/prepare_deployment.py",
-    "tools/rpc_policy.py"
+    "tools/fetch_vaa.py"
   ],
   "automaticRelayerIncluded": false,
   "forkTestsRerunForThisChange": false,
@@ -156,5 +155,6 @@
   "deploymentSimulations": 24,
   "compilerProfileBytecodeComparisonPassed": true,
   "deploymentPreparationEvidence": "audit/deployment-preparation.json",
-  "freeRpcValidationEvidence": "audit/network/free-rpc-validation.json"
+  "freeRpcValidationEvidence": "audit/network/free-rpc-validation.json",
+  "publicTransactionsSentByOperator": true
 }
