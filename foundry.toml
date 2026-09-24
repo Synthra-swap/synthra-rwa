@@ -1,0 +1,40 @@
+[profile.default]
+src = "src"
+test = "test"
+script = "script"
+out = "out"
+libs = ["vendor"]
+fs_permissions = [{ access = "read", path = "./config" }]
+bytecode_hash = "none"
+cbor_metadata = false
+solc = "0.8.28"
+evm_version = "paris"
+via_ir = false
+optimizer = true
+optimizer_runs = 200
+remappings = ["@openzeppelin/contracts/=vendor/openzeppelin-contracts/contracts/", "forge-std/=vendor/forge-std/src/"]
+
+[profile.default.fuzz]
+runs = 256
+
+[profile.default.invariant]
+runs = 128
+depth = 64
+fail_on_revert = true
+
+[fmt]
+line_length = 110
+
+
+[profile.audit.fuzz]
+runs = 2048
+seed = "0x73796e74687261"
+
+[profile.audit.invariant]
+runs = 512
+depth = 128
+fail_on_revert = true
+
+# Explicit opt-in: live public RPC reads and local fork execution; never broadcasts.
+[profile.integration]
+test = "integration"

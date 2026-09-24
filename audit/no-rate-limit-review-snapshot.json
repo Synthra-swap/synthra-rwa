@@ -1,0 +1,94 @@
+{
+  "date": "2026-09-24",
+  "revision": "Remove shared capacity/refill and mandatory update pauses; retain timelocked per-message limits",
+  "baselineArchiveSha256": "c07531620a448f076dfdd5a311417b489cad83bad509cea23368c9b73dd6507c",
+  "changedProductionFiles": [
+    "src/WormholeEndpoint.sol"
+  ],
+  "deletedProductionFiles": [
+    "src/TokenBucket.sol"
+  ],
+  "productionSourceSha256": {
+    "src/BridgeMessage.sol": "42c4a193a2c81109dd33748b3472d1962c696c0e70f3b24e3e9ead3e5deca72f",
+    "src/DestinationBridge.sol": "4f3fa677ae08bd65798558244d691a885de463a119c0886abc682699725f9029",
+    "src/SourceVault.sol": "aeacf3a27e14a7a5ce22f42ea7249278586537fed299abe436b49a34e7b4f639",
+    "src/WormholeEndpoint.sol": "8316903d45e228bb60277424ba1ffd27c92e8dfd3c5764a6094421e01fb4006b",
+    "src/WrappedAsset.sol": "4805f170a9b0dd7be6fe9d48459e140d9ae3d1cf540c14c62a6476b8175b3042",
+    "src/interfaces/IScaledUIAmount.sol": "6947f082b15a9fd3f4cf666d22650e70c4f96659f31ca7dd8c6e73375e45be95",
+    "src/interfaces/IWormholeCore.sol": "75aa8d49ac32f17b7f11d367c36ae7d4ac2bcb504f12a52450a7c41bb0d62953"
+  },
+  "evidenceSha256": {
+    "script/Deploy.s.sol": "fe6cadbb47f29df5d10ba979b2c8ed392d987d6cc0c00295676f36ea1036ff6c",
+    "tools/preflight.py": "085fed0624361aaa9aaf423e1386c43e6d212bb4f13cb46711c414bd5fbe8e0d",
+    "tools/mutation_check.py": "ac94131787cd9d40247926db099d221afab49b23b7636dc27335b79f7e6e9bff",
+    "test/TransferLimitGovernance.t.sol": "ddc7c987cf9815f15e6dad9dbf6c032421067fc277d889c08401e6d0da8ac330",
+    "test/BridgeInvariant.t.sol": "f68d40f97dc2897b6b08419344209695e33a84aadf8a51c29d72ba8044309e23",
+    "test/Bridge.t.sol": "a75e6f5361b8a2d60d336e1c22ebf02c0744d66d8039f303f1d557b746fffc32",
+    "integration/LiveFork.t.sol": "42f828735fa08aa5fdaa6de9518dd0ad6e82c201b3e92dda695947565f4717a2",
+    "config/deployment.example.json": "1e54b42ac832442648ea16dbe37e9c4b97bd4388cbcb084863b27b712f57c5c7",
+    "config/stock-assets.example.json": "d1b8e15a487ff0247a27be19e78c66a7820d358dadd2186118409be8b72579c3",
+    "audit/live-fork-tests.log": "e31de89d50b9a10d5feaeeea84caead3d8b2f2982f3b5d2a7e829a8b7551607a",
+    "audit/unit-tests.log": "21d0b1ed7373f3489cd0e69f11d6926edf81342561b450c0460e41d42498f657",
+    "audit/audit-tests.log": "68c04e5f91f13f40806b1a3d4f8266138aa43b00f2201cca5f37b3fcf91a0014",
+    "audit/python-tests.log": "8fbe01259453900ed0f29d064398800188a47195ee9ef2c6dcbd86749f4107ee",
+    "audit/mutation-report.json": "5993a9325af5ddb41545996d0c9f7b2cb8273975f0b301582a317e8dc4901058",
+    "audit/coverage.lcov": "93cbeef70bec7e2292735e6dabad424026ecdf0f4acb9a13b0236479a174b37f",
+    "audit/slither.json": "c7a8f4da0d9b0d7840c7bc85c1fadc8af5f56f14c44216a461b2186b72bb4ecc",
+    "audit/readiness-review/no-rate-limit-fork-pins.json": "a7cf05522ddcb462e037ce9f3c2aa5adcf0a68ab482a9bdf827fc0a337aae964"
+  },
+  "solidityTests": 109,
+  "pythonTests": 60,
+  "forkTests": 19,
+  "selectedStocks": [
+    "NVDA",
+    "META",
+    "PLTR",
+    "GOOGL",
+    "AAPL",
+    "MSFT",
+    "INTC",
+    "AMZN",
+    "AMD",
+    "TSLA",
+    "COIN",
+    "AVGO"
+  ],
+  "mutationsDetected": 23,
+  "mutationInputsMatch": true,
+  "slitherHighMedium": 0,
+  "slitherReviewedLow": 4,
+  "totalCapRemoved": true,
+  "sharedRateLimitRemoved": true,
+  "routinePauseRequiredForLimitChange": false,
+  "emergencyPauseRetained": true,
+  "incomingPreparationTimelockedAndMonotonic": true,
+  "outgoingMaximumTimelocked": true,
+  "productionLimitValuesApproved": false,
+  "initialReferenceUsdEquivalentPerTransfer": 100000,
+  "publicTransactionsSent": false,
+  "forkPins": {
+    "observedAtUTC": "2026-09-24T08:59:32.977871+00:00",
+    "notice": "Local no-rate-limit regression. Recent/latest pins, not finality evidence. No public transactions.",
+    "networks": {
+      "robinhood": {
+        "rpc": "https://rpc.mainnet.chain.robinhood.com",
+        "chainId": 4663,
+        "blockTag": "latest",
+        "blockNumber": 71245557,
+        "blockHash": "0x4079974e6e3bde1455e9c573359fe412ddfb44e98325a06113f5314372aeb601",
+        "blockTimestamp": 1790240372,
+        "postTestBlockHashRechecked": true
+      },
+      "arc": {
+        "rpc": "https://rpc.mainnet.arc.io",
+        "chainId": 5042,
+        "blockTag": "latest",
+        "blockNumber": 22492863,
+        "blockHash": "0xd31e04a06af52d83673a284cdac83f42afee137807dbe1cabdf99257529da530",
+        "blockTimestamp": 1790240373,
+        "postTestBlockHashRechecked": true
+      }
+    }
+  },
+  "notice": "Fresh full checks and twelve-stock fork rerun. Per-request limits do not bound aggregate volume or losses. Prepare both receivers before increasing outgoing limits; there is no atomic cross-chain governance guarantee. Fork return attestations and issuer role/block responses simulated. Independent audit outstanding."
+}

@@ -1,0 +1,258 @@
+{
+  "schema": 1,
+  "observedAtUTC": "2026-09-23T21:29:18.338135+00:00",
+  "status": "research candidate; not a deployment configuration",
+  "method": "Curated initial selection among 13 major-equity candidates. Official addresses checked; reported DEX pair activity used as an adoption signal. Not a complete market ranking, an aggregate of every pool, or a historical volume study. No claim of issuer or contract compatibility certification.",
+  "sources": [
+    "https://api.robinhood.com/rhj/assets",
+    "https://api.robinhood.com/rhj/prices",
+    "https://docs.dexscreener.com/api/reference"
+  ],
+  "evidenceSha256": {
+    "selection-assets.json": "892d06334e64171b15cf8460c8b18d6e8d48de38b6efa0fbcdbc80c214c5a7d2",
+    "selection-prices.json": "11ef11cddb09e59db4d504100d7a166f6809a91b756170e1f32e90fa217de0bc",
+    "selection-dex-pairs.json": "4c445d5e1387c646ec088d2b74d6f46b0d6eae9cdb2396a86102e74aa7e3225e"
+  },
+  "assets": [
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA \u2022 Robinhood Token",
+      "originEvmChain": 4663,
+      "originToken": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+      "registryAssetId": "0x00000000000000000000000000000000915f477416294f5099a5e0e09f327ce5",
+      "registryDecimals": 18,
+      "status": "ASSET_STATUS_ACTIVE",
+      "quoteGeneratedAt": "2026-09-23T21:24:58.178705011Z",
+      "underlyingDailyTradingVolume": "89211728",
+      "observedDexPairs": [
+        {
+          "url": "https://dexscreener.com/robinhood/0xd4eb21209c4d6093f80b5b84f5c45cc093ea14a3",
+          "pairAddress": "0xd4EB21209C4D6093f80B5b84f5C45cc093EA14a3",
+          "quoteSymbol": "USDG",
+          "reported24hVolumeUsd": 14345029.67,
+          "reportedLiquidityUsd": 5710177.29
+        }
+      ]
+    },
+    {
+      "symbol": "META",
+      "name": "Meta Platforms \u2022 Robinhood Token",
+      "originEvmChain": 4663,
+      "originToken": "0xc0D6457C16Cc70d6790Dd43521C899C87ce02f35",
+      "registryAssetId": "0x00000000000000000000000000000000343e7beca03644bcba2e50b8236784f5",
+      "registryDecimals": 18,
+      "status": "ASSET_STATUS_ACTIVE",
+      "quoteGeneratedAt": "2026-09-23T21:24:58.178705011Z",
+      "underlyingDailyTradingVolume": "30300509",
+      "observedDexPairs": [
+        {
+          "url": "https://dexscreener.com/robinhood/0x5875d407a42965b0e768c8925cea290e06fa50603ef34fc99eb92a1050e6ae36",
+          "pairAddress": "0x5875d407a42965b0e768c8925cea290e06fa50603ef34fc99eb92a1050e6ae36",
+          "quoteSymbol": "USDG",
+          "reported24hVolumeUsd": 9703280.47,
+          "reportedLiquidityUsd": 4059495.98
+        }
+      ]
+    },
+    {
+      "symbol": "PLTR",
+      "name": "Palantir Technologies \u2022 Robinhood Token",
+      "originEvmChain": 4663,
+      "originToken": "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+      "registryAssetId": "0x000000000000000000000000000000007454a90b4aab491389ce9fa3c485de42",
+      "registryDecimals": 18,
+      "status": "ASSET_STATUS_ACTIVE",
+      "quoteGeneratedAt": "2026-09-23T21:24:58.178705011Z",
+      "underlyingDailyTradingVolume": "35012843",
+      "observedDexPairs": [
+        {
+          "url": "https://dexscreener.com/robinhood/0xb8d9b6b622bb03dd06d95790553f327710a73d85d845a59fa9e652638ca96ae6",
+          "pairAddress": "0xb8d9b6b622bb03dd06d95790553f327710a73d85d845a59fa9e652638ca96ae6",
+          "quoteSymbol": "SPY",
+          "reported24hVolumeUsd": 3515885.52,
+          "reportedLiquidityUsd": 352745.72
+        }
+      ]
+    },
+    {
+      "symbol": "GOOGL",
+      "name": "Alphabet Class A \u2022 Robinhood Token",
+      "originEvmChain": 4663,
+      "originToken": "0x2e0847E8910a9732eB3fb1bb4b70a580ADAD4FE3",
+      "registryAssetId": "0x0000000000000000000000000000000053b69e2076884cc9ae2ada9bc7095df3",
+      "registryDecimals": 18,
+      "status": "ASSET_STATUS_ACTIVE",
+      "quoteGeneratedAt": "2026-09-23T21:24:58.178705011Z",
+      "underlyingDailyTradingVolume": "35392770",
+      "observedDexPairs": [
+        {
+          "url": "https://dexscreener.com/robinhood/0x34d0dc122cf9a8eb296fc5e0d3a233625d7d19b7",
+          "pairAddress": "0x34D0dC122CF9A8Eb296fC5e0D3A233625D7d19b7",
+          "quoteSymbol": "USDG",
+          "reported24hVolumeUsd": 2859761.25,
+          "reportedLiquidityUsd": 1006085.56
+        }
+      ]
+    },
+    {
+      "symbol": "AAPL",
+      "name": "Apple \u2022 Robinhood Token",
+      "originEvmChain": 4663,
+      "originToken": "0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9",
+      "registryAssetId": "0x00000000000000000000000000000000c2425be3658540dd8e2424cbf3c5c649",
+      "registryDecimals": 18,
+      "status": "ASSET_STATUS_ACTIVE",
+      "quoteGeneratedAt": "2026-09-23T21:24:58.178705011Z",
+      "underlyingDailyTradingVolume": "31563582",
+      "observedDexPairs": [
+        {
+          "url": "https://dexscreener.com/robinhood/0x8bb3514e2204e1cdf3ac149efee7ff04d91b719f",
+          "pairAddress": "0x8bb3514e2204E1cDF3Ac149EFEe7Ff04D91B719f",
+          "quoteSymbol": "WETH",
+          "reported24hVolumeUsd": 1541036.88,
+          "reportedLiquidityUsd": 214286.2
+        }
+      ]
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft \u2022 Robinhood Token",
+      "originEvmChain": 4663,
+      "originToken": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+      "registryAssetId": "0x00000000000000000000000000000000307bb0113ca54f93adf80f4ff2bf681a",
+      "registryDecimals": 18,
+      "status": "ASSET_STATUS_ACTIVE",
+      "quoteGeneratedAt": "2026-09-23T21:24:58.178705011Z",
+      "underlyingDailyTradingVolume": "19398539",
+      "observedDexPairs": [
+        {
+          "url": "https://dexscreener.com/robinhood/0xeb60bcd1d920ad6e102690ccfc6fb488899e1510",
+          "pairAddress": "0xeb60bCD1D920ad6E102690CCFC6fB488899E1510",
+          "quoteSymbol": "USDG",
+          "reported24hVolumeUsd": 1228817.3,
+          "reportedLiquidityUsd": 840014.76
+        }
+      ]
+    },
+    {
+      "symbol": "INTC",
+      "name": "Intel \u2022 Robinhood Token",
+      "originEvmChain": 4663,
+      "originToken": "0xc72b96e0E48ecd4DC75E1e45396e26300BC39681",
+      "registryAssetId": "0x000000000000000000000000000000002eb75a2c20d7423881b4f812c27d0abe",
+      "registryDecimals": 18,
+      "status": "ASSET_STATUS_ACTIVE",
+      "quoteGeneratedAt": "2026-09-23T21:24:58.178705011Z",
+      "underlyingDailyTradingVolume": "85015312",
+      "observedDexPairs": [
+        {
+          "url": "https://dexscreener.com/robinhood/0x7fb585f108d921de3b197cf7e26b5aebc96b035fec13f972b868e008ea062394",
+          "pairAddress": "0x7fb585f108d921de3b197cf7e26b5aebc96b035fec13f972b868e008ea062394",
+          "quoteSymbol": "SPY",
+          "reported24hVolumeUsd": 879607.07,
+          "reportedLiquidityUsd": 365210.96
+        }
+      ]
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon \u2022 Robinhood Token",
+      "originEvmChain": 4663,
+      "originToken": "0x12f190a9F9d7D37a250758b26824B97CE941bF54",
+      "registryAssetId": "0x000000000000000000000000000000004f508d5e2a7042299694d85c2f362ad2",
+      "registryDecimals": 18,
+      "status": "ASSET_STATUS_ACTIVE",
+      "quoteGeneratedAt": "2026-09-23T21:24:58.178705011Z",
+      "underlyingDailyTradingVolume": "43969828",
+      "observedDexPairs": [
+        {
+          "url": "https://dexscreener.com/robinhood/0x8ac92da74ab5f3b1d024dc1943ad7e15dc4179ef",
+          "pairAddress": "0x8AC92DA74AB5F3b1d024Dc1943Ad7e15Dc4179Ef",
+          "quoteSymbol": "USDG",
+          "reported24hVolumeUsd": 726654.8,
+          "reportedLiquidityUsd": 897267.85
+        }
+      ]
+    },
+    {
+      "symbol": "AMD",
+      "name": "AMD \u2022 Robinhood Token",
+      "originEvmChain": 4663,
+      "originToken": "0x86923f96303D656E4aa86D9d42D1e57ad2023fdC",
+      "registryAssetId": "0x0000000000000000000000000000000086aeaac3c7d9422c90f6fd41aff0eaf7",
+      "registryDecimals": 18,
+      "status": "ASSET_STATUS_ACTIVE",
+      "quoteGeneratedAt": "2026-09-23T21:24:58.178705011Z",
+      "underlyingDailyTradingVolume": "16284733",
+      "observedDexPairs": [
+        {
+          "url": "https://dexscreener.com/robinhood/0xe6e17efdbdd916526293cf1b509171be4ffb04f47c4a5fe1a7367acdaa6ffd82",
+          "pairAddress": "0xe6e17efdbdd916526293cf1b509171be4ffb04f47c4a5fe1a7367acdaa6ffd82",
+          "quoteSymbol": "SPY",
+          "reported24hVolumeUsd": 346682.16,
+          "reportedLiquidityUsd": 311912.45
+        }
+      ]
+    },
+    {
+      "symbol": "TSLA",
+      "name": "Tesla \u2022 Robinhood Token",
+      "originEvmChain": 4663,
+      "originToken": "0x322F0929c4625eD5bAd873c95208D54E1c003b2d",
+      "registryAssetId": "0x00000000000000000000000000000000cfece3244ea34bb29414dd9488b32d9f",
+      "registryDecimals": 18,
+      "status": "ASSET_STATUS_ACTIVE",
+      "quoteGeneratedAt": "2026-09-23T21:24:58.178705011Z",
+      "underlyingDailyTradingVolume": "33393841",
+      "observedDexPairs": [
+        {
+          "url": "https://dexscreener.com/robinhood/0xa953ca88ff430e9487c60ca34d757414f4efda07",
+          "pairAddress": "0xA953CA88ff430e9487c60cA34d757414f4efdA07",
+          "quoteSymbol": "WETH",
+          "reported24hVolumeUsd": 341332.82,
+          "reportedLiquidityUsd": 371566.61
+        }
+      ]
+    },
+    {
+      "symbol": "COIN",
+      "name": "Coinbase \u2022 Robinhood Token",
+      "originEvmChain": 4663,
+      "originToken": "0x6330D8C3178a418788dF01a47479c0ce7CCF450b",
+      "registryAssetId": "0x00000000000000000000000000000000970b46dbdece4ae4958a53815e62a85a",
+      "registryDecimals": 18,
+      "status": "ASSET_STATUS_ACTIVE",
+      "quoteGeneratedAt": "2026-09-23T21:24:58.178705011Z",
+      "underlyingDailyTradingVolume": "7145449",
+      "observedDexPairs": [
+        {
+          "url": "https://dexscreener.com/robinhood/0x007a13fa152f6dc383cad20a8eaab4e1e2538b606936eae2a424f8aa47d6db31",
+          "pairAddress": "0x007a13fa152f6dc383cad20a8eaab4e1e2538b606936eae2a424f8aa47d6db31",
+          "quoteSymbol": "USDG",
+          "reported24hVolumeUsd": 156524.09,
+          "reportedLiquidityUsd": 607545.17
+        }
+      ]
+    },
+    {
+      "symbol": "AVGO",
+      "name": "Broadcom \u2022 Robinhood Token",
+      "originEvmChain": 4663,
+      "originToken": "0x156E175DD063a8cE274C50654eF40e0032b3fbcF",
+      "registryAssetId": "0x000000000000000000000000000000001bbb45628de84cb2917abd26680c7ab9",
+      "registryDecimals": 18,
+      "status": "ASSET_STATUS_ACTIVE",
+      "quoteGeneratedAt": "2026-09-23T21:24:58.178705011Z",
+      "underlyingDailyTradingVolume": "22924545",
+      "observedDexPairs": [
+        {
+          "url": "https://dexscreener.com/robinhood/0x5b7c404f1d7d77f9f3885ab13d7764f8a173028c",
+          "pairAddress": "0x5B7C404f1d7d77F9f3885aB13d7764F8a173028c",
+          "quoteSymbol": "USDG",
+          "reported24hVolumeUsd": 9411.98,
+          "reportedLiquidityUsd": 155490.21
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+'forge clean' running (wd: /Users/jacopomosconi/uomi-swap/synthra-rwa-bridge)
+'forge config --json' running
+'forge build --build-info --skip */test/** */script/** --force' running (wd: /Users/jacopomosconi/uomi-swap/synthra-rwa-bridge)
+
+SourceVault.publishMetadata() (src/SourceVault.sol#96-117) uses timestamp for comparisons
+	Dangerous comparisons:
+	- effective <= block.timestamp (src/SourceVault.sol#102)
+TokenBucket.remaining(TokenBucket.State,uint256,uint256) (src/TokenBucket.sol#13-17) uses timestamp for comparisons
+	Dangerous comparisons:
+	- elapsed >= period (src/TokenBucket.sol#15)
+TokenBucket.consume(TokenBucket.State,uint256,uint256,uint256) (src/TokenBucket.sol#19-24) uses timestamp for comparisons
+	Dangerous comparisons:
+	- amount > available (src/TokenBucket.sol#21)
+WrappedAsset.applySnapshot(uint64,uint256,uint256,uint256,uint256) (src/WrappedAsset.sol#60-93) uses timestamp for comparisons
+	Dangerous comparisons:
+	- current == 0 || next == 0 || observed > block.timestamp + MAX_CLOCK_SKEW || block.timestamp > observed + metadataMaxAge || (hasSnapshot && observed < observedAt) || (effective == 0 && next != current) || (effective != 0 && effective <= observed) (src/WrappedAsset.sol#72-74)
+	- hasSnapshot && pendingEffectiveAt > block.timestamp && (pendingEffectiveAt != effective || pendingMultiplier != next) (src/WrappedAsset.sol#78-79)
+WrappedAsset.metadataFresh() (src/WrappedAsset.sol#95-97) uses timestamp for comparisons
+	Dangerous comparisons:
+	- hasSnapshot && block.timestamp <= observedAt + metadataMaxAge (src/WrappedAsset.sol#96)
+WrappedAsset._effectiveMultiplier() (src/WrappedAsset.sol#103-107) uses timestamp for comparisons
+	Dangerous comparisons:
+	- pendingEffectiveAt != 0 && block.timestamp >= pendingEffectiveAt (src/WrappedAsset.sol#104-106)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+. analyzed (28 contracts with 100 detectors), 6 result(s) found

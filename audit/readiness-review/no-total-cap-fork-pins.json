@@ -1,0 +1,24 @@
+{
+  "observedAtUTC": "2026-09-24T08:25:03.816218+00:00",
+  "notice": "Recent latest blocks, not finality evidence. No public transactions.",
+  "networks": {
+    "robinhood": {
+      "rpc": "https://rpc.mainnet.chain.robinhood.com",
+      "chainId": 4663,
+      "blockTag": "latest",
+      "blockNumber": 71225064,
+      "blockHash": "0xa84356241ff85d6f1bc06c8e4f3a2ca3e82e2893e868726f5e8ea571faf418aa",
+      "blockTimestamp": 1790238304,
+      "postTestBlockHashRechecked": true
+    },
+    "arc": {
+      "rpc": "https://rpc.mainnet.arc.io",
+      "chainId": 5042,
+      "blockTag": "latest",
+      "blockNumber": 22488784,
+      "blockHash": "0x06fb9d8da63222a7b2b9af012298713839d29833a477bffdeff8e8a4de8df048",
+      "blockTimestamp": 1790238304,
+      "postTestBlockHashRechecked": true
+    }
+  }
+}

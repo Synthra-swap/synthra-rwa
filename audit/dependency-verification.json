@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "results": [
+    {
+      "package": "forge-std",
+      "url": "https://codeload.github.com/foundry-rs/forge-std/tar.gz/refs/tags/v1.9.1",
+      "archiveSha256": "524e46160604fcfc26cdbbba76cfd4b3a8c87dbe46a16ecf145fc1f8722faa8f",
+      "verifiedFiles": 29
+    },
+    {
+      "package": "openzeppelin-contracts",
+      "url": "https://codeload.github.com/OpenZeppelin/openzeppelin-contracts/tar.gz/refs/tags/v5.1.0",
+      "archiveSha256": "8a3b08cfc756437ba3343901565b18182adb42ec1e621960240a19da5d738686",
+      "verifiedFiles": 28
+    },
+    {
+      "url": "https://raw.githubusercontent.com/wormhole-foundation/wormhole/2df4000c5bd228e5ce3a3d87f0475837071587f9/ethereum/contracts/Messages.sol",
+      "sha256": "869fd3c21bd81cf8789203b8318aca3fb288f5ff6e99b1949ebd683eaa013d7a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/wormhole-foundation/wormhole/2df4000c5bd228e5ce3a3d87f0475837071587f9/ethereum/contracts/Getters.sol",
+      "sha256": "eebf99ebf18aefa543387258e03f508b925daddd122bcd1d9c804ffe483b0a92"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/wormhole-foundation/wormhole/2df4000c5bd228e5ce3a3d87f0475837071587f9/ethereum/contracts/State.sol",
+      "sha256": "c49e968b20abe9d2f9c804788bdaf6268c1d5406c82d1c5e06cb45555f2aa1a0"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/wormhole-foundation/wormhole/2df4000c5bd228e5ce3a3d87f0475837071587f9/ethereum/contracts/Structs.sol",
+      "sha256": "d6da02e4ddf08e94417e007863b4b8904084481e83587acfe6b134061ee1a98a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/wormhole-foundation/wormhole/2df4000c5bd228e5ce3a3d87f0475837071587f9/ethereum/contracts/libraries/external/BytesLib.sol",
+      "sha256": "1b6f2ba238f9af311f917ddbf412edc565cfde02398d08727e8bbb98ad14d819"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/wormhole-foundation/wormhole/2df4000c5bd228e5ce3a3d87f0475837071587f9/LICENSE",
+      "sha256": "e7fbb242901f0dba28f9395b4406093dacd3f8af4289fe1b99b7c28d56d6bff9"
+    }
+  ],
+  "notice": "Byte identity establishes provenance, not absence of vulnerabilities."
+}

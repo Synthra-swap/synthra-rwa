@@ -1,0 +1,22 @@
+{
+  "observedAtUTC": "2026-09-24T08:10:22.891610+00:00",
+  "registryAssetsMatched": 12,
+  "networks": {
+    "robinhood": {
+      "rpc": "https://rpc.mainnet.chain.robinhood.com",
+      "chainId": 4663,
+      "blockTag": "latest",
+      "blockNumber": 71216322,
+      "blockHash": "0xff326f5fb2e6f26496cb4582f8a35177cb07dc42f9b9864e1c2c7111740054eb",
+      "blockTimestamp": 1790237422
+    },
+    "arc": {
+      "rpc": "https://rpc.mainnet.arc.io",
+      "chainId": 5042,
+      "blockTag": "latest",
+      "blockNumber": 22487048,
+      "blockHash": "0xefbb56f542b25ecae5c585fc694e1e73cd64a7bd54d6e4bd97e8a9f4cca2f720",
+      "blockTimestamp": 1790237424
+    }
+  }
+}

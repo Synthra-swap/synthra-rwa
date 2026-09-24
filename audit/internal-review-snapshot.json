@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-23",
+  "baselineArchiveSha256": "1cb14ba96e6717186201c226980b4fea8c7a00c740c0428a5c694b7c1027527c",
+  "productionSourceUnchanged": true,
+  "productionSourceSha256": {
+    "src/BridgeMessage.sol": "42c4a193a2c81109dd33748b3472d1962c696c0e70f3b24e3e9ead3e5deca72f",
+    "src/DestinationBridge.sol": "02d472ee39daf41e7acd777ad05d70a8ad132a6b06d3a8e7951a4b7888c8c287",
+    "src/SourceVault.sol": "c1a2053df8d26e64944a35f1e389c086afa012f6da918703704e1ac412287028",
+    "src/TokenBucket.sol": "bfc32311e89619e9f88a81c9db30f00d01d9386863171de5685a2a8c5788fcd8",
+    "src/WormholeEndpoint.sol": "c57d47fa1e2960804ad8eaf9ba526754cb7087ee2f749f28e042687045f74422",
+    "src/WrappedAsset.sol": "4805f170a9b0dd7be6fe9d48459e140d9ae3d1cf540c14c62a6476b8175b3042",
+    "src/interfaces/IScaledUIAmount.sol": "6947f082b15a9fd3f4cf666d22650e70c4f96659f31ca7dd8c6e73375e45be95",
+    "src/interfaces/IWormholeCore.sol": "75aa8d49ac32f17b7f11d367c36ae7d4ac2bcb504f12a52450a7c41bb0d62953"
+  },
+  "mutationInputsMatch": true,
+  "notice": "Internal review in the same development context; not an independent third-party audit.",
+  "followupValidation": {
+    "solidityTests": 81,
+    "pythonTests": 47,
+    "liveForkTests": 10,
+    "statefulHandlerCalls": 65536,
+    "distinctStatefulEvmDomains": [
+      111,
+      222
+    ],
+    "targetedMutationsDetected": 15,
+    "sourceFinalizedStateAvailable": false,
+    "destinationFinalizedReadsPassed": true,
+    "sourceLatestRequiredReadsPassed": true,
+    "synthraLiveRoundTripDemonstrated": false,
+    "issuerPowersReproduced": [
+      "address block",
+      "token pause",
+      "administrative burn of escrow"
+    ],
+    "evidence": "docs/INTEGRATION_REVIEW.md"
+  },
+  "integrationInputSha256": {
+    "integration/LiveFork.t.sol": "35a07f506a40e3ae976280366604b4a1a35e38c6d95290928c9f1127b8f4f3c1",
+    "config/research-vaa.example.json": "84cf602a5c90f6c13f6e083f177402a2b7745da602603253bf45b265a89fd6eb",
+    "tools/network_probe.py": "daddf0c25d6c46e703d2951f9b2e0b4afa8e58269e9c054528f02857f8bdb002",
+    "tools/verify_live_vaa.py": "22c681428aa8dd3a58b1138f13e58b8c3d6e113e8e360587de86b168eec12819",
+    "tools/check_live.sh": "44e370383503f35e86bd718792e5585b2f083aab5651cd1dbbfa99e2d437c4d3"
+  }
+}

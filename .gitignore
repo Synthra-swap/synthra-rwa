@@ -1,0 +1,11 @@
+out/
+cache/
+broadcast/
+.tools/
+.env
+.DS_Store
+
+__pycache__/
+config/source.json
+config/destination.json
+config/pair.json

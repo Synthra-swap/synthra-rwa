@@ -1,0 +1,134 @@
+No files changed, compilation skipped
+
+Ran 1 test for test/Governance.t.sol:GovernanceTest
+[PASS] test_TimelockHasNoDeployerBypassAndGuardianCannotResume() (gas: 4180367)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 8.44ms (1.12ms CPU time)
+
+Ran 2 tests for test/AssetExpansion.t.sol:AssetExpansionTest
+[PASS] test_AddThirteenthAssetPreservesExistingTwelvePairs() (gas: 98610458)
+[PASS] test_OneAssetMessageCannotMintAnotherAndPairPauseIsIsolated() (gas: 15118400)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 18.01ms (13.08ms CPU time)
+
+Ran 8 tests for test/Metadata.t.sol:MetadataTest
+[PASS] test_ExpiredMetadataFailsClosedButRawRedemptionRemainsAvailable() (gas: 2008533)
+[PASS] test_InterfacesAndConversion() (gas: 750054)
+[PASS] test_MetadataReplayAndUnauthorizedUpdatesRejected() (gas: 761173)
+[PASS] test_OutOfOrderSnapshotsCannotOverwriteNewerState() (gas: 1348244)
+[PASS] test_ScheduledActionCanBeCancelledByNewSnapshot() (gas: 1371831)
+[PASS] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1549126)
+[PASS] test_StaleMessageRequiresFreshPublication() (gas: 1352224)
+[PASS] test_UninitializedMetadataDoesNotMisrepresentShares() (gas: 783527)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 21.90ms (4.86ms CPU time)
+
+Ran 3 tests for test/DeploymentConfig.t.sol:DeploymentConfigTest
+[PASS] test_DecimalStringsPreserveRawTokenPrecision() (gas: 9706880)
+[PASS] test_PlaceholderDeploymentFailsBeforeBroadcast() (gas: 9470684)
+[PASS] test_ValidDeploymentCreatesTimelockOwnedPausedEndpoints() (gas: 20240859)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 21.84ms (18.75ms CPU time)
+
+Ran 8 tests for test/EdgeCases.t.sol:EdgeCasesTest
+[PASS] testFuzz_InvalidAuthenticatedMetadata(uint8) (runs: 2048, μ: 685945, ~: 686026)
+[PASS] testFuzz_InvalidEndpointConfiguration(uint8) (runs: 2048, μ: 124158, ~: 124011)
+[PASS] test_BackgroundBackingDeficitBlocksNewDeposits() (gas: 794678)
+[PASS] test_BadSourceMetadataAndMessageFees() (gas: 72984)
+[PASS] test_GuardianRotationAndInvalidMasks() (gas: 34829)
+[PASS] test_PendingGettersAndInvalidConstructor() (gas: 893146)
+[PASS] test_RawSnapshotReadableWhileStaleAndFullPrecisionConversion() (gas: 1494923)
+[PASS] test_SupplyCapSeparateFromRateAndTransferMaximum() (gas: 1389008)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 549.66ms (683.15ms CPU time)
+
+Ran 13 tests for test/InternalAudit.t.sol:InternalAuditTest
+[PASS] testFuzz_DirtyAbiWordsRejectedAndClaimStillDeliverable(uint8) (runs: 2048, μ: 844020, ~: 837833)
+[PASS] test_AlreadyReadyUnpauseDoesNotWaitAfterANewEmergencyPause() (gas: 4164679)
+[PASS] test_DelayedOwnershipMigrationCanRemoveTimelockEntirely() (gas: 4168993)
+[PASS] test_ExpiredScheduleIsNormalizedOnSourcePublication() (gas: 773608)
+[PASS] test_FeeRecipientMayAlsoBeDepositorWithoutChangingBacking() (gas: 6520768)
+[PASS] test_ForgedExcessRedemptionCannotSpendDonatedSurplus() (gas: 1412506)
+[PASS] test_GovernanceCanReduceInitialTimelockDelayToZero() (gas: 4181303)
+[PASS] test_ImmediateFeeRemainsPaidDuringDelayedDestinationExecution() (gas: 806662)
+[PASS] test_IncompatibleRemoteMaximumCanStrandAnOtherwiseValidClaim() (gas: 6515952)
+[PASS] test_RawTransfersRemainAvailableWithAllBridgeLanesPausedAndStaleMetadata() (gas: 1502215)
+[PASS] test_ReleaseCallbackCannotReenterOrSpendSameClaimTwice() (gas: 1886034)
+[PASS] test_RoundTripAtExactReserveCapIncludingPendingDeposit() (gas: 1897732)
+[PASS] test_WrongEntryPointDoesNotConsumeTransferOrMetadata() (gas: 1519709)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 621.77ms (621.47ms CPU time)
+
+Ran 15 tests for test/SignedVAA.t.sol:SignedVAATest
+[PASS] testFuzz_AnyTruncatedSignedVaaCannotMint(uint256) (runs: 2048, μ: 469742, ~: 457915)
+[PASS] test_AlternativeQuorumCannotReplaySameSequence() (gas: 633850)
+[PASS] test_DuplicateGuardianCannotCountTwiceTowardQuorum() (gas: 502820)
+[PASS] test_ExpiredAttestationNeedsResigningAndReSigningCannotDoubleMint() (gas: 1169209)
+[PASS] test_ExpiredGuardianSetRejected() (gas: 643374)
+[PASS] test_InsufficientQuorumRejected() (gas: 469629)
+[PASS] test_NewGuardianKeysRecoverPendingMintWithoutReplay() (gas: 1064590)
+[PASS] test_NewGuardianKeysRecoverPendingReleaseWithoutDoublePayment() (gas: 1381708)
+[PASS] test_OutOfBoundsGuardianIndexRejected() (gas: 477836)
+[PASS] test_RealBinaryVaaRoundTripAcrossDifferentEvmDomains() (gas: 902391)
+[PASS] test_TamperedSignedPayloadRejected() (gas: 478244)
+[PASS] test_TruncatedVAARejected() (gas: 25030)
+[PASS] test_UnknownGuardianSetRejected() (gas: 462811)
+[PASS] test_UnsupportedVaaVersionRejected() (gas: 440945)
+[PASS] test_WrongGuardianSignatureRejected() (gas: 477880)
+Suite result: ok. 15 passed; 0 failed; 0 skipped; finished in 1.01s (1.04s CPU time)
+
+Ran 34 tests for test/Bridge.t.sol:BridgeTest
+[PASS] testFuzz_InvalidAuthenticatedMessages(uint8) (runs: 2048, μ: 740812, ~: 737081)
+[PASS] testFuzz_RoundTripAndImmediateFee(uint256) (runs: 2048, μ: 1315327, ~: 1318946)
+[PASS] test_BackingDeficitBlocksExitsUntilRestored() (gas: 1446083)
+[PASS] test_BurnReplay() (gas: 1397298)
+[PASS] test_CapIncludesPendingMints() (gas: 673161)
+[PASS] test_ChainChangeRejected() (gas: 644552)
+[PASS] test_CoreDomainMismatchRejectedAtConstruction() (gas: 120312)
+[PASS] test_DefaultPausedAndPeerRequired() (gas: 2562272)
+[PASS] test_DonationsAreNotMintable() (gas: 784580)
+[PASS] test_EmergencyGuardianCanPauseButCannotResume() (gas: 801299)
+[PASS] test_FailedFeeTransferRollsBackEverything() (gas: 149453)
+[PASS] test_FeeExample100Becomes995() (gas: 1330497)
+[PASS] test_FeeRounding() (gas: 11292)
+[PASS] test_InboundRateLimitRetry() (gas: 2029435)
+[PASS] test_IncorrectNativeFeesRejected() (gas: 68187)
+[PASS] test_IssuerFreezeRetry() (gas: 1341280)
+[PASS] test_NativeMessageFeesExactAndSeparate() (gas: 1371211)
+[PASS] test_OwnerCannotMintOrBurn() (gas: 10230)
+[PASS] test_PauseNewDepositsPreservesExit() (gas: 1318331)
+[PASS] test_PausedReleaseCanRetry() (gas: 1318849)
+[PASS] test_PendingAndOutOfOrder() (gas: 1983524)
+[PASS] test_PublishFailureRollsBackFeeDepositAndBurn() (gas: 918458)
+[PASS] test_ReentrancyGuardRejectsTokenCallback() (gas: 921427)
+[PASS] test_ReplayIndependentOfHashAndSignatures() (gas: 839588)
+[PASS] test_RollingRateLimitBlocksRapidRecycling() (gas: 1897535)
+[PASS] test_TaxedDepositRollsBack() (gas: 117541)
+[PASS] test_TaxedReleaseRetry() (gas: 1334591)
+[PASS] test_ThirdPartyCannotBurn() (gas: 798612)
+[PASS] test_ThirdPartyRelayAndPermissionlessTransfer() (gas: 1415140)
+[PASS] test_TrailingPayloadRejected() (gas: 723566)
+[PASS] test_TransferMaximumChecked() (gas: 19010)
+[PASS] test_UnattestedRejected() (gas: 29220)
+[PASS] test_UnauthorizedAdministration() (gas: 31906)
+[PASS] test_ZeroAndInvalidRecipient() (gas: 61965)
+Suite result: ok. 34 passed; 0 failed; 0 skipped; finished in 1.30s (1.30s CPU time)
+
+Ran 1 test for test/BridgeInvariant.t.sol:BridgeInvariantTest
+[PASS] invariant_ReservesCoverSupplyAndEveryPendingClaim() (runs: 512, calls: 65536, reverts: 0)
+
+╭---------------+-------------------+-------+---------+----------╮
+| Contract      | Selector          | Calls | Reverts | Discards |
++================================================================+
+| BridgeHandler | advanceTime       | 9335  | 0       | 0        |
+|---------------+-------------------+-------+---------+----------|
+| BridgeHandler | deliverDeposit    | 9274  | 0       | 0        |
+|---------------+-------------------+-------+---------+----------|
+| BridgeHandler | deliverRedemption | 9367  | 0       | 0        |
+|---------------+-------------------+-------+---------+----------|
+| BridgeHandler | deposit           | 9332  | 0       | 0        |
+|---------------+-------------------+-------+---------+----------|
+| BridgeHandler | redeem            | 9295  | 0       | 0        |
+|---------------+-------------------+-------+---------+----------|
+| BridgeHandler | setPause          | 9555  | 0       | 0        |
+|---------------+-------------------+-------+---------+----------|
+| BridgeHandler | transferWrapped   | 9378  | 0       | 0        |
+╰---------------+-------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 10.96s (10.96s CPU time)
+
+Ran 9 test suites in 10.98s (14.52s CPU time): 85 tests passed, 0 failed, 0 skipped (85 total tests)

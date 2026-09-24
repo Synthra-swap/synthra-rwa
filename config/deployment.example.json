@@ -1,0 +1,20 @@
+{
+  "sourceSide": true,
+  "evmChain": 0,
+  "remoteEvmChain": 0,
+  "wormholeChain": 0,
+  "remoteWormholeChain": 0,
+  "core": "0x0000000000000000000000000000000000000000",
+  "sourceAsset": "0x0000000000000000000000000000000000000000",
+  "governanceSafe": "0x0000000000000000000000000000000000000000",
+  "guardian": "0x0000000000000000000000000000000000000000",
+  "treasury": "0x0000000000000000000000000000000000000000",
+  "governanceDelaySeconds": 172800,
+  "outboundConsistency": 0,
+  "inboundConsistency": 0,
+  "maxTransferRaw": "10000000000000000000",
+  "metadataMaxAgeSeconds": 86400,
+  "name": "REPLACE WITH REVIEWED NAME",
+  "symbol": "REPLACE",
+  "inboundMaxTransferRaw": "10000000000000000000"
+}

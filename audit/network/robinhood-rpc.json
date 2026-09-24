@@ -1,0 +1,221 @@
+[
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "eth_chainId",
+      "params": []
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": "0x1237"
+    }
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "method": "eth_getBlockByNumber",
+      "params": [
+        "finalized",
+        false
+      ]
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "result": {
+        "baseFeePerGas": "0x31e66a0",
+        "difficulty": "0x1",
+        "extraData": "0xed62dbd185d43ba70495483775578e44ebf87102eaf06284c85abccec91c928d",
+        "gasLimit": "0x4000000000000",
+        "gasUsed": "0x135b2e",
+        "hash": "0x356baeda6f58044adc5e3e4b502895f84c59bd2248746c2127ea9ea4374125a4",
+        "l1BlockNumber": "0x18d6070",
+        "logsBloom": "0x00004000001000000000000000080000080001001000000000000000000000000400000000004000000000040000000082000000040000000200000448000004010010000400400000000008000000000000000008000022000040000000120000000000000040000020a000010000000000000000001000004000102000000008020000000000000000000000000010008842000000008042010000080400040200000000000000000000200000001000001080002000020000200004000000c0000402000000000000000600000800008000400000800200020000020000020000080000001000004800000100040000020000000020000000004002000000",
+        "miner": "0xa4b000000000000000000073657175656e636572",
+        "mixHash": "0x0000000000000a7300000000018d6070000000000000003d0000000000000000",
+        "nonce": "0x000000000004ce5c",
+        "number": "0x4382d07",
+        "parentHash": "0x2b944a42ccee212513817a8ff667911687443f6d4dad54cccbd33a19754cb547",
+        "receiptsRoot": "0xb176ffd6836c9ddbe208a0496eddda2a984d40be8a775c57f02e330945658633",
+        "sendCount": "0xa73",
+        "sendRoot": "0xed62dbd185d43ba70495483775578e44ebf87102eaf06284c85abccec91c928d",
+        "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+        "size": "0x1062",
+        "stateRoot": "0x0e29b4fd5ce1c41bb4f0f3844115b727872a3883a5a32df5a3289a003254aa67",
+        "timestamp": "0x6ab432c7",
+        "transactions": [
+          "0xd9932270fdb243bdf26098e2d7ba90aefd7ce7021455bd4f84aba0d6b97a5fe0",
+          "0x3dfa4b1d3ba32dc4a1f2fe50130b15296ec32090c23bb42875537444cda8915f",
+          "0xaa7e8b36f6c31b0fadf7627d9fa2592e636825b5bf25914b71fc7311d9d59549",
+          "0x7c1a052c732fefd68477fd637e39e36f68bc668d50124625b52bd16620b12ec5",
+          "0xf104c19058786b5395827c87546bd67b39c86c183d9e722c4ebd0b35daa6ddc6",
+          "0x7b4272e642f9a9c9a559d12781dfbfcc8a3cfd7ad8bc762943a462022e6d4062",
+          "0x4fbb330c13cc9da08b223824304f8016b6f32a3a2ddccbd252f0be47dcfdf515"
+        ],
+        "transactionsRoot": "0x635d1d547ba512d9d156cca9b41944d653353c3be0ad76d37c92d76a64ef4f35",
+        "uncles": []
+      }
+    }
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "method": "eth_getCode",
+      "params": [
+        "0x141fba8ad5d61bdab45a047cf60b5ad9784987fb",
+        "0x4382d07"
+      ]
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "error": {
+        "code": -32000,
+        "message": "historical state 0e29b4fd5ce1c41bb4f0f3844115b727872a3883a5a32df5a3289a003254aa67 is not available"
+      }
+    },
+    "error": "RPC rejected eth_getCode: {'code': -32000, 'message': 'historical state 0e29b4fd5ce1c41bb4f0f3844115b727872a3883a5a32df5a3289a003254aa67 is not available'}"
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 4,
+      "method": "eth_call",
+      "params": [
+        {
+          "to": "0x141fba8ad5d61bdab45a047cf60b5ad9784987fb",
+          "data": "0x9a8a0592"
+        },
+        "0x4382d07"
+      ]
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 4,
+      "error": {
+        "code": -32000,
+        "message": "historical state 0e29b4fd5ce1c41bb4f0f3844115b727872a3883a5a32df5a3289a003254aa67 is not available"
+      }
+    },
+    "error": "RPC rejected eth_call: {'code': -32000, 'message': 'historical state 0e29b4fd5ce1c41bb4f0f3844115b727872a3883a5a32df5a3289a003254aa67 is not available'}"
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 5,
+      "method": "eth_call",
+      "params": [
+        {
+          "to": "0x141fba8ad5d61bdab45a047cf60b5ad9784987fb",
+          "data": "0x64d42b17"
+        },
+        "0x4382d07"
+      ]
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 5,
+      "error": {
+        "code": -32000,
+        "message": "historical state 0e29b4fd5ce1c41bb4f0f3844115b727872a3883a5a32df5a3289a003254aa67 is not available"
+      }
+    },
+    "error": "RPC rejected eth_call: {'code': -32000, 'message': 'historical state 0e29b4fd5ce1c41bb4f0f3844115b727872a3883a5a32df5a3289a003254aa67 is not available'}"
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 6,
+      "method": "eth_call",
+      "params": [
+        {
+          "to": "0x141fba8ad5d61bdab45a047cf60b5ad9784987fb",
+          "data": "0x1a90a219"
+        },
+        "0x4382d07"
+      ]
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 6,
+      "error": {
+        "code": -32000,
+        "message": "historical state 0e29b4fd5ce1c41bb4f0f3844115b727872a3883a5a32df5a3289a003254aa67 is not available"
+      }
+    },
+    "error": "RPC rejected eth_call: {'code': -32000, 'message': 'historical state 0e29b4fd5ce1c41bb4f0f3844115b727872a3883a5a32df5a3289a003254aa67 is not available'}"
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 7,
+      "method": "eth_call",
+      "params": [
+        {
+          "to": "0x141fba8ad5d61bdab45a047cf60b5ad9784987fb",
+          "data": "0x1cfe7951"
+        },
+        "0x4382d07"
+      ]
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 7,
+      "error": {
+        "code": -32000,
+        "message": "historical state 0e29b4fd5ce1c41bb4f0f3844115b727872a3883a5a32df5a3289a003254aa67 is not available"
+      }
+    },
+    "error": "RPC rejected eth_call: {'code': -32000, 'message': 'historical state 0e29b4fd5ce1c41bb4f0f3844115b727872a3883a5a32df5a3289a003254aa67 is not available'}"
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 8,
+      "method": "eth_call",
+      "params": [
+        {
+          "to": "0x141fba8ad5d61bdab45a047cf60b5ad9784987fb",
+          "data": "0xfbe3c2cd"
+        },
+        "0x4382d07"
+      ]
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 8,
+      "error": {
+        "code": -32000,
+        "message": "historical state 0e29b4fd5ce1c41bb4f0f3844115b727872a3883a5a32df5a3289a003254aa67 is not available"
+      }
+    },
+    "error": "RPC rejected eth_call: {'code': -32000, 'message': 'historical state 0e29b4fd5ce1c41bb4f0f3844115b727872a3883a5a32df5a3289a003254aa67 is not available'}"
+  },
+  {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 9,
+      "method": "eth_call",
+      "params": [
+        {
+          "to": "0x141fba8ad5d61bdab45a047cf60b5ad9784987fb",
+          "data": "0xb172b222"
+        },
+        "0x4382d07"
+      ]
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 9,
+      "error": {
+        "code": -32000,
+        "message": "historical state 0e29b4fd5ce1c41bb4f0f3844115b727872a3883a5a32df5a3289a003254aa67 is not available"
+      }
+    },
+    "error": "RPC rejected eth_call: {'code': -32000, 'message': 'historical state 0e29b4fd5ce1c41bb4f0f3844115b727872a3883a5a32df5a3289a003254aa67 is not available'}"
+  }
+]

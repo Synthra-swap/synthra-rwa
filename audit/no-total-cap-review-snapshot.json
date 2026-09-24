@@ -1,0 +1,84 @@
+{
+  "date": "2026-09-24",
+  "revision": "Remove aggregate reserve/supply caps; retain transfer/rate limits",
+  "baselineArchiveSha256": "411a1ac8f2e662cd483fdfb775ce28f7507f6b74d1d68769aa30b594a1c4e7d2",
+  "changedProductionFiles": [
+    "src/DestinationBridge.sol",
+    "src/SourceVault.sol"
+  ],
+  "productionSourceSha256": {
+    "src/BridgeMessage.sol": "42c4a193a2c81109dd33748b3472d1962c696c0e70f3b24e3e9ead3e5deca72f",
+    "src/DestinationBridge.sol": "4f3fa677ae08bd65798558244d691a885de463a119c0886abc682699725f9029",
+    "src/SourceVault.sol": "aeacf3a27e14a7a5ce22f42ea7249278586537fed299abe436b49a34e7b4f639",
+    "src/TokenBucket.sol": "bfc32311e89619e9f88a81c9db30f00d01d9386863171de5685a2a8c5788fcd8",
+    "src/WormholeEndpoint.sol": "c57d47fa1e2960804ad8eaf9ba526754cb7087ee2f749f28e042687045f74422",
+    "src/WrappedAsset.sol": "4805f170a9b0dd7be6fe9d48459e140d9ae3d1cf540c14c62a6476b8175b3042",
+    "src/interfaces/IScaledUIAmount.sol": "6947f082b15a9fd3f4cf666d22650e70c4f96659f31ca7dd8c6e73375e45be95",
+    "src/interfaces/IWormholeCore.sol": "75aa8d49ac32f17b7f11d367c36ae7d4ac2bcb504f12a52450a7c41bb0d62953"
+  },
+  "evidenceSha256": {
+    "script/Deploy.s.sol": "97f350fc64f697adbdf079217a872f5dfac3c4182da046299c27cd7acefc32a6",
+    "tools/preflight.py": "9b3143aec045afd955b690f71c31afc46e95c501678cfa4d66e9c0f4340c5d72",
+    "integration/LiveFork.t.sol": "76cefbe8f5c51eb07bbbfe441e483a28a37ad5c7ad5388cf77023220c3a1cfa2",
+    "config/deployment.example.json": "ff3e4ce34f300637fcef9fb604f3d4c87974cdc4171fccd11c3222fbbadafb82",
+    "config/stock-assets.example.json": "d1b8e15a487ff0247a27be19e78c66a7820d358dadd2186118409be8b72579c3",
+    "audit/live-fork-tests.log": "f3a3954254434bdb1eceb04524ab5456606434bff7e24fa50ed9e1010f34aead",
+    "audit/unit-tests.log": "a8c7dfaa9b45a1dbc1f4da7209844c84f98f4378a7fde298732c7986b18ed1d1",
+    "audit/audit-tests.log": "8a7f317f1abe0a5f43787739964ac13ccf84e8adc35eecab94fa4fc412d10c8e",
+    "audit/python-tests.log": "94297848d10b931262f348c39a79e1415840c78ce9ed2101098413fcdc37583b",
+    "audit/mutation-report.json": "df416c1c650d10c0f728ec65ceff44951ddc5f151eb70be3d04915b6a1b47ad9",
+    "audit/coverage.lcov": "e67c6c7cf0866cb2e790aec5d26af90bf5c2cff4a774833a4e42be522f9edc0e",
+    "audit/slither.json": "a8c775313eef7ec0de76ab9f93fa3bb542ce9cc5ccb53ca28b29130ed14e1753",
+    "audit/readiness-review/no-total-cap-fork-pins.json": "3191b480473178fa350c801f2c6e792d4317f242f89584a2207a613ad5c70f37"
+  },
+  "solidityTests": 93,
+  "pythonTests": 50,
+  "forkTests": 19,
+  "selectedStocks": [
+    "NVDA",
+    "META",
+    "PLTR",
+    "GOOGL",
+    "AAPL",
+    "MSFT",
+    "INTC",
+    "AMZN",
+    "AMD",
+    "TSLA",
+    "COIN",
+    "AVGO"
+  ],
+  "mutationsDetected": 17,
+  "mutationInputsMatch": true,
+  "slitherHighMedium": 0,
+  "slitherReviewedLow": 6,
+  "totalCapRemoved": true,
+  "transferMaximumAndRateBucketRetained": true,
+  "productionLimitValuesApproved": false,
+  "publicTransactionsSent": false,
+  "forkPins": {
+    "observedAtUTC": "2026-09-24T08:25:03.816218+00:00",
+    "notice": "Recent latest blocks, not finality evidence. No public transactions.",
+    "networks": {
+      "robinhood": {
+        "rpc": "https://rpc.mainnet.chain.robinhood.com",
+        "chainId": 4663,
+        "blockTag": "latest",
+        "blockNumber": 71225064,
+        "blockHash": "0xa84356241ff85d6f1bc06c8e4f3a2ca3e82e2893e868726f5e8ea571faf418aa",
+        "blockTimestamp": 1790238304,
+        "postTestBlockHashRechecked": true
+      },
+      "arc": {
+        "rpc": "https://rpc.mainnet.arc.io",
+        "chainId": 5042,
+        "blockTag": "latest",
+        "blockNumber": 22488784,
+        "blockHash": "0x06fb9d8da63222a7b2b9af012298713839d29833a477bffdeff8e8a4de8df048",
+        "blockTimestamp": 1790238304,
+        "postTestBlockHashRechecked": true
+      }
+    }
+  },
+  "notice": "New local validation and twelve-stock fork rerun after production change. Return attestations and issuer role/block responses simulated; latest pins are not finality evidence. Independent audit outstanding."
+}

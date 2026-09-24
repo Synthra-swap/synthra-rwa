@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/wormhole-foundation/wormhole",
+  "commit": "2df4000c5bd228e5ce3a3d87f0475837071587f9",
+  "files": {
+    "ethereum/contracts/Messages.sol": "869fd3c21bd81cf8789203b8318aca3fb288f5ff6e99b1949ebd683eaa013d7a",
+    "ethereum/contracts/Getters.sol": "eebf99ebf18aefa543387258e03f508b925daddd122bcd1d9c804ffe483b0a92",
+    "ethereum/contracts/State.sol": "c49e968b20abe9d2f9c804788bdaf6268c1d5406c82d1c5e06cb45555f2aa1a0",
+    "ethereum/contracts/Structs.sol": "d6da02e4ddf08e94417e007863b4b8904084481e83587acfe6b134061ee1a98a",
+    "ethereum/contracts/libraries/external/BytesLib.sol": "1b6f2ba238f9af311f917ddbf412edc565cfde02398d08727e8bbb98ad14d819",
+    "LICENSE": "e7fbb242901f0dba28f9395b4406093dacd3f8af4289fe1b99b7c28d56d6bff9"
+  }
+}
