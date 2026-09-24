@@ -1,7 +1,7 @@
 # Network and asset integration evidence
 
 Evidence collected September 23–24, 2026. The latest fork run against the current production source
-passed **19 tests, with none failed or skipped**, including all twelve selected stocks. All network
+uses a 30-day metadata lifetime and passed **19 tests, with none failed or skipped**, including all twelve selected stocks. All network
 interactions were read-only; fork state changes were local. No public Synthra deployment or
 transaction was performed. These checks are internal compatibility evidence, not launch approval.
 
@@ -37,12 +37,12 @@ tampering invalidates its signatures.
 
 | Network | EVM / Wormhole chain IDs | Block | Hash |
 | --- | --- | --- | --- |
-| Robinhood | 4663 / 72 | 71245557 | `0x4079974e6e3bde1455e9c573359fe412ddfb44e98325a06113f5314372aeb601` |
-| Arc | 5042 / 71 | 22492863 | `0xd31e04a06af52d83673a284cdac83f42afee137807dbe1cabdf99257529da530` |
+| Robinhood | 4663 / 72 | 71270443 | `0x5d6e745cc2672e8f545a227c808c5a562b0f74b7401c71ffd0b6ea3aa84aa2c6` |
+| Arc | 5042 / 71 | 22497821 | `0x09347dbc5436f29c459f6b2ceefa768c17a9006350926f9ea36e117627434605` |
 
 Both block hashes were rechecked after execution. These are recent/latest pins, not finalized-state
-evidence. See `audit/readiness-review/no-rate-limit-fork-pins.json`, `audit/live-fork-tests.log`, and
-`audit/no-rate-limit-review-snapshot.json` for observations, output, and source/evidence hashes.
+evidence. See `audit/readiness-review/current-fork-pins.json`, `audit/live-fork-tests.log`, and
+`audit/current-review-snapshot.json` for observations, output, and source/evidence hashes.
 
 Balances are injected locally with Foundry `deal`. Issuer role/block responses are mocked while
 real token bytecode executes transfers, pauses, and burns. Bridge instances, treasury addresses,
@@ -139,7 +139,7 @@ The [Wormhole finality table](https://wormhole.com/docs/reference/consistency-le
 ## Reproduction
 
 ```sh
-ROBINHOOD_REVIEW_BLOCK=71245557 ARC_REVIEW_BLOCK=22492863 bash tools/check_live.sh
+ROBINHOOD_REVIEW_BLOCK=71270443 ARC_REVIEW_BLOCK=22497821 bash tools/check_live.sh
 python3 tools/network_probe.py
 python3 tools/network_probe.py --network robinhood --block-tag latest
 python3 tools/verify_live_vaa.py

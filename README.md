@@ -78,7 +78,7 @@ finality, and Wormhole Guardians/Core; a pause can delay redemptions.
 - No total reserve or supply cap; a per-transfer maximum adjustable through the timelock, without shared capacity or refill.
 - Contracts start paused; the peer can be configured only once.
 - Current and scheduled multiplier synchronization, protection against out-of-order updates,
-  schedule replacement/cancellation, and metadata expiration.
+  schedule replacement/cancellation, and a 30-day metadata lifetime with permissionless early refresh.
 - Tests with mocks and cryptographically signed binary VAAs verified by upstream Wormhole code.
 - Stateful solvency tests, finalized-block preflight tools, and unsigned relay preparation.
 - Deployment of a governance/endpoint pair on each chain, CI, and a reproducible audit archive.
@@ -86,7 +86,7 @@ finality, and Wormhole Guardians/Core; a pause can delay redemptions.
 
 ## Current validation
 
-The current source passed 109 Solidity tests, 60 Python tests, 23 security mutations, and 19 fork
+The current source passed 121 Solidity tests, 61 Python tests, 23 security mutations, and 19 fork
 checks covering all twelve selected stocks. Slither reported no High/Medium findings and four
 reviewed Low timestamp findings. These are internal results, not an independent audit opinion.
 See [VALIDATION.md](docs/VALIDATION.md) for evidence and limitations and

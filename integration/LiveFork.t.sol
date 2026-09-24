@@ -145,7 +145,7 @@ contract LiveForkTest is Test {
         vm.chainId(5042);
         MockWormholeCore destination = new MockWormholeCore(71);
         DestinationBridge bridge = new DestinationBridge(
-            _config(address(destination), false), token, "Review fixture", "REVIEW", 1 days
+            _config(address(destination), false), token, "Review fixture", "REVIEW", 30 days
         );
         bridge.setPeer(address(mockVault), token);
         bridge.unpause(3);
@@ -407,7 +407,7 @@ contract LiveForkTest is Test {
         assertEq(message.guardianSetIndex, 7);
         assertEq(message.consistencyLevel, 202); // Historical NTT message; does not prove our level-0 policy.
         DestinationBridge bridge = new DestinationBridge(
-            _config(ARC_CORE, false), address(0xA55E7), "Review fixture", "REVIEW", 1 days
+            _config(ARC_CORE, false), address(0xA55E7), "Review fixture", "REVIEW", 30 days
         );
         bridge.setPeer(address(0x1234), address(0xA55E7));
         bridge.unpause(3);
@@ -428,7 +428,7 @@ contract LiveForkTest is Test {
         assertEq(IWormholeCore(ARC_CORE).chainId(), 71);
         assertEq(IWormholeCore(ARC_CORE).evmChainId(), 5042);
         DestinationBridge bridge = new DestinationBridge(
-            _config(ARC_CORE, false), address(0xA55E7), "Review fixture", "REVIEW", 1 days
+            _config(ARC_CORE, false), address(0xA55E7), "Review fixture", "REVIEW", 30 days
         );
         bridge.setPeer(address(0x1234), address(0xA55E7));
         bridge.unpause(3);

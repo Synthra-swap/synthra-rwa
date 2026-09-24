@@ -13,7 +13,7 @@
   "outboundConsistency": 0,
   "inboundConsistency": 0,
   "maxTransferRaw": "10000000000000000000",
-  "metadataMaxAgeSeconds": 86400,
+  "metadataMaxAgeSeconds": 2592000,
   "name": "REPLACE WITH REVIEWED NAME",
   "symbol": "REPLACE",
   "inboundMaxTransferRaw": "10000000000000000000"

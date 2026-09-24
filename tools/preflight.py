@@ -55,7 +55,7 @@ def validate_pair(source, destination):
         require(0<int(c['evmChain'])!=int(c['remoteEvmChain'])>0,'invalid EVM domains')
         require(0<int(c['maxTransferRaw'])<=int(c['inboundMaxTransferRaw']),'invalid amount limits')
         require(int(c['governanceDelaySeconds'])>=172800,'governance delay too short')
-        require(0<int(c['metadataMaxAgeSeconds'])<=7*86400,'invalid metadata age')
+        require(0<int(c['metadataMaxAgeSeconds'])<=30*86400,'invalid metadata age')
         for k in ('outboundConsistency','inboundConsistency'):
             require(0<=int(c[k])<=255,'invalid consistency enum')
     for a,b in ((source,destination),(destination,source)):

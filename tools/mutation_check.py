@@ -44,7 +44,7 @@ MUTATIONS = [
 def main():
     compiler = ROOT / '.tools/solc-0.8.28'
     command = ['forge', 'test', '--use', str(compiler) if compiler.exists() else '0.8.28', '--offline',
-               '--match-contract', '^(BridgeTest|MetadataTest|InternalAuditTest|SignedVAATest|TreasuryGovernanceTest|TransferLimitGovernanceTest)$']
+               '--match-contract', '^(BridgeTest|MetadataTest|MonthlyMetadataTest|InternalAuditTest|SignedVAATest|TreasuryGovernanceTest|TransferLimitGovernanceTest)$']
     env = dict(os.environ, FOUNDRY_PROFILE='default', FOUNDRY_FUZZ_RUNS='256', FOUNDRY_FUZZ_SEED='0x73796e74687261')
     hashes = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
               for folder in ('src', 'test', 'vendor') for p in sorted((ROOT / folder).rglob('*')) if p.is_file()}

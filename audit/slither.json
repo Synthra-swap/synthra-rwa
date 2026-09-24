@@ -383,7 +383,7 @@
             "type": "function",
             "name": "_effectiveMultiplier",
             "source_mapping": {
-              "start": 4037,
+              "start": 4038,
               "length": 215,
               "filename_relative": "src/WrappedAsset.sol",
               "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
@@ -405,7 +405,7 @@
                 "name": "WrappedAsset",
                 "source_mapping": {
                   "start": 469,
-                  "length": 5196,
+                  "length": 5197,
                   "filename_relative": "src/WrappedAsset.sol",
                   "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
                   "filename_short": "src/WrappedAsset.sol",
@@ -564,7 +564,7 @@
             "type": "node",
             "name": "pendingEffectiveAt != 0 && block.timestamp >= pendingEffectiveAt",
             "source_mapping": {
-              "start": 4110,
+              "start": 4111,
               "length": 135,
               "filename_relative": "src/WrappedAsset.sol",
               "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
@@ -583,7 +583,7 @@
                 "type": "function",
                 "name": "_effectiveMultiplier",
                 "source_mapping": {
-                  "start": 4037,
+                  "start": 4038,
                   "length": 215,
                   "filename_relative": "src/WrappedAsset.sol",
                   "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
@@ -605,7 +605,7 @@
                     "name": "WrappedAsset",
                     "source_mapping": {
                       "start": 469,
-                      "length": 5196,
+                      "length": 5197,
                       "filename_relative": "src/WrappedAsset.sol",
                       "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
                       "filename_short": "src/WrappedAsset.sol",
@@ -777,7 +777,7 @@
             "type": "function",
             "name": "metadataFresh",
             "source_mapping": {
-              "start": 3789,
+              "start": 3790,
               "length": 137,
               "filename_relative": "src/WrappedAsset.sol",
               "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
@@ -797,7 +797,7 @@
                 "name": "WrappedAsset",
                 "source_mapping": {
                   "start": 469,
-                  "length": 5196,
+                  "length": 5197,
                   "filename_relative": "src/WrappedAsset.sol",
                   "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
                   "filename_short": "src/WrappedAsset.sol",
@@ -956,7 +956,7 @@
             "type": "node",
             "name": "hasSnapshot && block.timestamp <= observedAt + metadataMaxAge",
             "source_mapping": {
-              "start": 3851,
+              "start": 3852,
               "length": 68,
               "filename_relative": "src/WrappedAsset.sol",
               "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
@@ -973,7 +973,7 @@
                 "type": "function",
                 "name": "metadataFresh",
                 "source_mapping": {
-                  "start": 3789,
+                  "start": 3790,
                   "length": 137,
                   "filename_relative": "src/WrappedAsset.sol",
                   "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
@@ -993,7 +993,7 @@
                     "name": "WrappedAsset",
                     "source_mapping": {
                       "start": 469,
-                      "length": 5196,
+                      "length": 5197,
                       "filename_relative": "src/WrappedAsset.sol",
                       "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
                       "filename_short": "src/WrappedAsset.sol",
@@ -1165,7 +1165,7 @@
             "type": "function",
             "name": "applySnapshot",
             "source_mapping": {
-              "start": 2355,
+              "start": 2356,
               "length": 1428,
               "filename_relative": "src/WrappedAsset.sol",
               "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
@@ -1216,7 +1216,7 @@
                 "name": "WrappedAsset",
                 "source_mapping": {
                   "start": 469,
-                  "length": 5196,
+                  "length": 5197,
                   "filename_relative": "src/WrappedAsset.sol",
                   "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
                   "filename_short": "src/WrappedAsset.sol",
@@ -1375,7 +1375,7 @@
             "type": "node",
             "name": "current == 0 || next == 0 || observed > block.timestamp + MAX_CLOCK_SKEW || block.timestamp > observed + metadataMaxAge || (hasSnapshot && observed < observedAt) || (effective == 0 && next != current) || (effective != 0 && effective <= observed)",
             "source_mapping": {
-              "start": 2710,
+              "start": 2711,
               "length": 277,
               "filename_relative": "src/WrappedAsset.sol",
               "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
@@ -1394,7 +1394,7 @@
                 "type": "function",
                 "name": "applySnapshot",
                 "source_mapping": {
-                  "start": 2355,
+                  "start": 2356,
                   "length": 1428,
                   "filename_relative": "src/WrappedAsset.sol",
                   "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
@@ -1445,7 +1445,7 @@
                     "name": "WrappedAsset",
                     "source_mapping": {
                       "start": 469,
-                      "length": 5196,
+                      "length": 5197,
                       "filename_relative": "src/WrappedAsset.sol",
                       "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
                       "filename_short": "src/WrappedAsset.sol",
@@ -1606,7 +1606,7 @@
             "type": "node",
             "name": "hasSnapshot && pendingEffectiveAt > block.timestamp && (pendingEffectiveAt != effective || pendingMultiplier != next)",
             "source_mapping": {
-              "start": 3095,
+              "start": 3096,
               "length": 133,
               "filename_relative": "src/WrappedAsset.sol",
               "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
@@ -1624,7 +1624,7 @@
                 "type": "function",
                 "name": "applySnapshot",
                 "source_mapping": {
-                  "start": 2355,
+                  "start": 2356,
                   "length": 1428,
                   "filename_relative": "src/WrappedAsset.sol",
                   "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
@@ -1675,7 +1675,7 @@
                     "name": "WrappedAsset",
                     "source_mapping": {
                       "start": 469,
-                      "length": 5196,
+                      "length": 5197,
                       "filename_relative": "src/WrappedAsset.sol",
                       "filename_absolute": "/Users/jacopomosconi/uomi-swap/synthra-rwa-bridge/src/WrappedAsset.sol",
                       "filename_short": "src/WrappedAsset.sol",

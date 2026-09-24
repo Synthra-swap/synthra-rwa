@@ -36,7 +36,7 @@ contract WrappedAsset is ERC20, ERC165, IScaledUIAmount, IPendingUIAmount {
         uint256 maxAge
     ) ERC20(name_, symbol_) {
         if (
-            maxAge == 0 || maxAge > 7 days || sourceToken == address(0) || sourceChain == 0
+            maxAge == 0 || maxAge > 30 days || sourceToken == address(0) || sourceChain == 0
                 || bytes(name_).length == 0 || bytes(symbol_).length == 0
         ) revert InvalidSnapshot();
         bridge = msg.sender;

@@ -5,7 +5,7 @@ from preflight import validate_pair,word,address,uint
 def fixture():
     source={'sourceSide':True,'evmChain':111,'remoteEvmChain':222,'wormholeChain':100,'remoteWormholeChain':200,
     'core':'0x'+'1'*40,'sourceAsset':'0x'+'2'*40,'governanceSafe':'0x'+'3'*40,'guardian':'0x'+'4'*40,'treasury':'0x'+'5'*40,
-    'governanceDelaySeconds':172800,'metadataMaxAgeSeconds':86400,'maxTransferRaw':'10','inboundMaxTransferRaw':'10',
+    'governanceDelaySeconds':172800,'metadataMaxAgeSeconds':2592000,'maxTransferRaw':'10','inboundMaxTransferRaw':'10',
     'outboundConsistency':1,'inboundConsistency':1}
     dest=copy.deepcopy(source);dest.update(sourceSide=False,evmChain=222,remoteEvmChain=111,wormholeChain=200,remoteWormholeChain=100)
     return source,dest
@@ -26,6 +26,15 @@ class PreflightTests(unittest.TestCase):
             with self.subTest(value=value),self.assertRaises(ValueError):uint(value)
         self.assertEqual(uint(str(2**256-1)),2**256-1)
         self.assertEqual(uint('0'),0)
+    def test_metadata_age_bounds(self):
+        for side in (0,1):
+            for value in (0,30*86400+1):
+                pair=fixture();pair[side]['metadataMaxAgeSeconds']=value
+                with self.subTest(side=side,value=value),self.assertRaisesRegex(ValueError,'invalid metadata age'):
+                    validate_pair(*pair)
+            for value in (1,86400,30*86400):
+                pair=fixture();pair[side]['metadataMaxAgeSeconds']=value
+                with self.subTest(side=side,value=value):validate_pair(*pair)
     def test_valid_pair(self):validate_pair(*fixture())
     def test_obsolete_total_cap_rejected(self):
         for which in (0,1):

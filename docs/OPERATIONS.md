@@ -165,6 +165,25 @@ relay; no Synthra key is needed to complete a user's valid message.
   only genuinely valid quorum signatures are acceptable. The local rotation test proves verifier
   behavior, not availability of re-observation or replacement signatures on a live network.
 
+### Metadata refresh policy
+
+Use `metadataMaxAgeSeconds = 2592000` (30 exact days) for the selected monthly policy. The value
+is immutable for a deployed wrapped token. Both the constructor and preflight reject zero or values
+above 30 days. This lifetime does not impose a minimum interval between updates.
+
+Publish and relay a fresh observation before expiry, with an operational margin for finality,
+retries, and outages. Refresh immediately on source multiplier/schedule changes or cancellation;
+do not wait for the monthly deadline. An unchanged multiplier can also be republished to renew
+freshness. The deadline is measured from source observation, not destination receipt. Re-delivering
+a consumed or older snapshot cannot restart it. Keep timestamp-skew tolerance at five minutes.
+
+Operators must monitor original-token changes and metadata age and provide a keeper/relay service;
+this repository does not host one. If it stops, stale UI getters fail closed after the deadline,
+while raw ERC20 transfers and bridge mint/burn/redemption remain independent of metadata freshness.
+Integrating frontends should expose raw redemption and clearly indicate unavailable display data.
+The 30-day window trades fewer unchanged-state publications for longer potential display staleness
+when a source update is missed.
+
 ## 5. Monitoring and incidents
 
 Monitor finalized events and backing continuously; operators must define detection and response

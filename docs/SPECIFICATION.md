@@ -131,7 +131,8 @@ to an already multiplier-adjusted price is permitted in an integrating frontend.
 ### Metadata age and clock skew
 
 The constructor's `maxAge` becomes immutable `metadataMaxAge`, measured in seconds. It must be
-positive and no greater than seven days; example configurations use 86,400 seconds (24 hours).
+positive and no greater than 30 days; the selected policy and example configuration use
+2,592,000 seconds (30 exact days, not a calendar month).
 It is measured from the source observation timestamp, not the time the destination receives it.
 A delayed relay therefore consumes part of the freshness window. A snapshot is fresh through
 `observedAt + metadataMaxAge`, inclusive; after that boundary, UI accessors/conversions revert
@@ -149,3 +150,12 @@ Neither value is a per-transfer limit. Stale metadata affects `uiMultiplier`, `n
 balances/transfers and bridge mint/burn/redemption do not use those freshness checks. Integrations
 should show that display metadata is unavailable and continue to distinguish raw amounts from
 share-equivalent display values. A keeper must publish and relay fresh observations before expiry.
+
+Publication and delivery are permissionless and have no minimum interval. A fresh observation can
+renew the window before expiry even if the multiplier is unchanged; replaying an old message cannot.
+Publish and relay immediately when a multiplier or schedule changes, and refresh unchanged state
+before the 30-day deadline with enough margin for finality, relay delays, and retries. A previously
+delivered future schedule takes effect locally at its effective timestamp while metadata is fresh.
+A larger freshness window allows missed source changes to remain undetected by this age check for
+longer; it does not prove that the source stayed unchanged. The repository does not run a hosted
+keeper automatically. Raw amounts remain independent of this policy.

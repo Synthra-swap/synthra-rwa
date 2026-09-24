@@ -46,3 +46,12 @@ The current source/evidence snapshot retains its original baseline archive hash.
 listed above; removing a duplicate local copy does not change the historical hash. Dependency,
 registry, code-identity, and network observations remain in the current package where they support
 explicitly dated claims. Their inclusion does not imply that those checks were rerun.
+
+## Pre-monthly-metadata checkpoint
+
+The 30-day metadata change supersedes the previous source/evidence snapshot. The earlier
+English package, source hashes, and fork pins remain available without changing their original bytes:
+
+- [audit/synthra-rwa-bridge-audit.tar.gz](https://github.com/Synthra-swap/synthra-rwa/blob/e38335d40bd2f5e8d2a2df37d49d4514e9eaf180/audit/synthra-rwa-bridge-audit.tar.gz), SHA-256 `0aadee574507ad045920ad4ddb9f4a17d89f3e861a13172191c38e08b1ee7b82`.
+- [audit/no-rate-limit-review-snapshot.json](https://github.com/Synthra-swap/synthra-rwa/blob/e38335d40bd2f5e8d2a2df37d49d4514e9eaf180/audit/no-rate-limit-review-snapshot.json), SHA-256 `a3a2616e98cb8be95aeae30743b3b53da3bed24feda3e9aa21fc6ce726bfe9fd`.
+- [audit/readiness-review/no-rate-limit-fork-pins.json](https://github.com/Synthra-swap/synthra-rwa/blob/e38335d40bd2f5e8d2a2df37d49d4514e9eaf180/audit/readiness-review/no-rate-limit-fork-pins.json), SHA-256 `a7cf05522ddcb462e037ce9f3c2aa5adcf0a68ab482a9bdf827fc0a337aae964`.

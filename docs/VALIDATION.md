@@ -6,15 +6,17 @@ no CBOR/bytecode metadata. CI declares Foundry 1.5.1 and Python 3.11 but has not
 
 `bash tools/check.sh` completed successfully for this source candidate. The reports below are
 packaged and hashed with the source snapshot; the independent audit remains outstanding.
-The latest revision removes the shared token bucket and the mandatory pause for maximum changes.
+The latest revision selects a 30-day metadata lifetime and permits that value in the constructor
+and preflight; permissionless early refresh remains available. There is no shared token bucket
+or mandatory pause for transfer-maximum changes.
 Full checks were rerun against this revision. The upstream comparison remains explicitly historical.
 See `SPECIFICATION.md` for current behavior, `OPERATIONS.md` for governance ordering, and
 `INTEGRATION_REVIEW.md` for fork block pins.
 
 | Check | Result | Evidence |
 | --- | --- | --- |
-| Solidity suite | 109 passed, 0 failed, 0 skipped | `audit/unit-tests.log` |
-| Audit profile | 109 passed; 7 fuzz tests × 2,048 cases | `audit/audit-tests.log` |
+| Solidity suite | 121 passed, 0 failed, 0 skipped | `audit/unit-tests.log` |
+| Audit profile | 121 passed; 7 fuzz tests × 2,048 cases | `audit/audit-tests.log` |
 | Stateful conservation | 512 runs × depth 128 = 65,536 handler calls; 0 unexpected reverts | `audit/audit-tests.log` |
 | Pending-message drain | afterInvariant delivers outstanding messages and checks locked = supply | `test/BridgeInvariant.t.sol` |
 | Native binary signed VAAs | 15 tests, including recovery with different Guardian keys in both directions | `test/SignedVAA.t.sol` |
@@ -22,9 +24,10 @@ See `SPECIFICATION.md` for current behavior, `OPERATIONS.md` for governance orde
 | Treasury rotation / immediate pause | 7 tests: authority, timing, invalid recipients, backing, callback protection, rollback and emergency action | `test/TreasuryGovernance.t.sol` |
 | Transfer maximum governance | 14 tests: authority, timing, active updates, incoming preparation, pending claims, raise/lower and reentrancy | `test/TransferLimitGovernance.t.sol` |
 | No shared quota | 32 users and repeated round trips in one block; no refill or time advance | `test/Bridge.t.sol` |
+| Monthly metadata | 12 tests at 30 days: early renewal, changed/scheduled values, cancellation, exact expiry, delayed delivery, replay, raw redemption, and constructor bounds; 8 existing metadata cases also run at one day | `test/Metadata.t.sol` |
 | Asset expansion | 2 local tests: add a thirteenth pair; isolate messages and pauses | `test/AssetExpansion.t.sol` |
 | Deployment simulation | Both sides created paused and owned by newly created timelock; placeholders rejected | `test/DeploymentConfig.t.sol` |
-| Operational-tool validation | 60 Python tests passed, including limit updates, historical ceilings and maintenance preflight | `audit/python-tests.log`, `tools/test_*.py` |
+| Operational-tool validation | 61 Python tests passed, including limit updates, historical ceilings and maintenance preflight | `audit/python-tests.log`, `tools/test_*.py` |
 | Real-network fork simulations | 19 passed on 24 September; all 12 selected stocks, treasury rotation and issuer interference | `audit/live-fork-tests.log`, `docs/INTEGRATION_REVIEW.md` |
 | Mutation sensitivity | All 23 compiling mutations detected, including outgoing/incoming maxima and receive-preparation authority, reentrancy and monotonicity | `audit/mutation-report.json` |
 | Upstream provenance | Historical: 63 files byte-matched on 23 September; dependencies unchanged and local lock rechecked | `audit/dependency-verification.json` |
@@ -75,12 +78,15 @@ files. Compilation, script assertions, emitted logs and final exit code confirm 
 One intentional Slither suppression ignores only the unused human-readable Core diagnostic string;
 validity is checked explicitly. Disposition is documented, not represented as a detector-free audit.
 
-## Documentation and package maintenance
+## Current source and package identity
 
-The English documentation cleanup changed no contracts, deployment scripts, tests, configuration
-examples, dependencies, or security-validation logic. The packaging allowlist was updated to omit
-superseded notes and intermediate evidence. Test counts above describe the existing source runs,
-not a new execution performed for translation. The source and evidence hashes in
-`audit/no-rate-limit-review-snapshot.json` still identify those runs; the release manifest and archive
-checksum are regenerated for the current documentation. Original historical artifacts are indexed
-in [ARCHIVE_HISTORY.md](ARCHIVE_HISTORY.md).
+`audit/current-review-snapshot.json` records the source, configuration, and evidence hashes for
+this revision. Full local checks, mutation testing, and the twelve-stock fork suite were rerun after
+the monthly metadata change. Example deployment parsing and destination deployment verify the
+30-day value, and Python checks reject zero and values above 30 days on either side.
+
+The Solidity runtime sizes above remain unchanged, but constructor/creation bytecode and the
+configured immutable lifetime differ from the previous candidate. Earlier manifests and test
+counts must not be reused as the identity of this revision. The current package is identified by
+`audit/RELEASE_MANIFEST.json` and `audit/SHA256SUMS`; superseded evidence is linked in
+[ARCHIVE_HISTORY.md](ARCHIVE_HISTORY.md).

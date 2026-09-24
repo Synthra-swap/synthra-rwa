@@ -105,7 +105,7 @@ prevent release even with a valid attestation.
 
 Current local, fork, mutation, static-analysis, and coverage results are maintained in one place:
 [VALIDATION.md](VALIDATION.md). The current source identity is in `audit/RELEASE_MANIFEST.json`;
-`audit/no-rate-limit-review-snapshot.json` binds source and selected evidence from the last full run.
+`audit/current-review-snapshot.json` binds source and selected evidence from the last full run.
 The internal review does not audit live Core governance, issuer solvency, or operating services.
 
 Before audit scope freeze, document governance and recovery assumptions and the permitted

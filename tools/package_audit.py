@@ -8,11 +8,11 @@ roots={'README.md','foundry.toml','.gitignore','SECURITY.md','LICENSE'}
 reports={'audit-tests.log','unit-tests.log','coverage.log','coverage.lcov','slither.json','slither.log','gas-report.log','demo.log',
          'python-tests.log','mutation-report.json','mutation.log','dependency-verification.json',
          'live-fork-tests.log'}
-review_paths = {'audit/no-rate-limit-review-snapshot.json'}
+review_paths = {'audit/current-review-snapshot.json'}
 review_paths.update('audit/readiness-review/' + name for name in (
     'initial-asset-candidates.json', 'selection-assets.json', 'selection-prices.json',
     'selection-dex-pairs.json', 'fork-assets-registry-20260924.json', 'fork-pins-20260924.json',
-    'twelve-asset-code-identities.json', 'no-rate-limit-fork-pins.json'))
+    'twelve-asset-code-identities.json', 'current-fork-pins.json'))
 network_reports={'asset-registry.json','observations-both-finalized.json','observations-robinhood-latest.json',
                  'robinhood-finalized-rpc.json','arc-finalized-rpc.json','robinhood-latest-rpc.json',
                  'token-implementation-sourcify.json','token-source-check.json','live-vaa-verification.json'}

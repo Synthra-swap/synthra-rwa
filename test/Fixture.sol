@@ -29,7 +29,11 @@ abstract contract Fixture is Test {
         asset = new MockStockToken();
         vault = new SourceVault(_config(address(sourceCore), DESTINATION), address(asset), TREASURY);
         bridge = new DestinationBridge(
-            _config(address(destinationCore), SOURCE), address(asset), "Synthra Test Stock", "sTEST", 1 days
+            _config(address(destinationCore), SOURCE),
+            address(asset),
+            "Synthra Test Stock",
+            "sTEST",
+            _metadataMaxAge()
         );
         wrapped = bridge.wrappedAsset();
         vault.setPeer(address(bridge), address(bridge.wrappedAsset()));
@@ -40,6 +44,10 @@ abstract contract Fixture is Test {
         vm.prank(ALICE);
         asset.approve(address(vault), type(uint256).max);
         vm.deal(ALICE, 100 ether);
+    }
+
+    function _metadataMaxAge() internal pure virtual returns (uint256) {
+        return 1 days;
     }
 
     function _config(address core, uint16 remote) internal view returns (WormholeEndpoint.Config memory c) {

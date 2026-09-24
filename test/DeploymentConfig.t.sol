@@ -24,6 +24,7 @@ contract DeploymentConfigTest is Test {
         Deploy.Parameters memory p = harness.parse(vm.readFile("config/deployment.example.json"));
         assertEq(p.endpoint.maxTransfer, 10 ether);
         assertEq(p.delay, 2 days);
+        assertEq(p.maxAge, 30 days);
         assertTrue(p.sourceSide);
     }
 
@@ -76,6 +77,7 @@ contract DeploymentConfigTest is Test {
         assertEq(WormholeEndpoint(endpoint).owner(), governor);
         assertEq(WormholeEndpoint(endpoint).pausedLanes(), 3);
         assertEq(address(DestinationBridge(endpoint).wrappedAsset()), wrapped);
+        assertEq(DestinationBridge(endpoint).wrappedAsset().metadataMaxAge(), 30 days);
     }
 
     function test_PlaceholderDeploymentFailsBeforeBroadcast() public {

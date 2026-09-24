@@ -20,7 +20,7 @@ contract LocalDemo is Script {
         SourceVault vault =
             new SourceVault(_config(address(source), 200, user), address(asset), address(0xFEE));
         DestinationBridge bridge = new DestinationBridge(
-            _config(address(destination), 100, user), address(asset), "Synthra Mock Stock", "sMOCK", 1 days
+            _config(address(destination), 100, user), address(asset), "Synthra Mock Stock", "sMOCK", 30 days
         );
         vault.setPeer(address(bridge), address(bridge.wrappedAsset()));
         bridge.setPeer(address(vault), address(asset));
