@@ -123,9 +123,32 @@ class NetworkPreflightTests(unittest.TestCase):
         rpc = FakeRPC(fixture()[1]); rpc.overrides[WRAPPED, 'originToken()', ()] = 123
         with self.assertRaisesRegex(ValueError, 'wrapped origin mismatch'): self.check(rpc)
 
-    def test_emergency_guardian_must_still_have_code(self):
-        rpc = FakeRPC(fixture()[0]); rpc.codes[rpc.c['guardian']] = '0x'
-        with self.assertRaisesRegex(ValueError, 'guardian contract missing'): self.check(rpc)
+    def test_shared_eoa_governance_and_guardian_with_timelock(self):
+        for c in fixture():
+            c['guardian'] = c['governanceSafe']
+            rpc = FakeRPC(c); rpc.codes[c['governanceSafe']] = '0x'
+            with self.subTest(sourceSide=c['sourceSide']):
+                self.assertEqual(self.check(rpc)['block'], PIN)
+
+    def test_direct_eoa_endpoint_owner_rejected(self):
+        c = fixture()[0]; c['guardian'] = c['governanceSafe']
+        rpc = FakeRPC(c); rpc.overrides[ENDPOINT, 'owner()', ()] = int(c['governanceSafe'],16)
+        with self.assertRaisesRegex(ValueError, 'owner'): self.check(rpc)
+
+    def test_governance_eoa_cannot_have_direct_timelock_admin_role(self):
+        c = fixture()[0]; c['guardian'] = c['governanceSafe']
+        rpc = FakeRPC(c)
+        rpc.overrides[GOVERNOR, 'hasRole(bytes32,address)', ('0x'+'0'*64,c['governanceSafe'])] = 1
+        with self.assertRaisesRegex(ValueError, 'direct admin role'): self.check(rpc)
+
+    def test_shared_wallet_does_not_bypass_minimum_delay_check(self):
+        c = fixture()[0]; c['guardian'] = c['governanceSafe']
+        rpc = FakeRPC(c); rpc.overrides[GOVERNOR, 'getMinDelay()', ()] = 0
+        with self.assertRaisesRegex(ValueError, 'delay mismatch'): self.check(rpc)
+
+    def test_timelock_contract_code_still_required(self):
+        rpc = FakeRPC(fixture()[0]); rpc.codes[GOVERNOR] = '0x'
+        with self.assertRaisesRegex(ValueError, 'missing code'): self.check(rpc)
 
     def test_changed_fee_rejected(self):
         rpc = FakeRPC(fixture()[0]); rpc.overrides[ENDPOINT, 'FEE_BPS()', ()] = 100

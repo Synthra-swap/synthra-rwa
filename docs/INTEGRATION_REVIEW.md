@@ -5,6 +5,10 @@ uses a 30-day metadata lifetime and passed **19 tests, with none failed or skipp
 interactions were read-only; fork state changes were local. No public Synthra deployment or
 transaction was performed. These checks are internal compatibility evidence, not launch approval.
 
+The subsequent shared hardware-wallet governance change affects deployment/preflight only. This
+fork run was not repeated for that policy change: production contracts and integration inputs are
+unchanged. Shared-role timing and authority are validated separately by local deployment tests.
+
 ## Selected stocks and scenarios
 
 The fixture `config/stock-assets.example.json` contains NVDA, META, PLTR, GOOGL, AAPL, MSFT, INTC,
@@ -126,8 +130,10 @@ The [Wormhole finality table](https://wormhole.com/docs/reference/consistency-le
   and distribution assessment. Fork compatibility does not establish permission or issuer solvency.
 - Obtain reliable finalized/archive state on both networks and independently approve Core
   implementations, governance, finality policy, and observation in both directions.
-- Select actual governance/guardian/treasury addresses, Safe thresholds/modules, per-stock raw-token
-  maxima, receiving ceilings, and metadata lifetime. There is no aggregate cap or rate bucket.
+- Verify the selected hardware-wallet governance/guardian account and deployment signer; complete
+  treasury addresses and per-stock raw-token maxima/receiving ceilings. Safe thresholds/modules need
+  review only if contract wallets are chosen. Metadata lifetime is 30 days. There is no aggregate cap
+  or rate bucket.
 - Freeze source and permitted configuration, obtain independent external review, resolve its findings,
   and retest before production deployment. Public deployment is not a prerequisite for that audit.
 - After audit and deployment approval, verify deployed code/configuration and exercise both directions

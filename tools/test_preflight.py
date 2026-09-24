@@ -35,6 +35,16 @@ class PreflightTests(unittest.TestCase):
             for value in (1,86400,30*86400):
                 pair=fixture();pair[side]['metadataMaxAgeSeconds']=value
                 with self.subTest(side=side,value=value):validate_pair(*pair)
+    def test_shared_governance_and_guardian_allowed(self):
+        s,d=fixture()
+        for c in (s,d):c['guardian']=c['governanceSafe']
+        validate_pair(s,d)
+    def test_zero_governance_or_guardian_rejected(self):
+        for side in (0,1):
+            for field in ('governanceSafe','guardian'):
+                pair=fixture();pair[side][field]='0x'+'0'*40
+                with self.subTest(side=side,field=field),self.assertRaisesRegex(ValueError,'zero address'):
+                    validate_pair(*pair)
     def test_valid_pair(self):validate_pair(*fixture())
     def test_obsolete_total_cap_rejected(self):
         for which in (0,1):

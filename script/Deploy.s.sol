@@ -12,6 +12,7 @@ import {WormholeEndpoint} from "../src/WormholeEndpoint.sol";
 contract Deploy is Script {
     struct Parameters {
         WormholeEndpoint.Config endpoint;
+        // Legacy field name: accepts a governance EOA or contract, not only a Safe.
         address governanceSafe;
         address treasury;
         address asset;
@@ -34,10 +35,8 @@ contract Deploy is Script {
         require(p.endpoint.localEvmChain == block.chainid, "wrong EVM chain");
         require(p.endpoint.remoteEvmChain != block.chainid, "same EVM domains");
         require(
-            p.governanceSafe.code.length != 0 && p.endpoint.guardian.code.length != 0,
-            "Safe/guardian must be contracts"
+            p.governanceSafe != address(0) && p.endpoint.guardian != address(0), "zero governance or guardian"
         );
-        require(p.governanceSafe != p.endpoint.guardian, "separate governance and emergency guardian");
         require(p.delay >= 2 days, "minimum two-day governance delay");
         address[] memory members = new address[](1);
         members[0] = p.governanceSafe;

@@ -55,3 +55,11 @@ English package, source hashes, and fork pins remain available without changing 
 - [audit/synthra-rwa-bridge-audit.tar.gz](https://github.com/Synthra-swap/synthra-rwa/blob/e38335d40bd2f5e8d2a2df37d49d4514e9eaf180/audit/synthra-rwa-bridge-audit.tar.gz), SHA-256 `0aadee574507ad045920ad4ddb9f4a17d89f3e861a13172191c38e08b1ee7b82`.
 - [audit/no-rate-limit-review-snapshot.json](https://github.com/Synthra-swap/synthra-rwa/blob/e38335d40bd2f5e8d2a2df37d49d4514e9eaf180/audit/no-rate-limit-review-snapshot.json), SHA-256 `a3a2616e98cb8be95aeae30743b3b53da3bed24feda3e9aa21fc6ce726bfe9fd`.
 - [audit/readiness-review/no-rate-limit-fork-pins.json](https://github.com/Synthra-swap/synthra-rwa/blob/e38335d40bd2f5e8d2a2df37d49d4514e9eaf180/audit/readiness-review/no-rate-limit-fork-pins.json), SHA-256 `a7cf05522ddcb462e037ce9f3c2aa5adcf0a68ab482a9bdf827fc0a337aae964`.
+
+## Before shared hardware-wallet governance
+
+The preceding package and evidence record the contract-only, separate-account deployment policy.
+Their original identities remain available in Git history:
+
+- [audit/synthra-rwa-bridge-audit.tar.gz](https://github.com/Synthra-swap/synthra-rwa/blob/8ff05bf0d33cde331369ef8d95f549a628756617/audit/synthra-rwa-bridge-audit.tar.gz), SHA-256 `816c5b5f4e7db18012c887d753449fd4565bbcc87a609fe6c0634c266cfa340e`.
+- [audit/current-review-snapshot.json](https://github.com/Synthra-swap/synthra-rwa/blob/8ff05bf0d33cde331369ef8d95f549a628756617/audit/current-review-snapshot.json), SHA-256 `1f85c4e5da0fb173d1eb42b650b5d6885ff5555282536a108a2e2c13c4315e82`.

@@ -76,7 +76,9 @@ The final balances are 5.95 vault tokens and 5.95 wrapped tokens. Do not add `--
 | `WormholeEndpoint` | VAA verification, EVM/Wormhole domains, peer immutable after setup, replay protection, per-message limits, emergency pause |
 | `TimelockController` | Initial governance with a minimum 48-hour delay in deployment scripts |
 
-The operational guardian can only pause one or both directions. Resuming requires governance.
+The guardian role permits immediate pausing of one or both directions. The selected hardware wallet
+also holds governance proposal/execution/cancellation roles, but resuming and administrative changes
+still require execution through the timelock. This concentrates both roles in one signing key.
 Pauses do not freeze wrapped ERC-20 transfers. The system depends on the original issuer, chain
 finality, and Wormhole Guardians/Core; a pause can delay redemptions.
 
@@ -95,7 +97,7 @@ finality, and Wormhole Guardians/Core; a pause can delay redemptions.
 
 ## Current validation
 
-The current source passed 121 Solidity tests, 61 Python tests, 23 security mutations, and 19 fork
+The current source passed 125 Solidity tests, 67 Python tests, 27 security mutations, and 19 fork
 checks covering all twelve selected stocks. Slither reported no High/Medium findings and four
 reviewed Low timestamp findings. These are internal results, not an independent audit opinion.
 See [VALIDATION.md](docs/VALIDATION.md) for evidence and limitations and

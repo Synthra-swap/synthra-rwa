@@ -49,7 +49,6 @@ def validate_pair(source, destination):
             uint(c[name], 8)
         for name in ('core','sourceAsset','governanceSafe','guardian','treasury'):
             address(c[name])
-        require(c['governanceSafe'].lower()!=c['guardian'].lower(),'guardian must differ from governance')
         require(0<int(c['wormholeChain'])<=65535 and 0<int(c['remoteWormholeChain'])<=65535,'invalid Wormhole domain')
         require(int(c['wormholeChain']) != int(c['remoteWormholeChain']), 'same Wormhole domain')
         require(0<int(c['evmChain'])!=int(c['remoteEvmChain'])>0,'invalid EVM domains')
@@ -120,11 +119,9 @@ def inspect(c,meta,remote_meta,phase):
     for role in ('PROPOSER_ROLE','EXECUTOR_ROLE','CANCELLER_ROLE'):
         require(call(governor,'hasRole(bytes32,address)',cast('keccak',role),c['governanceSafe'])==1,'governance role missing')
         require(call(governor,'hasRole(bytes32,address)',cast('keccak',role),ZERO)==0,'open governance role')
-    require(call(governor,'hasRole(bytes32,address)','0x'+'0'*64,c['governanceSafe'])==0,'Safe has direct admin role')
+    require(call(governor,'hasRole(bytes32,address)','0x'+'0'*64,c['governanceSafe'])==0,'governance account has direct admin role')
     require(call(governor,'hasRole(bytes32,address)','0x'+'0'*64,governor)==1,'timelock self-admin missing')
     require(call(governor,'hasRole(bytes32,address)','0x'+'0'*64,ZERO)==0,'zero address has admin role')
-    for target in (c['governanceSafe'],c['guardian']):
-        require(rpc.request('eth_getCode',[target,pin])!='0x','governance/guardian contract missing')
     state={'block':pin,'blockHash':block['hash'],'timestamp':int(block['timestamp'],16),'endpoint':endpoint,'pausedLanes':paused}
     state['remoteToken']='0x'+format(call(endpoint,'remoteToken()'),'040x')
     if c['sourceSide']:

@@ -14,8 +14,11 @@ financial consequences of instant fee payout and the independent metadata channe
 Primary contracts: SourceVault, DestinationBridge, WrappedAsset, WormholeEndpoint,
 BridgeMessage and the two local interfaces. Contracts are not proxies. The deployed governance
 is OpenZeppelin TimelockController with no external bootstrap administrator and an initial >=48h delay.
+The selected hardware-wallet EOA holds proposer/executor/canceller roles and also serves as the
+emergency guardian. Endpoints remain owned by the timelock, not directly by that EOA. Review this
+single-key trust model and verify that shared roles do not bypass the delayed execution path.
 That delay can subsequently be reduced by governance; endpoint ownership can also migrate away from
-the timelock. See the reproduced governance cases and open decisions in `INTERNAL_AUDIT.md`.
+the timelock. See the reproduced governance properties in `INTERNAL_AUDIT.md`.
 
 ## External dependencies
 

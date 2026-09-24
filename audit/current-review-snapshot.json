@@ -1,10 +1,8 @@
 {
   "date": "2026-09-24",
-  "revision": "Thirty-day metadata freshness with permissionless early renewal",
-  "baselineArchiveSha256": "0aadee574507ad045920ad4ddb9f4a17d89f3e861a13172191c38e08b1ee7b82",
-  "changedProductionFiles": [
-    "src/WrappedAsset.sol"
-  ],
+  "revision": "Shared hardware-wallet governance and emergency guardian with timelock-owned endpoints",
+  "baselineArchiveSha256": "816c5b5f4e7db18012c887d753449fd4565bbcc87a609fe6c0634c266cfa340e",
+  "changedProductionFiles": [],
   "deletedProductionFiles": [],
   "productionSourceSha256": {
     "src/BridgeMessage.sol": "42c4a193a2c81109dd33748b3472d1962c696c0e70f3b24e3e9ead3e5deca72f",
@@ -16,11 +14,11 @@
     "src/interfaces/IWormholeCore.sol": "75aa8d49ac32f17b7f11d367c36ae7d4ac2bcb504f12a52450a7c41bb0d62953"
   },
   "evidenceSha256": {
-    "script/Deploy.s.sol": "fe6cadbb47f29df5d10ba979b2c8ed392d987d6cc0c00295676f36ea1036ff6c",
+    "script/Deploy.s.sol": "76aba1cbc44e1a642453033dd0ba36634acb391fc9b6cf89952b62fcf1315640",
     "script/LocalDemo.s.sol": "39f1429205378a6c876e9e8dc34a57b2da01774b8395112e1099586a486ada13",
-    "tools/preflight.py": "ddf427e7c4eb0bf852260f51aadef29aa928d88a81884289616839d49ca60713",
-    "tools/test_preflight.py": "56fcbdb64a3db5c63f4940d8eea990764a55ed8bffe9e4a671b7762610708dcc",
-    "tools/mutation_check.py": "7b2e1cb3c6b6568aa0eee98d92fa125119301b25688318c2b4a3d3d5265e8af9",
+    "tools/preflight.py": "58e967e79d5e2175d2db580d6e02b5fa3f73334a071234f660d1bfdd3d66894a",
+    "tools/test_preflight.py": "614ebc77712aa2ec0dda511191d71423bc5432e9c87507eb7a67ed2c74e7bb82",
+    "tools/mutation_check.py": "c0e0fce8e2dedd91fc68d54bbe91695fe5f5f03035999c2fb8502573bf9e4596",
     "tools/package_audit.py": "3d975927355235a95e561362d488da085f6529c43874975d2ebceef874cb8bd6",
     "foundry.toml": "d0b6afea9ef5c55c2464442d51f853ff3790351a608930f9f31893f4a6d1ee51",
     "test/Metadata.t.sol": "44e6393f4962f32b906356bd9eb7259353a98102cb0720ced40e5202dc422d7b",
@@ -33,21 +31,23 @@
     "config/deployment.example.json": "2d07363df0acd134c0573b7bf2e4239633d9af4d6a00e653f9f63ead8cc5dd5c",
     "config/stock-assets.example.json": "d1b8e15a487ff0247a27be19e78c66a7820d358dadd2186118409be8b72579c3",
     "audit/live-fork-tests.log": "f2587efb6e5d0da6042f8d1712cbfe34f874adf37c86380dce81b7c7012f3d7b",
-    "audit/unit-tests.log": "c1967cb1f54b3627d56505905384055c3e5a4fecb56424b8eff99ca978e4eaf8",
-    "audit/audit-tests.log": "9d1589b9129d75bdcad7fb7ff3ebe56dec75f33d70acf1f5276aee0c6cb9e8cc",
-    "audit/python-tests.log": "3a3fa1e7e9bdbb8be2ad20d852a4336fbe4f81b348575de434886cc3b7a8f185",
-    "audit/mutation-report.json": "594733e8fa62963384f5eeeec1e6a884c7242e78e3ca7106b5055f68f833e284",
-    "audit/mutation.log": "ad4f246f3e3805b51491de06c25da2449866876c9a387ee0ae80347b4d2b0059",
-    "audit/coverage.log": "6652ed00febe02f2d02483ead7d39da63701f0113b93028a3780d7e8dec9eab2",
-    "audit/coverage.lcov": "fcd99d0f97a77ac69bea3182708b18f4c2f66c9971ca8a1728c0b5bf887a1c58",
+    "audit/unit-tests.log": "fb9cc24977c86e142ed562a4855fd2e3c998045085cc14f472e592eb045fdec9",
+    "audit/audit-tests.log": "6033f7dfba4a3d87fa48793b38b8b43a16f51c2da42eadd8ac6aec3ae015dfa2",
+    "audit/python-tests.log": "85d330114fd54fe4c29746822ee6903d2013e8524b8e34c27b97508244f337d9",
+    "audit/mutation-report.json": "2cd1d4b6f5e23725af017f3f97b7939ceb408e55e6c72c22ec9d1919f25ed6c4",
+    "audit/mutation.log": "23aabf09b11d778d3541283399b6602daa4a30c595df5535000a9d76d10bdbe9",
+    "audit/coverage.log": "78d82f07063be3d5b64760be7b0e5f05e3867e19f32286ca966b64c92e5d2569",
+    "audit/coverage.lcov": "22e727b597330fe92c5b94a0aafc8b14a99198959930e21bda10a2c4cddbcac0",
     "audit/slither.json": "0be5167c6f8922d865268e490c0c124b661f950ec516a8aade1843230e0cd528",
     "audit/slither.log": "57c7f4e0030567daebcc43bb14fcbc511eaa061b55ceb767a65249ac950e1605",
-    "audit/gas-report.log": "85dfe4a23b55b968338b937c6bc8dc9910c936ca85b31789efb59a1a10b85bc1",
-    "audit/demo.log": "cfdeeae96e67cbf911eaf0a6dabf660d2b5f91433bcdfe0b4599b273c71d059b",
-    "audit/readiness-review/current-fork-pins.json": "00cd3de936802b2ee16f086f8907119ab30d724035352db5b2ed554ffb6242f9"
+    "audit/gas-report.log": "67b0ac1254ac315c9a446ee80501f2afb9c1796d91c1cef693a4962c498d8f00",
+    "audit/demo.log": "224b57235bb6e9d3c4963a403f9fb987969801c934a1fbe8d52afe4cac7539e0",
+    "audit/readiness-review/current-fork-pins.json": "00cd3de936802b2ee16f086f8907119ab30d724035352db5b2ed554ffb6242f9",
+    "test/HardwareWalletGovernance.t.sol": "ccced3639d7529a2f679c59d3c91fd94be1600e2b9e506a8214b76f5caf2725c",
+    "tools/test_network_preflight.py": "3de1aab94d483221c1a7be46f762a09aa3f36e93885d3cd0a72c83013ae7b996"
   },
-  "solidityTests": 121,
-  "pythonTests": 61,
+  "solidityTests": 125,
+  "pythonTests": 67,
   "forkTests": 19,
   "selectedStocks": [
     "NVDA",
@@ -63,7 +63,7 @@
     "COIN",
     "AVGO"
   ],
-  "mutationsDetected": 23,
+  "mutationsDetected": 27,
   "mutationInputsMatch": true,
   "slitherHighMedium": 0,
   "slitherReviewedLow": 4,
@@ -101,13 +101,32 @@
     },
     "postTestRecheckedAtUTC": "2026-09-24T09:42:33.033260+00:00"
   },
-  "notice": "Fresh full checks, 23 detected mutations, and twelve-stock fork rerun at a 30-day metadata lifetime. Early publication/delivery remains permissionless. A longer freshness window can retain missed source changes longer; operators must refresh on changes and before expiry. No hosted keeper or public transactions. Fork return attestations and issuer role/block responses simulated. Independent audit outstanding.",
-  "recordedAtUTC": "2026-09-24T09:43:45.889247+00:00",
-  "baselineCommit": "e38335d40bd2f5e8d2a2df37d49d4514e9eaf180",
+  "notice": "Fresh full local checks and 27 detected mutations, including deployment-policy guards. The shared hardware-wallet account can pause immediately; administrative calls remain timelocked, with no external bootstrap admin. Production bridge contracts and previous twelve-stock fork inputs/evidence are unchanged; fork tests were not rerun for this deployment/preflight change. No public transactions. Independent audit outstanding.",
+  "recordedAtUTC": "2026-09-24T10:13:34.271918+00:00",
+  "baselineCommit": "8ff05bf0d33cde331369ef8d95f549a628756617",
   "metadataMaxAgeSeconds": 2592000,
   "metadataAgeConstructorCeilingSeconds": 2592000,
   "metadataEarlyRefreshPermissionless": true,
   "metadataAgeImmutableAfterDeployment": true,
   "maxClockSkewSeconds": 300,
-  "hostedKeeperIncluded": false
+  "hostedKeeperIncluded": false,
+  "changedDeploymentAndOperationalFiles": [
+    "script/Deploy.s.sol",
+    "tools/preflight.py"
+  ],
+  "automaticRelayerIncluded": false,
+  "forkTestsRerunForThisChange": false,
+  "forkEvidenceSourceCommit": "056dee2da738bf7de42eff603f47e93c58058434",
+  "governancePolicy": {
+    "governanceAccountMayBeEOA": true,
+    "guardianMayBeEOA": true,
+    "sharedGovernanceGuardianAccountAllowed": true,
+    "selectedTopology": "One hardware-wallet EOA as proposer/executor/canceller and emergency guardian",
+    "endpointOwner": "New TimelockController",
+    "initialMinimumDelaySeconds": 172800,
+    "externalBootstrapAdmin": false,
+    "permanentMinimumDelayEnforced": false,
+    "zeroAuthorityAddressesRejected": true,
+    "deploymentHotWalletHasImplicitAdminRights": false
+  }
 }

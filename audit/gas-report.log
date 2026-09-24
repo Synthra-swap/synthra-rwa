@@ -1,34 +1,8 @@
 No files changed, compilation skipped
 
-Ran 7 tests for test/TreasuryGovernance.t.sol:TreasuryGovernanceTest
-[PASS] test_BlockedReplacementRollsBackAndRotationRestoresDeposits() (gas: 1189932)
-[PASS] test_GuardianPauseIsImmediateEvenWithTimelockOwner() (gas: 1923197)
-[PASS] test_InvalidTreasuriesRejectedWithoutChangingRecipient() (gas: 126559)
-[PASS] test_RotationAffectsFutureFeesOnlyAndPreservesPendingClaimAndBacking() (gas: 2716327)
-[PASS] test_TreasuryCannotChangeDuringDepositEvenThroughOwnerCallback() (gas: 1078628)
-[PASS] test_TreasuryChangeRequiresMatureTimelockOperation() (gas: 2920902)
-[PASS] test_UsersGuardianAndTreasuryCannotRedirectFees() (gas: 90444)
-Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 4.29ms (2.94ms CPU time)
-
-Ran 8 tests for test/Metadata.t.sol:MetadataTest
-[PASS] test_ExpiredMetadataFailsClosedButRawRedemptionRemainsAvailable() (gas: 2558919)
-[PASS] test_InterfacesAndConversion() (gas: 921192)
-[PASS] test_MetadataReplayAndUnauthorizedUpdatesRejected() (gas: 949282)
-[PASS] test_OutOfOrderSnapshotsCannotOverwriteNewerState() (gas: 1693236)
-[PASS] test_ScheduledActionCanBeCancelledByNewSnapshot() (gas: 1801387)
-[PASS] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1935084)
-[PASS] test_StaleMessageRequiresFreshPublication() (gas: 1665417)
-[PASS] test_UninitializedMetadataDoesNotMisrepresentShares() (gas: 925348)
-Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 7.78ms (6.42ms CPU time)
-
-Ran 6 tests for test/DeploymentConfig.t.sol:DeploymentConfigTest
-[PASS] test_DecimalStringsPreserveRawTokenPrecision() (gas: 10114917)
-[PASS] test_NewDeploymentRejectsHistoricalCeilingDifferentFromInitialMaximum() (gas: 10097355)
-[PASS] test_ObsoleteCapConfigRejectedBeforeDeployment() (gas: 10060451)
-[PASS] test_ObsoleteRateConfigRejectedBeforeDeployment() (gas: 10076888)
-[PASS] test_PlaceholderDeploymentFailsBeforeBroadcast() (gas: 9892776)
-[PASS] test_ValidDeploymentCreatesTimelockOwnedPausedEndpoints() (gas: 20701820)
-Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 11.79ms (19.17ms CPU time)
+Ran 1 test for test/Governance.t.sol:GovernanceTest
+[PASS] test_TimelockHasNoDeployerBypassAndGuardianCannotResume() (gas: 4759793)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.44ms (408.50µs CPU time)
 
 Ran 12 tests for test/Metadata.t.sol:MonthlyMetadataTest
 [PASS] test_AnyoneCanRenewUnchangedMetadataBeforeExpiry() (gas: 1796009)
@@ -43,14 +17,52 @@ Ran 12 tests for test/Metadata.t.sol:MonthlyMetadataTest
 [PASS] test_StaleMessageRequiresFreshPublication() (gas: 1665462)
 [PASS] test_ThirtyDayFreshnessBoundary() (gas: 930508)
 [PASS] test_UninitializedMetadataDoesNotMisrepresentShares() (gas: 925326)
-Suite result: ok. 12 passed; 0 failed; 0 skipped; finished in 11.88ms (6.77ms CPU time)
+Suite result: ok. 12 passed; 0 failed; 0 skipped; finished in 5.98ms (8.19ms CPU time)
 
-Ran 1 test for test/Governance.t.sol:GovernanceTest
-[PASS] test_TimelockHasNoDeployerBypassAndGuardianCannotResume() (gas: 4759793)
-Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 5.50ms (4.28ms CPU time)
+Ran 7 tests for test/TreasuryGovernance.t.sol:TreasuryGovernanceTest
+[PASS] test_BlockedReplacementRollsBackAndRotationRestoresDeposits() (gas: 1189932)
+[PASS] test_GuardianPauseIsImmediateEvenWithTimelockOwner() (gas: 1923197)
+[PASS] test_InvalidTreasuriesRejectedWithoutChangingRecipient() (gas: 126559)
+[PASS] test_RotationAffectsFutureFeesOnlyAndPreservesPendingClaimAndBacking() (gas: 2716327)
+[PASS] test_TreasuryCannotChangeDuringDepositEvenThroughOwnerCallback() (gas: 1078628)
+[PASS] test_TreasuryChangeRequiresMatureTimelockOperation() (gas: 2920902)
+[PASS] test_UsersGuardianAndTreasuryCannotRedirectFees() (gas: 90444)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 6.71ms (6.36ms CPU time)
+
+Ran 2 tests for test/AssetExpansion.t.sol:AssetExpansionTest
+[PASS] test_AddThirteenthAssetPreservesExistingTwelvePairs() (gas: 108504679)
+[PASS] test_OneAssetMessageCannotMintAnotherAndPairPauseIsIsolated() (gas: 16657429)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 18.02ms (18.80ms CPU time)
+
+Ran 4 tests for test/HardwareWalletGovernance.t.sol:HardwareWalletGovernanceTest
+[PASS] test_SharedEOARolesKeepTimelockOwnershipOnBothSides() (gas: 33003552)
+[PASS] test_SharedWalletPausesImmediatelyButResumeWaitsForTimelock() (gas: 16660197)
+[PASS] test_TreasuryChangeCannotBypassDelayWithSharedWallet() (gas: 16340313)
+[PASS] test_ZeroAuthoritiesAndShortDelayRejectedBeforeDeployment() (gas: 14440641)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 22.64ms (9.70ms CPU time)
+
+Ran 8 tests for test/Metadata.t.sol:MetadataTest
+[PASS] test_ExpiredMetadataFailsClosedButRawRedemptionRemainsAvailable() (gas: 2558919)
+[PASS] test_InterfacesAndConversion() (gas: 921192)
+[PASS] test_MetadataReplayAndUnauthorizedUpdatesRejected() (gas: 949282)
+[PASS] test_OutOfOrderSnapshotsCannotOverwriteNewerState() (gas: 1693236)
+[PASS] test_ScheduledActionCanBeCancelledByNewSnapshot() (gas: 1801387)
+[PASS] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1935084)
+[PASS] test_StaleMessageRequiresFreshPublication() (gas: 1665417)
+[PASS] test_UninitializedMetadataDoesNotMisrepresentShares() (gas: 925348)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 16.74ms (9.04ms CPU time)
+
+Ran 6 tests for test/DeploymentConfig.t.sol:DeploymentConfigTest
+[PASS] test_DecimalStringsPreserveRawTokenPrecision() (gas: 10086828)
+[PASS] test_NewDeploymentRejectsHistoricalCeilingDifferentFromInitialMaximum() (gas: 10069266)
+[PASS] test_ObsoleteCapConfigRejectedBeforeDeployment() (gas: 10032362)
+[PASS] test_ObsoleteRateConfigRejectedBeforeDeployment() (gas: 10048799)
+[PASS] test_PlaceholderDeploymentFailsBeforeBroadcast() (gas: 9864376)
+[PASS] test_ValidDeploymentCreatesTimelockOwnedPausedEndpoints() (gas: 20670659)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 27.44ms (29.31ms CPU time)
 
 Ran 14 tests for test/TransferLimitGovernance.t.sol:TransferLimitGovernanceTest
-[PASS] testFuzz_InboundCeilingNeverDecreasesAcrossChanges(uint256,uint256) (runs: 256, μ: 267944, ~: 282960)
+[PASS] testFuzz_InboundCeilingNeverDecreasesAcrossChanges(uint256,uint256) (runs: 256, μ: 272076, ~: 283288)
 [PASS] test_AllPendingLegacyMessagesCompleteWithoutWaitingAfterDecrease() (gas: 16372111)
 [PASS] test_BothChangesRequireMatureTimelockWithoutPausingService() (gas: 2978672)
 [PASS] test_ChangesNeedNoPauseAndNeverChangeLaneState() (gas: 323990)
@@ -64,21 +76,21 @@ Ran 14 tests for test/TransferLimitGovernance.t.sol:TransferLimitGovernanceTest
 [PASS] test_RepeatedTransfersAndMaximumChangesHaveNoQuota() (gas: 32731226)
 [PASS] test_UsersGuardianAndTreasuryCannotChangeEitherMaximum() (gas: 320463)
 [PASS] test_ZeroAndUnpreparedMaximumRejected() (gas: 117655)
-Suite result: ok. 14 passed; 0 failed; 0 skipped; finished in 47.55ms (84.47ms CPU time)
+Suite result: ok. 14 passed; 0 failed; 0 skipped; finished in 46.37ms (81.34ms CPU time)
 
 Ran 8 tests for test/EdgeCases.t.sol:EdgeCasesTest
-[PASS] testFuzz_InvalidAuthenticatedMetadata(uint8) (runs: 256, μ: 844885, ~: 844818)
-[PASS] testFuzz_InvalidEndpointConfiguration(uint8) (runs: 256, μ: 371750, ~: 371816)
+[PASS] testFuzz_InvalidAuthenticatedMetadata(uint8) (runs: 256, μ: 844839, ~: 844818)
+[PASS] testFuzz_InvalidEndpointConfiguration(uint8) (runs: 256, μ: 371734, ~: 371898)
 [PASS] test_BackgroundBackingDeficitBlocksNewDeposits() (gas: 995003)
 [PASS] test_BadSourceMetadataAndMessageFees() (gas: 166874)
 [PASS] test_GuardianRotationAndInvalidMasks() (gas: 206557)
 [PASS] test_PendingGettersAndInvalidConstructor() (gas: 1207922)
 [PASS] test_RawSnapshotReadableWhileStaleAndFullPrecisionConversion() (gas: 1895246)
 [PASS] test_SupplyCanGrowInSameBlockWithoutTotalCap() (gas: 2648152)
-Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 104.00ms (129.61ms CPU time)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 115.95ms (145.99ms CPU time)
 
 Ran 13 tests for test/InternalAudit.t.sol:InternalAuditTest
-[PASS] testFuzz_DirtyAbiWordsRejectedAndClaimStillDeliverable(uint8) (runs: 256, μ: 1029563, ~: 1023122)
+[PASS] testFuzz_DirtyAbiWordsRejectedAndClaimStillDeliverable(uint8) (runs: 256, μ: 1029747, ~: 1023122)
 [PASS] test_AlreadyReadyUnpauseDoesNotWaitAfterANewEmergencyPause() (gas: 4662599)
 [PASS] test_DelayedOwnershipMigrationCanRemoveTimelockEntirely() (gas: 4714890)
 [PASS] test_ExpiredScheduleIsNormalizedOnSourcePublication() (gas: 965384)
@@ -91,10 +103,10 @@ Ran 13 tests for test/InternalAudit.t.sol:InternalAuditTest
 [PASS] test_ReleaseCallbackCannotReenterOrSpendSameClaimTwice() (gas: 2341791)
 [PASS] test_RoundTripBeyondFormerTotalCapWithOutOfOrderDelivery() (gas: 3332872)
 [PASS] test_WrongEntryPointDoesNotConsumeTransferOrMetadata() (gas: 1894329)
-Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 135.60ms (151.13ms CPU time)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 130.99ms (137.83ms CPU time)
 
 Ran 15 tests for test/SignedVAA.t.sol:SignedVAATest
-[PASS] testFuzz_AnyTruncatedSignedVaaCannotMint(uint256) (runs: 256, μ: 538450, ~: 526918)
+[PASS] testFuzz_AnyTruncatedSignedVaaCannotMint(uint256) (runs: 256, μ: 541664, ~: 555293)
 [PASS] test_AlternativeQuorumCannotReplaySameSequence() (gas: 780237)
 [PASS] test_DuplicateGuardianCannotCountTwiceTowardQuorum() (gas: 572401)
 [PASS] test_ExpiredAttestationNeedsResigningAndReSigningCannotDoubleMint() (gas: 1430806)
@@ -109,11 +121,11 @@ Ran 15 tests for test/SignedVAA.t.sol:SignedVAATest
 [PASS] test_UnknownGuardianSetRejected() (gas: 529915)
 [PASS] test_UnsupportedVaaVersionRejected() (gas: 508037)
 [PASS] test_WrongGuardianSignatureRejected() (gas: 544960)
-Suite result: ok. 15 passed; 0 failed; 0 skipped; finished in 177.67ms (204.47ms CPU time)
+Suite result: ok. 15 passed; 0 failed; 0 skipped; finished in 156.14ms (181.88ms CPU time)
 
 Ran 34 tests for test/Bridge.t.sol:BridgeTest
-[PASS] testFuzz_InvalidAuthenticatedMessages(uint8) (runs: 256, μ: 902599, ~: 898858)
-[PASS] testFuzz_RoundTripAndImmediateFee(uint256) (runs: 256, μ: 1733084, ~: 1736877)
+[PASS] testFuzz_InvalidAuthenticatedMessages(uint8) (runs: 256, μ: 901984, ~: 898892)
+[PASS] testFuzz_RoundTripAndImmediateFee(uint256) (runs: 256, μ: 1733868, ~: 1736877)
 [PASS] test_BackingDeficitBlocksExitsUntilRestored() (gas: 1863387)
 [PASS] test_BurnReplay() (gas: 1743065)
 [PASS] test_ChainChangeRejected() (gas: 770942)
@@ -146,7 +158,7 @@ Ran 34 tests for test/Bridge.t.sol:BridgeTest
 [PASS] test_UnattestedRejected() (gas: 50716)
 [PASS] test_UnauthorizedAdministration() (gas: 124026)
 [PASS] test_ZeroAndInvalidRecipient() (gas: 147599)
-Suite result: ok. 34 passed; 0 failed; 0 skipped; finished in 293.34ms (364.44ms CPU time)
+Suite result: ok. 34 passed; 0 failed; 0 skipped; finished in 281.37ms (345.47ms CPU time)
 
 Ran 1 test for test/BridgeInvariant.t.sol:BridgeInvariantTest
 [PASS] invariant_ReservesCoverSupplyAndEveryPendingClaim() (runs: 128, calls: 8192, reverts: 0)
@@ -154,36 +166,31 @@ Ran 1 test for test/BridgeInvariant.t.sol:BridgeInvariantTest
 ╭---------------+-------------------+-------+---------+----------╮
 | Contract      | Selector          | Calls | Reverts | Discards |
 +================================================================+
-| BridgeHandler | advanceTime       | 1001  | 0       | 0        |
+| BridgeHandler | advanceTime       | 1033  | 0       | 0        |
 |---------------+-------------------+-------+---------+----------|
 | BridgeHandler | changeMaximum     | 1041  | 0       | 0        |
 |---------------+-------------------+-------+---------+----------|
-| BridgeHandler | deliverDeposit    | 980   | 0       | 0        |
+| BridgeHandler | deliverDeposit    | 1029  | 0       | 0        |
 |---------------+-------------------+-------+---------+----------|
-| BridgeHandler | deliverRedemption | 1052  | 0       | 0        |
+| BridgeHandler | deliverRedemption | 1018  | 0       | 0        |
 |---------------+-------------------+-------+---------+----------|
-| BridgeHandler | deposit           | 1038  | 0       | 0        |
+| BridgeHandler | deposit           | 1035  | 0       | 0        |
 |---------------+-------------------+-------+---------+----------|
-| BridgeHandler | redeem            | 1005  | 0       | 0        |
+| BridgeHandler | redeem            | 1004  | 0       | 0        |
 |---------------+-------------------+-------+---------+----------|
-| BridgeHandler | setPause          | 1068  | 0       | 0        |
+| BridgeHandler | setPause          | 1033  | 0       | 0        |
 |---------------+-------------------+-------+---------+----------|
-| BridgeHandler | transferWrapped   | 1007  | 0       | 0        |
+| BridgeHandler | transferWrapped   | 999   | 0       | 0        |
 ╰---------------+-------------------+-------+---------+----------╯
 
-Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.42s (1.42s CPU time)
-
-Ran 2 tests for test/AssetExpansion.t.sol:AssetExpansionTest
-[PASS] test_AddThirteenthAssetPreservesExistingTwelvePairs() (gas: 108504679)
-[PASS] test_OneAssetMessageCannotMintAnotherAndPairPauseIsIsolated() (gas: 16657429)
-Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.44s (16.35ms CPU time)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.55s (1.55s CPU time)
 
 ╭-------------------------------------+-----------------+-------+--------+-------+---------╮
 | script/Deploy.s.sol:Deploy Contract |                 |       |        |       |         |
 +==========================================================================================+
 | Deployment Cost                     | Deployment Size |       |        |       |         |
 |-------------------------------------+-----------------+-------+--------+-------+---------|
-| 9767427                             | 45064           |       |        |       |         |
+| 9739073                             | 44933           |       |        |       |         |
 |-------------------------------------+-----------------+-------+--------+-------+---------|
 |                                     |                 |       |        |       |         |
 |-------------------------------------+-----------------+-------+--------+-------+---------|
@@ -197,43 +204,45 @@ Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.44s (16.35ms CPU 
 +=============================================================================================================+
 | Deployment Cost                                      | Deployment Size |        |        |        |         |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| 3181868                                              | 16873           |        |        |        |         |
+| 3181772                                              | 16873           |        |        |        |         |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
 |                                                      |                 |        |        |        |         |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
 | Function Name                                        | Min             | Avg    | Median | Max    | # Calls |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| completeDeposit                                      | 32719           | 87578  | 78309  | 166403 | 2040    |
+| completeDeposit                                      | 32719           | 87930  | 78309  | 166403 | 2090    |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| completeMetadata                                     | 52986           | 91121  | 84039  | 196315 | 290     |
+| completeMetadata                                     | 52986           | 91134  | 84039  | 196315 | 290     |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| deploymentChainId                                    | 262             | 262    | 262    | 262    | 4607    |
+| deploymentChainId                                    | 262             | 262    | 262    | 262    | 4603    |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| inboundMaxTransfer                                   | 2363            | 2363   | 2363   | 2363   | 1826    |
+| guardian                                             | 2394            | 2394   | 2394   | 2394   | 1       |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| maxTransfer                                          | 2383            | 2383   | 2383   | 2383   | 1276    |
+| inboundMaxTransfer                                   | 2363            | 2363   | 2363   | 2363   | 1823    |
+|------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| maxTransfer                                          | 2383            | 2383   | 2383   | 2383   | 1272    |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
 | messageFee                                           | 5390            | 5390   | 5390   | 5390   | 298     |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| owner                                                | 2387            | 2387   | 2387   | 2387   | 1583    |
+| owner                                                | 2387            | 2387   | 2387   | 2387   | 1547    |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| pause                                                | 30009           | 32082  | 32809  | 32809  | 264     |
+| pause                                                | 30009           | 32172  | 32809  | 32809  | 231     |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| pausedLanes                                          | 419             | 2417   | 2419   | 2419   | 1837    |
+| pausedLanes                                          | 419             | 2416   | 2419   | 2419   | 1884    |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
 | peer                                                 | 2373            | 2373   | 2373   | 2373   | 12      |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| prepareInboundMaxTransfer                            | 23790           | 32601  | 32601  | 32877  | 461     |
+| prepareInboundMaxTransfer                            | 23790           | 32609  | 32601  | 32877  | 470     |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| redeem                                               | 33768           | 534252 | 535047 | 544875 | 636     |
+| redeem                                               | 33768           | 534771 | 537179 | 544875 | 672     |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| setMaxTransfer                                       | 23811           | 35000  | 35023  | 35323  | 1573    |
+| setMaxTransfer                                       | 23739           | 34997  | 35023  | 35323  | 1571    |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
 | setPeer                                              | 53934           | 53945  | 53946  | 53946  | 146     |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| unpause                                              | 23803           | 31677  | 32820  | 32820  | 422     |
+| unpause                                              | 23803           | 31608  | 32820  | 32820  | 421     |
 |------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| wrappedAsset                                         | 316             | 316    | 316    | 316    | 533     |
+| wrappedAsset                                         | 316             | 316    | 316    | 316    | 534     |
 ╰------------------------------------------------------+-----------------+--------+--------+--------+---------╯
 
 ╭------------------------------------------+-----------------+--------+--------+--------+---------╮
@@ -241,7 +250,7 @@ Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.44s (16.35ms CPU 
 +=================================================================================================+
 | Deployment Cost                          | Deployment Size |        |        |        |         |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
-| 2667800                                  | 13464           |        |        |        |         |
+| 2667764                                  | 13464           |        |        |        |         |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
 |                                          |                 |        |        |        |         |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
@@ -251,31 +260,33 @@ Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.44s (16.35ms CPU 
 |------------------------------------------+-----------------+--------+--------+--------+---------|
 | acceptOwnership                          | 28291           | 28291  | 28291  | 28291  | 1       |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
-| completeRedemption                       | 37176           | 97781  | 103232 | 190296 | 547     |
+| completeRedemption                       | 37176           | 96160  | 103220 | 190296 | 595     |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
-| deploymentChainId                        | 262             | 262    | 262    | 262    | 3694    |
+| deploymentChainId                        | 262             | 262    | 262    | 262    | 3660    |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
-| deposit                                  | 31240           | 573420 | 607115 | 674606 | 1893    |
+| deposit                                  | 31240           | 573178 | 593545 | 674606 | 1969    |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
-| feeRecipient                             | 2416            | 2416   | 2416   | 2416   | 8       |
+| feeRecipient                             | 2416            | 2416   | 2416   | 2416   | 10      |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
-| inboundMaxTransfer                       | 2363            | 2363   | 2363   | 2363   | 1833    |
+| guardian                                 | 2394            | 2394   | 2394   | 2394   | 1       |
+|------------------------------------------+-----------------+--------+--------+--------+---------|
+| inboundMaxTransfer                       | 2363            | 2363   | 2363   | 2363   | 1830    |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
 | locked                                   | 2384            | 2384   | 2384   | 2384   | 573     |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
-| maxTransfer                              | 2383            | 2383   | 2383   | 2383   | 1309    |
+| maxTransfer                              | 2383            | 2383   | 2383   | 2383   | 1312    |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
 | messageFee                               | 5435            | 5435   | 5435   | 5435   | 902     |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
-| owner                                    | 2387            | 2387   | 2387   | 2387   | 1594    |
+| owner                                    | 2387            | 2387   | 2387   | 2387   | 1595    |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
-| pause                                    | 25936           | 31835  | 32809  | 32809  | 283     |
+| pause                                    | 25936           | 31863  | 32809  | 32809  | 301     |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
-| pausedLanes                              | 419             | 2417   | 2419   | 2419   | 1406    |
+| pausedLanes                              | 419             | 2413   | 2419   | 2419   | 1518    |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
 | peer                                     | 2373            | 2373   | 2373   | 2373   | 13      |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
-| prepareInboundMaxTransfer                | 23790           | 32568  | 32601  | 32877  | 467     |
+| prepareInboundMaxTransfer                | 23790           | 32576  | 32601  | 32877  | 476     |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
 | publishMetadata                          | 35939           | 555947 | 559056 | 581856 | 288     |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
@@ -283,17 +294,17 @@ Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.44s (16.35ms CPU 
 |------------------------------------------+-----------------+--------+--------+--------+---------|
 | renounceOwnership                        | 2439            | 2439   | 2439   | 2439   | 1       |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
-| setFeeRecipient                          | 23803           | 28106  | 29021  | 32869  | 10      |
+| setFeeRecipient                          | 23803           | 27715  | 28887  | 32869  | 11      |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
 | setGuardian                              | 23773           | 26011  | 23782  | 30479  | 3       |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
-| setMaxTransfer                           | 23855           | 35025  | 35067  | 35367  | 1580    |
+| setMaxTransfer                           | 23783           | 35021  | 35067  | 35367  | 1578    |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
 | setPeer                                  | 24491           | 53452  | 53836  | 53836  | 148     |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
 | transferOwnership                        | 47861           | 47869  | 47873  | 47873  | 3       |
 |------------------------------------------+-----------------+--------+--------+--------+---------|
-| unpause                                  | 23803           | 31549  | 32820  | 32820  | 428     |
+| unpause                                  | 23803           | 31598  | 32820  | 32820  | 416     |
 ╰------------------------------------------+-----------------+--------+--------+--------+---------╯
 
 ╭--------------------------------------------+-----------------+-------+--------+-------+---------╮
@@ -309,7 +320,7 @@ Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.44s (16.35ms CPU 
 |--------------------------------------------+-----------------+-------+--------+-------+---------|
 | applySnapshot                              | 22387           | 22387 | 22387  | 22387 | 2       |
 |--------------------------------------------+-----------------+-------+--------+-------+---------|
-| balanceOf                                  | 2607            | 2607  | 2607   | 2607  | 2378    |
+| balanceOf                                  | 2607            | 2607  | 2607   | 2607  | 2364    |
 |--------------------------------------------+-----------------+-------+--------+-------+---------|
 | balanceOfUI                                | 7058            | 9376  | 9376   | 11695 | 4       |
 |--------------------------------------------+-----------------+-------+--------+-------+---------|
@@ -339,65 +350,65 @@ Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.44s (16.35ms CPU 
 |--------------------------------------------+-----------------+-------+--------+-------+---------|
 | totalSupplyUI                              | 11367           | 11367 | 11367  | 11367 | 1       |
 |--------------------------------------------+-----------------+-------+--------+-------+---------|
-| transfer                                   | 29430           | 37330 | 34266  | 51426 | 542     |
+| transfer                                   | 29430           | 37481 | 34278  | 51426 | 540     |
 |--------------------------------------------+-----------------+-------+--------+-------+---------|
 | uiMultiplier                               | 2429            | 7728  | 8933   | 9047  | 14      |
 ╰--------------------------------------------+-----------------+-------+--------+-------+---------╯
 
-╭---------------------------------------------------+-----------------+--------+---------+---------+---------╮
-| test/BridgeInvariant.t.sol:BridgeHandler Contract |                 |        |         |         |         |
-+============================================================================================================+
-| Deployment Cost                                   | Deployment Size |        |         |         |         |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| 3328060                                           | 15908           |        |         |         |         |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-|                                                   |                 |        |         |         |         |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| Function Name                                     | Min             | Avg    | Median  | Max     | # Calls |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| advanceTime                                       | 6663            | 7116   | 7353    | 7353    | 1007    |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| changeMaximum                                     | 118641          | 140858 | 124385  | 191051  | 1049    |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| deliverDeposit                                    | 8445            | 98817  | 132506  | 233288  | 991     |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| deliverRedemption                                 | 8511            | 43069  | 8511    | 256031  | 1060    |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| deposit                                           | 16975           | 833480 | 1279916 | 1406328 | 1041    |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| drainPending                                      | 384564          | 384564 | 384564  | 384564  | 1       |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| grossDeposited                                    | 2331            | 2331   | 2331    | 2331    | 1       |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| originalReleased                                  | 2329            | 2329   | 2329    | 2329    | 1       |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| paidFees                                          | 2351            | 2351   | 2351    | 2351    | 2       |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| pendingMint                                       | 2373            | 2373   | 2373    | 2373    | 2       |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| pendingRelease                                    | 2328            | 2328   | 2328    | 2328    | 2       |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| redeem                                            | 22572           | 369906 | 22595   | 1216598 | 1017    |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| setPause                                          | 51153           | 53138  | 53954   | 54654   | 1074    |
-|---------------------------------------------------+-----------------+--------+---------+---------+---------|
-| transferWrapped                                   | 9344            | 35279  | 52493   | 70379   | 1017    |
-╰---------------------------------------------------+-----------------+--------+---------+---------+---------╯
+╭---------------------------------------------------+-----------------+---------+---------+---------+---------╮
+| test/BridgeInvariant.t.sol:BridgeHandler Contract |                 |         |         |         |         |
++=============================================================================================================+
+| Deployment Cost                                   | Deployment Size |         |         |         |         |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| 3328060                                           | 15908           |         |         |         |         |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+|                                                   |                 |         |         |         |         |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| Function Name                                     | Min             | Avg     | Median  | Max     | # Calls |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| advanceTime                                       | 6663            | 7120    | 7353    | 7353    | 1042    |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| changeMaximum                                     | 118922          | 140475  | 124385  | 191051  | 1046    |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| deliverDeposit                                    | 8445            | 103159  | 132506  | 233288  | 1038    |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| deliverRedemption                                 | 8511            | 52139   | 8511    | 256043  | 1023    |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| deposit                                           | 16975           | 922968  | 1279940 | 1406328 | 1044    |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| drainPending                                      | 1214437         | 1214437 | 1214437 | 1214437 | 1       |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| grossDeposited                                    | 2331            | 2331    | 2331    | 2331    | 1       |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| originalReleased                                  | 2329            | 2329    | 2329    | 2329    | 1       |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| paidFees                                          | 2351            | 2351    | 2351    | 2351    | 2       |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| pendingMint                                       | 2373            | 2373    | 2373    | 2373    | 2       |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| pendingRelease                                    | 2328            | 2328    | 2328    | 2328    | 2       |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| redeem                                            | 22572           | 413195  | 22595   | 1216574 | 1013    |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| setPause                                          | 51153           | 53159   | 53954   | 54654   | 1043    |
+|---------------------------------------------------+-----------------+---------+---------+---------+---------|
+| transferWrapped                                   | 11844           | 35508   | 52493   | 70379   | 1007    |
+╰---------------------------------------------------+-----------------+---------+---------+---------+---------╯
 
 ╭----------------------------------------------------+-----------------+---------+---------+---------+---------╮
 | test/DeploymentConfig.t.sol:ConfigHarness Contract |                 |         |         |         |         |
 +==============================================================================================================+
 | Deployment Cost                                    | Deployment Size |         |         |         |         |
 |----------------------------------------------------+-----------------+---------+---------+---------+---------|
-| 10003824                                           | 46160           |         |         |         |         |
+| 9975782                                            | 46029           |         |         |         |         |
 |----------------------------------------------------+-----------------+---------+---------+---------+---------|
 |                                                    |                 |         |         |         |         |
 |----------------------------------------------------+-----------------+---------+---------+---------+---------|
 | Function Name                                      | Min             | Avg     | Median  | Max     | # Calls |
 |----------------------------------------------------+-----------------+---------+---------+---------+---------|
-| deploy                                             | 3991849         | 4225866 | 4225866 | 4459883 | 2       |
+| deploy                                             | 28381           | 2087458 | 2009843 | 4457097 | 12      |
 |----------------------------------------------------+-----------------+---------+---------+---------+---------|
-| parse                                              | 4999            | 26305   | 19023   | 54476   | 6       |
+| parse                                              | 4999            | 40390   | 54476   | 54476   | 12      |
 ╰----------------------------------------------------+-----------------+---------+---------+---------+---------╯
 
 ╭-------------------------------------------------------+-----------------+--------+--------+--------+---------╮
@@ -413,17 +424,17 @@ Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.44s (16.35ms CPU 
 |-------------------------------------------------------+-----------------+--------+--------+--------+---------|
 | approve                                               | 46440           | 46685  | 46740  | 46740  | 177     |
 |-------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| balanceOf                                             | 585             | 1386   | 585    | 2585   | 13964   |
+| balanceOf                                             | 585             | 1386   | 585    | 2585   | 14302   |
 |-------------------------------------------------------+-----------------+--------+--------+--------+---------|
 | callbackResult                                        | 3255            | 3255   | 3255   | 3255   | 5       |
 |-------------------------------------------------------+-----------------+--------+--------+--------+---------|
 | callbackSucceeded                                     | 2367            | 2367   | 2367   | 2367   | 5       |
 |-------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| decimals                                              | 289             | 289    | 289    | 289    | 152     |
+| decimals                                              | 289             | 289    | 289    | 289    | 155     |
 |-------------------------------------------------------+-----------------+--------+--------+--------+---------|
 | effectiveAt                                           | 406             | 406    | 406    | 406    | 287     |
 |-------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| mint                                                  | 40949           | 60729  | 58085  | 75245  | 820     |
+| mint                                                  | 40949           | 60294  | 58085  | 75245  | 896     |
 |-------------------------------------------------------+-----------------+--------+--------+--------+---------|
 | newUIMultiplier                                       | 337             | 2330   | 2337   | 2337   | 287     |
 |-------------------------------------------------------+-----------------+--------+--------+--------+---------|
@@ -455,19 +466,19 @@ Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.44s (16.35ms CPU 
 |-----------------------------------------------------------+-----------------+-------+--------+-------+---------|
 | Function Name                                             | Min             | Avg   | Median | Max   | # Calls |
 |-----------------------------------------------------------+-----------------+-------+--------+-------+---------|
-| attest                                                    | 49059           | 49543 | 49479  | 49820 | 3296    |
+| attest                                                    | 49059           | 49544 | 49479  | 49820 | 3408    |
 |-----------------------------------------------------------+-----------------+-------+--------+-------+---------|
-| chainId                                                   | 248             | 248   | 248    | 248   | 794     |
+| chainId                                                   | 248             | 248   | 248    | 248   | 798     |
 |-----------------------------------------------------------+-----------------+-------+--------+-------+---------|
-| evmChainId                                                | 184             | 184   | 184    | 184   | 269     |
+| evmChainId                                                | 184             | 184   | 184    | 184   | 273     |
 |-----------------------------------------------------------+-----------------+-------+--------+-------+---------|
-| messageFee                                                | 2285            | 2285  | 2285   | 2285  | 3735    |
+| messageFee                                                | 2285            | 2285  | 2285   | 2285  | 3847    |
 |-----------------------------------------------------------+-----------------+-------+--------+-------+---------|
 | nextSequence                                              | 2647            | 2647  | 2647   | 2647  | 2       |
 |-----------------------------------------------------------+-----------------+-------+--------+-------+---------|
-| parseAndVerifyVM                                          | 4436            | 7297  | 7277   | 7472  | 2594    |
+| parseAndVerifyVM                                          | 4436            | 7296  | 7277   | 7472  | 2698    |
 |-----------------------------------------------------------+-----------------+-------+--------+-------+---------|
-| published                                                 | 57251           | 57757 | 57251  | 61722 | 2524    |
+| published                                                 | 57251           | 57736 | 57251  | 61722 | 2636    |
 |-----------------------------------------------------------+-----------------+-------+--------+-------+---------|
 | setFailPublish                                            | 21784           | 36392 | 43696  | 43696 | 3       |
 |-----------------------------------------------------------+-----------------+-------+--------+-------+---------|
@@ -491,7 +502,7 @@ Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.44s (16.35ms CPU 
 |-----------------------------------------------------------------+-----------------+--------+--------+--------+---------|
 | messageFee                                                      | 2294            | 2294   | 2294   | 2294   | 271     |
 |-----------------------------------------------------------------+-----------------+--------+--------+--------+---------|
-| parseAndVerifyVM                                                | 1458            | 19534  | 29733  | 46970  | 281     |
+| parseAndVerifyVM                                                | 1458            | 21786  | 32059  | 46970  | 281     |
 |-----------------------------------------------------------------+-----------------+--------+--------+--------+---------|
 | publishedPayload                                                | 25767           | 25767  | 25767  | 25767  | 272     |
 |-----------------------------------------------------------------+-----------------+--------+--------+--------+---------|
@@ -509,20 +520,26 @@ Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.44s (16.35ms CPU 
 |-------------------------------------------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
 | Function Name                                                                                         | Min             | Avg   | Median | Max   | # Calls |
 |-------------------------------------------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
-| DEFAULT_ADMIN_ROLE                                                                                    | 262             | 262   | 262    | 262   | 1       |
+| CANCELLER_ROLE                                                                                        | 284             | 284   | 284    | 284   | 2       |
 |-------------------------------------------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
-| execute                                                                                               | 30866           | 54148 | 52036  | 73341 | 15      |
+| DEFAULT_ADMIN_ROLE                                                                                    | 262             | 262   | 262    | 262   | 7       |
+|-------------------------------------------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| EXECUTOR_ROLE                                                                                         | 286             | 286   | 286    | 286   | 4       |
+|-------------------------------------------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| PROPOSER_ROLE                                                                                         | 285             | 285   | 285    | 285   | 2       |
+|-------------------------------------------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| execute                                                                                               | 30866           | 51541 | 52042  | 73341 | 22      |
 |-------------------------------------------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
 | executeBatch                                                                                          | 34865           | 51707 | 51707  | 68549 | 2       |
 |-------------------------------------------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
-| getMinDelay                                                                                           | 2402            | 2402  | 2402   | 2402  | 1       |
+| getMinDelay                                                                                           | 2402            | 2402  | 2402   | 2402  | 3       |
 |-------------------------------------------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
-| hasRole                                                                                               | 2696            | 2696  | 2696   | 2696  | 1       |
+| hasRole                                                                                               | 2696            | 2696  | 2696   | 2696  | 15      |
 |-------------------------------------------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
-| schedule                                                                                              | 54408           | 55217 | 54834  | 57149 | 13      |
+| schedule                                                                                              | 25731           | 53759 | 54834  | 57149 | 18      |
 |-------------------------------------------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
 | scheduleBatch                                                                                         | 65317           | 65317 | 65317  | 65317 | 1       |
 ╰-------------------------------------------------------------------------------------------------------+-----------------+-------+--------+-------+---------╯
 
 
-Ran 12 test suites in 1.52s (3.66s CPU time): 121 tests passed, 0 failed, 0 skipped (121 total tests)
+Ran 13 test suites in 1.63s (2.38s CPU time): 125 tests passed, 0 failed, 0 skipped (125 total tests)

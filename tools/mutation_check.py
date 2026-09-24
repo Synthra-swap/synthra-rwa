@@ -15,6 +15,10 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 MUTATIONS = [
+    ('deployment_owner', 'script/Deploy.s.sol', 'p.endpoint.owner = governor;', 'p.endpoint.owner = p.governanceSafe;'),
+    ('deployment_bootstrap_admin', 'script/Deploy.s.sol', 'new TimelockController(p.delay, members, members, address(0))', 'new TimelockController(p.delay, members, members, p.governanceSafe)'),
+    ('deployment_delay', 'script/Deploy.s.sol', 'p.delay >= 2 days', 'p.delay >= 0'),
+    ('deployment_zero_authorities', 'script/Deploy.s.sol', 'p.governanceSafe != address(0) && p.endpoint.guardian != address(0)', 'true'),
     ('vaa_validity', 'src/WormholeEndpoint.sol', 'if (!valid) revert InvalidVAA();', ''),
     ('emitter_chain', 'src/WormholeEndpoint.sol', 'message.emitterChainId != remoteWormholeChain', 'false'),
     ('source_domain', 'src/WormholeEndpoint.sol', '|| h.sourceEvmChain != remoteEvmChain', ''),
@@ -44,10 +48,11 @@ MUTATIONS = [
 def main():
     compiler = ROOT / '.tools/solc-0.8.28'
     command = ['forge', 'test', '--use', str(compiler) if compiler.exists() else '0.8.28', '--offline',
-               '--match-contract', '^(BridgeTest|MetadataTest|MonthlyMetadataTest|InternalAuditTest|SignedVAATest|TreasuryGovernanceTest|TransferLimitGovernanceTest)$']
+               '--match-contract', '^(BridgeTest|MetadataTest|MonthlyMetadataTest|DeploymentConfigTest|HardwareWalletGovernanceTest|InternalAuditTest|SignedVAATest|TreasuryGovernanceTest|TransferLimitGovernanceTest)$']
     env = dict(os.environ, FOUNDRY_PROFILE='default', FOUNDRY_FUZZ_RUNS='256', FOUNDRY_FUZZ_SEED='0x73796e74687261')
     hashes = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
-              for folder in ('src', 'test', 'vendor') for p in sorted((ROOT / folder).rglob('*')) if p.is_file()}
+              for folder in ('src', 'test', 'script', 'vendor') for p in sorted((ROOT / folder).rglob('*')) if p.is_file()}
+    hashes['config/deployment.example.json'] = hashlib.sha256((ROOT / 'config/deployment.example.json').read_bytes()).hexdigest()
     hashes['foundry.toml'] = hashlib.sha256((ROOT / 'foundry.toml').read_bytes()).hexdigest()
     results = []
     with tempfile.TemporaryDirectory(prefix='synthra-mutation-') as temporary:

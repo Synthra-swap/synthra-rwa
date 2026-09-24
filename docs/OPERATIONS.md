@@ -14,8 +14,11 @@ primary sources and RPC reads:
 - Accepted finality/consistency enum on each chain and actual Guardian support in both directions.
 - Official original-token registry entry, bytecode/proxy, 18 decimals, raw transfer semantics,
   freeze/upgrade powers, multiplier API and permissionless wrapper compatibility.
-- Governance Safe signers/thresholds and emergency guardian; distinct contract addresses. Script
-  checks contract existence, not Safe authenticity or threshold correctness.
+- Governance account and emergency guardian. The selected policy permits one hardware-wallet EOA
+  for both roles; verify control of the approved address. Nonzero addresses are required, while
+  separate accounts or contract wallets remain supported. The legacy `governanceSafe` JSON field
+  identifies the proposer/executor/canceller account; it does not require a Safe. If a Safe is used,
+  verify its signers, threshold, and modules separately.
 - Initial treasury ownership/access and ability to receive the source token. Governance can rotate
   the recipient of future fees through the timelock; this does not change the fee rate.
 - Per-transfer maximum, approved receiving ceiling and metadata freshness agreed with
@@ -53,7 +56,8 @@ retrying to avoid confusing duplicate governors/endpoints. There is no automated
 
 ## 3. Bind the pair through governance
 
-Schedule timelock calls (proposer Safe), wait the configured delay, then execute (executor Safe):
+Schedule timelock calls from the governance account, wait the configured delay, then execute from
+an authorized executor (the same hardware wallet under the selected policy):
 
 - Source `setPeer(destinationEndpoint, destinationWrappedToken)`.
 - Destination `setPeer(sourceVault, originalSourceToken)`.
@@ -220,8 +224,10 @@ stopping inbound despite delaying withdrawals. `unpause` is owner-only and timel
 configuration. Neither incident response nor governance can seize backing or freeze wrapped transfers.
 The delay is initially >=48h but can be reduced by a scheduled Timelock `updateDelay` call or removed
 by endpoint ownership migration. An already-ready unpause can override a fresh pause immediately.
-On incidents, the proposer/canceller Safe must inspect and cancel incompatible queued unpauses;
-the emergency guardian has no Timelock cancellation role. Monitor delay changes and the full queue.
+On incidents, the proposer/canceller account must inspect and cancel incompatible queued unpauses.
+The selected shared hardware wallet has that cancellation role as well as immediate pause authority.
+The guardian role alone does not grant timelock cancellation rights to a separately configured
+guardian. Monitor delay changes and the full queue.
 
 ## 6. Frontend integration obligations
 

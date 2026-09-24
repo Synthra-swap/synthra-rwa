@@ -38,8 +38,10 @@ current maxima must satisfy the configuration and receiving-ceiling rules.
 The earlier preflight compared only endpoint/Core runtime hashes and omitted pending endpoint
 ownership, cancellation authority, and active metadata freshness. The updated inspection requires
 approved timelock and asset/wrapped runtime hashes, rejects pending ownership transfers, checks
-cancellation/self-admin authority and the closed-role policy, verifies governance/guardian contract
-existence and wrapped origin/domain/decimals, and requires fresh metadata in active phase.
+cancellation/self-admin authority and the closed-role policy, verifies wrapped origin/domain/decimals,
+and requires fresh metadata in active phase. The original contract-only governance/guardian policy
+was explicitly replaced by support for a shared hardware-wallet EOA. Timelock code identity and
+ownership checks remain mandatory; the governance account cannot hold direct timelock admin rights.
 
 RPC-fixture tests cover these checks, finalized-state requirements, block-hash changes, backing
 deficits, and fee mismatches. They simulate RPC responses and do not establish live configuration.
@@ -67,8 +69,8 @@ none gives an arbitrary outsider governance authority.
 
 The initial delay is at least 48 hours; there is no permanent floor or guaranteed waiting period
 after every pause. The guardian can pause immediately but cannot cancel timelock operations.
-Incident response requires the proposer/canceller Safe to inspect and cancel incompatible queued
-unpauses. A permanent floor, fixed ownership topology, or pause-specific resumption policy would
+Incident response requires the proposer/canceller account to inspect and cancel incompatible queued
+unpauses. Under the selected shared-wallet policy, that account is also the emergency guardian. A permanent floor, fixed ownership topology, or pause-specific resumption policy would
 require a separately reviewed design change. See [THREAT_MODEL.md](THREAT_MODEL.md) and
 [OPERATIONS.md](OPERATIONS.md).
 

@@ -15,6 +15,7 @@
     "test/EdgeCases.t.sol": "beaad1f0fe9ecf686142ad90accc27e29b559f81a52f5587a8b2d5b52f4c89ea",
     "test/Fixture.sol": "5235d17193110c32e977d6d88f77bc3e63ee56b9381c3c9272bdb52deb395902",
     "test/Governance.t.sol": "edbe06545a8acf706130203eb12a9fae7c3d385d871facda1a9a2d8be5234692",
+    "test/HardwareWalletGovernance.t.sol": "ccced3639d7529a2f679c59d3c91fd94be1600e2b9e506a8214b76f5caf2725c",
     "test/InternalAudit.t.sol": "9c04df094e0536dc607c45419852168986cf00dc9aa71d0e2570125e746284ba",
     "test/Metadata.t.sol": "44e6393f4962f32b906356bd9eb7259353a98102cb0720ced40e5202dc422d7b",
     "test/SignedVAA.t.sol": "643805099bb32164f3ce859b1f4d6b2a9064d3e93147ff009ebae6ecc61247cb",
@@ -23,6 +24,8 @@
     "test/mocks/MockStockToken.sol": "c092c40631d4b7b98fd10aeeca80f8bae46ede40825244d4892b0f18c0af74ad",
     "test/mocks/MockWormholeCore.sol": "657070981e891a5b92265ae29e2ac8873f110ae55beb0f0978d79c20a7a597b9",
     "test/mocks/VerifiedCoreHarness.sol": "ddb2edd923b067c4bb1534a71a204fc1d2912c9d7fba4c14a269824cf258e776",
+    "script/Deploy.s.sol": "76aba1cbc44e1a642453033dd0ba36634acb391fc9b6cf89952b62fcf1315640",
+    "script/LocalDemo.s.sol": "39f1429205378a6c876e9e8dc34a57b2da01774b8395112e1099586a486ada13",
     "vendor/PROVENANCE.json": "c8214967ef470bcfcb5d206badedb672e1664ea5bd816933cee22f29d2ffb21a",
     "vendor/SHA256SUMS.json": "e57af285592ee580ea09afe3d07d5976d8880d8b3c902cf591d7f32ece59380a",
     "vendor/forge-std/LICENSE-APACHE": "50b6bf8bdb63265ce14953b480b7aaa0271e78f56843b99c184abd3ae5048cd7",
@@ -89,9 +92,52 @@
     "vendor/wormhole/ethereum/contracts/State.sol": "c49e968b20abe9d2f9c804788bdaf6268c1d5406c82d1c5e06cb45555f2aa1a0",
     "vendor/wormhole/ethereum/contracts/Structs.sol": "d6da02e4ddf08e94417e007863b4b8904084481e83587acfe6b134061ee1a98a",
     "vendor/wormhole/ethereum/contracts/libraries/external/BytesLib.sol": "1b6f2ba238f9af311f917ddbf412edc565cfde02398d08727e8bbb98ad14d819",
+    "config/deployment.example.json": "2d07363df0acd134c0573b7bf2e4239633d9af4d6a00e653f9f63ead8cc5dd5c",
     "foundry.toml": "d0b6afea9ef5c55c2464442d51f853ff3790351a608930f9f31893f4a6d1ee51"
   },
   "results": [
+    {
+      "name": "deployment_owner",
+      "file": "script/Deploy.s.sol",
+      "status": "detected",
+      "failingTests": [
+        "[FAIL: assertion failed: 0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496 != 0x34A1D3fff3958843C43aD80F30b94c510645C316] test_ValidDeploymentCreatesTimelockOwnedPausedEndpoints() (gas: 15110605)",
+        "[FAIL: assertion failed: 0x00000000000000000000000000000000000A11cE != 0x34A1D3fff3958843C43aD80F30b94c510645C316] test_SharedEOARolesKeepTimelockOwnershipOnBothSides() (gas: 15113941)",
+        "[FAIL: OwnableUnauthorizedAccount(0x34A1D3fff3958843C43aD80F30b94c510645C316)] test_SharedWalletPausesImmediatelyButResumeWaitsForTimelock() (gas: 15184295)",
+        "[FAIL: next call did not revert as expected] test_TreasuryChangeCannotBypassDelayWithSharedWallet() (gas: 15118980)",
+        "[FAIL: assertion failed: 0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496 != 0x34A1D3fff3958843C43aD80F30b94c510645C316] test_ValidDeploymentCreatesTimelockOwnedPausedEndpoints() (gas: 15110605)",
+        "[FAIL: assertion failed: 0x00000000000000000000000000000000000A11cE != 0x34A1D3fff3958843C43aD80F30b94c510645C316] test_SharedEOARolesKeepTimelockOwnershipOnBothSides() (gas: 15113941)",
+        "[FAIL: OwnableUnauthorizedAccount(0x34A1D3fff3958843C43aD80F30b94c510645C316)] test_SharedWalletPausesImmediatelyButResumeWaitsForTimelock() (gas: 15184295)",
+        "[FAIL: next call did not revert as expected] test_TreasuryChangeCannotBypassDelayWithSharedWallet() (gas: 15118980)"
+      ]
+    },
+    {
+      "name": "deployment_bootstrap_admin",
+      "file": "script/Deploy.s.sol",
+      "status": "detected",
+      "failingTests": [
+        "[FAIL: assertion failed] test_SharedEOARolesKeepTimelockOwnershipOnBothSides() (gas: 15152591)",
+        "[FAIL: assertion failed] test_SharedEOARolesKeepTimelockOwnershipOnBothSides() (gas: 15152591)"
+      ]
+    },
+    {
+      "name": "deployment_delay",
+      "file": "script/Deploy.s.sol",
+      "status": "detected",
+      "failingTests": [
+        "[FAIL: next call did not revert as expected] test_ZeroAuthoritiesAndShortDelayRejectedBeforeDeployment() (gas: 15102075)",
+        "[FAIL: next call did not revert as expected] test_ZeroAuthoritiesAndShortDelayRejectedBeforeDeployment() (gas: 15102075)"
+      ]
+    },
+    {
+      "name": "deployment_zero_authorities",
+      "file": "script/Deploy.s.sol",
+      "status": "detected",
+      "failingTests": [
+        "[FAIL: next call did not revert as expected] test_ZeroAuthoritiesAndShortDelayRejectedBeforeDeployment() (gas: 15084575)",
+        "[FAIL: next call did not revert as expected] test_ZeroAuthoritiesAndShortDelayRejectedBeforeDeployment() (gas: 15084575)"
+      ]
+    },
     {
       "name": "vaa_validity",
       "file": "src/WormholeEndpoint.sol",
@@ -149,9 +195,9 @@
       "file": "src/WormholeEndpoint.sol",
       "status": "detected",
       "failingTests": [
-        "[FAIL: next call did not revert as expected] test_MetadataReplayAndUnauthorizedUpdatesRejected() (gas: 769557)",
         "[FAIL: next call did not revert as expected] test_AnyoneCanRenewUnchangedMetadataBeforeExpiry() (gas: 1382450)",
         "[FAIL: next call did not revert as expected] test_MetadataReplayAndUnauthorizedUpdatesRejected() (gas: 769535)",
+        "[FAIL: next call did not revert as expected] test_MetadataReplayAndUnauthorizedUpdatesRejected() (gas: 769557)",
         "[FAIL: next call did not revert as expected] test_LoweringPreservesPendingDepositsBurnsAndReplayProtection() (gas: 2022086)",
         "[FAIL: next call did not revert as expected] test_IncompatibleRemoteMaximumRequiresGovernanceCorrectionNotJustWaiting() (gas: 6289348)",
         "[FAIL: next call did not revert as expected] test_AlternativeQuorumCannotReplaySameSequence() (gas: 639261)",
@@ -205,10 +251,12 @@
       "status": "detected",
       "failingTests": [
         "[FAIL: next call did not revert as expected] test_GuardianPauseIsImmediateEvenWithTimelockOwner() (gas: 1600133)",
+        "[FAIL: next call did not revert as expected] test_SharedWalletPausesImmediatelyButResumeWaitsForTimelock() (gas: 15226608)",
         "[FAIL: next call did not revert as expected] test_EmergencyGuardianCanPauseButCannotResume() (gas: 694039)",
         "[FAIL: next call did not revert as expected] test_UnauthorizedAdministration() (gas: 15199)",
         "[FAIL: next call did not revert as expected] test_EmergencyGuardianCanPauseButCannotResume() (gas: 694039)",
         "[FAIL: next call did not revert as expected] test_UnauthorizedAdministration() (gas: 15199)",
+        "[FAIL: next call did not revert as expected] test_SharedWalletPausesImmediatelyButResumeWaitsForTimelock() (gas: 15226608)",
         "[FAIL: next call did not revert as expected] test_GuardianPauseIsImmediateEvenWithTimelockOwner() (gas: 1600133)"
       ]
     },
@@ -222,6 +270,9 @@
         "[FAIL: assertion failed: 510000000000000000 != 500000000000000000] test_TreasuryCannotChangeDuringDepositEvenThroughOwnerCallback() (gas: 856758)",
         "[FAIL: assertion failed: 510000000000000000 != 500000000000000000] test_TreasuryChangeRequiresMatureTimelockOperation() (gas: 2391779)",
         "[FAIL: ERC20InsufficientBalance(0x00000000000000000000000000000000000A11cE, 9949000000000000000 [9.949e18], 9950000000000000000 [9.95e18])] test_ExpiredMetadataFailsClosedButRawRedemptionRemainsAvailable() (gas: 1491134)",
+        "[FAIL: assertion failed: 397960000000000000000 != 398000000000000000000] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1547451)",
+        "[FAIL: assertion failed: 99490000000000000000 != 99500000000000000000] test_UninitializedMetadataDoesNotMisrepresentShares() (gas: 778652)",
+        "[FAIL: ERC20InsufficientBalance(0x00000000000000000000000000000000000A11cE, 9949000000000000000 [9.949e18], 9950000000000000000 [9.95e18])] test_ExpiredMetadataFailsClosedButRawRedemptionRemainsAvailable() (gas: 1491134)",
         "[FAIL: assertion failed: 397960000000000000000 != 398000000000000000000] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1547473)",
         "[FAIL: assertion failed: 99490000000000000000 != 99500000000000000000] test_UninitializedMetadataDoesNotMisrepresentShares() (gas: 778630)",
         "[FAIL: assertion failed: 994900000000000000 != 995000000000000000; counterexample: calldata=0xbcd83ed50000000000000000000000000000000000000000000000000000000000000011 args=[17]] testFuzz_DirtyAbiWordsRejectedAndClaimStillDeliverable(uint8) (runs: 0, \u03bc: 0, ~: 0)",
@@ -233,9 +284,6 @@
         "[FAIL: ERC20InsufficientBalance(0x00000000000000000000000000000000000A11cE, 9949000000000000000 [9.949e18], 9950000000000000000 [9.95e18])] test_ReleaseCallbackCannotReenterOrSpendSameClaimTwice() (gas: 782266)",
         "[FAIL: assertion failed: 1989800000000000000000 != 1990000000000000000000] test_RoundTripBeyondFormerTotalCapWithOutOfOrderDelivery() (gas: 1213697)",
         "[FAIL: assertion failed: 994900000000000000 != 995000000000000000] test_WrongEntryPointDoesNotConsumeTransferOrMetadata() (gas: 1520653)",
-        "[FAIL: ERC20InsufficientBalance(0x00000000000000000000000000000000000A11cE, 9949000000000000000 [9.949e18], 9950000000000000000 [9.95e18])] test_ExpiredMetadataFailsClosedButRawRedemptionRemainsAvailable() (gas: 1491134)",
-        "[FAIL: assertion failed: 397960000000000000000 != 398000000000000000000] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1547451)",
-        "[FAIL: assertion failed: 99490000000000000000 != 99500000000000000000] test_UninitializedMetadataDoesNotMisrepresentShares() (gas: 778652)",
         "[FAIL: assertion failed: 1989800000000000000000 != 1990000000000000000000] test_AllPendingLegacyMessagesCompleteWithoutWaitingAfterDecrease() (gas: 12160987)",
         "[FAIL: assertion failed: 148980000000000000000 != 149000000000000000000] test_LoweringPreservesPendingDepositsBurnsAndReplayProtection() (gas: 1991388)",
         "[FAIL: ERC20InsufficientBalance(0x00000000000000000000000000000000000A11cE, 99490000000000000000 [9.949e19], 99500000000000000000 [9.95e19])] test_NoFormerCapacityOrUint128CeilingOnConfiguredMaximum() (gas: 842156)",
@@ -314,6 +362,8 @@
       "failingTests": [
         "[FAIL: next call did not revert as expected] test_TreasuryChangeRequiresMatureTimelockOperation() (gas: 1585512)",
         "[FAIL: next call did not revert as expected] test_UsersGuardianAndTreasuryCannotRedirectFees() (gas: 21504)",
+        "[FAIL: next call did not revert as expected] test_TreasuryChangeCannotBypassDelayWithSharedWallet() (gas: 15114390)",
+        "[FAIL: next call did not revert as expected] test_TreasuryChangeCannotBypassDelayWithSharedWallet() (gas: 15114390)",
         "[FAIL: next call did not revert as expected] test_TreasuryChangeRequiresMatureTimelockOperation() (gas: 1585512)",
         "[FAIL: next call did not revert as expected] test_UsersGuardianAndTreasuryCannotRedirectFees() (gas: 21504)"
       ]
@@ -332,8 +382,10 @@
       "file": "src/WormholeEndpoint.sol",
       "status": "detected",
       "failingTests": [
+        "[FAIL: next call did not revert as expected] test_SharedEOARolesKeepTimelockOwnershipOnBothSides() (gas: 15137463)",
         "[FAIL: next call did not revert as expected] test_BothChangesRequireMatureTimelockWithoutPausingService() (gas: 1587670)",
         "[FAIL: next call did not revert as expected] test_UsersGuardianAndTreasuryCannotChangeEitherMaximum() (gas: 23686)",
+        "[FAIL: next call did not revert as expected] test_SharedEOARolesKeepTimelockOwnershipOnBothSides() (gas: 15137463)",
         "[FAIL: next call did not revert as expected] test_BothChangesRequireMatureTimelockWithoutPausingService() (gas: 1587670)",
         "[FAIL: next call did not revert as expected] test_UsersGuardianAndTreasuryCannotChangeEitherMaximum() (gas: 23686)"
       ]
@@ -392,12 +444,12 @@
       "file": "src/SourceVault.sol",
       "status": "detected",
       "failingTests": [
+        "[FAIL: InsufficientBacking()] test_ExpiredMetadataFailsClosedButRawRedemptionRemainsAvailable() (gas: 2066592)",
+        "[FAIL: assertion failed: 100000000000000000000 != 99500000000000000000] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1549996)",
         "[FAIL: assertion failed: 100000000000000000000 != 99500000000000000000] test_BlockedReplacementRollsBackAndRotationRestoresDeposits() (gas: 901546)",
         "[FAIL: assertion failed: 100000000000000000000 != 99500000000000000000] test_RotationAffectsFutureFeesOnlyAndPreservesPendingClaimAndBacking() (gas: 683363)",
         "[FAIL: assertion failed: 100000000000000000000 != 99500000000000000000] test_TreasuryCannotChangeDuringDepositEvenThroughOwnerCallback() (gas: 861544)",
         "[FAIL: assertion failed: 100000000000000000000 != 99500000000000000000] test_TreasuryChangeRequiresMatureTimelockOperation() (gas: 2393070)",
-        "[FAIL: InsufficientBacking()] test_ExpiredMetadataFailsClosedButRawRedemptionRemainsAvailable() (gas: 2066592)",
-        "[FAIL: assertion failed: 100000000000000000000 != 99500000000000000000] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1549996)",
         "[FAIL: InsufficientBacking()] test_ExpiredMetadataFailsClosedButRawRedemptionRemainsAvailable() (gas: 2066592)",
         "[FAIL: assertion failed: 100000000000000000000 != 99500000000000000000] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1550018)",
         "[FAIL: InsufficientBacking()] test_AllPendingLegacyMessagesCompleteWithoutWaitingAfterDecrease() (gas: 671031)",
@@ -483,13 +535,13 @@
       "status": "detected",
       "failingTests": [
         "[FAIL: assertion failed: 199000000000000000002 != 199000000000000000000] test_RotationAffectsFutureFeesOnlyAndPreservesPendingClaimAndBacking() (gas: 1428697)",
+        "[FAIL: assertion failed: 398000000000000000004 != 398000000000000000000] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1547545)",
+        "[FAIL: assertion failed: 99500000000000000001 != 99500000000000000000] test_UninitializedMetadataDoesNotMisrepresentShares() (gas: 778702)",
         "[FAIL: assertion failed: 995000000000000001 != 995000000000000000; counterexample: calldata=0xbcd83ed50000000000000000000000000000000000000000000000000000000000000011 args=[17]] testFuzz_DirtyAbiWordsRejectedAndClaimStillDeliverable(uint8) (runs: 0, \u03bc: 0, ~: 0)",
         "[FAIL: assertion failed: 99500000000000000000 != 99500000000000000001] test_FeeRecipientMayAlsoBeDepositorWithoutChangingBacking() (gas: 6198367)",
         "[FAIL: assertion failed: 9950000000000000001 != 9950000000000000000] test_IncompatibleRemoteMaximumRequiresGovernanceCorrectionNotJustWaiting() (gas: 6292960)",
         "[FAIL: assertion failed: 1990000000000000000002 != 1990000000000000000000] test_RoundTripBeyondFormerTotalCapWithOutOfOrderDelivery() (gas: 1377555)",
         "[FAIL: assertion failed: 995000000000000001 != 995000000000000000] test_WrongEntryPointDoesNotConsumeTransferOrMetadata() (gas: 1520725)",
-        "[FAIL: assertion failed: 398000000000000000004 != 398000000000000000000] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1547545)",
-        "[FAIL: assertion failed: 99500000000000000001 != 99500000000000000000] test_UninitializedMetadataDoesNotMisrepresentShares() (gas: 778702)",
         "[FAIL: assertion failed: 398000000000000000004 != 398000000000000000000] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1547523)",
         "[FAIL: assertion failed: 99500000000000000001 != 99500000000000000000] test_UninitializedMetadataDoesNotMisrepresentShares() (gas: 778724)",
         "[FAIL: assertion failed: 1990000000000000000020 != 1990000000000000000000] test_AllPendingLegacyMessagesCompleteWithoutWaitingAfterDecrease() (gas: 12162427)",
@@ -583,8 +635,8 @@
       "file": "src/WrappedAsset.sol",
       "status": "detected",
       "failingTests": [
-        "[FAIL: assertion failed] test_OutOfOrderSnapshotsCannotOverwriteNewerState() (gas: 1360010)",
         "[FAIL: assertion failed] test_OutOfOrderSnapshotsCannotOverwriteNewerState() (gas: 1360032)",
+        "[FAIL: assertion failed] test_OutOfOrderSnapshotsCannotOverwriteNewerState() (gas: 1360010)",
         "[FAIL: assertion failed] test_OutOfOrderSnapshotsCannotOverwriteNewerState() (gas: 1360032)",
         "[FAIL: assertion failed] test_OutOfOrderSnapshotsCannotOverwriteNewerState() (gas: 1360010)"
       ]

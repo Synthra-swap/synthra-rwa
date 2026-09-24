@@ -15,8 +15,19 @@ This is non-custodial in the sense that Synthra has no signing/withdrawal author
 principal. It is **not trustless or censorship resistant**: pausability, issuer controls and Guardian
 liveness can delay access. Wrapped ERC20 transfers themselves have no admin pause/blacklist.
 
-Deployment scripts give ownership to a TimelockController with >=48h delay, contract governance
-and emergency addresses, and no bootstrap admin. Ownership is still transferable in two steps;
+Deployment scripts give ownership to a TimelockController with an initial >=48h delay and no
+external bootstrap admin. The selected policy uses the same hardware-wallet EOA as the timelock
+proposer/executor/canceller and the endpoint emergency guardian. A contract wallet is also supported;
+code existence and separate addresses are not required for these two accounts. The JSON field
+`governanceSafe` is retained for compatibility and now denotes the governance account, whether EOA
+or contract. The timelock itself must still be a verified deployed contract and own the endpoints.
+
+The shared account can pause immediately and cancel queued operations through its canceller role,
+but cannot directly resume, change fees/limits, grant roles, or bypass timelock ownership. This is
+a single-signing-key authority model, not a multisig or separation of governance and emergency keys.
+Compromise exposes both roles; loss of the sole key can prevent governance action and emergency
+intervention. The deployment hot wallet receives no administrative role unless separately selected
+as the governance account. Ownership is still transferable in two steps;
 a later governance-approved migration can change this topology and must trigger monitoring.
 The standard TimelockController can also schedule its own `updateDelay(0)`: the current delay
 applies to that change, but subsequent operations can be immediate. An already-ready unpause
