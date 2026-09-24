@@ -7,7 +7,7 @@ approval. No public deployment or transaction was performed as part of the revie
 The September 23 review reproduced no Critical, High, or Medium implementation vulnerability
 exploitable without the assumed trusted authorities. It corrected three Low findings in operational
 validation and analysis gates. That conclusion applies to the reviewed model and is not proof of
-absence of vulnerabilities. Subsequent treasury and transfer-limit changes require external review.
+absence of vulnerabilities. Subsequent treasury, transfer-limit and immediate-bootstrap changes require external review.
 Current test results and their exact limitations are in [VALIDATION.md](VALIDATION.md).
 Original reports and intermediate evidence remain in [Git history](ARCHIVE_HISTORY.md).
 
@@ -49,6 +49,20 @@ Proxy runtime hashes do not identify implementations. Historical role holders, S
 thresholds, queued operations, token authenticity, and issuer eligibility require deployment-specific
 review. A malicious RPC remains outside the tool's trust model. The deployment policy uses closed
 executors; rejecting an open executor does not imply that open execution is inherently an exploit.
+
+## One-time initial setup boundary
+
+The selected governance account can call `bootstrapSetPeer` and `activate` directly before initial
+activation. This is an intentional exception to delayed governance, not a timelock administrator role.
+Binding leaves both lanes paused. All successful unpauses consume the setup authority, including the
+ordinary owner path and partial unpause. Ownership nomination closes it even if later cancelled.
+There is no reopening function. Fee, limit, guardian and ownership changes remain owner-only.
+
+Ten bootstrap regressions and five added mutation cases challenge authorization, irreversible closure,
+partial-unpause closure, ownership-migration closure and the deployed authority. Preflight allows only
+the selected bootstrapper or a closed authority while prepared; active/maintenance phases require zero.
+Initial authority compromise can still bind the wrong peer before activation; operators must verify
+both chains before enabling transfers. These are tested properties, not independent audit approval.
 
 ## IA-03: static-analysis acceptance
 

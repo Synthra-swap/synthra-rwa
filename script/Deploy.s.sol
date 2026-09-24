@@ -43,6 +43,7 @@ contract Deploy is Script {
         vm.startBroadcast();
         governor = address(new TimelockController(p.delay, members, members, address(0)));
         p.endpoint.owner = governor;
+        p.endpoint.bootstrapper = p.governanceSafe;
         if (p.sourceSide) {
             endpoint = address(new SourceVault(p.endpoint, p.asset, p.treasury));
         } else {

@@ -45,7 +45,7 @@ contract SignedVAATest is Test {
         returns (WormholeEndpoint.Config memory)
     {
         return WormholeEndpoint.Config(
-            core, local, remote, evm, remoteEvm, 1, 1, address(this), address(this), 1000 ether
+            core, local, remote, evm, remoteEvm, 1, 1, address(this), address(this), 1000 ether, address(0)
         );
     }
 

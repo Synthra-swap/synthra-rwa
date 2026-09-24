@@ -1,20 +1,20 @@
 {
-  "observedAtUTC": "2026-09-24T11:31:34.089365+00:00",
+  "observedAtUTC": "2026-09-24T12:22:31.415185+00:00",
   "publicTransactionsSent": false,
-  "privateBundleSha256": "db9a649c5e772cf92d8a20d19f2e6c1497c4fadc6540c9373f553603f6ddc094",
+  "privateBundleSha256": "cb8e15f51bd6fa6bebbbe15a8c0b596d1b314b8447445ec202fad60a97629733",
   "simulationsPassed": 24,
   "simulations": [
     {
       "symbol": "NVDA",
       "side": "source",
       "chainId": 4663,
-      "estimatedGas": 5616173,
-      "estimatedNative": "0.000481463284560173",
+      "estimatedGas": 5758367,
+      "estimatedNative": "0.000482159591402367",
       "nativeCurrency": "ETH",
       "passed": true,
       "snapshot": {
-        "number": "0x4407452",
-        "hash": "0xc2a0f69055a61d4a178f78e67616f7507d349a1009d7d9ca55da94ab117f2122",
+        "number": "0x440ed3b",
+        "hash": "0x8dbf4328f4855562f85d09de591dfcec2a79db4230c39d9bb7e595fe85c554a4",
         "finalized": false
       }
     },
@@ -22,13 +22,13 @@
       "symbol": "META",
       "side": "source",
       "chainId": 4663,
-      "estimatedGas": 5616173,
-      "estimatedNative": "0.000478587803984173",
+      "estimatedGas": 5758367,
+      "estimatedNative": "0.000481629821638367",
       "nativeCurrency": "ETH",
       "passed": true,
       "snapshot": {
-        "number": "0x44074ca",
-        "hash": "0xfaf508e04284f246ccf0fef91543ee034d2a70722bac299e95ecbdc28861f4fd",
+        "number": "0x440edb8",
+        "hash": "0xde92e18a5302cacb91f3e7880c39fa11981783ce53b871ad285559ac1a1c9f79",
         "finalized": false
       }
     },
@@ -36,13 +36,13 @@
       "symbol": "PLTR",
       "side": "source",
       "chainId": 4663,
-      "estimatedGas": 5616173,
-      "estimatedNative": "0.000478879844980173",
+      "estimatedGas": 5758367,
+      "estimatedNative": "0.000482597227294367",
       "nativeCurrency": "ETH",
       "passed": true,
       "snapshot": {
-        "number": "0x440753a",
-        "hash": "0xbd63f78e376a1d3be5736a280c64b87b13c6126c39af1daa1f9267475dd1dbff",
+        "number": "0x440ee24",
+        "hash": "0xe1af94952694907fa1c4230c8ab789c18902084a82326f3089631193403e811c",
         "finalized": false
       }
     },
@@ -50,13 +50,13 @@
       "symbol": "GOOGL",
       "side": "source",
       "chainId": 4663,
-      "estimatedGas": 5616173,
-      "estimatedNative": "0.000476902952084173",
+      "estimatedGas": 5758367,
+      "estimatedNative": "0.000483610699886367",
       "nativeCurrency": "ETH",
       "passed": true,
       "snapshot": {
-        "number": "0x44075b0",
-        "hash": "0x16f663ea5006487a18b21c39fa15b3d4da61ffe7c2afb9d8e2769ac65287c132",
+        "number": "0x440ee94",
+        "hash": "0xa231d3cf4e3d7e31e86a88b6b4c1f2aeef21cb637e0cdfc6bd705a2b6ba98c97",
         "finalized": false
       }
     },
@@ -64,13 +64,13 @@
       "symbol": "AAPL",
       "side": "source",
       "chainId": 4663,
-      "estimatedGas": 5616173,
-      "estimatedNative": "0.000477734145688173",
+      "estimatedGas": 5758367,
+      "estimatedNative": "0.000483910134970367",
       "nativeCurrency": "ETH",
       "passed": true,
       "snapshot": {
-        "number": "0x4407629",
-        "hash": "0xbca3c1f5ca4c6b5575a4850b03315b11088404c7dbdf818d1e104023f86bcc7c",
+        "number": "0x440ef0b",
+        "hash": "0xe4c31ba4a6ddff6b2f02087aa90e05c04a19d4b38c670b53d0392bf4b65bbde5",
         "finalized": false
       }
     },
@@ -78,13 +78,13 @@
       "symbol": "MSFT",
       "side": "source",
       "chainId": 4663,
-      "estimatedGas": 5616173,
-      "estimatedNative": "0.000477891398532173",
+      "estimatedGas": 5758367,
+      "estimatedNative": "0.000487756724126367",
       "nativeCurrency": "ETH",
       "passed": true,
       "snapshot": {
-        "number": "0x440769c",
-        "hash": "0xf7ed9574bc2a14382c328ea704f1bd22943354b34ff3e0ba4593f8b9052a2b81",
+        "number": "0x440ef7b",
+        "hash": "0x8808cea296a2c58f934ac09ef818ca681b409b264062d58e4c69205564fc8e5b",
         "finalized": false
       }
     },
@@ -92,13 +92,13 @@
       "symbol": "INTC",
       "side": "source",
       "chainId": 4663,
-      "estimatedGas": 5616173,
-      "estimatedNative": "0.000481508213944173",
+      "estimatedGas": 5758367,
+      "estimatedNative": "0.000492040949174367",
       "nativeCurrency": "ETH",
       "passed": true,
       "snapshot": {
-        "number": "0x4407710",
-        "hash": "0x4b809d5a3e9cec00ba5f4848d98b02939e41a4dbd3cb407d7b5c7ede50ef95e6",
+        "number": "0x440eff9",
+        "hash": "0xef8f6a583ad218a81defaba956217d10138d82027115e5df5e19244fde9b0dca",
         "finalized": false
       }
     },
@@ -106,13 +106,13 @@
       "symbol": "AMZN",
       "side": "source",
       "chainId": 4663,
-      "estimatedGas": 5616173,
-      "estimatedNative": "0.000476790628624173",
+      "estimatedGas": 5758367,
+      "estimatedNative": "0.000483702833758367",
       "nativeCurrency": "ETH",
       "passed": true,
       "snapshot": {
-        "number": "0x4407783",
-        "hash": "0x1ae6141d26af6eb853b8f447c7e6d4ba5930808aa768add3b3426c466e2012cb",
+        "number": "0x440f073",
+        "hash": "0xe2158a66b38b1785b97b4d15c16d163a18d1afefa91206ca6246d3d1cf9795de",
         "finalized": false
       }
     },
@@ -120,13 +120,13 @@
       "symbol": "AMD",
       "side": "source",
       "chainId": 4663,
-      "estimatedGas": 5616173,
-      "estimatedNative": "0.000476745699240173",
+      "estimatedGas": 5758367,
+      "estimatedNative": "0.000483449465610367",
       "nativeCurrency": "ETH",
       "passed": true,
       "snapshot": {
-        "number": "0x44077f1",
-        "hash": "0x95e2178e7b7d98c41d96ab6fc529d24a34e6dcc30628eec1f3206773196a1d30",
+        "number": "0x440f0f0",
+        "hash": "0x3f12e522e2712d06ef42ae509d67d845a1a6ec0b62531e4bedbdf560b52c6f84",
         "finalized": false
       }
     },
@@ -134,13 +134,13 @@
       "symbol": "TSLA",
       "side": "source",
       "chainId": 4663,
-      "estimatedGas": 5616158,
-      "estimatedNative": "0.000483663532576158",
+      "estimatedGas": 5758352,
+      "estimatedNative": "0.000484461676222352",
       "nativeCurrency": "ETH",
       "passed": true,
       "snapshot": {
-        "number": "0x440785e",
-        "hash": "0x25621519a30d7abeaca9f4c56f5694136de9580eab81c9ba1bc621d0c451b404",
+        "number": "0x440f164",
+        "hash": "0xcbb72d9e81c02de462f99034638d8f00e99e7e4f3294549018cabadafddb5069",
         "finalized": false
       }
     },
@@ -148,13 +148,13 @@
       "symbol": "COIN",
       "side": "source",
       "chainId": 4663,
-      "estimatedGas": 5616158,
-      "estimatedNative": "0.000480203979248158",
+      "estimatedGas": 5758352,
+      "estimatedNative": "0.000486004914558352",
       "nativeCurrency": "ETH",
       "passed": true,
       "snapshot": {
-        "number": "0x44078d6",
-        "hash": "0x39b67c250d955f5c74b3a4953d67ca9bbbed108978d7b3c1b4cef284d4ece2bf",
+        "number": "0x440f1d3",
+        "hash": "0xde452fb77c6aea9be997112a47c7138812e37a4c85aa3123531b4eadfdf85926",
         "finalized": false
       }
     },
@@ -162,13 +162,13 @@
       "symbol": "AVGO",
       "side": "source",
       "chainId": 4663,
-      "estimatedGas": 5616158,
-      "estimatedNative": "0.000477373435616158",
+      "estimatedGas": 5758352,
+      "estimatedNative": "0.000483263939006352",
       "nativeCurrency": "ETH",
       "passed": true,
       "snapshot": {
-        "number": "0x440795f",
-        "hash": "0x87fe78a0fd5bd6f8bf45526e25ed8211dd6fdf53aaed4d2014b714da188ce44b",
+        "number": "0x440f246",
+        "hash": "0xb9051666679bfae0755c3e2cecd23c023697359155433b745ce411efcf6f4790",
         "finalized": false
       }
     },
@@ -176,13 +176,13 @@
       "symbol": "NVDA",
       "side": "destination",
       "chainId": 5042,
-      "estimatedGas": 6274571,
-      "estimatedNative": "0.2516102971",
+      "estimatedGas": 6416690,
+      "estimatedNative": "0.257309269",
       "nativeCurrency": "USDC",
       "passed": true,
       "snapshot": {
-        "number": "0x1577aaf",
-        "hash": "0x318fd09a7c7b51be29c2e94ebcaa2157bbc5cd1eb8981fc4fb6dab249440a9d4",
+        "number": "0x15792b0",
+        "hash": "0xd0dfedf48f90ac7fa74241c818abf9ede6ea5c453e27d4f0b1ed05975ef2ba8c",
         "finalized": false
       }
     },
@@ -190,13 +190,13 @@
       "symbol": "META",
       "side": "destination",
       "chainId": 5042,
-      "estimatedGas": 6274571,
-      "estimatedNative": "0.2516102971",
+      "estimatedGas": 6416690,
+      "estimatedNative": "0.257309269",
       "nativeCurrency": "USDC",
       "passed": true,
       "snapshot": {
-        "number": "0x1577ac0",
-        "hash": "0x6b4b50366abc64f6304a7fcca88190f5f8a22a44f2813fb06d63bcb4d9c76e4b",
+        "number": "0x15792c3",
+        "hash": "0xf322e61feefd03bc97244b655586c51d8e612d2d103203c4e7b82e5663086e8b",
         "finalized": false
       }
     },
@@ -204,13 +204,13 @@
       "symbol": "PLTR",
       "side": "destination",
       "chainId": 5042,
-      "estimatedGas": 6274571,
-      "estimatedNative": "0.2516102971",
+      "estimatedGas": 6416690,
+      "estimatedNative": "0.257309269",
       "nativeCurrency": "USDC",
       "passed": true,
       "snapshot": {
-        "number": "0x1577ad1",
-        "hash": "0x4896d17a561246f23a6e4549d5caab6bb2459b454b84712a7976f2017c28b6cd",
+        "number": "0x15792d4",
+        "hash": "0x15500f5a3295e87b9176d2fe66d86f90f4008750ebd9f69abf0008cdcfa9686e",
         "finalized": false
       }
     },
@@ -218,13 +218,13 @@
       "symbol": "GOOGL",
       "side": "destination",
       "chainId": 5042,
-      "estimatedGas": 6274602,
-      "estimatedNative": "0.2516115402",
+      "estimatedGas": 6416721,
+      "estimatedNative": "0.2573105121",
       "nativeCurrency": "USDC",
       "passed": true,
       "snapshot": {
-        "number": "0x1577ae1",
-        "hash": "0x9e36a41b2fdaf02c88213d89836dd50ba7aa9fec97aaa500e1a2e52f76878550",
+        "number": "0x15792e4",
+        "hash": "0x1ff7f5641bad4a7edad6147e5ed5abafc76e461e275df9ad7e48c13ded6d4987",
         "finalized": false
       }
     },
@@ -232,13 +232,13 @@
       "symbol": "AAPL",
       "side": "destination",
       "chainId": 5042,
-      "estimatedGas": 6274571,
-      "estimatedNative": "0.2516102971",
+      "estimatedGas": 6416690,
+      "estimatedNative": "0.257309269",
       "nativeCurrency": "USDC",
       "passed": true,
       "snapshot": {
-        "number": "0x1577af2",
-        "hash": "0x7306106fc4b43e80e7aed05f77be73cc3ad7dc0119d732c0a8a2cd3a9f640466",
+        "number": "0x15792f4",
+        "hash": "0x3fab5592a4f7ffffa874b3adfbc9ab715827be5fb8e90200fbb440258c0aa0fd",
         "finalized": false
       }
     },
@@ -246,13 +246,13 @@
       "symbol": "MSFT",
       "side": "destination",
       "chainId": 5042,
-      "estimatedGas": 6274571,
-      "estimatedNative": "0.251704415665",
+      "estimatedGas": 6416690,
+      "estimatedNative": "0.257309269",
       "nativeCurrency": "USDC",
       "passed": true,
       "snapshot": {
-        "number": "0x1577b00",
-        "hash": "0xaf9f45583274a5a2e112a3ffb53f58d9845d83d93dfed8b1c05ebd4b03c443fe",
+        "number": "0x1579305",
+        "hash": "0xedc3d51bb774fd91609fd24423ba7bb323880c47fb7b3dd2d0686a6eccc2807f",
         "finalized": false
       }
     },
@@ -260,13 +260,13 @@
       "symbol": "INTC",
       "side": "destination",
       "chainId": 5042,
-      "estimatedGas": 6274571,
-      "estimatedNative": "0.2516102971",
+      "estimatedGas": 6416690,
+      "estimatedNative": "0.257309269",
       "nativeCurrency": "USDC",
       "passed": true,
       "snapshot": {
-        "number": "0x1577b10",
-        "hash": "0xbda52936bb2aacc53f3d868913e5675b2004a7be7c0c9509e991ad6d55813afc",
+        "number": "0x1579316",
+        "hash": "0x58919f73a57ffea9027e65a9c499ab9a09b7b33f3b71475366bf159a21ed99ca",
         "finalized": false
       }
     },
@@ -274,13 +274,13 @@
       "symbol": "AMZN",
       "side": "destination",
       "chainId": 5042,
-      "estimatedGas": 6274571,
-      "estimatedNative": "0.2516102971",
+      "estimatedGas": 6416690,
+      "estimatedNative": "0.257309269",
       "nativeCurrency": "USDC",
       "passed": true,
       "snapshot": {
-        "number": "0x1577b20",
-        "hash": "0xdaee5fd194c5fb61c4943838014c7acd9ada929d727f249edd4b907e21213e73",
+        "number": "0x1579326",
+        "hash": "0x5cd0a53278d4fc1f0313e3caba3ad4ccc888f82ab8080f6e6f68bde87cfc8c1b",
         "finalized": false
       }
     },
@@ -288,13 +288,13 @@
       "symbol": "AMD",
       "side": "destination",
       "chainId": 5042,
-      "estimatedGas": 6274540,
-      "estimatedNative": "0.251609054",
+      "estimatedGas": 6416659,
+      "estimatedNative": "0.2573080259",
       "nativeCurrency": "USDC",
       "passed": true,
       "snapshot": {
-        "number": "0x1577b2f",
-        "hash": "0x111cb3524347b73b736e34c227c80d0c99ef7eab193aead5428b6bbae8af72c3",
+        "number": "0x1579335",
+        "hash": "0x961f6eb6bea27a297f534240e23e1940dae64a6d0d6182039eb7c5e492099562",
         "finalized": false
       }
     },
@@ -302,13 +302,13 @@
       "symbol": "TSLA",
       "side": "destination",
       "chainId": 5042,
-      "estimatedGas": 6274556,
-      "estimatedNative": "0.2516096956",
+      "estimatedGas": 6416674,
+      "estimatedNative": "0.2573086274",
       "nativeCurrency": "USDC",
       "passed": true,
       "snapshot": {
-        "number": "0x1577b3f",
-        "hash": "0x29d6ef404b0bba2e5a0b745610f99afca5e4844e79f47f7385e086d9b01cbdb7",
+        "number": "0x1579346",
+        "hash": "0xc35e74b4dbe5243852a400b2cd9e561a0536ad3bec5a0098c114641283a8005d",
         "finalized": false
       }
     },
@@ -316,13 +316,13 @@
       "symbol": "COIN",
       "side": "destination",
       "chainId": 5042,
-      "estimatedGas": 6274556,
-      "estimatedNative": "0.2516096956",
+      "estimatedGas": 6416674,
+      "estimatedNative": "0.2573086274",
       "nativeCurrency": "USDC",
       "passed": true,
       "snapshot": {
-        "number": "0x1577b4e",
-        "hash": "0x81b3734e7f8be5702549322381c6d37096711356072b76454bd1c49d3e9b2e9e",
+        "number": "0x1579356",
+        "hash": "0x83c9f38536c67b02b7564ea0af426b619744f9f435cb470120bb88612f938e91",
         "finalized": false
       }
     },
@@ -330,13 +330,13 @@
       "symbol": "AVGO",
       "side": "destination",
       "chainId": 5042,
-      "estimatedGas": 6274556,
-      "estimatedNative": "0.2516096956",
+      "estimatedGas": 6416674,
+      "estimatedNative": "0.2573086274",
       "nativeCurrency": "USDC",
       "passed": true,
       "snapshot": {
-        "number": "0x1577b5d",
-        "hash": "0xb397702fa578d0f78d3291d938741eda936a8a92cf11090ed2f903e2004b5e7f",
+        "number": "0x1579366",
+        "hash": "0x18e5998c2412df2998475839a9a5a8310247a16699de52b864d92f1522ab8326",
         "finalized": false
       }
     }
@@ -358,18 +358,18 @@
     "creationAndRuntimeTemplatesIdentical": true,
     "defaultCompilerTarget": "paris",
     "deploymentExecutionRules": "cancun",
-    "notice": "Exact artifact comparison; constructor immutable values remain deployment-specific."
+    "notice": "Same-revision profile comparison; bytecode changed from the pre-bootstrap candidate. Runtime templates exclude deployment-specific immutable substitutions."
   },
   "artifactIdentities": {
     "SourceVault": {
       "evmVersion": "paris",
-      "creationSha256": "7fc5f5a0189172b6e71d0241ee5a7a9d755d74a4530b0a3ada41e58e17f36b95",
-      "runtimeTemplateSha256": "dbc07b05ef5def2cd1beec7df918b2169baeedae37c1078087c3ac1a3e150742"
+      "creationSha256": "74998bbc17efecb749330d52431104a8e98939ba98ad294d28129e90e9e28fb3",
+      "runtimeTemplateSha256": "36cc777f1ca7cf966c214d3bc7630e3cfcd258cc33129ad4ba46abd1e6d87660"
     },
     "DestinationBridge": {
       "evmVersion": "paris",
-      "creationSha256": "dc45547666b9cd97162f909378e22d412559581ccfe37485fdb3e8a01558515a",
-      "runtimeTemplateSha256": "d50548b0813472f7322c4f3a9dcf75d4cd5b89dd924699bf79e49e799ec649d8"
+      "creationSha256": "6b04fdae5820036a2e82d79f56b47bc7bbe29477d365f56bb39e41348bf39014",
+      "runtimeTemplateSha256": "13adcfa40ba772e7a67a8797e4887921537597899bb015595f2282c04f2cdc04"
     },
     "WrappedAsset": {
       "evmVersion": "paris",
@@ -393,8 +393,8 @@
     },
     "Deploy": {
       "evmVersion": "paris",
-      "creationSha256": "b2294766fb32d8014c213b660365bcf448ada6061b55ab3d246eb93d1e87c47e",
-      "runtimeTemplateSha256": "8240c5241e2bb4f87de12955aeb1f686f984a3bc7646178b2ed2e6212a325db6"
+      "creationSha256": "98e6f34667cf15f7537509ebd98f5d7804db2db82ce6a66fa6e9c1dd197ff916",
+      "runtimeTemplateSha256": "5baa9026ddcc9931472d159c1451f5db02bf55fa416a7971d4bfad5f52f58a84"
     }
   },
   "latestStateOnly": true,
@@ -402,5 +402,9 @@
   "liveRoundTripCompleted": false,
   "noAutomaticRelayer": true,
   "endpointsInitiallyPaused": true,
-  "notice": "Local independent deployment simulations with the selected sender and parameters. No keys or public transactions. Individual simulations reuse current nonces; predicted addresses are not a batch deployment address plan. Private configs/raw receipts are excluded from this archive. Compiler comparison covers pre-constructor runtime templates, not runtime hashes with deployed immutable values."
+  "initialBootstrapImmediate": true,
+  "bootstrapperIsGovernanceAccount": true,
+  "bootstrapClosedOnAnyUnpauseOrOwnershipNomination": true,
+  "laterGovernanceTimelocked": true,
+  "notice": "One-time immediate setup revision. Local independent deployment simulations only; private configurations and sender details excluded. Actual receipts are required before binding peers. No public transactions or audit sign-off."
 }

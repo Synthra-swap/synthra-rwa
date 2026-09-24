@@ -1,166 +1,179 @@
-Compiling 79 files with Solc 0.8.28
-Solc 0.8.28 finished in 6.99s
+Compiling 17 files with Solc 0.8.28
+Solc 0.8.28 finished in 5.76s
 Compiler run successful!
 
 Ran 1 test for test/Governance.t.sol:GovernanceTest
-[PASS] test_TimelockHasNoDeployerBypassAndGuardianCannotResume() (gas: 4088129)
-Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.55ms (430.33µs CPU time)
-
-Ran 6 tests for test/DeploymentConfig.t.sol:DeploymentConfigTest
-[PASS] test_DecimalStringsPreserveRawTokenPrecision() (gas: 9339576)
-[PASS] test_NewDeploymentRejectsHistoricalCeilingDifferentFromInitialMaximum() (gas: 9322014)
-[PASS] test_ObsoleteCapConfigRejectedBeforeDeployment() (gas: 9285110)
-[PASS] test_ObsoleteRateConfigRejectedBeforeDeployment() (gas: 9294047)
-[PASS] test_PlaceholderDeploymentFailsBeforeBroadcast() (gas: 9113176)
-[PASS] test_ValidDeploymentCreatesTimelockOwnedPausedEndpoints() (gas: 19549351)
-Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 6.60ms (8.61ms CPU time)
-
-Ran 12 tests for test/Metadata.t.sol:MonthlyMetadataTest
-[PASS] test_AnyoneCanRenewUnchangedMetadataBeforeExpiry() (gas: 1370909)
-[PASS] test_DelayedDeliveryDoesNotRestartThirtyDayLifetime() (gas: 1348574)
-[PASS] test_ExpiredMetadataFailsClosedButRawRedemptionRemainsAvailable() (gas: 1982371)
-[PASS] test_InterfacesAndConversion() (gas: 750233)
-[PASS] test_MetadataLifetimeConstructorBounds() (gas: 1137973)
-[PASS] test_MetadataReplayAndUnauthorizedUpdatesRejected() (gas: 761352)
-[PASS] test_OutOfOrderSnapshotsCannotOverwriteNewerState() (gas: 1348490)
-[PASS] test_ScheduledActionCanBeCancelledByNewSnapshot() (gas: 1372121)
-[PASS] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1538818)
-[PASS] test_StaleMessageRequiresFreshPublication() (gas: 1350782)
-[PASS] test_ThirtyDayFreshnessBoundary() (gas: 751504)
-[PASS] test_UninitializedMetadataDoesNotMisrepresentShares() (gas: 773030)
-Suite result: ok. 12 passed; 0 failed; 0 skipped; finished in 6.78ms (5.54ms CPU time)
-
-Ran 7 tests for test/TreasuryGovernance.t.sol:TreasuryGovernanceTest
-[PASS] test_BlockedReplacementRollsBackAndRotationRestoresDeposits() (gas: 887548)
-[PASS] test_GuardianPauseIsImmediateEvenWithTimelockOwner() (gas: 1576169)
-[PASS] test_InvalidTreasuriesRejectedWithoutChangingRecipient() (gas: 42003)
-[PASS] test_RotationAffectsFutureFeesOnlyAndPreservesPendingClaimAndBacking() (gas: 1932491)
-[PASS] test_TreasuryCannotChangeDuringDepositEvenThroughOwnerCallback() (gas: 855944)
-[PASS] test_TreasuryChangeRequiresMatureTimelockOperation() (gas: 2364774)
-[PASS] test_UsersGuardianAndTreasuryCannotRedirectFees() (gas: 24296)
-Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 6.50ms (5.83ms CPU time)
-
-Ran 2 tests for test/AssetExpansion.t.sol:AssetExpansionTest
-[PASS] test_AddThirteenthAssetPreservesExistingTwelvePairs() (gas: 94307987)
-[PASS] test_OneAssetMessageCannotMintAnotherAndPairPauseIsIsolated() (gas: 14456745)
-Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 10.93ms (9.43ms CPU time)
+[PASS] test_TimelockHasNoDeployerBypassAndGuardianCannotResume() (gas: 4170687)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 5.90ms (685.63µs CPU time)
 
 Ran 8 tests for test/Metadata.t.sol:MetadataTest
-[PASS] test_ExpiredMetadataFailsClosedButRawRedemptionRemainsAvailable() (gas: 1982371)
+[PASS] test_ExpiredMetadataFailsClosedButRawRedemptionRemainsAvailable() (gas: 1982392)
+[PASS] test_InterfacesAndConversion() (gas: 750143)
+[PASS] test_MetadataReplayAndUnauthorizedUpdatesRejected() (gas: 761262)
+[PASS] test_OutOfOrderSnapshotsCannotOverwriteNewerState() (gas: 1348422)
+[PASS] test_ScheduledActionCanBeCancelledByNewSnapshot() (gas: 1372009)
+[PASS] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1538795)
+[PASS] test_StaleMessageRequiresFreshPublication() (gas: 1350647)
+[PASS] test_UninitializedMetadataDoesNotMisrepresentShares() (gas: 773074)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 8.37ms (3.32ms CPU time)
+
+Ran 12 tests for test/Metadata.t.sol:MonthlyMetadataTest
+[PASS] test_AnyoneCanRenewUnchangedMetadataBeforeExpiry() (gas: 1370752)
+[PASS] test_DelayedDeliveryDoesNotRestartThirtyDayLifetime() (gas: 1348484)
+[PASS] test_ExpiredMetadataFailsClosedButRawRedemptionRemainsAvailable() (gas: 1982392)
 [PASS] test_InterfacesAndConversion() (gas: 750188)
-[PASS] test_MetadataReplayAndUnauthorizedUpdatesRejected() (gas: 761374)
-[PASS] test_OutOfOrderSnapshotsCannotOverwriteNewerState() (gas: 1348512)
-[PASS] test_ScheduledActionCanBeCancelledByNewSnapshot() (gas: 1372099)
-[PASS] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1538796)
-[PASS] test_StaleMessageRequiresFreshPublication() (gas: 1350737)
+[PASS] test_MetadataLifetimeConstructorBounds() (gas: 1137973)
+[PASS] test_MetadataReplayAndUnauthorizedUpdatesRejected() (gas: 761240)
+[PASS] test_OutOfOrderSnapshotsCannotOverwriteNewerState() (gas: 1348400)
+[PASS] test_ScheduledActionCanBeCancelledByNewSnapshot() (gas: 1372031)
+[PASS] test_ScheduledSplitDoesNotChangeRawBacking() (gas: 1538817)
+[PASS] test_StaleMessageRequiresFreshPublication() (gas: 1350692)
+[PASS] test_ThirtyDayFreshnessBoundary() (gas: 751459)
 [PASS] test_UninitializedMetadataDoesNotMisrepresentShares() (gas: 773052)
-Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 6.96ms (7.84ms CPU time)
+Suite result: ok. 12 passed; 0 failed; 0 skipped; finished in 10.45ms (5.23ms CPU time)
+
+Ran 7 tests for test/TreasuryGovernance.t.sol:TreasuryGovernanceTest
+[PASS] test_BlockedReplacementRollsBackAndRotationRestoresDeposits() (gas: 887658)
+[PASS] test_GuardianPauseIsImmediateEvenWithTimelockOwner() (gas: 1578540)
+[PASS] test_InvalidTreasuriesRejectedWithoutChangingRecipient() (gas: 42069)
+[PASS] test_RotationAffectsFutureFeesOnlyAndPreservesPendingClaimAndBacking() (gas: 1934885)
+[PASS] test_TreasuryCannotChangeDuringDepositEvenThroughOwnerCallback() (gas: 856032)
+[PASS] test_TreasuryChangeRequiresMatureTimelockOperation() (gas: 2367244)
+[PASS] test_UsersGuardianAndTreasuryCannotRedirectFees() (gas: 24362)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 3.61ms (2.44ms CPU time)
+
+Ran 6 tests for test/DeploymentConfig.t.sol:DeploymentConfigTest
+[PASS] test_DecimalStringsPreserveRawTokenPrecision() (gas: 9533305)
+[PASS] test_NewDeploymentRejectsHistoricalCeilingDifferentFromInitialMaximum() (gas: 9515670)
+[PASS] test_ObsoleteCapConfigRejectedBeforeDeployment() (gas: 9478754)
+[PASS] test_ObsoleteRateConfigRejectedBeforeDeployment() (gas: 9487844)
+[PASS] test_PlaceholderDeploymentFailsBeforeBroadcast() (gas: 9302478)
+[PASS] test_ValidDeploymentCreatesTimelockOwnedPausedEndpoints() (gas: 19948003)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 5.82ms (4.84ms CPU time)
+
+Ran 2 tests for test/AssetExpansion.t.sol:AssetExpansionTest
+[PASS] test_AddThirteenthAssetPreservesExistingTwelvePairs() (gas: 96454330)
+[PASS] test_OneAssetMessageCannotMintAnotherAndPairPauseIsIsolated() (gas: 14787131)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 16.00ms (11.15ms CPU time)
 
 Ran 4 tests for test/HardwareWalletGovernance.t.sol:HardwareWalletGovernanceTest
-[PASS] test_SharedEOARolesKeepTimelockOwnershipOnBothSides() (gas: 30732696)
-[PASS] test_SharedWalletPausesImmediatelyButResumeWaitsForTimelock() (gas: 15278073)
-[PASS] test_TreasuryChangeCannotBypassDelayWithSharedWallet() (gas: 15166061)
-[PASS] test_ZeroAuthoritiesAndShortDelayRejectedBeforeDeployment() (gas: 13052041)
-Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 21.77ms (5.06ms CPU time)
+[PASS] test_SharedEOARolesKeepTimelockOwnershipOnBothSides() (gas: 31324750)
+[PASS] test_SharedWalletPausesImmediatelyButResumeWaitsForTimelock() (gas: 15556143)
+[PASS] test_TreasuryChangeCannotBypassDelayWithSharedWallet() (gas: 15462242)
+[PASS] test_ZeroAuthoritiesAndShortDelayRejectedBeforeDeployment() (gas: 13247182)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 19.15ms (11.85ms CPU time)
+
+Ran 10 tests for test/Bootstrap.t.sol:BootstrapTest
+[PASS] test_BootstrapNeverAuthorizesFeeLimitGuardianOrOwnershipChanges() (gas: 15414330)
+[PASS] test_DestinationRequiresCorrectOriginalToken() (gas: 15881354)
+[PASS] test_GovernanceCanCloseBootstrapWithoutActivating() (gas: 15422425)
+[PASS] test_GuardianDeployerAndOutsiderCannotUseFastSetup() (gas: 31296386)
+[PASS] test_InitialBindingAndActivationImmediateOnBothSides() (gas: 31315019)
+[PASS] test_InvalidUnpauseAndWrongChainLeaveBootstrapIntact() (gas: 15437232)
+[PASS] test_NoActivationBeforeBindingAndInvalidBindingDoesNotConsumeAuthority() (gas: 15427555)
+[PASS] test_OrdinaryPartialUnpauseAlsoPermanentlyClosesBootstrap() (gas: 46240584)
+[PASS] test_OwnershipNominationRevokesOldSetupAuthorityEvenIfCancelled() (gas: 15397557)
+[PASS] test_PauseAfterInitialActivationCannotBeBypassedAndResumeRemainsDelayed() (gas: 31406664)
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 30.92ms (28.37ms CPU time)
 
 Ran 14 tests for test/TransferLimitGovernance.t.sol:TransferLimitGovernanceTest
-[PASS] testFuzz_InboundCeilingNeverDecreasesAcrossChanges(uint256,uint256) (runs: 256, μ: 68086, ~: 71809)
-[PASS] test_AllPendingLegacyMessagesCompleteWithoutWaitingAfterDecrease() (gas: 12045955)
-[PASS] test_BothChangesRequireMatureTimelockWithoutPausingService() (gas: 2393744)
-[PASS] test_ChangesNeedNoPauseAndNeverChangeLaneState() (gas: 64598)
-[PASS] test_IncomingCeilingCannotBeLoweredOrZeroed() (gas: 42424)
-[PASS] test_IncomingCeilingCannotChangeThroughOwnerCallbackDuringDeposit() (gas: 851654)
-[PASS] test_LegacyCeilingStillRejectsLargerAuthenticatedMessage() (gas: 798365)
-[PASS] test_LoweringPreservesPendingDepositsBurnsAndReplayProtection() (gas: 2607447)
-[PASS] test_MaximumCannotChangeThroughOwnerCallbackDuringDeposit() (gas: 849868)
-[PASS] test_NoFormerCapacityOrUint128CeilingOnConfiguredMaximum() (gas: 1314603)
-[PASS] test_PrepareBothReceiversBeforeActivatingLargerRequestsWithoutPause() (gas: 2491254)
-[PASS] test_RepeatedTransfersAndMaximumChangesHaveNoQuota() (gas: 23889670)
-[PASS] test_UsersGuardianAndTreasuryCannotChangeEitherMaximum() (gas: 65151)
-[PASS] test_ZeroAndUnpreparedMaximumRejected() (gas: 44099)
-Suite result: ok. 14 passed; 0 failed; 0 skipped; finished in 22.40ms (37.07ms CPU time)
+[PASS] testFuzz_InboundCeilingNeverDecreasesAcrossChanges(uint256,uint256) (runs: 256, μ: 67889, ~: 71853)
+[PASS] test_AllPendingLegacyMessagesCompleteWithoutWaitingAfterDecrease() (gas: 12046417)
+[PASS] test_BothChangesRequireMatureTimelockWithoutPausingService() (gas: 2396170)
+[PASS] test_ChangesNeedNoPauseAndNeverChangeLaneState() (gas: 64477)
+[PASS] test_IncomingCeilingCannotBeLoweredOrZeroed() (gas: 42446)
+[PASS] test_IncomingCeilingCannotChangeThroughOwnerCallbackDuringDeposit() (gas: 851676)
+[PASS] test_LegacyCeilingStillRejectsLargerAuthenticatedMessage() (gas: 798409)
+[PASS] test_LoweringPreservesPendingDepositsBurnsAndReplayProtection() (gas: 2607579)
+[PASS] test_MaximumCannotChangeThroughOwnerCallbackDuringDeposit() (gas: 849912)
+[PASS] test_NoFormerCapacityOrUint128CeilingOnConfiguredMaximum() (gas: 1314713)
+[PASS] test_PrepareBothReceiversBeforeActivatingLargerRequestsWithoutPause() (gas: 2491386)
+[PASS] test_RepeatedTransfersAndMaximumChangesHaveNoQuota() (gas: 23890572)
+[PASS] test_UsersGuardianAndTreasuryCannotChangeEitherMaximum() (gas: 65217)
+[PASS] test_ZeroAndUnpreparedMaximumRejected() (gas: 44121)
+Suite result: ok. 14 passed; 0 failed; 0 skipped; finished in 37.49ms (51.79ms CPU time)
 
 Ran 8 tests for test/EdgeCases.t.sol:EdgeCasesTest
-[PASS] testFuzz_InvalidAuthenticatedMetadata(uint8) (runs: 256, μ: 686041, ~: 686102)
-[PASS] testFuzz_InvalidEndpointConfiguration(uint8) (runs: 256, μ: 123600, ~: 123215)
-[PASS] test_BackgroundBackingDeficitBlocksNewDeposits() (gas: 782943)
-[PASS] test_BadSourceMetadataAndMessageFees() (gas: 73096)
-[PASS] test_GuardianRotationAndInvalidMasks() (gas: 34541)
-[PASS] test_PendingGettersAndInvalidConstructor() (gas: 893282)
-[PASS] test_RawSnapshotReadableWhileStaleAndFullPrecisionConversion() (gas: 1484566)
-[PASS] test_SupplyCanGrowInSameBlockWithoutTotalCap() (gas: 1970636)
-Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 67.54ms (87.07ms CPU time)
+[PASS] testFuzz_InvalidAuthenticatedMetadata(uint8) (runs: 256, μ: 686019, ~: 686057)
+[PASS] testFuzz_InvalidEndpointConfiguration(uint8) (runs: 256, μ: 124097, ~: 123564)
+[PASS] test_BackgroundBackingDeficitBlocksNewDeposits() (gas: 782965)
+[PASS] test_BadSourceMetadataAndMessageFees() (gas: 73140)
+[PASS] test_GuardianRotationAndInvalidMasks() (gas: 36999)
+[PASS] test_PendingGettersAndInvalidConstructor() (gas: 893237)
+[PASS] test_RawSnapshotReadableWhileStaleAndFullPrecisionConversion() (gas: 1484543)
+[PASS] test_SupplyCanGrowInSameBlockWithoutTotalCap() (gas: 1970724)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 83.42ms (103.67ms CPU time)
 
 Ran 13 tests for test/InternalAudit.t.sol:InternalAuditTest
-[PASS] testFuzz_DirtyAbiWordsRejectedAndClaimStillDeliverable(uint8) (runs: 256, μ: 834565, ~: 827653)
-[PASS] test_AlreadyReadyUnpauseDoesNotWaitAfterANewEmergencyPause() (gas: 4072507)
-[PASS] test_DelayedOwnershipMigrationCanRemoveTimelockEntirely() (gas: 4076810)
-[PASS] test_ExpiredScheduleIsNormalizedOnSourcePublication() (gas: 773764)
-[PASS] test_FeeRecipientMayAlsoBeDepositorWithoutChangingBacking() (gas: 6189882)
-[PASS] test_ForgedExcessRedemptionCannotSpendDonatedSurplus() (gas: 1390424)
-[PASS] test_GovernanceCanReduceInitialTimelockDelayToZero() (gas: 4089043)
-[PASS] test_ImmediateFeeRemainsPaidDuringDelayedDestinationExecution() (gas: 796198)
-[PASS] test_IncompatibleRemoteMaximumRequiresGovernanceCorrectionNotJustWaiting() (gas: 6299132)
-[PASS] test_RawTransfersRemainAvailableWithAllBridgeLanesPausedAndStaleMetadata() (gas: 1491874)
-[PASS] test_ReleaseCallbackCannotReenterOrSpendSameClaimTwice() (gas: 1864019)
-[PASS] test_RoundTripBeyondFormerTotalCapWithOutOfOrderDelivery() (gas: 2469540)
-[PASS] test_WrongEntryPointDoesNotConsumeTransferOrMetadata() (gas: 1509457)
-Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 81.78ms (85.27ms CPU time)
+[PASS] testFuzz_DirtyAbiWordsRejectedAndClaimStillDeliverable(uint8) (runs: 256, μ: 832765, ~: 827374)
+[PASS] test_AlreadyReadyUnpauseDoesNotWaitAfterANewEmergencyPause() (gas: 4155043)
+[PASS] test_DelayedOwnershipMigrationCanRemoveTimelockEntirely() (gas: 4159695)
+[PASS] test_ExpiredScheduleIsNormalizedOnSourcePublication() (gas: 773719)
+[PASS] test_FeeRecipientMayAlsoBeDepositorWithoutChangingBacking() (gas: 6354970)
+[PASS] test_ForgedExcessRedemptionCannotSpendDonatedSurplus() (gas: 1390490)
+[PASS] test_GovernanceCanReduceInitialTimelockDelayToZero() (gas: 4171568)
+[PASS] test_ImmediateFeeRemainsPaidDuringDelayedDestinationExecution() (gas: 798460)
+[PASS] test_IncompatibleRemoteMaximumRequiresGovernanceCorrectionNotJustWaiting() (gas: 6464296)
+[PASS] test_RawTransfersRemainAvailableWithAllBridgeLanesPausedAndStaleMetadata() (gas: 1491851)
+[PASS] test_ReleaseCallbackCannotReenterOrSpendSameClaimTwice() (gas: 1864085)
+[PASS] test_RoundTripBeyondFormerTotalCapWithOutOfOrderDelivery() (gas: 2469716)
+[PASS] test_WrongEntryPointDoesNotConsumeTransferOrMetadata() (gas: 1509367)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 87.20ms (90.70ms CPU time)
 
 Ran 15 tests for test/SignedVAA.t.sol:SignedVAATest
-[PASS] testFuzz_AnyTruncatedSignedVaaCannotMint(uint256) (runs: 256, μ: 466123, ~: 454323)
+[PASS] testFuzz_AnyTruncatedSignedVaaCannotMint(uint256) (runs: 256, μ: 465700, ~: 454102)
 [PASS] test_AlternativeQuorumCannotReplaySameSequence() (gas: 623385)
-[PASS] test_DuplicateGuardianCannotCountTwiceTowardQuorum() (gas: 498985)
-[PASS] test_ExpiredAttestationNeedsResigningAndReSigningCannotDoubleMint() (gas: 1156262)
+[PASS] test_DuplicateGuardianCannotCountTwiceTowardQuorum() (gas: 499007)
+[PASS] test_ExpiredAttestationNeedsResigningAndReSigningCannotDoubleMint() (gas: 1156328)
 [PASS] test_ExpiredGuardianSetRejected() (gas: 639550)
 [PASS] test_InsufficientQuorumRejected() (gas: 465805)
-[PASS] test_NewGuardianKeysRecoverPendingMintWithoutReplay() (gas: 1051632)
-[PASS] test_NewGuardianKeysRecoverPendingReleaseWithoutDoublePayment() (gas: 1357355)
+[PASS] test_NewGuardianKeysRecoverPendingMintWithoutReplay() (gas: 1051720)
+[PASS] test_NewGuardianKeysRecoverPendingReleaseWithoutDoublePayment() (gas: 1357421)
 [PASS] test_OutOfBoundsGuardianIndexRejected() (gas: 474012)
-[PASS] test_RealBinaryVaaRoundTripAcrossDifferentEvmDomains() (gas: 880297)
+[PASS] test_RealBinaryVaaRoundTripAcrossDifferentEvmDomains() (gas: 880341)
 [PASS] test_TamperedSignedPayloadRejected() (gas: 474420)
 [PASS] test_TruncatedVAARejected() (gas: 25030)
 [PASS] test_UnknownGuardianSetRejected() (gas: 458987)
 [PASS] test_UnsupportedVaaVersionRejected() (gas: 437121)
 [PASS] test_WrongGuardianSignatureRejected() (gas: 474056)
-Suite result: ok. 15 passed; 0 failed; 0 skipped; finished in 130.52ms (147.82ms CPU time)
+Suite result: ok. 15 passed; 0 failed; 0 skipped; finished in 128.41ms (146.62ms CPU time)
 
 Ran 34 tests for test/Bridge.t.sol:BridgeTest
-[PASS] testFuzz_InvalidAuthenticatedMessages(uint8) (runs: 256, μ: 735917, ~: 733163)
-[PASS] testFuzz_RoundTripAndImmediateFee(uint256) (runs: 256, μ: 1293744, ~: 1297640)
-[PASS] test_BackingDeficitBlocksExitsUntilRestored() (gas: 1418343)
-[PASS] test_BurnReplay() (gas: 1375329)
-[PASS] test_ChainChangeRejected() (gas: 638562)
-[PASS] test_CoreDomainMismatchRejectedAtConstruction() (gas: 119638)
-[PASS] test_DefaultPausedAndPeerRequired() (gas: 2470100)
-[PASS] test_DonationsAreNotMintable() (gas: 774132)
-[PASS] test_EmergencyGuardianCanPauseButCannotResume() (gas: 790840)
-[PASS] test_FailedFeeTransferRollsBackEverything() (gas: 139553)
-[PASS] test_FeeExample100Becomes995() (gas: 1308483)
-[PASS] test_FeeRounding() (gas: 11448)
+[PASS] testFuzz_InvalidAuthenticatedMessages(uint8) (runs: 256, μ: 736213, ~: 733185)
+[PASS] testFuzz_RoundTripAndImmediateFee(uint256) (runs: 256, μ: 1293670, ~: 1297173)
+[PASS] test_BackingDeficitBlocksExitsUntilRestored() (gas: 1418387)
+[PASS] test_BurnReplay() (gas: 1375373)
+[PASS] test_ChainChangeRejected() (gas: 638584)
+[PASS] test_CoreDomainMismatchRejectedAtConstruction() (gas: 119969)
+[PASS] test_DefaultPausedAndPeerRequired() (gas: 2552380)
+[PASS] test_DonationsAreNotMintable() (gas: 774176)
+[PASS] test_EmergencyGuardianCanPauseButCannotResume() (gas: 793102)
+[PASS] test_FailedFeeTransferRollsBackEverything() (gas: 139575)
+[PASS] test_FeeExample100Becomes995() (gas: 1308527)
+[PASS] test_FeeRounding() (gas: 11270)
 [PASS] test_IncorrectNativeFeesRejected() (gas: 72277)
-[PASS] test_IssuerFreezeRetry() (gas: 1313540)
-[PASS] test_ManyUsersCanDepositAndRedeemInSameBlockWithoutSharedQuota() (gas: 38928798)
-[PASS] test_NativeMessageFeesExactAndSeparate() (gas: 1349219)
+[PASS] test_IssuerFreezeRetry() (gas: 1313584)
+[PASS] test_ManyUsersCanDepositAndRedeemInSameBlockWithoutSharedQuota() (gas: 38928820)
+[PASS] test_NativeMessageFeesExactAndSeparate() (gas: 1349263)
 [PASS] test_OwnerCannotMintOrBurn() (gas: 10186)
-[PASS] test_PauseNewDepositsPreservesExit() (gas: 1296284)
-[PASS] test_PausedReleaseCanRetry() (gas: 1296880)
-[PASS] test_PendingAndOutOfOrder() (gas: 1958839)
-[PASS] test_PendingDepositsAccumulateWithoutSharedQuota() (gas: 1219505)
-[PASS] test_PublishFailureRollsBackFeeDepositAndBurn() (gas: 898437)
-[PASS] test_RapidRoundTripsNeedNoRefillOrWaiting() (gas: 23635922)
-[PASS] test_ReentrancyGuardRejectsTokenCallback() (gas: 910902)
-[PASS] test_ReplayIndependentOfHashAndSignatures() (gas: 829151)
+[PASS] test_PauseNewDepositsPreservesExit() (gas: 1296361)
+[PASS] test_PausedReleaseCanRetry() (gas: 1299142)
+[PASS] test_PendingAndOutOfOrder() (gas: 1958971)
+[PASS] test_PendingDepositsAccumulateWithoutSharedQuota() (gas: 1219637)
+[PASS] test_PublishFailureRollsBackFeeDepositAndBurn() (gas: 898481)
+[PASS] test_RapidRoundTripsNeedNoRefillOrWaiting() (gas: 23636824)
+[PASS] test_ReentrancyGuardRejectsTokenCallback() (gas: 910924)
+[PASS] test_ReplayIndependentOfHashAndSignatures() (gas: 829173)
 [PASS] test_TaxedDepositRollsBack() (gas: 111458)
-[PASS] test_TaxedReleaseRetry() (gas: 1306851)
-[PASS] test_ThirdPartyCannotBurn() (gas: 782383)
-[PASS] test_ThirdPartyRelayAndPermissionlessTransfer() (gas: 1393236)
-[PASS] test_TrailingPayloadRejected() (gas: 719791)
+[PASS] test_TaxedReleaseRetry() (gas: 1306895)
+[PASS] test_ThirdPartyCannotBurn() (gas: 782405)
+[PASS] test_ThirdPartyRelayAndPermissionlessTransfer() (gas: 1393280)
+[PASS] test_TrailingPayloadRejected() (gas: 719813)
 [PASS] test_TransferMaximumChecked() (gas: 21066)
 [PASS] test_UnattestedRejected() (gas: 29220)
-[PASS] test_UnauthorizedAdministration() (gas: 31818)
+[PASS] test_UnauthorizedAdministration() (gas: 31972)
 [PASS] test_ZeroAndInvalidRecipient() (gas: 61767)
-Suite result: ok. 34 passed; 0 failed; 0 skipped; finished in 163.83ms (197.48ms CPU time)
+Suite result: ok. 34 passed; 0 failed; 0 skipped; finished in 164.10ms (201.10ms CPU time)
 
 Ran 1 test for test/BridgeInvariant.t.sol:BridgeInvariantTest
 [PASS] invariant_ReservesCoverSupplyAndEveryPendingClaim() (runs: 128, calls: 8192, reverts: 0)
@@ -168,23 +181,23 @@ Ran 1 test for test/BridgeInvariant.t.sol:BridgeInvariantTest
 ╭---------------+-------------------+-------+---------+----------╮
 | Contract      | Selector          | Calls | Reverts | Discards |
 +================================================================+
-| BridgeHandler | advanceTime       | 1036  | 0       | 0        |
+| BridgeHandler | advanceTime       | 1041  | 0       | 0        |
 |---------------+-------------------+-------+---------+----------|
-| BridgeHandler | changeMaximum     | 981   | 0       | 0        |
+| BridgeHandler | changeMaximum     | 1007  | 0       | 0        |
 |---------------+-------------------+-------+---------+----------|
-| BridgeHandler | deliverDeposit    | 1066  | 0       | 0        |
+| BridgeHandler | deliverDeposit    | 1036  | 0       | 0        |
 |---------------+-------------------+-------+---------+----------|
-| BridgeHandler | deliverRedemption | 1006  | 0       | 0        |
+| BridgeHandler | deliverRedemption | 1018  | 0       | 0        |
 |---------------+-------------------+-------+---------+----------|
-| BridgeHandler | deposit           | 1023  | 0       | 0        |
+| BridgeHandler | deposit           | 1003  | 0       | 0        |
 |---------------+-------------------+-------+---------+----------|
-| BridgeHandler | redeem            | 1032  | 0       | 0        |
+| BridgeHandler | redeem            | 1002  | 0       | 0        |
 |---------------+-------------------+-------+---------+----------|
-| BridgeHandler | setPause          | 1024  | 0       | 0        |
+| BridgeHandler | setPause          | 1009  | 0       | 0        |
 |---------------+-------------------+-------+---------+----------|
-| BridgeHandler | transferWrapped   | 1024  | 0       | 0        |
+| BridgeHandler | transferWrapped   | 1076  | 0       | 0        |
 ╰---------------+-------------------+-------+---------+----------╯
 
-Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.16s (1.16s CPU time)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.34s (1.33s CPU time)
 
-Ran 13 test suites in 1.16s (1.69s CPU time): 125 tests passed, 0 failed, 0 skipped (125 total tests)
+Ran 14 test suites in 1.34s (1.94s CPU time): 135 tests passed, 0 failed, 0 skipped (135 total tests)

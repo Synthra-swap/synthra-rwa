@@ -63,7 +63,8 @@ contract LiveForkTest is Test {
             0,
             address(this),
             address(this),
-            100 ether
+            100 ether,
+            address(0)
         );
     }
 
@@ -419,6 +420,28 @@ contract LiveForkTest is Test {
         assertFalse(valid, "tampered body must invalidate signatures");
     }
 
+    function testFork_ImmediateSourceBootstrapAndDeposit() public {
+        _sourceFork();
+        (address token,,) = _candidate(0);
+        WormholeEndpoint.Config memory config = _config(SOURCE_CORE, true);
+        config.bootstrapper = address(this);
+        SourceVault vault = new SourceVault(config, token, TREASURY);
+        uint256 initialTime = block.timestamp;
+        vault.bootstrapSetPeer(address(0x1234), address(0x5678));
+        assertEq(vault.pausedLanes(), 3);
+        vault.activate();
+        assertEq(vault.bootstrapper(), address(0));
+        assertEq(block.timestamp, initialTime);
+        deal(token, address(this), 100 ether);
+        vm.deal(address(this), 1 ether);
+        IERC20(token).approve(address(vault), 100 ether);
+        vault.deposit{value: vault.messageFee()}(100 ether, RECEIVER);
+        assertEq(vault.locked(), 99.5 ether);
+        vault.pause(3);
+        vm.expectRevert(WormholeEndpoint.UnauthorizedBootstrapper.selector);
+        vault.activate();
+    }
+
     function testFork_ArcCoreIdentityAndUnsignedVAARejected() public {
         uint256 pin = vm.envOr("ARC_REVIEW_BLOCK", uint256(0));
         if (pin == 0) vm.createSelectFork(vm.envString("ARC_REVIEW_RPC"));
@@ -427,13 +450,18 @@ contract LiveForkTest is Test {
         emit log_named_uint("Arc fork block", block.number);
         assertEq(IWormholeCore(ARC_CORE).chainId(), 71);
         assertEq(IWormholeCore(ARC_CORE).evmChainId(), 5042);
-        DestinationBridge bridge = new DestinationBridge(
-            _config(ARC_CORE, false), address(0xA55E7), "Review fixture", "REVIEW", 30 days
-        );
-        bridge.setPeer(address(0x1234), address(0xA55E7));
-        bridge.unpause(3);
+        WormholeEndpoint.Config memory config = _config(ARC_CORE, false);
+        config.bootstrapper = address(this);
+        DestinationBridge bridge =
+            new DestinationBridge(config, address(0xA55E7), "Review fixture", "REVIEW", 30 days);
+        bridge.bootstrapSetPeer(address(0x1234), address(0xA55E7));
+        bridge.activate();
+        assertEq(bridge.bootstrapper(), address(0));
         vm.expectRevert();
         bridge.completeDeposit(hex"010000000700");
         assertEq(bridge.wrappedAsset().totalSupply(), 0);
+        bridge.pause(3);
+        vm.expectRevert(WormholeEndpoint.UnauthorizedBootstrapper.selector);
+        bridge.activate();
     }
 }

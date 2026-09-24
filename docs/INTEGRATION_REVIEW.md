@@ -1,13 +1,14 @@
 # Network and asset integration evidence
 
 Evidence collected September 23–24, 2026. The latest fork run against the current production source
-uses a 30-day metadata lifetime and passed **19 tests, with none failed or skipped**, including all twelve selected stocks. All network
+uses a 30-day metadata lifetime and passed **20 tests, with none failed or skipped**, including all twelve selected stocks. All network
 interactions were read-only; fork state changes were local. No public Synthra deployment or
 transaction was performed. These checks are internal compatibility evidence, not launch approval.
 
-The subsequent shared hardware-wallet governance change affects deployment/preflight only. This
-fork run was not repeated for that policy change: production contracts and integration inputs are
-unchanged. Shared-role timing and authority are validated separately by local deployment tests.
+This fork run includes the immediate initial setup revision. It exercises a real-token source deposit
+after direct bootstrap activation and destination activation against the real Arc Core. Both reject
+reuse of the fast activation path after a subsequent pause. Local governance tests separately verify
+the hardware-wallet authority, timelocked later resumption and ownership-migration closure.
 
 ## Selected stocks and scenarios
 
@@ -18,7 +19,8 @@ The selection is not a comprehensive ranking by token trading volume: DEX observ
 pool snapshots, while Robinhood's `dailyTradingVolume` describes underlying equities.
 
 The suite contains twelve individual stock tests, four issuer-interference tests that each loop
-over all twelve stocks, one SPY regression, and two Core/VAA tests: 19 test functions total.
+over all twelve stocks, one SPY regression, two Core/VAA tests, and one initial source bootstrap
+test: 20 test functions total. The Arc identity test also exercises initial bootstrap closure.
 Every selected stock passes the nominal path and all four issuer scenarios.
 
 Nominal checks cover ticker/UID, 18 decimals, current/pending UI metadata, deposit fees, treasury
@@ -41,8 +43,8 @@ tampering invalidates its signatures.
 
 | Network | EVM / Wormhole chain IDs | Block | Hash |
 | --- | --- | --- | --- |
-| Robinhood | 4663 / 72 | 71270443 | `0x5d6e745cc2672e8f545a227c808c5a562b0f74b7401c71ffd0b6ea3aa84aa2c6` |
-| Arc | 5042 / 71 | 22497821 | `0x09347dbc5436f29c459f6b2ceefa768c17a9006350926f9ea36e117627434605` |
+| Robinhood | 4663 / 72 | 71363510 | `0xc696f8120204ef97c6957e0f54bd4184f9c60112dc29f3bff137af0984061dbd` |
+| Arc | 5042 / 71 | 22516322 | `0x057980ef52ab9407bcdd9b08009a7aaa63d0749999152ac5c5eeae04fe145e2e` |
 
 Both block hashes were rechecked after execution. These are recent/latest pins, not finalized-state
 evidence. See `audit/readiness-review/current-fork-pins.json`, `audit/live-fork-tests.log`, and
@@ -147,7 +149,7 @@ The [Wormhole finality table](https://wormhole.com/docs/reference/consistency-le
 ## Reproduction
 
 ```sh
-ROBINHOOD_REVIEW_BLOCK=71270443 ARC_REVIEW_BLOCK=22497821 bash tools/check_live.sh
+ROBINHOOD_REVIEW_BLOCK=71363510 ARC_REVIEW_BLOCK=22516322 bash tools/check_live.sh
 python3 tools/network_probe.py
 python3 tools/network_probe.py --network robinhood --block-tag latest
 python3 tools/verify_live_vaa.py

@@ -83,7 +83,8 @@ contract LocalDemo is Script {
             1,
             owner,
             owner,
-            1_000 ether
+            1_000 ether,
+            address(0)
         );
     }
 }

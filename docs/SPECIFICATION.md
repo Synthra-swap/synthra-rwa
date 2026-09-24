@@ -4,6 +4,22 @@ All transfer amounts are unsigned **raw token units** with 18 decimals. They are
 The source asset address is an immutable allowlisted asset by construction; there is no ticker lookup
 or user-supplied asset registration. User addresses are unrestricted.
 
+## Initial setup and later governance
+
+Every endpoint is deployed paused and owned by its timelock. `Config.bootstrapper` optionally grants
+one address a narrow initial setup permission; the deployment script selects the governance account.
+`bootstrapSetPeer(remotePeer, remoteToken)` binds the peer once and leaves both lanes paused.
+`activate()` enables both lanes immediately, requires an existing valid peer and the correct local
+chain, and permanently clears `bootstrapper`. Only the selected bootstrapper can call these functions.
+There is no setter or reopening path. The authority cannot change fees, limits, guardian or ownership.
+
+The ordinary owner-only `unpause(lanes)` also closes bootstrap, including partial unpauses. An ownership
+nomination closes it before the transfer can complete, even if later cancelled. Owner-only
+`disableBootstrap()` abandons the immediate path without activating. Later resumption follows the
+ordinary timelocked path; guardian pause remains immediate. Zero bootstrapper at construction disables
+this optional path entirely. Initial binding and activation are separate transactions so operators can
+verify both remote bindings before enabling transfers. User transfers do not wait for governance delay.
+
 ## Deposit and fee
 
 For gross amount G > 0:

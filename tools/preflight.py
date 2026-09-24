@@ -109,6 +109,10 @@ def inspect(c,meta,remote_meta,phase):
     eq('outboundConsistency()',c['outboundConsistency']);eq('inboundConsistency()',c['inboundConsistency'])
     for getter,key in [('maxTransfer()','maxTransferRaw'),('inboundMaxTransfer()','inboundMaxTransferRaw')]: eq(getter,c[key])
     paused = call(endpoint,'pausedLanes()')
+    bootstrapper = call(endpoint,'bootstrapper()')
+    require(bootstrapper in (0, int(c['governanceSafe'], 16)), 'unexpected bootstrap authority')
+    if phase in ('active', 'maintenance'):
+        require(bootstrapper == 0, 'bootstrap authority still enabled after activation')
     if phase == 'maintenance':
         require(paused in (1,3), 'maintenance requires outbound paused')
     else:
@@ -122,7 +126,8 @@ def inspect(c,meta,remote_meta,phase):
     require(call(governor,'hasRole(bytes32,address)','0x'+'0'*64,c['governanceSafe'])==0,'governance account has direct admin role')
     require(call(governor,'hasRole(bytes32,address)','0x'+'0'*64,governor)==1,'timelock self-admin missing')
     require(call(governor,'hasRole(bytes32,address)','0x'+'0'*64,ZERO)==0,'zero address has admin role')
-    state={'block':pin,'blockHash':block['hash'],'timestamp':int(block['timestamp'],16),'endpoint':endpoint,'pausedLanes':paused}
+    state={'block':pin,'blockHash':block['hash'],'timestamp':int(block['timestamp'],16),'endpoint':endpoint,'pausedLanes':paused,
+           'bootstrapper':'0x'+format(bootstrapper,'040x')}
     state['remoteToken']='0x'+format(call(endpoint,'remoteToken()'),'040x')
     if c['sourceSide']:
         verify_code(c['sourceAsset'],meta['assetCodeHash'])

@@ -110,14 +110,19 @@ timelocks, source vault, destination bridge and wrapped token, transaction hashe
 chain IDs and source revision. Verify every endpoint is paused, owned by its timelock, and uses the
 approved guardian, roles, fees and limits. Verify published contract sources on the chain explorers.
 
-Follow [OPERATIONS.md](OPERATIONS.md#3-bind-the-pair-through-governance): schedule reciprocal
-`setPeer` calls with the hardware governance wallet, wait the timelock delay and execute. Run paired
+Follow [OPERATIONS.md](OPERATIONS.md#3-bind-and-activate-the-initial-pair-without-a-timelock-wait): submit reciprocal
+`bootstrapSetPeer` calls directly from the hardware governance wallet, with no initial timelock wait. Run paired
 `preflight.py --phase prepared` at finalized blocks. Source `remoteToken` must be the actual wrapped
 token; destination `remoteToken` must be the original stock. Peer bindings are irreversible.
 
-Activation is a separate governance action after the documented audit sign-off and readiness checks.
+Then submit `activate()` directly from that wallet on each endpoint after the documented audit sign-off
+and readiness checks. This immediately enables both lanes and permanently clears the bootstrap authority.
+The deployer cannot perform these actions. Subsequent unpauses and administrative changes use the timelock.
 Publish and deliver metadata, then deposit the recorded test gross amount, retrieve the signed VAA,
 complete on Arc, redeem the net amount and complete the return on Robinhood. Assert the fee recipient
 received `testFeeRaw`, no return fee was charged, and supply/backing returned to their starting state.
 Run `preflight.py --phase active`. There is no automatic relayer and no timeout refund. Keep source
 transactions/emitter sequences and VAAs so interrupted user completion can be retried.
+The initial live pilot may use one stock; the other pairs still need individual configuration checks.
+The generated USD 10 amounts are optional per-asset test references, not a requirement to fund all twelve
+before the pilot. A successful pilot does not establish every issuer's transfer eligibility.

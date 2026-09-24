@@ -17,7 +17,9 @@ BridgeMessage and the two local interfaces. Contracts are not proxies. The deplo
 is OpenZeppelin TimelockController with no external bootstrap administrator and an initial >=48h delay.
 The selected hardware-wallet EOA holds proposer/executor/canceller roles and also serves as the
 emergency guardian. Endpoints remain owned by the timelock, not directly by that EOA. Review this
-single-key trust model and verify that shared roles do not bypass the delayed execution path.
+single-key trust model and the one-time bootstrap exception: only initial binding and first activation
+are immediate. All later resumptions and other administrative operations use the delayed execution path.
+Bootstrap must close on any unpause or ownership nomination and must never be reopened.
 That delay can subsequently be reduced by governance; endpoint ownership can also migrate away from
 the timelock. See the reproduced governance properties in `INTERNAL_AUDIT.md`.
 
@@ -54,7 +56,9 @@ as replacements for an original token or Core.
    a claim or changes supply/backing. Operators prepare both receivers before outgoing increases.
 8. Multiplier updates never alter supply or raw balances, cannot overwrite a later source snapshot,
    and stale metadata is never silently used for UI conversion.
-9. Deployment begins paused with the intended timelock and no deployer bypass.
+9. Deployment begins paused with the intended timelock and no deployer bypass. Only the configured
+   governance bootstrapper can bind and activate without delay before first unpause. It cannot change
+   other parameters or bypass a later pause; normal partial unpause and ownership nomination also close it.
 
 ## Deliberately outside this audit's proof
 

@@ -61,7 +61,8 @@ abstract contract Fixture is Test {
             inboundConsistency: 1,
             owner: address(this),
             guardian: GUARDIAN,
-            maxTransfer: TEST_MAX_TRANSFER
+            maxTransfer: TEST_MAX_TRANSFER,
+            bootstrapper: address(0)
         });
     }
 

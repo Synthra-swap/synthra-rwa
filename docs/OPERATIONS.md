@@ -57,17 +57,20 @@ Verify source on the explorer using the audited compiler settings and constructo
 A two-contract deployment is not atomic across transactions; if interrupted, reconcile receipts before
 retrying to avoid confusing duplicate governors/endpoints. There is no automated resume/migration tool.
 
-## 3. Bind the pair through governance
+## 3. Bind and activate the initial pair without a timelock wait
 
-Schedule timelock calls from the governance account, wait the configured delay, then execute from
-an authorized executor (the same hardware wallet under the selected policy):
+The deployment script sets the selected governance account as each endpoint's one-time `bootstrapper`.
+Ownership remains with the timelock from deployment; the hot deployment wallet gains no setup role.
+From the hardware governance wallet, call each endpoint directly:
 
-- Source `setPeer(destinationEndpoint, destinationWrappedToken)`.
-- Destination `setPeer(sourceVault, originalSourceToken)`.
+- Source `bootstrapSetPeer(destinationEndpoint, destinationWrappedToken)`.
+- Destination `bootstrapSetPeer(sourceVault, originalSourceToken)`.
 
-Both bindings are one-time. Verify the actual remote addresses before scheduling. No owner can change
+Both bindings are one-time. Verify the actual remote addresses before signing. No owner can change
 them later. A mistake requires a new pair. Do not activate deposits before checking the reciprocal
 binding and token identities.
+Binding leaves both lanes paused. There is no scheduling transaction or 48-hour wait for these initial
+calls. The hardware wallet needs native gas on each chain because it submits these transactions.
 
 Enter reviewed runtime hashes and deployment addresses in the pair file. Run:
 
@@ -87,9 +90,18 @@ It still does not enumerate every historical role holder or pending timelock ope
 RoleGranted/RoleRevoked and scheduled/cancelled/executed operations from each timelock's creation.
 Proxy runtime hashes do not validate implementation addresses or issuer control powers.
 
-Schedule/execute `unpause(3)` on both endpoints via timelocks after all checks and the audit sign-off.
+After all checks and the audit sign-off, call `activate()` directly on each endpoint from the hardware
+governance wallet. The first activation is immediate and permanently clears `bootstrapper` to zero.
+Check both endpoints are active and their bootstrap authorities are cleared. Every later resumption
+uses the ordinary timelocked `unpause` path; emergency pause is immediate throughout.
+Any ordinary unpause, including a partial one, also closes bootstrap. Ownership nomination closes it
+even if the nomination is later cancelled. Governance can explicitly call `disableBootstrap()` through
+the timelock to abandon the fast path while leaving the endpoint paused. There is no way to restore it.
 Initial metadata requires source outbound + destination inbound enabled. Publish and relay a snapshot,
 then test one minimum-size round trip, fee payment and manual relay before widening exposure.
+Start with one selected stock for the first real end-to-end test. This validates the messaging path,
+not every other pair's deployment or issuer restrictions. Verify every pair's configuration; additional
+asset smoke tests can use small meaningful amounts rather than a mandatory USD 10 per stock.
 Incoming ceilings and outgoing maxima can change through timelock as described below.
 There is no aggregate reserve/supply ceiling or shared throughput quota. Legacy configs containing
 `capRaw`, `rateCapacityRaw` or `refillSeconds` are rejected by the deployment reader and preflight.

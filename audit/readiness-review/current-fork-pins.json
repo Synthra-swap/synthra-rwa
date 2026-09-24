@@ -1,25 +1,26 @@
 {
-  "observedAtUTC": "2026-09-24T09:41:27.844406+00:00",
-  "notice": "Thirty-day metadata regression. Pinned recent/latest blocks, not finalized-state evidence. Read-only RPC access; no public transactions.",
+  "observedAtUTC": "2026-09-24T12:18:07.896882+00:00",
+  "notice": "Immediate-bootstrap regression; latest pins, not finalized-state proof. All transactions execute only in local forks.",
   "networks": {
     "robinhood": {
       "rpc": "https://rpc.mainnet.chain.robinhood.com",
       "chainId": 4663,
       "blockTag": "latest",
-      "blockNumber": 71270443,
-      "blockHash": "0x5d6e745cc2672e8f545a227c808c5a562b0f74b7401c71ffd0b6ea3aa84aa2c6",
-      "blockTimestamp": 1790242888,
+      "blockNumber": 71363510,
+      "blockHash": "0xc696f8120204ef97c6957e0f54bd4184f9c60112dc29f3bff137af0984061dbd",
+      "blockTimestamp": 1790252286,
       "postTestBlockHashRechecked": true
     },
     "arc": {
       "rpc": "https://rpc.mainnet.arc.io",
       "chainId": 5042,
       "blockTag": "latest",
-      "blockNumber": 22497821,
-      "blockHash": "0x09347dbc5436f29c459f6b2ceefa768c17a9006350926f9ea36e117627434605",
-      "blockTimestamp": 1790242889,
+      "blockNumber": 22516322,
+      "blockHash": "0x057980ef52ab9407bcdd9b08009a7aaa63d0749999152ac5c5eeae04fe145e2e",
+      "blockTimestamp": 1790252286,
       "postTestBlockHashRechecked": true
     }
   },
-  "postTestRecheckedAtUTC": "2026-09-24T09:42:33.033260+00:00"
+  "postTestRecheckedAtUTC": "2026-09-24T12:18:34.750702+00:00",
+  "testsPassed": true
 }

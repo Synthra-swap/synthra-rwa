@@ -70,3 +70,10 @@ The shared-wallet candidate, before the per-asset helpers and separate deploymen
 remains available at [commit `aceccd7`](https://github.com/Synthra-swap/synthra-rwa/tree/aceccd785b9e0c96eeff857b63967c305f257ae9).
 Its [audit archive](https://github.com/Synthra-swap/synthra-rwa/blob/aceccd785b9e0c96eeff857b63967c305f257ae9/audit/synthra-rwa-bridge-audit.tar.gz)
 has SHA-256 `a5b36989fdb47921eba56b0ed1b9fafc2376ba5462849a0ce5ee08ab0917df16`.
+
+## Before one-time immediate setup
+
+The deployment-bundle candidate before changes to endpoint bootstrap authority is preserved at
+[commit `da9e00c`](https://github.com/Synthra-swap/synthra-rwa/tree/da9e00c).
+Its [audit archive](https://github.com/Synthra-swap/synthra-rwa/blob/da9e00c/audit/synthra-rwa-bridge-audit.tar.gz)
+has SHA-256 `f0e5502a0be8551f0a5da772a9076ae840bb94ac5547810eaf5b2716ae770f92`.

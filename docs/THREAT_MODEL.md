@@ -5,6 +5,7 @@
 | Authority | Powers | Cannot do |
 | --- | --- | --- |
 | Timelock owner | One-time peer setup, pause/resume lanes, rotate emergency guardian and future fee recipient, prepare higher incoming ceilings and adjust outgoing maximum, two-step ownership migration | Change asset, Core or fee rate; mint/unlock directly; withdraw reserves; upgrade code |
+| Initial bootstrapper | Bind the peer once while paused and perform the first activation without delay | Change fees/limits/ownership; reactivate after bootstrap closes; bypass subsequent governance delay |
 | Emergency guardian | Immediately pause outbound, inbound or both | Resume, change peer, transfer funds |
 | Treasury | Receive 0.5% source deposit fee | Claim any principal or donated reserves |
 | User / any willing submitter | Submit VAA or publish metadata snapshot | Forge Guardian verification or redirect encoded recipient |
@@ -22,8 +23,12 @@ code existence and separate addresses are not required for these two accounts. T
 `governanceSafe` is retained for compatibility and now denotes the governance account, whether EOA
 or contract. The timelock itself must still be a verified deployed contract and own the endpoints.
 
-The shared account can pause immediately and cancel queued operations through its canceller role,
-but cannot directly resume, change fees/limits, grant roles, or bypass timelock ownership. This is
+The shared account can pause immediately and cancel queued operations through its canceller role.
+It is also the initial bootstrapper: direct `bootstrapSetPeer` and `activate` calls enable first setup
+without waiting. Binding alone does not enable transfers. Any successful unpause, even one lane,
+permanently clears that authority; ownership nomination also clears it. Governance may close it explicitly.
+There is no bootstrap setter or reopening path. After first activation the account cannot directly
+resume, change fees/limits, grant roles, or bypass timelock ownership. This is
 a single-signing-key authority model, not a multisig or separation of governance and emergency keys.
 Compromise exposes both roles; loss of the sole key can prevent governance action and emergency
 intervention. The deployment hot wallet receives no administrative role unless separately selected
@@ -49,6 +54,9 @@ Renouncing endpoint ownership is disabled to prevent permanent loss of recovery 
   Governance may raise incoming ceilings and then outgoing maxima through the timelock. These
   actions neither create backing nor authenticate messages. Prepare both receivers before increases.
 - Immutable peers eliminate later governance rerouting but make initial configuration mistakes irreversible.
+- Initial bootstrap bypasses the notice period only before the first unpause. The selected authority
+  must verify both remote deployments and token bindings before activation; the contracts cannot read
+  remote live state or enforce an offchain audit sign-off. Compromise before setup can bind the wrong peer.
 - Governance can redirect future fee revenue through `setFeeRecipient`; review scheduled changes.
   The change cannot transfer principal or earlier fee payments. A frozen/incompatible treasury makes
   new deposits revert atomically until a compatible recipient is selected through governance.

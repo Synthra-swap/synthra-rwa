@@ -49,7 +49,7 @@ class FakeRPC:
         if signature in common:
             return common[signature]
         values = {
-            'owner()': int(GOVERNOR, 16), 'pendingOwner()': 0, 'peer()': int(REMOTE, 16),
+            'owner()': int(GOVERNOR, 16), 'pendingOwner()': 0, 'peer()': int(REMOTE, 16), 'bootstrapper()': 0,
             'wormhole()': int(c['core'], 16), 'guardian()': int(c['guardian'], 16),
             'deploymentChainId()': c['evmChain'], 'remoteEvmChain()': c['remoteEvmChain'],
             'localWormholeChain()': c['wormholeChain'], 'remoteWormholeChain()': c['remoteWormholeChain'],
@@ -67,6 +67,24 @@ class FakeRPC:
 
 
 class NetworkPreflightTests(unittest.TestCase):
+    def test_prepared_accepts_only_selected_bootstrapper_or_closed_authority(self):
+        for c in fixture():
+            rpc = FakeRPC(c)
+            rpc.overrides[ENDPOINT, 'bootstrapper()', ()] = int(c['governanceSafe'], 16)
+            self.assertEqual(self.check(rpc)['bootstrapper'], c['governanceSafe'])
+            rpc.overrides[ENDPOINT, 'bootstrapper()', ()] = int(REMOTE, 16)
+            with self.assertRaisesRegex(ValueError, 'unexpected bootstrap'): self.check(rpc)
+
+    def test_active_and_maintenance_require_bootstrap_closed(self):
+        for c in fixture():
+            for phase, paused in (('active', 0), ('maintenance', 1)):
+                rpc = FakeRPC(c)
+                rpc.overrides[ENDPOINT, 'pausedLanes()', ()] = paused
+                rpc.overrides[ENDPOINT, 'bootstrapper()', ()] = int(c['governanceSafe'], 16)
+                with self.assertRaisesRegex(ValueError, 'bootstrap authority still enabled'): self.check(rpc, phase)
+                rpc.overrides[ENDPOINT, 'bootstrapper()', ()] = 0
+                self.assertEqual(self.check(rpc, phase)['bootstrapper'], ZERO)
+
     def check(self, rpc, phase='prepared'):
         meta = dict(endpoint=ENDPOINT, timelock=GOVERNOR, rpcEnv='AUDIT_TEST_RPC',
                     **{key: HASH for key in ('endpointCodeHash', 'coreCodeHash', 'timelockCodeHash',

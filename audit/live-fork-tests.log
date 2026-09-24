@@ -1,193 +1,197 @@
 Compiling 51 files with Solc 0.8.28
-Solc 0.8.28 finished in 2.18s
+Solc 0.8.28 finished in 2.21s
 Compiler run successful!
-2026-09-24T09:42:07.128689Z  WARN foundry_fork_db::cache: Failed to read cache file err=Os { code: 2, kind: NotFound, message: "No such file or directory" } path="/Users/jacopomosconi/.foundry/cache/rpc/5042/22497821"
-2026-09-24T09:42:07.254222Z  WARN foundry_fork_db::cache: Failed to read cache file err=Os { code: 2, kind: NotFound, message: "No such file or directory" } path="/Users/jacopomosconi/.foundry/cache/rpc/4663/71270443"
-2026-09-24T09:42:08.934048Z  WARN foundry_fork_db::cache: Failed to read cache file err=Os { code: 2, kind: NotFound, message: "No such file or directory" } path="/Users/jacopomosconi/.foundry/cache/rpc/4663/71270443"
-2026-09-24T09:42:14.305208Z  WARN foundry_fork_db::cache: Failed to read cache file err=Os { code: 2, kind: NotFound, message: "No such file or directory" } path="/Users/jacopomosconi/.foundry/cache/rpc/5042/22497821"
+2026-09-24T12:18:10.916474Z  WARN foundry_fork_db::cache: Failed to read cache file err=Os { code: 2, kind: NotFound, message: "No such file or directory" } path="/Users/jacopomosconi/.foundry/cache/rpc/4663/71363510"
+2026-09-24T12:18:15.216585Z  WARN foundry_fork_db::cache: Failed to read cache file err=Os { code: 2, kind: NotFound, message: "No such file or directory" } path="/Users/jacopomosconi/.foundry/cache/rpc/4663/71363510"
+2026-09-24T12:18:17.291771Z  WARN foundry_fork_db::cache: Failed to read cache file err=Os { code: 2, kind: NotFound, message: "No such file or directory" } path="/Users/jacopomosconi/.foundry/cache/rpc/5042/22516322"
+2026-09-24T12:18:18.735450Z  WARN foundry_fork_db::cache: Failed to read cache file err=Os { code: 2, kind: NotFound, message: "No such file or directory" } path="/Users/jacopomosconi/.foundry/cache/rpc/5042/22516322"
 
-Ran 19 tests for integration/LiveFork.t.sol:LiveForkTest
-[PASS] testFork_AAPLDepositFeeMetadataAndMockAttestedReturn() (gas: 12000081)
+Ran 20 tests for integration/LiveFork.t.sol:LiveForkTest
+[PASS] testFork_AAPLDepositFeeMetadataAndMockAttestedReturn() (gas: 12247825)
 Logs:
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Verified selected stock: AAPL
 
-[PASS] testFork_AMD() (gas: 12019513)
+[PASS] testFork_AMD() (gas: 12267235)
 Logs:
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Verified selected stock: AMD
 
-[PASS] testFork_AMZN() (gas: 12019446)
+[PASS] testFork_AMZN() (gas: 12267190)
 Logs:
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Verified selected stock: AMZN
 
-[PASS] testFork_AVGO() (gas: 12017138)
+[PASS] testFork_AVGO() (gas: 12264860)
 Logs:
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Verified selected stock: AVGO
 
-[PASS] testFork_AllTwelveBlockedRecipientsPreserveRedemption() (gas: 50803714)
+[PASS] testFork_AllTwelveBlockedRecipientsPreserveRedemption() (gas: 51794682)
 Logs:
   Issuer scenario stock: NVDA
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: META
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: PLTR
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: GOOGL
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AAPL
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: MSFT
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: INTC
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AMZN
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AMD
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: TSLA
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: COIN
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AVGO
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
 
-[PASS] testFork_AllTwelveBlockedTreasuryRollbackAndRotationRecovery() (gas: 56819092)
+[PASS] testFork_AllTwelveBlockedTreasuryRollbackAndRotationRecovery() (gas: 57810212)
 Logs:
   Issuer scenario stock: NVDA
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: META
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: PLTR
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: GOOGL
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AAPL
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: MSFT
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: INTC
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AMZN
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AMD
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: TSLA
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: COIN
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AVGO
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
 
-[PASS] testFork_AllTwelveIssuerBurnsFailClosedUntilRecapitalized() (gas: 51342424)
+[PASS] testFork_AllTwelveIssuerBurnsFailClosedUntilRecapitalized() (gas: 52334851)
 Logs:
   Issuer scenario stock: NVDA
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: META
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: PLTR
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: GOOGL
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AAPL
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: MSFT
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: INTC
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AMZN
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AMD
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: TSLA
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: COIN
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AVGO
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
 
-[PASS] testFork_AllTwelveIssuerPausesPreserveClaimForRetry() (gas: 50797584)
+[PASS] testFork_AllTwelveIssuerPausesPreserveClaimForRetry() (gas: 51789363)
 Logs:
   Issuer scenario stock: NVDA
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: META
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: PLTR
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: GOOGL
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AAPL
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: MSFT
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: INTC
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AMZN
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AMD
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: TSLA
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: COIN
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Issuer scenario stock: AVGO
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
 
-[PASS] testFork_ArcCoreIdentityAndUnsignedVAARejected() (gas: 2981640)
+[PASS] testFork_ArcCoreIdentityAndUnsignedVAARejected() (gas: 3071279)
 Logs:
-  Arc fork block: 22497821
+  Arc fork block: 22516322
 
-[PASS] testFork_COIN() (gas: 12019512)
+[PASS] testFork_COIN() (gas: 12267256)
 Logs:
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Verified selected stock: COIN
 
-[PASS] testFork_GOOGL() (gas: 12017115)
+[PASS] testFork_GOOGL() (gas: 12264859)
 Logs:
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Verified selected stock: GOOGL
 
-[PASS] testFork_INTC() (gas: 12019448)
+[PASS] testFork_INTC() (gas: 12267192)
 Logs:
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Verified selected stock: INTC
 
-[PASS] testFork_META() (gas: 12017137)
+[PASS] testFork_ImmediateSourceBootstrapAndDeposit() (gas: 2929982)
 Logs:
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
+
+[PASS] testFork_META() (gas: 12264881)
+Logs:
+  Robinhood fork block (latest, not finalized proof): 71363510
   Verified selected stock: META
 
-[PASS] testFork_MSFT() (gas: 12017138)
+[PASS] testFork_MSFT() (gas: 12264882)
 Logs:
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Verified selected stock: MSFT
 
-[PASS] testFork_NVDAdepositFeeMetadataAndMockAttestedReturn() (gas: 12017139)
+[PASS] testFork_NVDAdepositFeeMetadataAndMockAttestedReturn() (gas: 12264883)
 Logs:
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Verified selected stock: NVDA
 
-[PASS] testFork_PLTR() (gas: 12019447)
+[PASS] testFork_PLTR() (gas: 12267191)
 Logs:
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Verified selected stock: PLTR
 
-[PASS] testFork_RealGuardianVAAValidButForeignMessageRejectedAndTamperingInvalid() (gas: 3455454)
+[PASS] testFork_RealGuardianVAAValidButForeignMessageRejectedAndTamperingInvalid() (gas: 3538136)
 Logs:
-  Robinhood fork block (latest, not finalized proof): 71270443
-  Arc signed VAA fork block: 22497821
+  Robinhood fork block (latest, not finalized proof): 71363510
+  Arc signed VAA fork block: 22516322
 
-[PASS] testFork_SPYDepositFeeMetadataAndMockAttestedReturn() (gas: 11973587)
+[PASS] testFork_SPYDepositFeeMetadataAndMockAttestedReturn() (gas: 12221316)
 Logs:
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
 
-[PASS] testFork_TSLADepositFeeMetadataAndMockAttestedReturn() (gas: 12002391)
+[PASS] testFork_TSLADepositFeeMetadataAndMockAttestedReturn() (gas: 12250135)
 Logs:
-  Robinhood fork block (latest, not finalized proof): 71270443
+  Robinhood fork block (latest, not finalized proof): 71363510
   Verified selected stock: TSLA
 
-Suite result: ok. 19 passed; 0 failed; 0 skipped; finished in 25.95s (191.23s CPU time)
+Suite result: ok. 20 passed; 0 failed; 0 skipped; finished in 23.79s (176.61s CPU time)
 
-Ran 1 test suite in 25.95s (25.95s CPU time): 19 tests passed, 0 failed, 0 skipped (19 total tests)
+Ran 1 test suite in 23.79s (23.79s CPU time): 20 tests passed, 0 failed, 0 skipped (20 total tests)

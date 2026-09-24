@@ -22,6 +22,7 @@ abstract contract WormholeEndpoint is Ownable2Step, ReentrancyGuard {
         address owner;
         address guardian;
         uint256 maxTransfer;
+        address bootstrapper;
     }
     IWormholeCore public immutable wormhole;
     uint256 public immutable deploymentChainId;
@@ -34,6 +35,8 @@ abstract contract WormholeEndpoint is Ownable2Step, ReentrancyGuard {
     /// @notice Largest approved incoming amount; never decreases so older claims still fit.
     uint256 public inboundMaxTransfer;
     address public guardian;
+    /// @notice One-time setup authority; cleared permanently on any activation or ownership nomination.
+    address public bootstrapper;
     address public peer;
     address public remoteToken;
     uint8 public pausedLanes = 3;
@@ -51,10 +54,12 @@ abstract contract WormholeEndpoint is Ownable2Step, ReentrancyGuard {
     error InvalidMessage();
     error LanePaused(uint8 lane);
     error UnauthorizedGuardian();
+    error UnauthorizedBootstrapper();
     error TransferTooLarge();
     error RenunciationDisabled();
     event PeerSet(address indexed peer, uint16 indexed wormholeChain, address indexed remoteToken);
     event GuardianChanged(address indexed previous, address indexed next);
+    event BootstrapClosed(address indexed previousBootstrapper);
     event PauseChanged(uint8 lanes, bool paused, address indexed actor);
     event MessageConsumed(bytes32 indexed messageId, uint64 indexed sequence, uint8 indexed action);
     event InboundTransferLimitRaised(uint256 previous, uint256 next);
@@ -77,11 +82,22 @@ abstract contract WormholeEndpoint is Ownable2Step, ReentrancyGuard {
         outboundConsistency = c.outboundConsistency;
         inboundConsistency = c.inboundConsistency;
         guardian = c.guardian;
+        bootstrapper = c.bootstrapper;
         maxTransfer = c.maxTransfer;
         inboundMaxTransfer = c.maxTransfer;
     }
 
     function setPeer(address remotePeer, address tokenOnRemoteChain) external onlyOwner {
+        _setPeer(remotePeer, tokenOnRemoteChain);
+    }
+
+    /// @notice Bind the initial peer without a delay. Does not enable either transfer lane.
+    function bootstrapSetPeer(address remotePeer, address tokenOnRemoteChain) external {
+        _checkBootstrapper();
+        _setPeer(remotePeer, tokenOnRemoteChain);
+    }
+
+    function _setPeer(address remotePeer, address tokenOnRemoteChain) private {
         if (peer != address(0)) revert PeerAlreadySet();
         if (remotePeer == address(0) || tokenOnRemoteChain == address(0) || remotePeer == tokenOnRemoteChain) revert InvalidConfiguration();
         _validateRemoteToken(tokenOnRemoteChain);
@@ -91,6 +107,35 @@ abstract contract WormholeEndpoint is Ownable2Step, ReentrancyGuard {
     }
 
     function _validateRemoteToken(address) internal view virtual {}
+
+    /// @notice First activation only. The fast setup authority cannot be restored afterward.
+    function activate() external {
+        _checkBootstrapper();
+        _unpause(OUTBOUND | INBOUND);
+    }
+
+    /// @notice Governance may abandon fast setup and retain the ordinary timelocked path.
+    function disableBootstrap() external onlyOwner {
+        _closeBootstrap();
+    }
+
+    function _checkBootstrapper() private view {
+        if (bootstrapper == address(0) || msg.sender != bootstrapper) revert UnauthorizedBootstrapper();
+    }
+
+    function _closeBootstrap() private {
+        address previous = bootstrapper;
+        if (previous != address(0)) {
+            bootstrapper = address(0);
+            emit BootstrapClosed(previous);
+        }
+    }
+
+    /// @dev Ownership migration must not leave an earlier administrator's setup permission alive.
+    function transferOwnership(address newOwner) public override onlyOwner {
+        _closeBootstrap();
+        super.transferOwnership(newOwner);
+    }
 
     function setGuardian(address next) external onlyOwner {
         if (next == address(0)) revert InvalidConfiguration();
@@ -125,8 +170,14 @@ abstract contract WormholeEndpoint is Ownable2Step, ReentrancyGuard {
     }
 
     function unpause(uint8 lanes) external onlyOwner {
+        _unpause(lanes);
+    }
+
+    function _unpause(uint8 lanes) private {
         _validateLanes(lanes);
         _checkChainAndPeer();
+        // Also consumed by a partial or ordinary timelocked unpause: no later pause bypass.
+        _closeBootstrap();
         pausedLanes &= ~lanes;
         emit PauseChanged(lanes, false, msg.sender);
     }
