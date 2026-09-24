@@ -19,7 +19,7 @@ def main():
     require(rpc.request('eth_getCode',[tx['to'],'latest'])!='0x','endpoint has no code')
     rpc.request('eth_call',[tx,'latest']);gas=int(rpc.request('eth_estimateGas',[tx]),16)
     tx['chainId']=hex(a.chain_id);tx['gas']=hex((gas*120+99)//100)
-    print(json.dumps({'unsignedTransaction':tx,'simulation':'passed','note':'Re-simulate at signing time. Simulation does not reserve rate-limit capacity.'},indent=2))
+    print(json.dumps({'unsignedTransaction':tx,'simulation':'passed','note':'Re-simulate at signing time. Simulation does not guarantee later inclusion or completion.'},indent=2))
 if __name__=='__main__':
     try:main()
     except Exception as e:

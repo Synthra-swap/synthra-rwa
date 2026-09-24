@@ -56,8 +56,10 @@ as replacements for an original token or Core.
 
 Issuer solvency, legal eligibility/distribution rights, correctness and governance of live Core proxies,
 Guardian availability, chain finality, external price feeds, underlying share custody, market making,
-DEX/frontend integration, user device security, and operation of hosted relayers/RPCs. These remain
-launch prerequisites, not claims established by local tests. The standalone verifier harness does
+DEX/frontend integration, user device security, and operation of external RPC/attestation services.
+The user completes the destination transaction; no automatic relayer is planned. Reliable message
+retrieval, manual completion/recovery UX, and metadata refresh remain launch prerequisites, not
+claims established by local tests. The standalone verifier harness does
 not model Core proxy upgrades or prove that its revision matches a particular live deployment.
 
 Research integration evidence and verified issuer powers are documented in `INTEGRATION_REVIEW.md`.

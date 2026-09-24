@@ -18,6 +18,15 @@ No public deployment has been performed. Fork checks for all twelve selected sto
 Core contracts are documented; final configuration, issuer checks, and a complete Synthra round
 trip with live Guardians remain launch requirements.
 
+## User transaction flow
+
+Users submit both bridge transactions: initiation on one chain, then completion with a signed
+Wormhole VAA on the receiving chain. An original-token allowance may require an additional approval
+transaction before a deposit; redemption burns the caller's wrapped balance without an approval.
+There is no automatic relayer service in the planned production model. Anyone may still complete a
+valid message, but users must have gas on both chains and cannot assume someone else will deliver it.
+Metadata updates likewise require publication and destination completion; they are not automatic.
+
 ## Documents for auditors
 
 - [Internal adversarial review: findings, fixes, and open conditions](docs/INTERNAL_AUDIT.md)

@@ -7,7 +7,7 @@
 | Timelock owner | One-time peer setup, pause/resume lanes, rotate emergency guardian and future fee recipient, prepare higher incoming ceilings and adjust outgoing maximum, two-step ownership migration | Change asset, Core or fee rate; mint/unlock directly; withdraw reserves; upgrade code |
 | Emergency guardian | Immediately pause outbound, inbound or both | Resume, change peer, transfer funds |
 | Treasury | Receive 0.5% source deposit fee | Claim any principal or donated reserves |
-| Relayer / any user | Submit VAA or publish metadata snapshot | Forge Guardian verification or redirect encoded recipient |
+| User / any willing submitter | Submit VAA or publish metadata snapshot | Forge Guardian verification or redirect encoded recipient |
 | Wormhole Guardian/Core authority | Establish validity of cross-chain messages | Assumed honest; compromise breaks backing guarantees |
 | Original issuer | Observed token/global pause, address blocking, role-controlled burn of escrow balances, beacon upgrades and multiplier changes | Not controlled by Synthra |
 
@@ -47,6 +47,9 @@ Renouncing endpoint ownership is disabled to prevent permanent loss of recovery 
   addresses are rejected before taking funds. Preflight verifies both bindings against the deployed pair.
 - Metadata failure never blocks raw ERC20 transfer/redemption. UI values fail closed once stale.
 - Fee is earned on source initiation, not remote completion; this must be visible before signing.
+- Users submit the destination completion themselves; no automatic relayer is planned. A user who
+  does not retrieve and submit the VAA leaves the transfer pending. Another address may deliver it,
+  but this is not guaranteed. The UI must support resuming pending transfers and show gas on both chains.
 
 ## Attacks covered by code/tests
 

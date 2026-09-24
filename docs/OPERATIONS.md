@@ -32,8 +32,11 @@ This checks configuration coherence only. It does not contact a network or estab
 
 ## 2. Deploy each side paused
 
-Simulate first against the correct RPC with a named keystore/hardware wallet (never a private key in
-source/config). `Deploy` creates a TimelockController and one endpoint. Destination creates its
+Simulate first against the correct RPC with the selected deployer. Signing may use a named keystore,
+hardware wallet, or a user-operated script that supplies a private key locally. Do not hardcode keys
+in source/config, commit them, print them, or enable shell tracing around signing. Deployment and
+test transactions can use a separate hot wallet; governance operations still require the configured
+administrative signer and timelock. `Deploy` creates a TimelockController and one endpoint. Destination creates its
 wrapped ERC20 internally. Source feeRecipient is initialized from configuration. The script never unpauses.
 
 ```sh
@@ -132,24 +135,33 @@ preflight with the appropriate paused/active phase. The approved endpoint runtim
 change when this storage value changes. Do not learn an expected recipient blindly from the RPC.
 Rotation is allowed while paused; a blocked treasury does not require redeploying the bridge.
 
-## 4. Relay and retry
+## 4. User completion and retry
 
-Retrieve a native binary signed VAA from the selected Wormhole attestation service. Keep the source
-transaction, finalized emitter/sequence, raw VAA, destination transaction and status in durable storage.
-A custom worker should persist before submitting, deduplicate by emitter chain/address/sequence,
-use bounded retry/backoff, track receipts through finality and handle reorgs. The repository provides
-manual relay preparation, not a hosted always-on worker.
+The production model uses two user-submitted bridge transactions and no automatic relayer service.
+For Robinhood to Arc, the user calls `deposit` on the source, waits for a signed Wormhole VAA, then
+calls `completeDeposit` on the destination. A separate original-token `approve` transaction may be
+needed first. For Arc to Robinhood, the user calls `redeem` and then `completeRedemption`; no wrapped
+allowance is required. Users pay gas on both chains and the source-side Core message fee, if any.
+
+Completion remains permissionless: another address may deliver the same valid message, but cannot
+change its recipient or amount. This capability does not imply an operated delivery service.
+Retrieve the native binary signed VAA from the selected attestation service and retain the source
+transaction, finalized emitter/sequence, VAA, destination transaction, and status for retry.
+A UI must let users resume from a source transaction after closing the page or changing devices,
+retrieve pending messages, and reconcile destination completion before offering another submission.
+The repository currently provides manual preparation; the complete user-facing recovery flow is
+an integration requirement, not a hosted relayer requirement.
 
 ```sh
 python3 tools/prepare_relay.py --kind deposit --vaa deposit-vaa.hex \
-  --endpoint "$DESTINATION_ENDPOINT" --sender "$RELAYER_ADDRESS" \
+  --endpoint "$DESTINATION_ENDPOINT" --sender "$USER_ADDRESS" \
   --rpc-env DESTINATION_RPC_URL --chain-id "$DESTINATION_EVM_CHAIN_ID"
 ```
 
-Output is an **unsigned** transaction after `eth_call` and gas estimation. Sign/send through the
-operator's normal wallet tooling after re-simulation. `--kind redemption` targets the source vault;
-`--kind metadata` targets DestinationBridge. The helper never signs or transmits. Any address can
-relay; no Synthra key is needed to complete a user's valid message.
+Output is an **unsigned** transaction after `eth_call` and gas estimation. Sign/send with the user's
+wallet after re-simulation. `--kind redemption` targets the source vault; `--kind metadata` targets
+DestinationBridge. The helper never signs or transmits. The user or another willing submitter must
+perform completion; Wormhole attestation does not automatically execute the destination transaction.
 
 - Above incoming ceiling after misordered governance: reconcile receive approvals through timelock
   and retry the same VAA; do not create a second user deposit. Proper preparation avoids this case.
@@ -177,8 +189,9 @@ do not wait for the monthly deadline. An unchanged multiplier can also be republ
 freshness. The deadline is measured from source observation, not destination receipt. Re-delivering
 a consumed or older snapshot cannot restart it. Keep timestamp-skew tolerance at five minutes.
 
-Operators must monitor original-token changes and metadata age and provide a keeper/relay service;
-this repository does not host one. If it stops, stale UI getters fail closed after the deadline,
+Operators must monitor original-token changes and metadata age and arrange timely publication and
+destination completion, which can both be submitted manually. No hosted keeper or automatic relayer
+is selected. If nobody refreshes, stale UI getters fail closed after the deadline,
 while raw ERC20 transfers and bridge mint/burn/redemption remain independent of metadata freshness.
 Integrating frontends should expose raw redemption and clearly indicate unavailable display data.
 The 30-day window trades fewer unchanged-state publications for longer potential display staleness
@@ -212,8 +225,9 @@ the emergency guardian has no Timelock cancellation role. Monitor delay changes 
 
 ## 6. Frontend integration obligations
 
-Show gross amount, 0.5% fee, net wrapped amount, separate gas/message fees and an asynchronous state
-machine before signing. Fee is collected at source success even if remote completion is delayed.
+Show gross amount, 0.5% fee, net wrapped amount, gas on both chains, separate message fees, and the
+two-transaction flow (plus approval when needed) before signing. Provide network switching,
+attestation waiting, explicit destination completion, and a recoverable pending-transfer view. Fee is collected at source success even if remote completion is delayed.
 Validate destination addresses including known endpoint/token contracts; never label a raw token as
 one share. Show metadata freshness and handle UI accessor reverts. Prices are external data with
 explicit units; metadata is not an oracle. Do not advertise instant cross-chain settlement or an

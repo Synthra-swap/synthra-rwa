@@ -70,8 +70,10 @@ includes artificial mock overhead; it is not a gas-cost estimate for the live ch
 - Production pair preflight/relay execution still needs deployed endpoints and approved real configs.
   Robinhood's public RPC returned no historical state for the finalized block; latest reads are
   separately labeled and do not satisfy that gate.
-- Independent review, issuer/distribution review, hosted relayer, durable indexer/reconciliation,
-  frontend and liquidity integration remain outstanding.
+- Independent review, issuer/distribution review, user-facing VAA retrieval/completion and pending-
+  transfer recovery, reconciliation/monitoring, frontend and liquidity integration remain outstanding.
+  No automatic relayer is planned; users submit both bridge transactions. This does not remove the
+  requirement to publish and deliver metadata updates or recover interrupted user sessions.
 
 Foundry emits non-blocking debug-source-parser warnings during the demo for certain test/vendor
 files. Compilation, script assertions, emitted logs and final exit code confirm successful execution.

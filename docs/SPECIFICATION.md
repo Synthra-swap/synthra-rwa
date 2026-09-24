@@ -110,7 +110,7 @@ transferring. No waiting window is imposed on users by these administrative oper
 
 ## Multiplier snapshots
 
-A permissionless keeper calls `publishMetadata`, paying the Core message fee. The source reads
+Any caller can invoke `publishMetadata`, paying the Core message fee. The source reads
 uiMultiplier/newUIMultiplier/effectiveAt directly from the original. If no future schedule exists,
 it normalizes next=current and effectiveAt=0. No caller can submit arbitrary multiplier values.
 
@@ -149,7 +149,8 @@ Neither value is a per-transfer limit. Stale metadata affects `uiMultiplier`, `n
 `effectiveAt`, `toUIAmount`, `fromUIAmount`, `balanceOfUI`, and `totalSupplyUI`; ordinary raw ERC20
 balances/transfers and bridge mint/burn/redemption do not use those freshness checks. Integrations
 should show that display metadata is unavailable and continue to distinguish raw amounts from
-share-equivalent display values. A keeper must publish and relay fresh observations before expiry.
+share-equivalent display values. An operator or other permissionless caller must publish and deliver
+fresh observations before expiry; this can be performed manually.
 
 Publication and delivery are permissionless and have no minimum interval. A fresh observation can
 renew the window before expiry even if the multiplier is unchanged; replaying an old message cannot.
@@ -157,5 +158,5 @@ Publish and relay immediately when a multiplier or schedule changes, and refresh
 before the 30-day deadline with enough margin for finality, relay delays, and retries. A previously
 delivered future schedule takes effect locally at its effective timestamp while metadata is fresh.
 A larger freshness window allows missed source changes to remain undetected by this age check for
-longer; it does not prove that the source stayed unchanged. The repository does not run a hosted
-keeper automatically. Raw amounts remain independent of this policy.
+longer; it does not prove that the source stayed unchanged. The production design does not rely on an automatic relayer, and the repository does not run a
+hosted metadata keeper. Raw amounts remain independent of this policy.
