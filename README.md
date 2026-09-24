@@ -83,13 +83,6 @@ finality, and Wormhole Guardians/Core; a pause can delay redemptions.
 - Stateful solvency tests, finalized-block preflight tools, and unsigned relay preparation.
 - Deployment of a governance/endpoint pair on each chain, CI, and a reproducible audit archive.
 
-## Work required before launch
-
-The audit can begin on this scope. Launch also requires issuer and live-contract verification,
-operator-approved configuration, tests with the actual networks' Core/Guardians, external review
-and resolution of its findings, monitoring, and an operational relay service.
-The frontend, USDC routing, and market making are separate integrations outside the contract scope.
-No value in `deployment.example.json` is a launch risk recommendation.
 
 ## Current validation
 
