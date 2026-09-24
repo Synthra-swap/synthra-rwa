@@ -11,6 +11,7 @@ import time
 
 from prepare_deployment import ROOT, digest
 from preflight import RPC, address, require, validate_pair
+from rpc_policy import finalized_url, is_nodeflare_public
 
 
 def load(bundle_path, symbol, side, root=ROOT):
@@ -63,6 +64,21 @@ def command(config, sender, rpc_url):
     return result
 
 
+def deployment_snapshot(config, entry, side, rpc_env, finalized=False):
+    execution_url = os.environ[rpc_env]
+    checked_url = finalized_url(rpc_env) if finalized else execution_url
+    snapshot = check_network(RPC(checked_url), config, entry, side, finalized=finalized)
+    if checked_url != execution_url:
+        execution_rpc = RPC(execution_url)
+        require(int(execution_rpc.request('eth_chainId', []), 16) == int(config['evmChain']),
+                'execution RPC on wrong chain')
+        block = execution_rpc.request('eth_getBlockByNumber', [snapshot['number'], False])
+        require(block is not None and block['hash'] == snapshot['hash'],
+                'execution and finalized RPC disagree on pinned block')
+        snapshot['executionRpcMatchesFinalizedSnapshot'] = True
+    return snapshot
+
+
 def simulation_environment(environ, deployment, state):
     # Do not let an inherited compiler/profile override silently change reviewed bytecode.
     env = {k: v for k, v in environ.items()
@@ -76,7 +92,8 @@ def run_logged(cmd, env, path, secret=None):
     # Do not print argv: it may contain a local signer key or a private RPC URL.
     run = subprocess.run(cmd, cwd=ROOT, env=env, capture_output=True, text=True)
     output = run.stdout + run.stderr
-    for value in (secret, env.get('SOURCE_RPC_URL'), env.get('DESTINATION_RPC_URL')):
+    for value in (secret, env.get('SOURCE_RPC_URL'), env.get('DESTINATION_RPC_URL'),
+                  env.get('SOURCE_FINALIZED_RPC_URL'), env.get('DESTINATION_FINALIZED_RPC_URL')):
         if value:
             output = output.replace(value, '[REDACTED]')
     path.write_text(output)
@@ -91,14 +108,19 @@ def main():
     parser.add_argument('--asset', required=True)
     parser.add_argument('--side', choices=('source', 'destination'), required=True)
     parser.add_argument('--broadcast', action='store_true')
+    parser.add_argument('--finalized-preflight', action='store_true',
+                        help='Run the broadcast finalized-state gate before a read-only simulation; no key required')
     args = parser.parse_args()
     bundle_path = Path(args.bundle).resolve()
     entry, config = load(bundle_path, args.asset, args.side)
     meta = entry[args.side]
     require(meta['rpcEnv'] in ('SOURCE_RPC_URL', 'DESTINATION_RPC_URL'), 'unexpected RPC environment name')
     rpc_url = os.environ[meta['rpcEnv']]
-    rpc = RPC(rpc_url)
-    snapshot = check_network(rpc, config, entry, args.side, finalized=args.broadcast)
+    require(not is_nodeflare_public(rpc_url),
+            'keyless NodeFlare is too rate-limited for Foundry; use it as the finalized RPC override '
+            'and a regular public RPC for execution (see docs/DEPLOYMENT_BUNDLE.md)')
+    snapshot = deployment_snapshot(config, entry, args.side, meta['rpcEnv'],
+                                   finalized=args.broadcast or args.finalized_preflight)
     state = ROOT / '.tools/deployment-runs' / str(config['evmChain']) / args.asset
     state.mkdir(parents=True, exist_ok=True)
     marker = state / 'broadcast-attempt.json'

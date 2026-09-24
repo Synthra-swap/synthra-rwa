@@ -76,7 +76,7 @@ class DeploymentPreparationTests(unittest.TestCase):
 
     def temporary_root(self, root):
         for path in ('config/pair.example.json', 'tools/prepare_deployment.py', 'tools/deploy_asset.py',
-                     'tools/preflight.py', 'foundry.toml'):
+                     'tools/preflight.py', 'tools/rpc_policy.py', 'foundry.toml'):
             target = root / path; target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes((ROOT / path).read_bytes())
         return root / 'config/deployments/test'
@@ -92,6 +92,7 @@ class DeploymentPreparationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'changed bundle input'):
                 load(output / 'bundle.json', 'AAPL', 'source', root=root)
             self.assertIn('tools/deploy_asset.py', bundle['buildInputsSha256'])
+            self.assertIn('tools/rpc_policy.py', bundle['buildInputsSha256'])
 
     def test_modified_tools_block_execution(self):
         with tempfile.TemporaryDirectory() as tmp:

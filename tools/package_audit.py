@@ -15,7 +15,8 @@ review_paths.update('audit/readiness-review/' + name for name in (
     'twelve-asset-code-identities.json', 'current-fork-pins.json'))
 network_reports={'asset-registry.json','observations-both-finalized.json','observations-robinhood-latest.json',
                  'robinhood-finalized-rpc.json','arc-finalized-rpc.json','robinhood-latest-rpc.json',
-                 'token-implementation-sourcify.json','token-source-check.json','live-vaa-verification.json'}
+                 'token-implementation-sourcify.json','token-source-check.json','live-vaa-verification.json',
+                 'free-rpc-validation.json'}
 paths=[]
 for p in sorted(root.rglob('*')):
     if not p.is_file():continue

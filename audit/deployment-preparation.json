@@ -406,5 +406,6 @@
   "bootstrapperIsGovernanceAccount": true,
   "bootstrapClosedOnAnyUnpauseOrOwnershipNomination": true,
   "laterGovernanceTimelocked": true,
-  "notice": "One-time immediate setup revision. Local independent deployment simulations only; private configurations and sender details excluded. Actual receipts are required before binding peers. No public transactions or audit sign-off."
+  "notice": "One-time immediate setup revision. Local independent deployment simulations only; private configurations and sender details excluded. Actual receipts are required before binding peers. No public transactions or audit sign-off. Historical 24-run evidence from fbd37ef; privateBundleSha256 identifies that earlier bundle. Current tooling and finalized NVDA follow-up are recorded in audit/network/free-rpc-validation.json.",
+  "freeRpcFollowupEvidence": "audit/network/free-rpc-validation.json"
 }

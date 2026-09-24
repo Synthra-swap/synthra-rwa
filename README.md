@@ -100,7 +100,7 @@ finality, and Wormhole Guardians/Core; a pause can delay redemptions.
 
 ## Current validation
 
-The current source passed 135 Solidity tests, 82 Python tests, 32 security mutations, and 20 fork
+The current source passed 135 Solidity tests, 94 Python tests, 32 security mutations, and 20 fork
 checks covering all twelve selected stocks. Slither reported no High/Medium findings and four
 reviewed Low timestamp findings. These are internal results, not an independent audit opinion.
 See [VALIDATION.md](docs/VALIDATION.md) for evidence and limitations and

@@ -8,6 +8,7 @@ import subprocess
 import sys
 import urllib.request
 from pathlib import Path
+from rpc_policy import finalized_url, public_rpc_slot
 
 ZERO = '0x' + '0' * 40
 
@@ -75,8 +76,9 @@ class RPC:
         try:
             req=urllib.request.Request(self.url,payload,{'Content-Type':'application/json',
                 'User-Agent':'Synthra-ReadOnly-Integration-Review/1.0'})
-            with urllib.request.urlopen(req,timeout=30) as result:
-                data=json.load(result)
+            with public_rpc_slot(self.url):
+                with urllib.request.urlopen(req,timeout=30) as result:
+                    data=json.load(result)
         except Exception as error:
             raise ValueError('RPC transport failed (URL omitted)') from error
         require(data.get('jsonrpc') == '2.0' and data.get('id') == 1, 'RPC response identity mismatch')
@@ -88,7 +90,7 @@ class RPC:
         return word(self.request('eth_call',[{'to':target,'data':data},block]))
 
 def inspect(c,meta,remote_meta,phase):
-    rpc=RPC(os.environ[meta['rpcEnv']]);endpoint=address(meta['endpoint']);governor=address(meta['timelock'])
+    rpc=RPC(finalized_url(meta['rpcEnv']));endpoint=address(meta['endpoint']);governor=address(meta['timelock'])
     require(int(rpc.request('eth_chainId',[]),16)==int(c['evmChain']),'RPC on wrong chain')
     block=rpc.request('eth_getBlockByNumber',['finalized',False]);require(block is not None,'finalized block unavailable')
     pin=block['number']

@@ -55,6 +55,42 @@ Run from the repository root. Set `SOURCE_RPC_URL` and `DESTINATION_RPC_URL` loc
 credentials out of committed files and chat. The broadcast path requires a provider that supports
 state reads at finalized blocks. Public/latest-state simulations do not satisfy that check.
 
+### Free Robinhood RPC setup
+
+The keyless NodeFlare endpoint has served finalized Core and NVDA state, but currently enforces
+one request per ten seconds per public IP. Use it for finalized checks and the official public RPC
+for Foundry simulation and transaction submission. Both endpoints are free; no API key is needed:
+
+```sh
+export SOURCE_RPC_URL='https://rpc.mainnet.chain.robinhood.com'
+export SOURCE_FINALIZED_RPC_URL='https://rpc.nodeflare.app/robinhood/public'
+export DESTINATION_RPC_URL='https://rpc.mainnet.arc.io'
+```
+
+Python RPC calls to the keyless NodeFlare endpoint automatically share an 11-second request interval
+through a local process lock under `.tools/rpc-pacing/`. Checks may therefore take several minutes.
+Other machines or browser wallets using the same public IP are not coordinated by this lock.
+Errors stop the operation; requests and transaction submissions are not automatically retried by
+this Python pacing layer. No finalized-state failure is replaced with a latest-state check.
+
+`SOURCE_FINALIZED_RPC_URL` and `DESTINATION_FINALIZED_RPC_URL` are optional. The paired preflight
+uses these overrides when present. Before broadcast, the deployment runner additionally checks that
+the execution RPC has the expected chain ID and agrees with the finalized provider's pinned block
+hash. Foundry continues to use the ordinary `*_RPC_URL`, including for broadcast. Do not configure
+the keyless NodeFlare endpoint as Foundry's execution RPC; its request volume exceeds that limit.
+Hardware/browser wallets should likewise use the ordinary public RPC for sending transactions.
+
+To exercise the full finalized-state gate and then simulate without a private key or any broadcast:
+
+```sh
+python3 tools/deploy_asset.py --bundle config/deployments/mainnet/bundle.json \
+  --asset NVDA --side source --finalized-preflight
+```
+
+`--broadcast` always requires the finalized gate, with or without `--finalized-preflight`.
+
+### Simulation commands
+
 ```sh
 python3 tools/deploy_asset.py --bundle config/deployments/mainnet/bundle.json \
   --asset NVDA --side source

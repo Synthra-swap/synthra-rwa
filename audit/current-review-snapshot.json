@@ -1,10 +1,8 @@
 {
   "date": "2026-09-24",
-  "revision": "One-time immediate initial binding and activation; subsequent governance remains timelocked",
-  "baselineArchiveSha256": "f0e5502a0be8551f0a5da772a9076ae840bb94ac5547810eaf5b2716ae770f92",
-  "changedProductionFiles": [
-    "src/WormholeEndpoint.sol"
-  ],
+  "revision": "Free public RPC deployment: optional finalized provider, shared pacing and execution-provider block agreement",
+  "baselineArchiveSha256": "4258f0c7d854cda4d0b2ae0f73166823de5d7bce21a9088ea7d1e053e2f6fa6a",
+  "changedProductionFiles": [],
   "deletedProductionFiles": [],
   "productionSourceSha256": {
     "src/BridgeMessage.sol": "42c4a193a2c81109dd33748b3472d1962c696c0e70f3b24e3e9ead3e5deca72f",
@@ -18,10 +16,10 @@
   "evidenceSha256": {
     "script/Deploy.s.sol": "03012f4ebcb4b3421de9f5bf57f7edc35078c00e169d5766060a59244fc39dfc",
     "script/LocalDemo.s.sol": "efd03c278e3806f7c174f7872236423a5c0c6bc7023ee2c84f9b21ba2c68741f",
-    "tools/preflight.py": "46ce6d126e06cfc4242a513162098200e2458072e0de9ffb63eb575b9deb3d31",
+    "tools/preflight.py": "364b946b4f8dcf1c5743b76c5b46b0ace0cbfe2de4804d26e683ae9b71ad6fa6",
     "tools/test_preflight.py": "614ebc77712aa2ec0dda511191d71423bc5432e9c87507eb7a67ed2c74e7bb82",
     "tools/mutation_check.py": "2a25d0bd6733b48f0d03000adaa941bbe884a1373fd4dd6e4e23ad0d767c6bb2",
-    "tools/package_audit.py": "12a048023a2b57d3181c17a627c0e57197dd084912b784afc03b527870c0c5b7",
+    "tools/package_audit.py": "17921751a9cc2bd0a2376f5d43028fe464b7e8c033bdf657d866271a905a0274",
     "foundry.toml": "74852f6f06296a4061940da265e99c20fa97a4fcaaa2b3ac1967c4361ad5f674",
     "test/Metadata.t.sol": "44e6393f4962f32b906356bd9eb7259353a98102cb0720ced40e5202dc422d7b",
     "test/Fixture.sol": "18c42d76d25bdc96a186b242f8d05c1daf81a927d56462c2f3b72123f60c6ca9",
@@ -35,7 +33,7 @@
     "audit/live-fork-tests.log": "18edba80ace6b44b1e3c106b10d61346638e3cbea05f179d2203db6134a5999e",
     "audit/unit-tests.log": "4497cf480f3854d3ebd041cc988e7629838a3b361d56b253c2ec4cbbf354ffe8",
     "audit/audit-tests.log": "3f74dbad07bafca757b74b51a3b406d9c0b29e6c960e2b5c1ddcaf95541108cc",
-    "audit/python-tests.log": "a6f203be11371b73a978c3f1f6f916303568195c760b0931684925cd0c715e0a",
+    "audit/python-tests.log": "649df54220456418af54aecb7ea4debda4493c3b301dd5d756039577d8891048",
     "audit/mutation-report.json": "305e2c044974ae55e48e33f0e74316288e9511a5c94c8f2a2f9efac300d25482",
     "audit/mutation.log": "c6728974048e7d71c9c5d5ac75767896a4e4bce7409795dfdf0a404622d559c1",
     "audit/coverage.log": "46af7dcbcf87d050a6800f0ee36db6b9959fc56b879c921ef494c0176ade7d8d",
@@ -47,14 +45,17 @@
     "audit/readiness-review/current-fork-pins.json": "39d987cec1253edf8f64ad78a4160bdd0e27b238d195ae237df26062ce87ebe7",
     "test/HardwareWalletGovernance.t.sol": "ccced3639d7529a2f679c59d3c91fd94be1600e2b9e506a8214b76f5caf2725c",
     "tools/test_network_preflight.py": "9b9c14bedae2e038defdf6751b188847b40869c2460a9baf7aae73384de106d0",
-    "tools/prepare_deployment.py": "2e5d551923c00e8b4f1298df5043cc88d64ea05c561b98bc9e78e23d7e65ed30",
-    "tools/deploy_asset.py": "d60e9e2b716b356bb1142ea96d4f353d76cb90f9e118bb369c85fd6b19ee70ea",
-    "tools/test_prepare_deployment.py": "851b1665f0b85269e5df6fc60bfc6faf2557627fb0b443fec8ae6ea95cb8c9c7",
-    "audit/deployment-preparation.json": "1449f26b74388046fa87a3179c573644f0182d434ea7626d1e6109050f8483d2",
-    "test/Bootstrap.t.sol": "7cb77cf53c5625a6e081612bb1b95ad9c130854f69cde4972d06e0a0aaadcc6d"
+    "tools/prepare_deployment.py": "29cf1cab048df90d9e2375d7b5e9d1d9a5b0948cb7a063e984cb39707bf0aa33",
+    "tools/deploy_asset.py": "16553249b1ed1468cccd5351c25eaf34d545e043736567434ee211b95c2931ea",
+    "tools/test_prepare_deployment.py": "9249795baa4e55ee7be066a83abae9703aef894aa4bcde794a24e9612582ff96",
+    "audit/deployment-preparation.json": "e7470711bfad0d711be384f11119fd5509da734da0a9a9e60c4c991440c2d539",
+    "test/Bootstrap.t.sol": "7cb77cf53c5625a6e081612bb1b95ad9c130854f69cde4972d06e0a0aaadcc6d",
+    "tools/rpc_policy.py": "cd14cc27bb5a963f6a8906c16eeb386ccd0fd9c5f3340f906cab3bfa048ef4eb",
+    "tools/test_rpc_policy.py": "c5e94c089b77eb896c6c3bba6492f6d3c86b0baa7254327136d5632d8f8c8d4f",
+    "audit/network/free-rpc-validation.json": "88194914b5252be54ea58c9f6f9ff6f32b0e1f7e24b38ead908fdeee70d64547"
   },
   "solidityTests": 135,
-  "pythonTests": 82,
+  "pythonTests": 94,
   "forkTests": 20,
   "selectedStocks": [
     "NVDA",
@@ -109,9 +110,9 @@
     "postTestRecheckedAtUTC": "2026-09-24T12:18:34.750702+00:00",
     "testsPassed": true
   },
-  "notice": "135 Solidity tests, 82 Python tests, 20 pinned local fork tests, 32 detected mutations and 24 independent deployment simulations passed for one-time immediate bootstrap. check.sh passed in full. Initial setup is restricted to the configured governance bootstrapper; any unpause or ownership nomination permanently closes it. Subsequent pause/resume and other administration retain the documented authority boundaries. Production endpoint runtime and deployment input hashes changed; older bundles are invalid. No public transactions, audit sign-off or live Synthra VAA round trip.",
-  "recordedAtUTC": "2026-09-24T12:23:37.784688+00:00",
-  "baselineCommit": "da9e00c32dc64d9889eb4cd2e80593b8830ef704",
+  "notice": "Operational Python changes only. 94 Python tests and two NVDA read-only finalized-preflight/deployment simulations passed using free public RPCs. Solidity sources, Solidity deployment script, compiler settings, dependencies and all twelve asset configurations are unchanged from fbd37ef. Its 135 Solidity tests, 20 local fork tests, 32 detected mutations, Slither results, compiler comparison and 24 independent deployment simulations are retained as prior evidence, not rerun for this tooling-only change. Deployment bundle regenerated to fingerprint updated tooling. No public transactions, independent audit sign-off or live Synthra VAA round trip.",
+  "recordedAtUTC": "2026-09-24T17:06:21.945898+00:00",
+  "baselineCommit": "fbd37ef4f740a248863ba04957088db91f559cf9",
   "metadataMaxAgeSeconds": 2592000,
   "metadataAgeConstructorCeilingSeconds": 2592000,
   "metadataEarlyRefreshPermissionless": true,
@@ -119,12 +120,14 @@
   "maxClockSkewSeconds": 300,
   "hostedKeeperIncluded": false,
   "changedDeploymentAndOperationalFiles": [
-    "script/Deploy.s.sol",
-    "tools/preflight.py"
+    "tools/deploy_asset.py",
+    "tools/preflight.py",
+    "tools/prepare_deployment.py",
+    "tools/rpc_policy.py"
   ],
   "automaticRelayerIncluded": false,
-  "forkTestsRerunForThisChange": true,
-  "forkEvidenceSourceCommit": "Current candidate; identify by source and evidence hashes in this snapshot",
+  "forkTestsRerunForThisChange": false,
+  "forkEvidenceSourceCommit": "fbd37ef4f740a248863ba04957088db91f559cf9",
   "governancePolicy": {
     "governanceAccountMayBeEOA": true,
     "guardianMayBeEOA": true,
@@ -152,5 +155,6 @@
   },
   "deploymentSimulations": 24,
   "compilerProfileBytecodeComparisonPassed": true,
-  "deploymentPreparationEvidence": "audit/deployment-preparation.json"
+  "deploymentPreparationEvidence": "audit/deployment-preparation.json",
+  "freeRpcValidationEvidence": "audit/network/free-rpc-validation.json"
 }

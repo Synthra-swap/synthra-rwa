@@ -4,16 +4,18 @@ Local toolchain: Foundry 1.5.1-stable (b0a9dd9ceda36f63e2326ce530c10e6916f4b8a2)
 Solidity 0.8.28 (7893614a), Slither 0.11.3, Python 3.14.6. EVM Paris, optimizer 200,
 no CBOR/bytecode metadata. CI declares Foundry 1.5.1 and Python 3.11 but has not been run remotely.
 
-`bash tools/check.sh` completed successfully for this candidate. The reports below are packaged
-and hashed with the source snapshot; the independent audit remains outstanding.
-The latest revision adds a one-time initial setup permission for the configured governance account.
+`bash tools/check.sh` completed successfully for the immediate-bootstrap contract revision `fbd37ef`.
+The subsequent free-RPC tooling update reran the Python suite; Solidity sources, deployment Solidity,
+compiler settings and dependency inputs are unchanged, so their existing evidence is retained.
+The reports below are packaged and hashed with the source snapshot; the independent audit remains outstanding.
+The contract revision adds a one-time initial setup permission for the configured governance account.
 Initial peer binding and activation have no timelock wait; the endpoint remains timelock-owned.
 Every unpause, including partial and ordinary governance unpause, consumes the fast setup permission.
 Ownership nomination also consumes it, and governance may close it explicitly without activating.
 Later resumption and other administrative operations retain the ordinary timelocked path.
 
 Full local checks, mutation testing, twenty pinned fork tests and twenty-four independent deployment
-simulations were rerun. The deployment profile uses Cancun fork execution and Paris compilation;
+simulations were run for that contract revision. The deployment profile uses Cancun fork execution and Paris compilation;
 creation bytecode and runtime templates match the default audit profile for this same revision.
 The previous revision's deployment bundle and runtime hashes must not be reused for the new contracts.
 These simulations do not replace finalized-state verification or live signed-VAA round trips.
@@ -35,7 +37,8 @@ See `SPECIFICATION.md` for current behavior, `OPERATIONS.md` for governance orde
 | Asset expansion | 2 local tests: add a thirteenth pair; isolate messages and pauses | `test/AssetExpansion.t.sol` |
 | Immediate bootstrap | 10 tests: correct authority on both sides, no initial wait, paused binding, no repeat activation, timelocked later resume, partial-unpause closure, ownership-migration closure, invalid input rollback and no unrelated admin powers | `test/Bootstrap.t.sol` |
 | Deployment simulation | Both sides created paused and timelock-owned; shared EOA roles, immediate pause, delayed resume/treasury changes, zero-authority and short-delay rejection | `test/DeploymentConfig.t.sol`, `test/HardwareWalletGovernance.t.sol` |
-| Operational-tool validation | 82 Python tests passed, including exact multiplier conversion, rounding, stale inputs, config tampering, duplicate assets, wrong networks and compiler override isolation | `audit/python-tests.log`, `tools/test_*.py` |
+| Operational-tool validation | 94 Python tests passed, including exact multiplier conversion, config tampering, shared public-RPC pacing, failure without fallback, cross-provider chain/block agreement and read-only finalized simulation | `audit/python-tests.log`, `tools/test_*.py` |
+| Free public RPC workflow | NVDA finalized deploy preflight and simulation passed on both chains; Robinhood execution/finalized providers agree on the pinned block; no broadcast | `audit/network/free-rpc-validation.json` |
 | Selected deployment preparation | 24/24 latest-state simulations passed; all 12 stocks on both chains; 7/7 artifact comparisons byte-identical to the default audit profile | `audit/deployment-preparation.json` |
 | Real-network fork simulations | 20 passed on the current source; all 12 selected stocks, treasury rotation and issuer interference | `audit/live-fork-tests.log`, `docs/INTEGRATION_REVIEW.md` |
 | Mutation sensitivity | All 32 compiling mutations detected, including outgoing/incoming maxima and receive-preparation authority, reentrancy and monotonicity, plus deployment owner, bootstrap admin, minimum delay and zero-authority guards | `audit/mutation-report.json` |

@@ -107,7 +107,7 @@ def build(plan, output, root=ROOT, now=None):
         target.write_text(json.dumps(body, indent=2) + '\n')
     inputs = [p for folder in ('src', 'script', 'vendor') for p in (root / folder).rglob('*') if p.is_file()]
     inputs += [root / p for p in ('foundry.toml', 'tools/prepare_deployment.py', 'tools/deploy_asset.py',
-                                  'tools/preflight.py')]
+                                  'tools/preflight.py', 'tools/rpc_policy.py')]
     bundle = {'schema': 1, 'createdAtUTC': now.isoformat(), 'assets': records,
               'filesSha256': {path: digest(root / path) for path in files},
               'buildInputsSha256': {str(p.relative_to(root)): digest(p) for p in sorted(inputs)},

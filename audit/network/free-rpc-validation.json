@@ -1,0 +1,43 @@
+{
+  "recordedAtUTC": "2026-09-24T17:06:21.945898+00:00",
+  "contractSourceCommit": "fbd37ef4f740a248863ba04957088db91f559cf9",
+  "contractSourcesUnchanged": true,
+  "allTwelveAssetConfigurationsUnchanged": true,
+  "publicTransactionsSent": false,
+  "pythonTestsPassed": 94,
+  "sourceExecutionRpc": "https://rpc.mainnet.chain.robinhood.com",
+  "sourceFinalizedRpc": "https://rpc.nodeflare.app/robinhood/public",
+  "destinationRpc": "https://rpc.mainnet.arc.io",
+  "publicNodeFlareSpacingSeconds": 11,
+  "automaticRetryByPythonPacingLayer": false,
+  "finalizedFailureFallsBackToLatest": false,
+  "readOnlyDeploymentRuns": [
+    {
+      "asset": "NVDA",
+      "side": "source",
+      "snapshot": {
+        "number": "0x44360fc",
+        "hash": "0x6e01c44da15bb9991e87f23d81f4ba015eeb4faa87fd55f9b4e57d02f48c6b5c",
+        "finalized": true,
+        "executionRpcMatchesFinalizedSnapshot": true
+      },
+      "bundleSha256": "e754df3555c2c74cffdb0276114d6c480d99c60e959a402c6d0490b0c16d8b65",
+      "simulationPassed": true,
+      "observedAtUTC": "2026-09-24T17:05:18.623068+00:00"
+    },
+    {
+      "asset": "NVDA",
+      "side": "destination",
+      "snapshot": {
+        "number": "0x158162d",
+        "hash": "0x126b200fd30589337d5f8bdf01dd6ce86ac65a9efb8b7e89860ff8157305fcd4",
+        "finalized": true
+      },
+      "bundleSha256": "e754df3555c2c74cffdb0276114d6c480d99c60e959a402c6d0490b0c16d8b65",
+      "simulationPassed": true,
+      "observedAtUTC": "2026-09-24T17:04:21.235818+00:00"
+    }
+  ],
+  "pairedDeployedContractPreflightCompleted": false,
+  "notice": "Read-only deploy preflight and local Foundry simulation on both chains for NVDA. No deployed Synthra contracts, signed Synthra VAAs, or live round trip. The other eleven assets retain prior configuration and simulation evidence; this does not revalidate their current issuer state. Public-provider availability and rate limits can change."
+}

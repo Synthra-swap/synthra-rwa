@@ -77,3 +77,11 @@ The deployment-bundle candidate before changes to endpoint bootstrap authority i
 [commit `da9e00c`](https://github.com/Synthra-swap/synthra-rwa/tree/da9e00c).
 Its [audit archive](https://github.com/Synthra-swap/synthra-rwa/blob/da9e00c/audit/synthra-rwa-bridge-audit.tar.gz)
 has SHA-256 `f0e5502a0be8551f0a5da772a9076ae840bb94ac5547810eaf5b2716ae770f92`.
+
+## Before free-RPC deployment support
+
+The immediate-bootstrap contract revision before optional finalized providers and shared request pacing
+is preserved at [commit `fbd37ef`](https://github.com/Synthra-swap/synthra-rwa/tree/fbd37ef4f740a248863ba04957088db91f559cf9).
+Its [audit archive](https://github.com/Synthra-swap/synthra-rwa/blob/fbd37ef4f740a248863ba04957088db91f559cf9/audit/synthra-rwa-bridge-audit.tar.gz)
+has SHA-256 `4258f0c7d854cda4d0b2ae0f73166823de5d7bce21a9088ea7d1e053e2f6fa6a`.
+The free-RPC change affects operational Python tooling, not deployed Solidity or asset parameters.
