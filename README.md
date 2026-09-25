@@ -1,107 +1,83 @@
-# Synthra RWA Bridge — audit candidate
+# Synthra RWA Bridge
 
-A permissionless protocol that bridges the representation of **one original asset per pair**
-from Robinhood to Arc and redeems it on the source chain. Contracts are non-upgradeable, balances
-are backed 1:1 in raw units, and Synthra contracts have no user allowlist, blacklist, or administrative
-withdrawal function. Original tokens remain subject to their issuer's blocking, pausing, burning,
-and upgrade powers.
+Permissionless stock bridging between **Robinhood Chain (4663)** and **Arc (5042)** using LayerZero V2.
+Each stock has a source vault on Robinhood and a destination bridge with its own wrapped ERC-20 on Arc.
 
-**Synthra charges 0.5% on entry only, paid immediately to the treasury.**
-A deposit of 100 tokens produces 99.5 wrapped tokens and pays 0.5 tokens to the treasury in the same
-transaction. Redemption has no Synthra fee. Native network and Wormhole fees are separate.
-The fee rounds down in raw token units; its rate is immutable. Governance can change the recipient
-of future fees through the timelock without moving reserves or fees already paid.
-The guardian can pause immediately, without waiting for the timelock.
+**Mainnet deployment is active; external audit is pending. Use at your own risk.** The twelve pairs
+were verified active with initial metadata received on September 25, 2026. Deployment and successful
+transactions do not establish audit approval.
 
-This is an **audit candidate**, not an audited release or approval to launch.
-No public deployment has been performed. Fork checks for all twelve selected stocks and the real
-Core contracts are documented; final configuration, issuer checks, and a complete Synthra round
-trip with live Guardians remain launch requirements.
+Supported stocks: **NVDA, META, PLTR, GOOGL, AAPL, MSFT, INTC, AMZN, AMD, TSLA, COIN, AVGO**.
+Public contract addresses, runtime hashes, deployment transactions and metadata transactions are in
+[the mainnet registry](config/layerzero.mainnet.json). Operational signing configs and private keys
+are never committed. Registry observations are dated; query the chains for current pause and metadata state.
 
-## User transaction flow
+## How transfers work
 
-Users submit both bridge transactions: initiation on one chain, then completion with a signed
-Wormhole VAA on the receiving chain. An original-token allowance may require an additional approval
-transaction before a deposit; redemption burns the caller's wrapped balance without an approval.
-There is no automatic relayer service in the planned production model. Anyone may still complete a
-valid message, but users must have gas on both chains and cannot assume someone else will deliver it.
-Metadata updates likewise require publication and destination completion; they are not automatic.
+1. **Robinhood → Arc:** approve the stock if needed, then deposit. The vault transfers a fixed 0.5%
+   entry fee to the fee recipient and locks the net raw amount.
+2. **Verification:** LayerZero Labs and Nethermind must both attest under the explicitly pinned
+   15-confirmation policy. There is no additional application timer and no guaranteed delivery time.
+3. **Completion:** the user submits a second transaction on Arc to mint the net wrapped amount.
+4. **Arc → Robinhood:** burn wrapped tokens, then complete on Robinhood to unlock the underlying.
+   There is no bridge fee on redemption; network and messaging fees still apply.
 
-## Documents for auditors
+Completion is permissionless and does not require an operator relayer. Claims can be recovered from
+the original source transaction and authenticated destination state.
+Metadata snapshots come from the source issuer, remain valid for 30 days from observation, and may
+be refreshed early. They affect share display conversions, never raw ERC-20 balances.
 
-- [Internal adversarial review: findings, fixes, and open conditions](docs/INTERNAL_AUDIT.md)
-- [Real network and token checks, issuer powers, and remaining limitations](docs/INTEGRATION_REVIEW.md)
-- [Scope, properties, and dependencies](docs/AUDIT_SCOPE.md)
-- [Specification, message format, and fees](docs/SPECIFICATION.md)
-- [Trust model](docs/THREAT_MODEL.md)
-- [Static analysis and security decisions](docs/SECURITY_ANALYSIS.md)
-- [Deployment, relay, and incident response](docs/OPERATIONS.md)
-- [Per-asset deployment bundles and operator commands](docs/DEPLOYMENT_BUNDLE.md)
-- [Validation performed and its limitations](docs/VALIDATION.md)
-- [Package manifest](audit/RELEASE_MANIFEST.json)
-- [Historical audit archives](docs/ARCHIVE_HISTORY.md)
+There is no aggregate cap or shared rate bucket. Each pair has a fixed raw-unit transfer ceiling,
+initially based on approximately USD 100,000 at the reviewed reference prices; it is not a live USD cap.
+Governance changes use a timelock. Guardian pause is immediate. Initial binding/activation was a
+one-time exception, now closed on the deployed pairs. Governance can rotate the recipient of future
+fees; it cannot withdraw reserves or bypass message authentication. The same hardware wallet currently
+holds governance and guardian authority. Issuer custody, freezing, seizure and upgrade powers remain
+external risks, as do chain reorganizations and the security/availability of both required DVNs.
 
-## Setup and verification
+## Repository guide
 
-Prerequisites: Foundry 1.5.1, Solidity 0.8.28, and Python >=3.11. Static analysis requires Slither 0.11.3.
-Solidity dependencies are vendored with provenance and checksums; npm installation is unnecessary.
+| Path | Purpose |
+| --- | --- |
+| `src/layerzero/` | Current bridge contracts and local LayerZero interfaces |
+| `script/DeployLayerZero.s.sol` | Deployment and immutable protocol configuration |
+| `test/layerzero/`, `integration/LayerZeroLive.t.sol` | Unit/fuzz/invariant and local mainnet-fork tests |
+| `tools/layerzero_*.py` | Deployment, pairing, activation, metadata and recovery |
+| `config/layerzero.stocks.json` | Reviewed stock identities and initial raw limits |
+| `config/layerzero.mainnet.json` | Public deployed identities and transaction references |
+| `docs/` | Protocol, audit scope and operational runbooks |
+| `audit/` | Dated evidence; generated logs/archives are local or CI artifacts |
+
+Start with [protocol and security](docs/LAYERZERO.md), [audit scope](docs/AUDIT_SCOPE.md),
+[deployment operations](docs/LAYERZERO_PILOT.md), [multi-stock rollout](docs/LAYERZERO_STOCK_ROLLOUT.md),
+and [validation and its limits](docs/LAYERZERO_VALIDATION.md).
+
+The older Wormhole contracts and recovery tools remain in this repository to support their separate
+existing deployment and pending claims. LayerZero does not migrate those balances or settle Wormhole
+claims. Their specification is [here](docs/SPECIFICATION.md); recovery instructions are in
+[OPERATIONS.md](docs/OPERATIONS.md). The completed message-only LayerZero experiment is no longer
+part of the source tree; the asset bridge tests and operational tools are the maintained path.
+
+## Development and verification
+
+Prerequisites: Foundry 1.5.1, Solidity 0.8.28, Python >=3.11; Slither 0.11.3 for static analysis.
+OpenZeppelin and forge-std are vendored with provenance and checksums.
 
 ```sh
-git clone https://github.com/Synthra-swap/synthra-rwa.git
-cd synthra-rwa
-forge test
-forge script script/LocalDemo.s.sol:LocalDemo
 bash tools/check.sh
+python3 tools/layerzero_mutation_check.py
+bash tools/check_live.sh
+python3 tools/verify_layerzero_abi.py
 python3 tools/package_audit.py
 ```
 
-If the official compiler is installed locally at `.tools/solc-0.8.28`, it can also be used offline
-(the compiler binary is not included in the repository):
+`check.sh` runs dependency integrity, Python tests, Solidity formatting, unit/fuzz/invariant tests,
+coverage, gas reports and static analysis. The fork and ABI checks use public network reads; none
+of these commands broadcasts transactions. Local compiler overrides are detected by `check.sh`;
+Foundry can otherwise obtain the configured compiler. See the runbooks before using any `--broadcast` command.
 
-```sh
-forge test --use .tools/solc-0.8.28 --offline
-forge script script/LocalDemo.s.sol:LocalDemo --use .tools/solc-0.8.28 --offline
-```
-
-`tools/check.sh` automatically selects that compiler when available. The demo does not broadcast
-transactions: it deposits 10 mock tokens, immediately pays 0.05, mints 9.95, and redeems 4.
-The final balances are 5.95 vault tokens and 5.95 wrapped tokens. Do not add `--broadcast` to the demo.
-
-## Architecture
-
-| Component | Responsibility |
-| --- | --- |
-| `SourceVault` | Deposits, immediate fees, net backing, redemption, multiplier publication |
-| `DestinationBridge` | Minting, burning, receiving authenticated snapshots |
-| `WrappedAsset` | Permissionless ERC-20; UI multiplier and conversions separate from raw balances |
-| `WormholeEndpoint` | VAA verification, EVM/Wormhole domains, peer immutable after setup, replay protection, per-message limits, emergency pause |
-| `TimelockController` | Initial governance with a minimum 48-hour delay in deployment scripts |
-
-The guardian role permits immediate pausing of one or both directions. The selected hardware wallet
-also holds governance proposal/execution/cancellation roles and a one-time setup permission. Initial
-peer binding and first activation are immediate; activation permanently closes that permission. Later
-resumption and administrative changes require the timelock. These roles share one signing key.
-Pauses do not freeze wrapped ERC-20 transfers. The system depends on the original issuer, chain
-finality, and Wormhole Guardians/Core; a pause can delay redemptions.
-
-## Features in this release
-
-- Complete net lock/mint and burn/unlock flows, with permissionless delivery and retries.
-- Atomic fees in the original token, with no treasury claim on reserves.
-- No total reserve or supply cap; a per-transfer maximum adjustable through the timelock, without shared capacity or refill.
-- Contracts start paused; the peer can be configured only once. Initial hardware-wallet setup and activation
-  have no timelock wait; the setup permission is permanently consumed at first activation.
-- Current and scheduled multiplier synchronization, protection against out-of-order updates,
-  schedule replacement/cancellation, and a 30-day metadata lifetime with permissionless early refresh.
-- Tests with mocks and cryptographically signed binary VAAs verified by upstream Wormhole code.
-- Stateful solvency tests, finalized-block preflight tools, and unsigned relay preparation.
-- Deployment of a governance/endpoint pair on each chain, CI, and a reproducible audit archive.
-
-
-## Current validation
-
-The current source passed 135 Solidity tests, 101 Python tests, 32 security mutations, and 20 fork
-checks covering all twelve selected stocks. Slither reported no High/Medium findings and four
-reviewed Low timestamp findings. These are internal results, not an independent audit opinion.
-See [VALIDATION.md](docs/VALIDATION.md) for evidence and limitations and
-[INTEGRATION_REVIEW.md](docs/INTEGRATION_REVIEW.md) for real-token scenarios and fork pins.
+CI runs the local checks and LayerZero mutation campaign, then publishes an audit artifact. Generated
+logs, coverage, manifests and tarballs are not committed. An archive records exact file hashes; packaging
+alone does not certify that every included historical report applies to the current revision.
+Independent audit, reconciliation of the real asset round-trip evidence, explorer verification and
+resolution of audit findings remain part of the release handoff.

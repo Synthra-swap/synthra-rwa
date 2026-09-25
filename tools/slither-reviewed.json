@@ -35,5 +35,70 @@
       "current == 0 || next == 0 || observed > block.timestamp + MAX_CLOCK_SKEW || block.timestamp > observed + metadataMaxAge || (hasSnapshot && observed < observedAt) || (effective == 0 && next != current) || (effective != 0 && effective <= observed)",
       "hasSnapshot && pendingEffectiveAt > block.timestamp && (pendingEffectiveAt != effective || pendingMultiplier != next)"
     ]
+  },
+  {
+    "check": "reentrancy-events",
+    "impact": "Low",
+    "file": "src/layerzero/LayerZeroEndpoint.sol",
+    "function": "_send",
+    "nodes": [
+      "MessageSent(receipt.guid,receipt.nonce,message)",
+      "receipt = endpoint.send{value: msg.value}(_params(message),msg.sender)"
+    ]
+  },
+  {
+    "check": "timestamp",
+    "impact": "Low",
+    "file": "src/layerzero/LayerZeroWrappedAsset.sol",
+    "function": "_effectiveMultiplier",
+    "nodes": [
+      "pendingEffectiveAt != 0 && block.timestamp >= pendingEffectiveAt"
+    ]
+  },
+  {
+    "check": "timestamp",
+    "impact": "Low",
+    "file": "src/layerzero/LayerZeroWrappedAsset.sol",
+    "function": "applySnapshot",
+    "nodes": [
+      "current == 0 || next == 0 || observed > block.timestamp + MAX_CLOCK_SKEW || block.timestamp > observed + metadataMaxAge || (hasSnapshot && observed < observedAt) || (effective == 0 && next != current) || (effective != 0 && effective <= observed)",
+      "hasSnapshot && pendingEffectiveAt > block.timestamp && (pendingEffectiveAt != effective || pendingMultiplier != next)"
+    ]
+  },
+  {
+    "check": "timestamp",
+    "impact": "Low",
+    "file": "src/layerzero/LayerZeroWrappedAsset.sol",
+    "function": "metadataFresh",
+    "nodes": [
+      "hasSnapshot && block.timestamp <= observedAt + metadataMaxAge"
+    ]
+  },
+  {
+    "check": "timestamp",
+    "impact": "Low",
+    "file": "src/layerzero/LayerZeroSourceVault.sol",
+    "function": "_metadata",
+    "nodes": [
+      "effective <= block.timestamp"
+    ]
+  },
+  {
+    "check": "calls-loop",
+    "impact": "Low",
+    "file": "src/layerzero/LayerZeroEndpoint.sol",
+    "function": "_commitVerifications",
+    "nodes": [
+      "ILayerZeroUln(receiveLibrary).commitVerification(header,v.payloadHash)"
+    ]
+  },
+  {
+    "check": "calls-loop",
+    "impact": "Low",
+    "file": "src/layerzero/LayerZeroEndpoint.sol",
+    "function": "_commitVerifications",
+    "nodes": [
+      "endpoint.inboundPayloadHash(address(this),remoteEid,origin.sender,v.nonce) != v.payloadHash"
+    ]
   }
 ]

@@ -1,0 +1,101 @@
+{
+  "notice": "Reviewed stock identities and fixed raw ceilings from the September 24, 2026 allocation (approximately USD 100,000 per transfer at that reference). These are not live USD ceilings. Protocol policy and roles inherit the NVDA LayerZero configuration.",
+  "assets": [
+    {
+      "symbol": "NVDA",
+      "token": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+      "uid": "0x00000000000000000000000000000000915f477416294f5099a5e0e09f327ce5",
+      "decimals": 18,
+      "name": "NVIDIA",
+      "maxTransferRaw": "447501205267450156439"
+    },
+    {
+      "symbol": "META",
+      "token": "0xc0D6457C16Cc70d6790Dd43521C899C87ce02f35",
+      "uid": "0x00000000000000000000000000000000343e7beca03644bcba2e50b8236784f5",
+      "decimals": 18,
+      "name": "Meta Platforms",
+      "maxTransferRaw": "136631419431399968529"
+    },
+    {
+      "symbol": "PLTR",
+      "token": "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+      "uid": "0x000000000000000000000000000000007454a90b4aab491389ce9fa3c485de42",
+      "decimals": 18,
+      "name": "Palantir",
+      "maxTransferRaw": "530250808632483164536"
+    },
+    {
+      "symbol": "GOOGL",
+      "token": "0x2e0847E8910a9732eB3fb1bb4b70a580ADAD4FE3",
+      "uid": "0x0000000000000000000000000000000053b69e2076884cc9ae2ada9bc7095df3",
+      "decimals": 18,
+      "name": "Alphabet",
+      "maxTransferRaw": "296810483356174666119"
+    },
+    {
+      "symbol": "AAPL",
+      "token": "0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9",
+      "uid": "0x00000000000000000000000000000000c2425be3658540dd8e2424cbf3c5c649",
+      "decimals": 18,
+      "name": "Apple",
+      "maxTransferRaw": "296585625320270433654"
+    },
+    {
+      "symbol": "MSFT",
+      "token": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+      "uid": "0x00000000000000000000000000000000307bb0113ca54f93adf80f4ff2bf681a",
+      "decimals": 18,
+      "name": "Microsoft",
+      "maxTransferRaw": "200740479542771878072"
+    },
+    {
+      "symbol": "INTC",
+      "token": "0xc72b96e0E48ecd4DC75E1e45396e26300BC39681",
+      "uid": "0x000000000000000000000000000000002eb75a2c20d7423881b4f812c27d0abe",
+      "decimals": 18,
+      "name": "Intel",
+      "maxTransferRaw": "835491686857715765728"
+    },
+    {
+      "symbol": "AMZN",
+      "token": "0x12f190a9F9d7D37a250758b26824B97CE941bF54",
+      "uid": "0x000000000000000000000000000000004f508d5e2a7042299694d85c2f362ad2",
+      "decimals": 18,
+      "name": "Amazon",
+      "maxTransferRaw": "403730469538536073317"
+    },
+    {
+      "symbol": "AMD",
+      "token": "0x86923f96303D656E4aa86D9d42D1e57ad2023fdC",
+      "uid": "0x0000000000000000000000000000000086aeaac3c7d9422c90f6fd41aff0eaf7",
+      "decimals": 18,
+      "name": "AMD",
+      "maxTransferRaw": "165724797401435176745"
+    },
+    {
+      "symbol": "TSLA",
+      "token": "0x322F0929c4625eD5bAd873c95208D54E1c003b2d",
+      "uid": "0x00000000000000000000000000000000cfece3244ea34bb29414dd9488b32d9f",
+      "decimals": 18,
+      "name": "Tesla",
+      "maxTransferRaw": "265118375354595827036"
+    },
+    {
+      "symbol": "COIN",
+      "token": "0x6330D8C3178a418788dF01a47479c0ce7CCF450b",
+      "uid": "0x00000000000000000000000000000000970b46dbdece4ae4958a53815e62a85a",
+      "decimals": 18,
+      "name": "Coinbase",
+      "maxTransferRaw": "510777403207682092144"
+    },
+    {
+      "symbol": "AVGO",
+      "token": "0x156E175DD063a8cE274C50654eF40e0032b3fbcF",
+      "uid": "0x000000000000000000000000000000001bbb45628de84cb2917abd26680c7ab9",
+      "decimals": 18,
+      "name": "Broadcom",
+      "maxTransferRaw": "284388581737180400375"
+    }
+  ]
+}

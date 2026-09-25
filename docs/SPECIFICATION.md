@@ -1,5 +1,10 @@
 # Protocol specification
 
+> Version boundary: this document describes the earlier Wormhole implementation.
+> The new LayerZero contracts and their separate validation are documented in
+> [LAYERZERO.md](LAYERZERO.md) and [LAYERZERO_VALIDATION.md](LAYERZERO_VALIDATION.md).
+> Previous audit results and deployment commands do not cover the new implementation.
+
 All transfer amounts are unsigned **raw token units** with 18 decimals. They are not share counts.
 The source asset address is an immutable allowlisted asset by construction; there is no ticker lookup
 or user-supplied asset registration. User addresses are unrestricted.
@@ -142,7 +147,7 @@ readable for monitoring. This is an intentional fail-closed deviation from the h
 of ERC-8056 UI consumers, which must handle reverts and check metadataFresh. ERC-8056 is a draft.
 A source cancellation cannot be known before its message arrives; a schedule may temporarily be
 wrong within the freshness bound. These values are **not a price oracle**. No double application
-to an already multiplier-adjusted price is permitted in an integrating frontend.
+to an already multiplier-adjusted price is permitted when interpreting the contract values.
 
 ### Metadata age and clock skew
 

@@ -1,15 +1,25 @@
 # Historical evidence
 
+Generated archives, manifests and logs are no longer versioned. The references below identify
+historical checkpoints; retrieve historical binaries from the corresponding Git revision or preserved
+local evidence. Regenerate new handoff artifacts with `tools/package_audit.py`.
+
 The current documentation describes the current source. Superseded design notes, intermediate test
 logs, and duplicate archives have been removed from the working tree. Their original bytes remain
 in the pinned Git commit below; history has not been rewritten. Some historical documents are in
 Italian. Current documentation and the current audit package are in English.
 
-Use [VALIDATION.md](VALIDATION.md) for current results, `audit/RELEASE_MANIFEST.json` for the current
+Use [LAYERZERO_VALIDATION.md](LAYERZERO_VALIDATION.md) for current results, `audit/RELEASE_MANIFEST.json` for the current
 package contents, and `audit/SHA256SUMS` for its checksum. Historical counts and source hashes
 must not be treated as validation of a later revision.
 
 ## Previous archives
+
+The last package before the LayerZero internal review is preserved in
+[commit `6fed369`](https://github.com/Synthra-swap/synthra-rwa/tree/6fed3690c06b7e32e968e13c615e7f287091f87e).
+Its [audit archive](https://github.com/Synthra-swap/synthra-rwa/blob/6fed3690c06b7e32e968e13c615e7f287091f87e/audit/synthra-rwa-bridge-audit.tar.gz)
+has SHA-256 `2bfc92726541423fe8ebdd83820ca6ced2ba8a3bfa92664e047194779295e0b9`.
+The new package includes separate LayerZero mutation/ABI evidence and combined regression logs.
 
 | Archive | SHA-256 |
 | --- | --- |

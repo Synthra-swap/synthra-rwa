@@ -46,5 +46,6 @@ evm_version = "cancun"
 additional_compiler_profiles = [{ name = "audited-paris", evm_version = "paris" }]
 compilation_restrictions = [
   { paths = "src/**", evm_version = "paris" },
-  { paths = "script/Deploy.s.sol", evm_version = "paris" }
+  { paths = "script/Deploy.s.sol", evm_version = "paris" },
+  { paths = "script/DeployLayerZero.s.sol", evm_version = "paris" }
 ]

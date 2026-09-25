@@ -1,0 +1,447 @@
+{
+  "schema": 1,
+  "verifiedDate": "2026-09-25",
+  "status": "Mainnet pairs active and initial metadata received; external audit pending. Point-in-time record, not a live status feed.",
+  "governance": "0x20A32b077906Feb43D5EcaC7EF1425a48E25B4CC",
+  "guardian": "0x20A32b077906Feb43D5EcaC7EF1425a48E25B4CC",
+  "feeRecipient": "0x1CAB229e4D75E4DE0EC890bef0295a32BAaa1328",
+  "confirmations": 15,
+  "requiredDvns": [
+    "LayerZero Labs",
+    "Nethermind"
+  ],
+  "assets": [
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA",
+      "sourceToken": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+      "maxTransferRaw": "447501205267450156439",
+      "robinhood": {
+        "chainId": 4663,
+        "endpoint": "0xff8ed7a3e3325510655260bd916dce9cd4f854bc",
+        "timelock": "0x87153a874866c1645759d4f2a859cd758c8ae911",
+        "endpointCodeHash": "0x9cd368627ba8c3d394759ec26624384b217d6b36f8fc382b46e49e961b686a88",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 72390445,
+        "deploymentTransactions": [
+          "0x3ca90d204653f88feed2f1ae8253bb85683a51a7fe721af7140aa318f0796bd4",
+          "0x6712b65f10751096b520721bdf1429137fb51f1c3b574afd3597e6193a937236"
+        ]
+      },
+      "arc": {
+        "chainId": 5042,
+        "endpoint": "0x7d5d219a325e01ea82731c373cbf0e79ea740911",
+        "timelock": "0x5bf1fe43cce307bd64119971d80c2d24a25a1a2d",
+        "endpointCodeHash": "0xa8d3de1e7ffd75b44b956300c56c97984f0fef0e1e23cc1fea35298d90bf0615",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 22720244,
+        "wrapped": "0x5b7fd6e1dd3b1b47888252cad8eef3ae2b4fc6d7",
+        "wrappedCodeHash": "0xacab09315f3a660633c993ba0fa49aeb03ae4691516ccec5130c49640c3e3735",
+        "deploymentTransactions": [
+          "0x3aa34ed061abb9b1d121f1c373af069277995047b681f407c7ef5aba4b0c9f96",
+          "0x80e1c77e02803112eb12adb9d9947c975edb9b43dc18329a46a02cb9309c1a06"
+        ]
+      },
+      "metadataTransactions": {
+        "metadata-initial": "0x9f29836a513ad01e4d18593be4e8dc3ea00609db2c5e85f4e7e20d1a7201f29e",
+        "metadata-complete": "0x0f86ee7ff3242aff26873f34a1f409db97892fca79267d7f0a41c0c6207756c8"
+      }
+    },
+    {
+      "symbol": "META",
+      "name": "Meta Platforms",
+      "sourceToken": "0xc0D6457C16Cc70d6790Dd43521C899C87ce02f35",
+      "maxTransferRaw": "136631419431399968529",
+      "robinhood": {
+        "chainId": 4663,
+        "endpoint": "0x08b77193a8d71ef3a77f2e402f9e6ca1f6bf24c0",
+        "timelock": "0xdcd17022e89b5e2f7f33cf342c92695ba3f7d2fa",
+        "endpointCodeHash": "0x3335b69400aa92d7ec564e3edb50616a8fc0518869f218fa45bb9f8f5fbaaca5",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 72460415,
+        "deploymentTransactions": [
+          "0xae082a2570467df680419e2ae88306d364f8f3ccebae7929b4796d7cedfcf42b",
+          "0x9d1f6af92cfdee9e8b5d1240b839bb9dc5a3b3359990b9545f4ee536dbae56ef"
+        ]
+      },
+      "arc": {
+        "chainId": 5042,
+        "endpoint": "0xdaa3c03e7904d9038a9db6c1e97772b4308c4865",
+        "timelock": "0x9c43b396511e9712b27c3a5aaa8496ffc9266e73",
+        "endpointCodeHash": "0xd539ee3bcf9517e32fe728070152f4bfef33ff3f241c03e72cacdf83ac1daac5",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 22734039,
+        "wrapped": "0x22afca741bba52d1f11f6d10fdf636a4d721458e",
+        "wrappedCodeHash": "0xec2a502ba120d209752643582024ad7cdfe5b7f861b881de0eaee51a4eae7b70",
+        "deploymentTransactions": [
+          "0xf325a0e50635db54a59c070d477d446d43b22bf35b0048909b8191aa7be55f97",
+          "0x8aeeca8306728772944fc81700481521ba0854583d92ce66808b6ccf28c3f6f4"
+        ]
+      },
+      "metadataTransactions": {
+        "metadata-initial": "0x5f11c63eb421ad53034e21e7a4e5326ae7a12aaceefd6d4279f2d3f31aa961fa",
+        "metadata-complete": "0xf9c34cc394366fcde8a1163db91bef1efa2f34c1cc2f710d240051a28344c47d"
+      }
+    },
+    {
+      "symbol": "PLTR",
+      "name": "Palantir",
+      "sourceToken": "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+      "maxTransferRaw": "530250808632483164536",
+      "robinhood": {
+        "chainId": 4663,
+        "endpoint": "0xe8d6de3992d6c70188162f322b897e4c2a827c32",
+        "timelock": "0xf7b4120c2778d32eebd850a18514efc33c76a4bd",
+        "endpointCodeHash": "0x1da88ba9faa4435c81b0ea117ed83e64aced2720b826a1f0616a027c50357604",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 72468830,
+        "deploymentTransactions": [
+          "0x775d94b59095c7b0cec20603a8a7f8847657685dfbe497f1e17c1d0907573781",
+          "0x915a2fc7030f93a94aa4e65d60e26255db1caa02e531deb4af9d62692aaadf5d"
+        ]
+      },
+      "arc": {
+        "chainId": 5042,
+        "endpoint": "0x87348e1b21319640e8a90e9dd80f3b5f4544b13e",
+        "timelock": "0xbd757a518344772d1c69fd97e7cd52d7d1bb39dd",
+        "endpointCodeHash": "0xe0eca26f8dc0a90ee57beb719b127cce98dd2bc56ccc3bd08abb2da666878221",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 22734093,
+        "wrapped": "0x74a7456575fb29035077b42c5b2813ca98052358",
+        "wrappedCodeHash": "0x517c3316b2be3a9d764fcdd4b6fec4f007f9625b7e0328c92a6b758c2a930992",
+        "deploymentTransactions": [
+          "0xa335353743d4df8290d2bde6545208569606edeef26ebda6fda31d54be2952dd",
+          "0xb86191a0915496178793b96d1e341868c8046618ba1b21ddf337ca660b138ac7"
+        ]
+      },
+      "metadataTransactions": {
+        "metadata-initial": "0x6054de4192c285b7ab74d294138506b86267f930eddb59dfc899ac3b569265c5",
+        "metadata-complete": "0x6091ba1e6cbf66e50a23b1d9549bb705d9b44c7971511447e94395c51bebb945"
+      }
+    },
+    {
+      "symbol": "GOOGL",
+      "name": "Alphabet",
+      "sourceToken": "0x2e0847E8910a9732eB3fb1bb4b70a580ADAD4FE3",
+      "maxTransferRaw": "296810483356174666119",
+      "robinhood": {
+        "chainId": 4663,
+        "endpoint": "0x7d5d219a325e01ea82731c373cbf0e79ea740911",
+        "timelock": "0x5bf1fe43cce307bd64119971d80c2d24a25a1a2d",
+        "endpointCodeHash": "0x6cb05ad2db6161a3731291516a1c4f457449030f03194bf937aa21c68297e004",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 72469191,
+        "deploymentTransactions": [
+          "0x549f0caa46572427e6615f9a3cb157ff971b4f7e87ec82c8b819c4e37ac5a7c9",
+          "0xd05c77c2441044bd78cf220812eae4b909334609b88180e014b38a58bb4cef45"
+        ]
+      },
+      "arc": {
+        "chainId": 5042,
+        "endpoint": "0xbf0633d0f33701f3e7ae67c47a09377a7a493864",
+        "timelock": "0xc18013ef38714a110d30ba8e7b35e7bb4a6be0e4",
+        "endpointCodeHash": "0x534f93be43f93169dae2ac10f9725332ea23b8f3af979034e273f6735b5fcef6",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 22734140,
+        "wrapped": "0x549288985bfafb9d869f1190615099ebef7a7838",
+        "wrappedCodeHash": "0x193eca5a4c85e8046cbc3436b315e0eea5d7b7eb62d3a3e47fa84b9498f93aed",
+        "deploymentTransactions": [
+          "0x2e1d9c769084baf11b116fa092cb2e3d0b3e3b668e050bd133082855b0b3b78f",
+          "0x3d9144325981697f39440e1b06207431237224dde00b28efa9c40baa496c1949"
+        ]
+      },
+      "metadataTransactions": {
+        "metadata-initial": "0x93685b2d53d3a189150f3c84d33190cc2ae8b72bce48622b95d6aa56ad0b1fb4",
+        "metadata-complete": "0x7a32b0c147a07cd9907cbaf207e08648bdcca5ccd2871d99beae665fe4fda41c"
+      }
+    },
+    {
+      "symbol": "AAPL",
+      "name": "Apple",
+      "sourceToken": "0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9",
+      "maxTransferRaw": "296585625320270433654",
+      "robinhood": {
+        "chainId": 4663,
+        "endpoint": "0x18ba59467bd928b58f86835f993d190cc70cbd6e",
+        "timelock": "0x47190ddd5e05522ec0c49bb7f5da1875a34b7520",
+        "endpointCodeHash": "0xab1ebbafc8d000a77e61b5a8d2573baf2e40637d3b55e716cb634f67ffd2e739",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 72469553,
+        "deploymentTransactions": [
+          "0x18708afea9ef6608f929eaa4b08288960fd54bfbacdc87249910d203ba82352b",
+          "0x75021733ce497a215b5abd9411089ec678f50d76947e5ef1de2053987015d53a"
+        ]
+      },
+      "arc": {
+        "chainId": 5042,
+        "endpoint": "0xc4f87312e202cd08b98c2929e538795e8811f272",
+        "timelock": "0x75272e5bf91851321ac588e9c3dbf27571a41a62",
+        "endpointCodeHash": "0x213658a0fe6c8625c50885615ad94ebbeda70dc7e6a4491d36bf5bfef6892e0e",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 22734187,
+        "wrapped": "0x4abee9e7606e24f1c0e047f315c4189a16bf1eb6",
+        "wrappedCodeHash": "0x8c36906ac45dae562797d2f3c764401ebd76c7aa7fa2395cf8e697a36fd8da4e",
+        "deploymentTransactions": [
+          "0xf0296b0a154f807f0678436fcde36d9884ac40d4a339c3768314145ab9d6fe05",
+          "0xc137779015496fbc993129c37ea205cf9d6fc372459ae038e481d87728d23cb2"
+        ]
+      },
+      "metadataTransactions": {
+        "metadata-initial": "0x5707cd2136606293471a1f6e7c78c0f92d0b114f7731bb6aa4e4d4d2559ee502",
+        "metadata-complete": "0xdcc3b9d3aef42ca56547b73f62fe9dfa73ce234fd3ae37fe9dd6251de71c0734"
+      }
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft",
+      "sourceToken": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+      "maxTransferRaw": "200740479542771878072",
+      "robinhood": {
+        "chainId": 4663,
+        "endpoint": "0xdaa3c03e7904d9038a9db6c1e97772b4308c4865",
+        "timelock": "0x9c43b396511e9712b27c3a5aaa8496ffc9266e73",
+        "endpointCodeHash": "0x18cb1d6606267194bdcc4243cc7135cdf576b594bdb89ebad4f429351bb4da6b",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 72469912,
+        "deploymentTransactions": [
+          "0xa3a9d635cfc987f011363e0b7f3faed16ad96dca347f71cfa591c75412796979",
+          "0x56b425d019632cd4f8e493df2b58f1e17e48089b3fbb223d8bd81c069202f6cf"
+        ]
+      },
+      "arc": {
+        "chainId": 5042,
+        "endpoint": "0xa5164d62d9066e666df2855dc971e7325785aa4c",
+        "timelock": "0x93f1e9edd1234af2afeae779fc6d32e1ee234ab7",
+        "endpointCodeHash": "0x4a27df0ae970bdb32ab5d9dce1fb5abd940d51b1e3cf3870cb65775eb7e9d6c6",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 22734237,
+        "wrapped": "0xc5a6e295c1f1a889e92067c81432e8b83cffff81",
+        "wrappedCodeHash": "0x4a3b961b57fd875e9cba0175d2ca34c413d1807720c8d6adb93f421eb9022432",
+        "deploymentTransactions": [
+          "0xd343819dbcd24091aa31876905ce7bf2a95b942a9dd9a0ace1999376d9ecc27e",
+          "0x037cef69b0954902ff0a546e487e132b1c40d63066f583f15f436da10eed6b56"
+        ]
+      },
+      "metadataTransactions": {
+        "metadata-initial": "0xa01b03e648c2e98989a0809f4a5969359ef75ea7075648e11cde4252d22e767c",
+        "metadata-complete": "0xdd4ae9ad60ffacf8dab8ded11aa202723954205a8812a85bb3399e598d1d6beb"
+      }
+    },
+    {
+      "symbol": "INTC",
+      "name": "Intel",
+      "sourceToken": "0xc72b96e0E48ecd4DC75E1e45396e26300BC39681",
+      "maxTransferRaw": "835491686857715765728",
+      "robinhood": {
+        "chainId": 4663,
+        "endpoint": "0x87348e1b21319640e8a90e9dd80f3b5f4544b13e",
+        "timelock": "0xbd757a518344772d1c69fd97e7cd52d7d1bb39dd",
+        "endpointCodeHash": "0x2b1f7d33e0a5eac8efba1f99f4b361628288731253d101e36dbe5ae144442dd4",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 72470319,
+        "deploymentTransactions": [
+          "0xb9059d2957ee045aabed282a8de7fae4535a4cac6b3e4aff39a32414e5851fb6",
+          "0x30a73523d861e2a266d07a20b36c3b8cc6a46581cb2155f1c395b43731fe25c2"
+        ]
+      },
+      "arc": {
+        "chainId": 5042,
+        "endpoint": "0x063856d8c5c387e327c4c5c3f9362113394303a9",
+        "timelock": "0x87c7ad72181765d44f5a826564440e24f09eb871",
+        "endpointCodeHash": "0x620834b88d94a7ae797b6875a291222b9ba9e325555f5a3e3ccf4c2885c51a94",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 22734282,
+        "wrapped": "0x0dfa611e17c9df6ccacc50f2d444d9518df00942",
+        "wrappedCodeHash": "0x746446c27975a7a8bd9715757fdf5529eb4e3439137698db64b24d0802178c4a",
+        "deploymentTransactions": [
+          "0x39f682664452a754f24af3f767fcac66b1720d29c081e1e9a643f0bfd6c2ad94",
+          "0xe2708f7c7ae98027d8a35483d68dd6401a6df55a8815cd3f6346784c3cb7f20b"
+        ]
+      },
+      "metadataTransactions": {
+        "metadata-initial": "0xfeabc7a209a75c608b2bfb984812b87235cc6e8a58e031142a6ec8a158b8f4a1",
+        "metadata-complete": "0xae7d64098c42bd97f468be36d86a5fb69dc3d7bc9504f73aeabe5272a32319e7"
+      }
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon",
+      "sourceToken": "0x12f190a9F9d7D37a250758b26824B97CE941bF54",
+      "maxTransferRaw": "403730469538536073317",
+      "robinhood": {
+        "chainId": 4663,
+        "endpoint": "0xbf0633d0f33701f3e7ae67c47a09377a7a493864",
+        "timelock": "0xc18013ef38714a110d30ba8e7b35e7bb4a6be0e4",
+        "endpointCodeHash": "0x2a1276ba84c225e2735dc767f6a645d0b8c67fc6464db90feb9720176da6d09f",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 72470703,
+        "deploymentTransactions": [
+          "0x0daa4fc06c94cabd9772c9b06c09df1b5afa16e5e085e586e48c1328273e0c1c",
+          "0x462613217fb6a5b27aede2a752761cc22ddc90c69d86978e3a6bf78952f0bb08"
+        ]
+      },
+      "arc": {
+        "chainId": 5042,
+        "endpoint": "0x6a87ee0377caf00244bc7c447ca0f1d114996b69",
+        "timelock": "0x5f31e2eac44d8863749aa40b26d88bf065165e6a",
+        "endpointCodeHash": "0x25c48200968d81efef279fb56806ede9c46ab12ae005d4d059b30ef6444f5fb6",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 22734330,
+        "wrapped": "0x4f4b12590e5f4f85a98e630a133761f324044499",
+        "wrappedCodeHash": "0x3b038e5ab073e3dfc69ce859515dc7018285c351a0dfaff627ed0dd60f6784aa",
+        "deploymentTransactions": [
+          "0xcd7c4460e1ecceedb6c033972dca6c9aa49522055d60605342b9738c7178c567",
+          "0x5b6d9429bb8b7d6fe3e770a31bc51799ea6aeb06505b1494d7df03601e3db6c1"
+        ]
+      },
+      "metadataTransactions": {
+        "metadata-initial": "0x516bbafe3601da1f13ef3c2b7280d3e0222a0841565a4f2c1557310c50525220",
+        "metadata-complete": "0x5bf592ef844aaeddc45bb12a7b99d7abe054f1958841f37b7f96d5d6d48f5556"
+      }
+    },
+    {
+      "symbol": "AMD",
+      "name": "AMD",
+      "sourceToken": "0x86923f96303D656E4aa86D9d42D1e57ad2023fdC",
+      "maxTransferRaw": "165724797401435176745",
+      "robinhood": {
+        "chainId": 4663,
+        "endpoint": "0xc4f87312e202cd08b98c2929e538795e8811f272",
+        "timelock": "0x75272e5bf91851321ac588e9c3dbf27571a41a62",
+        "endpointCodeHash": "0x8f6cf6f033aa4d16330b5ca61bb50b80b072587e6b5ebd200652422378bb7f3c",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 72471071,
+        "deploymentTransactions": [
+          "0x9970b0e59f6206f7e7c5c4dd777adc72d7610751a93b6ce88a12fe5e22e41e4e",
+          "0x70d31228f2e59f632db07d6073b953f31ec31ff7a5c456697adbda7cc69fbe7d"
+        ]
+      },
+      "arc": {
+        "chainId": 5042,
+        "endpoint": "0xbe0d09bf993060ff9d1e9569cf76a2e70e4d7d99",
+        "timelock": "0xd99defb77adaef5da5a0e15e8149614b3817c93b",
+        "endpointCodeHash": "0xe83b438f2e693e7c7a153a18212c3ac231ef3119e72d3ab735e03f45dd39116c",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 22734374,
+        "wrapped": "0x2f212f3372a83bf9dbeeb5b47bde519e18b80d85",
+        "wrappedCodeHash": "0xb02f96e8519672dc13d4bd6aafffd6a483447fcc25f1ea1cea35518805da89d7",
+        "deploymentTransactions": [
+          "0x41321762c220fd056abde9b5a504b136608314185d5da97e5830cde5bbf7ead1",
+          "0xd7be1506a3ebef225f9aefc3b235f65df1f928e810d1a971057c321152dd390d"
+        ]
+      },
+      "metadataTransactions": {
+        "metadata-initial": "0x749bcb548efe866519d4817b26f75486c6dac50c26c1d29cd02717bdb4884b39",
+        "metadata-complete": "0x06e7450b906f9f2be603f148febbb9948cc56d307e8d702bc00d4212f782de0d"
+      }
+    },
+    {
+      "symbol": "TSLA",
+      "name": "Tesla",
+      "sourceToken": "0x322F0929c4625eD5bAd873c95208D54E1c003b2d",
+      "maxTransferRaw": "265118375354595827036",
+      "robinhood": {
+        "chainId": 4663,
+        "endpoint": "0xa5164d62d9066e666df2855dc971e7325785aa4c",
+        "timelock": "0x93f1e9edd1234af2afeae779fc6d32e1ee234ab7",
+        "endpointCodeHash": "0xf4ccb3b55f1a58fa493ecfe37a61a64655738d76efa3950e182bdbd58d55723f",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 72471431,
+        "deploymentTransactions": [
+          "0xa873cf1a4bd2547be018e7031a09811336c674b000cbf80b7d90441844f13cd2",
+          "0x223a9b6d3c646be69b8710ce68a221e1ad8e79d78943d69b2598f22aa52a7703"
+        ]
+      },
+      "arc": {
+        "chainId": 5042,
+        "endpoint": "0xe27fb148bae5b0c6f87bb25187f37e1f9fdad2d2",
+        "timelock": "0x5352d5a4550649cc3fe60888fb38aceb0d5b2a59",
+        "endpointCodeHash": "0x5ae6fa2f189175d79f3bba60f26d2b9295a2a9e91e1bac3a06400072cf50982f",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 22734417,
+        "wrapped": "0xfb7dd9f2f7e4fbac3519601c23db3d65523aa7f0",
+        "wrappedCodeHash": "0x73296862855c00af6f7bb3bb1c0bc3eb2a446dc3e87bac380269cb7081e1181c",
+        "deploymentTransactions": [
+          "0x9c066024f4be38660ac7d452e0205df86f96a11388e6aeadb3f2808073aa97d5",
+          "0x898c45ef67f42e34348d30c8c7ace78a054e2650fe654fe312918c9d5cbbc270"
+        ]
+      },
+      "metadataTransactions": {
+        "metadata-initial": "0xaa25fa659f1d79afb7f8ad7e45dbe5d2d7263b2640c8d5ac90ae0e56a59ddcf1",
+        "metadata-complete": "0x260c1067c62bb5538637fe63d3181ea7bb546929edd807a66099a4aec1ecde63"
+      }
+    },
+    {
+      "symbol": "COIN",
+      "name": "Coinbase",
+      "sourceToken": "0x6330D8C3178a418788dF01a47479c0ce7CCF450b",
+      "maxTransferRaw": "510777403207682092144",
+      "robinhood": {
+        "chainId": 4663,
+        "endpoint": "0x063856d8c5c387e327c4c5c3f9362113394303a9",
+        "timelock": "0x87c7ad72181765d44f5a826564440e24f09eb871",
+        "endpointCodeHash": "0x0a3fa7f88e13df3e75c9191fbb0739ac3c2617ce05a7c07d275c7c306c4cec98",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 72471794,
+        "deploymentTransactions": [
+          "0x5e7a7f20e8d0e66c9634007d760347e021b4e348c0a2c2bc46da4cd947105783",
+          "0xa7da346815d18e565ebd1aeb964b4d20bf87816425e3e1802464c9ecd1d60457"
+        ]
+      },
+      "arc": {
+        "chainId": 5042,
+        "endpoint": "0x174b4c4ba7e47f5514694edffa638133278fed75",
+        "timelock": "0xf28b34481f1bd20fe1d343221998cbff481fa00e",
+        "endpointCodeHash": "0x07cf4874fd4a7f0553108e0e198028f7b0fbd8edd774aaabf96f2d7db5d69d57",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 22734459,
+        "wrapped": "0xbe4d721ea71ae69d7f0c1d119d58899db6b22347",
+        "wrappedCodeHash": "0x8dea266aa6210b73f1553ec090f279056524b7d6d7311f1fe30e85af59d6cc01",
+        "deploymentTransactions": [
+          "0xfaef6c85d7d56a41b7f7f04f8afb45886787391fd40cabc68c2097d97e1fecb8",
+          "0x5620090294b7b5d605e6c89fb6003917ce0447ba039a39492e1814dcbc8ab1fa"
+        ]
+      },
+      "metadataTransactions": {
+        "metadata-initial": "0xc3b9c435d19206146a36643d496da9059beb6d892bc4e7d85c2aef363b6079c4",
+        "metadata-complete": "0xed3c1b1e84fbcbd3599a277be0eaeee54733f7f6f5aeeebce80004ae50aa66cb"
+      }
+    },
+    {
+      "symbol": "AVGO",
+      "name": "Broadcom",
+      "sourceToken": "0x156E175DD063a8cE274C50654eF40e0032b3fbcF",
+      "maxTransferRaw": "284388581737180400375",
+      "robinhood": {
+        "chainId": 4663,
+        "endpoint": "0x6a87ee0377caf00244bc7c447ca0f1d114996b69",
+        "timelock": "0x5f31e2eac44d8863749aa40b26d88bf065165e6a",
+        "endpointCodeHash": "0xc7b641de5e122aa8d1c6484315283cd317ca34f98c5f1092177e5ac755e7f4cc",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 72472164,
+        "deploymentTransactions": [
+          "0x941cf016a023ec72738a309a7788d5546593442f3098f52a14c14ba8411ec362",
+          "0x0ca1b21c45d1c003cc47e9eca7e7626e6948197f94b92d5b6a7d8595109ba31c"
+        ]
+      },
+      "arc": {
+        "chainId": 5042,
+        "endpoint": "0x0793c6f0b5b8d23eef7e851aaa54f5478537bcb0",
+        "timelock": "0xfeca8d9b483212d6799002841c5a61334cd44136",
+        "endpointCodeHash": "0x978ba78f22fcd0ee275a6849af0b835668b08da581d64563a415674571706c44",
+        "timelockCodeHash": "0x1cd2199e4f5fb5b487081bfa5a0a9178967e215c4fe409fff0382c447e204fa5",
+        "deploymentBlock": 22734506,
+        "wrapped": "0xf8108d3c5f6df74bc4e7aaeed430dc1e53ecde37",
+        "wrappedCodeHash": "0xa7f9d8e8ac69a45fb8e44b25d2e2667cbdee5b00fa2916101bbf43a00bb9a231",
+        "deploymentTransactions": [
+          "0x75757309ac96976de73931bbc677b2accde1da4f2fcc669de93f18f811d9cfa9",
+          "0x94fd7b7d60cf7812a13bc7d0b3794a300e32a8999934454b3b6ba45bfe276af3"
+        ]
+      },
+      "metadataTransactions": {
+        "metadata-initial": "0xfb98326cc191317c95c73f1422a82bee9d04b9f375dd8f74ad977e4431d48ca7",
+        "metadata-complete": "0x45ebfeeec628bc4f01280fe2f4ba2349369335bc7e0d4370c212b7fa33d87ece"
+      }
+    }
+  ]
+}

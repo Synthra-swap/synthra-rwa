@@ -1,5 +1,13 @@
 # Validation evidence — 24 September 2026
 
+> Version boundary: this document describes the earlier Wormhole implementation.
+> The new LayerZero contracts and their separate validation are documented in
+> [LAYERZERO.md](LAYERZERO.md) and [LAYERZERO_VALIDATION.md](LAYERZERO_VALIDATION.md).
+> Previous audit results and deployment commands do not cover the new implementation.
+> Current root test logs have been replaced by the combined regression run described in
+> LAYERZERO_VALIDATION.md. Original logs supporting the historical counts below remain in the
+> pre-LayerZero Git snapshot indexed in [ARCHIVE_HISTORY.md](ARCHIVE_HISTORY.md).
+
 Local toolchain: Foundry 1.5.1-stable (b0a9dd9ceda36f63e2326ce530c10e6916f4b8a2),
 Solidity 0.8.28 (7893614a), Slither 0.11.3, Python 3.14.6. EVM Paris, optimizer 200,
 no CBOR/bytecode metadata. CI declares Foundry 1.5.1 and Python 3.11 but has not been run remotely.
@@ -84,7 +92,7 @@ includes artificial mock overhead; it is not a gas-cost estimate for the live ch
   Robinhood's public RPC returned no historical state for the finalized block; latest reads are
   separately labeled and do not satisfy that gate.
 - Independent review, issuer/distribution review, user-facing VAA retrieval/completion and pending-
-  transfer recovery, reconciliation/monitoring, frontend and liquidity integration remain outstanding.
+  transfer recovery and reconciliation/monitoring remain outstanding at this historical checkpoint.
   No automatic relayer is planned; users submit both bridge transactions. This does not remove the
   requirement to publish and deliver metadata updates or recover interrupted user sessions.
 

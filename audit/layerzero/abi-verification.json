@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "upstreamCommit": "9c741e7f9790639537b1710a203bcdfd73b0b9ac",
+  "comparedFunctions": [
+    "ILayerZeroEndpoint.clear",
+    "ILayerZeroEndpoint.eid",
+    "ILayerZeroEndpoint.inboundPayloadHash",
+    "ILayerZeroEndpoint.lzReceive",
+    "ILayerZeroEndpoint.quote",
+    "ILayerZeroEndpoint.send",
+    "ILayerZeroEndpoint.setConfig",
+    "ILayerZeroEndpoint.setReceiveLibrary",
+    "ILayerZeroEndpoint.setSendLibrary",
+    "ILayerZeroUln.commitVerification",
+    "ILayerZeroUln.getAppUlnConfig",
+    "ILayerZeroUln.getUlnConfig",
+    "ILayerZeroUln.verify",
+    "Receiver.allowInitializePath",
+    "Receiver.nextNonce",
+    "Receiver.lzReceive"
+  ],
+  "upstreamSha256": {
+    "packages/layerzero-v2/evm/protocol/contracts/interfaces/ILayerZeroEndpointV2.sol": "a88fb702b371527c3791d7e5c168c1157d39021ed29b51e627e02973e6a740e0",
+    "packages/layerzero-v2/evm/protocol/contracts/interfaces/IMessageLibManager.sol": "c648091e7cb079cb95778becfff1a813e901fdc07124153ba731a7d9daa29b40",
+    "packages/layerzero-v2/evm/protocol/contracts/interfaces/IMessagingComposer.sol": "5e7e5a47a477dcf05c034d5135bf6516119af881ea78d586805eee0ad5ab6b12",
+    "packages/layerzero-v2/evm/protocol/contracts/interfaces/IMessagingChannel.sol": "9d0100f7cede83d5a4f6c9e03d6bfd24f861e9331b298ca4c73f99b161c718d5",
+    "packages/layerzero-v2/evm/protocol/contracts/interfaces/IMessagingContext.sol": "b7f081828b8d0d206833953ebd73101bb28ac62541e7e8365fddc38eb440a92a",
+    "packages/layerzero-v2/evm/protocol/contracts/interfaces/ILayerZeroReceiver.sol": "24e4add7dd95a72dad23e26c4fadfc1b6ce63148e0c7f4d6ad5dfaeda79db3e7",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/UlnBase.sol": "a7d95c8a810ecc06dafd9ed7b26f62898333a10ce8e89e3bd596a53d954be8b6",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/uln302/ReceiveUln302.sol": "71f8b9285db7aec38987175fb34cb591e00bfae4423956bd4cdb769daf8f0caa"
+  },
+  "localInterfaceSha256": "f84ed14a6ca8a7cf801f065c682e22f3b292036822c31ed331d331b511178a20",
+  "notice": "ABI compatibility and pinned-source provenance only, not proof that a live deployment matches this upstream implementation."
+}

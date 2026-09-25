@@ -1,0 +1,35 @@
+{
+  "schema": 2,
+  "status": "selected LayerZero ULN verification policy; configured in side-specific deployment templates; not deployed",
+  "selectedBy": "project owner",
+  "requiredDvns": [
+    "LayerZero Labs",
+    "Nethermind"
+  ],
+  "optionalDvnsEnabled": false,
+  "routes": [
+    {
+      "sourceEvmChainId": 4663,
+      "destinationEvmChainId": 5042,
+      "sourceEid": 30416,
+      "destinationEid": 30417,
+      "confirmations": 15
+    },
+    {
+      "sourceEvmChainId": 5042,
+      "destinationEvmChainId": 4663,
+      "sourceEid": 30417,
+      "destinationEid": 30416,
+      "confirmations": 15
+    }
+  ],
+  "completionCondition": "Both required DVNs attest the authentic packet at the required ULN confirmation depth, Endpoint verification succeeds and application checks pass.",
+  "additionalElapsedTimeDelaySeconds": 0,
+  "additionalEthereumFinalityRequirement": false,
+  "basis": {
+    "officialGuidance": "https://docs.layerzero.network/v2/concepts/modular-security/production-dvn-configuration",
+    "observedDefaults": "audit/layerzero/layerzero-default-confirmations-20260925.json",
+    "selection": "15 is within the official 15-30 optimistic-L2 guidance and above the observed 5-confirmation defaults on both routes. The existing two-DVN message pilot and local fork fixture use 15 in both directions."
+  },
+  "notice": "Explicit application security choices, not a claim of LayerZero certification, zero risk, guaranteed Ethereum finality or guaranteed delivery latency. Normal deployment preflight, product integration, external audit and asset-pilot checks remain."
+}

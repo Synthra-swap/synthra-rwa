@@ -1,5 +1,10 @@
 # Internal review and static analysis
 
+> Version boundary: this document describes the earlier Wormhole implementation.
+> The new LayerZero contracts and their separate validation are documented in
+> [LAYERZERO.md](LAYERZERO.md) and [LAYERZERO_VALIDATION.md](LAYERZERO_VALIDATION.md).
+> Previous audit results and deployment commands do not cover the new implementation.
+
 This file is an engineering review log, not an independent audit opinion.
 
 ## Slither dispositions

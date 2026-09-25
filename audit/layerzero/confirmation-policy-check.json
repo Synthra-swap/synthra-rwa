@@ -1,0 +1,21 @@
+{
+  "schema": 3,
+  "date": "2026-09-25",
+  "policy": "LayerZero ULN 15-confirmation two-required-DVN verification on both routes",
+  "checks": [
+    "Both routes pin 15 send and 15 receive confirmations",
+    "Paired identities, DVNs and confirmation settings compatible after filling test-only placeholders",
+    "Side 0 sendConfirmations=14 rejected against peer requirement/request 15",
+    "Side 0 receiveConfirmations=16 rejected against peer requirement/request 15",
+    "Side 1 sendConfirmations=14 rejected against peer requirement/request 15",
+    "Side 1 receiveConfirmations=16 rejected against peer requirement/request 15"
+  ],
+  "scope": "Offline paired configuration checks only; test-only values filled for asset/authority placeholders. No broadcast or independent source-finality proof. Existing Solidity/fork evidence uses the same 15-confirmation setting.",
+  "policyConfigured": true,
+  "deployed": false,
+  "templatesSha256": {
+    "config/layerzero.robinhood.example.json": "c8f151428325410da8689718eab14b23749fa7b3126099ce592e84675d3f36e3",
+    "config/layerzero.arc.example.json": "0d1fc13afdb34e9874a63ac9768e5729735403f0540bc46a76b4141cecb291f5",
+    "config/layerzero.finality-policy.example.json": "1ecfe4f8e259af86633e0a029f817829d85e5b98a5ce3a3b9890c649e5a821bb"
+  }
+}

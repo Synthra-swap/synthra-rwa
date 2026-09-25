@@ -144,7 +144,7 @@ The [Wormhole finality table](https://wormhole.com/docs/reference/consistency-le
   message identity and monitor issuer, governance, metadata, and collateral changes. Users perform
   both bridge transactions; no automatic relayer is planned. Metadata publication/completion must
   still be performed before expiry or on changes. Manual unsigned preparation tools are included;
-  the complete frontend retrieval/recovery flow and monitoring remain integration work.
+  attestation retrieval, claim recovery and monitoring remain operational responsibilities.
 
 ## Reproduction
 

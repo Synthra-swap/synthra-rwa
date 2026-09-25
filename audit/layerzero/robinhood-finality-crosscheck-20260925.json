@@ -1,0 +1,36 @@
+[
+  {
+    "rpc": "https://robinhood-rpc.publicnode.com",
+    "observedAt": "2026-09-25T14:48:48.578978+00:00",
+    "chainId": 4663,
+    "finalized": {
+      "number": 72301577,
+      "timestamp": 1790346829,
+      "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+    },
+    "latest": {
+      "number": 72310563,
+      "timestamp": 1790347730,
+      "hash": "0x6ec09fb55a298d03e06d80bc1509b3e5bdf65e9bf2b5e9698d214d9c29555881"
+    },
+    "gapBlocks": 8986,
+    "gapSeconds": 901
+  },
+  {
+    "rpc": "https://robinhood.rpc.blxrbdn.com",
+    "observedAt": "2026-09-25T14:48:48.579263+00:00",
+    "chainId": 4663,
+    "finalized": {
+      "number": 72301577,
+      "timestamp": 1790346829,
+      "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+    },
+    "latest": {
+      "number": 72310567,
+      "timestamp": 1790347730,
+      "hash": "0x3b1bbeacbcf0e7c6f6e1df08fdba4170625de5851adde360f615bb195b66fa74"
+    },
+    "gapBlocks": 8990,
+    "gapSeconds": 901
+  }
+]

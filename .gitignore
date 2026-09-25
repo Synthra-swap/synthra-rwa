@@ -10,3 +10,18 @@ config/source.json
 config/destination.json
 config/pair.json
 config/deployments/
+
+# Generated reports and archives are local/CI artifacts, not source releases.
+audit/**/*.log
+audit/**/*.lcov
+audit/**/*.tar.gz
+audit/**/slither.json
+audit/RELEASE_MANIFEST.json
+audit/SHA256SUMS
+audit/layerzero/pilot-tooling-*/
+audit/layerzero/mutation-partial.json
+
+# Credentials and temporary editor files.
+.env.*
+!.env.example
+*.swp

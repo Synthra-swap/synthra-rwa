@@ -1,0 +1,16 @@
+{
+  "deployer": "0xfd2301819C2064b7Bd06212D22594CEB172c07bf",
+  "overrides": {
+    "sourceAsset": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+    "governance": "0x20A32b077906Feb43D5EcaC7EF1425a48E25B4CC",
+    "guardian": "0x20A32b077906Feb43D5EcaC7EF1425a48E25B4CC",
+    "treasury": "0x1CAB229e4D75E4DE0EC890bef0295a32BAaa1328",
+    "maxTransferRaw": "447501205267450156439",
+    "inboundMaxTransferRaw": "447501205267450156439",
+    "metadataMaxAgeSeconds": 2592000,
+    "governanceDelaySeconds": 172800,
+    "name": "Synthra NVIDIA",
+    "symbol": "sNVDA",
+    "notes": "Authorized pre-audit NVDA mainnet pilot. 15 confirmations, both LayerZero Labs and Nethermind required, manual delivery. Raw transfer ceiling retained from the reviewed September 24 allocation; not a live USD ceiling. Deploy paused; hardware wallet binds peers and activates without initial delay. Subsequent governance uses 48-hour timelocks."
+  }
+}

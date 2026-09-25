@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "status": "Historical fixed-depth measurement proposal, superseded by selected LayerZero 15-confirmation two-DVN policy; never applied",
+  "policy": "fixed Robinhood L2 block depth; does not enforce parent-chain finality",
+  "route": "Robinhood -> Arc",
+  "proposedConfirmations": 10200,
+  "rounding": "Mean observed upper head gap rounded upward to the nearest 100 blocks",
+  "sourceConfigurationFragment": {
+    "sendConfirmations": 10200
+  },
+  "destinationConfigurationFragment": {
+    "receiveConfirmations": 10200
+  },
+  "samplesFile": "audit/layerzero/robinhood-finality-samples-20260925.json",
+  "samplesSha256": "90b090f718a661fff0c3a03b9e852c506bfb39b1ca4b1a2e8e91fb4e01b6848a",
+  "samplesWithGapExceedingProposedDepth": 8,
+  "limitations": [
+    "Only 16 observations across about five minutes; not a long-term average.",
+    "The finalized head did not advance during this window, so no completed finalization cycle was observed.",
+    "A latest-to-finalized head gap is not a per-transaction finalization-latency measurement.",
+    "The proposed depth is below the largest observed gap and cannot guarantee finality.",
+    "Confirm both selected DVNs interpretation and enforcement of confirmations before deployment."
+  ],
+  "productionFinalityRequirementSatisfied": false,
+  "supersededBy": [
+    "config/layerzero.finality-policy.example.json",
+    "docs/LAYERZERO_FINALITY.md"
+  ]
+}

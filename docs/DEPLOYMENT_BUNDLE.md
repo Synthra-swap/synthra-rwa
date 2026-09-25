@@ -1,5 +1,10 @@
 # Preparing and executing the selected stock deployments
 
+> Version boundary: this document describes the earlier Wormhole implementation.
+> The new LayerZero contracts and their separate validation are documented in
+> [LAYERZERO.md](LAYERZERO.md) and [LAYERZERO_VALIDATION.md](LAYERZERO_VALIDATION.md).
+> Previous audit results and deployment commands do not cover the new implementation.
+
 `tools/prepare_deployment.py` creates one source configuration, one destination configuration,
 and a pending pair-verification template per asset. Real inputs and generated files belong under
 ignored `config/deployments/`. They are not included in the public audit archive. The generator

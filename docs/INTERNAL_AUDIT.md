@@ -1,5 +1,10 @@
 # Internal review findings and disposition
 
+> Version boundary: this document describes the earlier Wormhole implementation.
+> The new LayerZero contracts and their separate validation are documented in
+> [LAYERZERO.md](LAYERZERO.md) and [LAYERZERO_VALIDATION.md](LAYERZERO_VALIDATION.md).
+> Previous audit results and deployment commands do not cover the new implementation.
+
 This is an internal, AI-assisted engineering review performed in the same development context as
 the implementation. It is not an independent third-party audit, formal verification, or production
 approval. No public deployment or transaction was performed as part of the review.

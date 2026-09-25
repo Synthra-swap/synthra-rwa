@@ -5,10 +5,19 @@ import gzip,hashlib,io,json,tarfile
 root=Path(__file__).resolve().parents[1]
 allowed={'src','test','integration','script','tools','docs','vendor','.github'}
 roots={'README.md','foundry.toml','.gitignore','SECURITY.md','LICENSE'}
+public_configs={'config/layerzero.stocks.json','config/layerzero.mainnet.json'}
 reports={'audit-tests.log','unit-tests.log','coverage.log','coverage.lcov','slither.json','slither.log','gas-report.log','demo.log',
          'python-tests.log','mutation-report.json','mutation.log','dependency-verification.json',
          'live-fork-tests.log'}
-review_paths = {'audit/current-review-snapshot.json', 'audit/deployment-preparation.json'}
+review_paths = {'audit/current-review-snapshot.json', 'audit/deployment-preparation.json',
+                'audit/layerzero/validation.json', 'audit/layerzero/live-fork-tests.log',
+                'audit/layerzero/check.log', 'audit/layerzero/mutation-report.json',
+                'audit/layerzero/mutation.log', 'audit/layerzero/abi-verification.json',
+                'audit/layerzero/network-review.json', 'audit/layerzero/build-sizes.log'}
+review_paths.update('audit/layerzero/' + name for name in (
+    'confirmation-policy-check.json', 'robinhood-finality-samples-20260925.json',
+    'robinhood-finality-crosscheck-20260925.json', 'robinhood-confirmations-proposal-20260925.json'))
+review_paths.add('audit/layerzero/layerzero-default-confirmations-20260925.json')
 review_paths.update('audit/readiness-review/' + name for name in (
     'initial-asset-candidates.json', 'selection-assets.json', 'selection-prices.json',
     'selection-dex-pairs.json', 'fork-assets-registry-20260924.json', 'fork-pins-20260924.json',
@@ -22,10 +31,11 @@ for p in sorted(root.rglob('*')):
     if not p.is_file():continue
     rel=p.relative_to(root)
     if any(x in rel.parts for x in ('__pycache__','.git','.tools','out','cache','broadcast')):continue
-    if rel.parts[0] in allowed or str(rel) in roots or str(rel) in review_paths or (rel.parts[0]=='config' and p.name.endswith('.example.json')) or (rel.parts[0]=='audit' and p.name in reports) or (rel.parent == Path('audit/network') and p.name in network_reports):
+    if rel.parts[0] in allowed or str(rel) in roots or str(rel) in public_configs or str(rel) in review_paths or (rel.parts[0]=='config' and p.name.endswith('.example.json')) or (rel.parts[0]=='audit' and p.name in reports) or (rel.parent == Path('audit/network') and p.name in network_reports):
         paths.append(p)
 manifest={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
 encoded=(json.dumps({'schema':1,'files':manifest},indent=2)+'\n').encode()
+(root/'audit').mkdir(exist_ok=True)
 (root/'audit/RELEASE_MANIFEST.json').write_bytes(encoded)
 output=root/'audit/synthra-rwa-bridge-audit.tar.gz'
 with output.open('wb') as raw,gzip.GzipFile(fileobj=raw,mode='wb',filename='',mtime=0) as gz,tarfile.open(fileobj=gz,mode='w') as tar:

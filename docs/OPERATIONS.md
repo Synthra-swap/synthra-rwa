@@ -1,5 +1,10 @@
 # Deployment and operations runbook
 
+> Version boundary: this document describes the earlier Wormhole implementation.
+> The new LayerZero contracts and their separate validation are documented in
+> [LAYERZERO.md](LAYERZERO.md) and [LAYERZERO_VALIDATION.md](LAYERZERO_VALIDATION.md).
+> Previous audit results and deployment commands do not cover the new implementation.
+
 No live deployment is configured or authorized by the example files. They intentionally contain
 zero addresses/domains; the script and preflight reject them. Never replace unknown values with
 unverified guesses. Scripts do not load or print private keys.
@@ -215,7 +220,7 @@ Operators must monitor original-token changes and metadata age and arrange timel
 destination completion, which can both be submitted manually. No hosted keeper or automatic relayer
 is selected. If nobody refreshes, stale UI getters fail closed after the deadline,
 while raw ERC20 transfers and bridge mint/burn/redemption remain independent of metadata freshness.
-Integrating frontends should expose raw redemption and clearly indicate unavailable display data.
+Raw redemption remains available independently of stale display metadata.
 The 30-day window trades fewer unchanged-state publications for longer potential display staleness
 when a source update is missed.
 
@@ -246,13 +251,3 @@ On incidents, the proposer/canceller account must inspect and cancel incompatibl
 The selected shared hardware wallet has that cancellation role as well as immediate pause authority.
 The guardian role alone does not grant timelock cancellation rights to a separately configured
 guardian. Monitor delay changes and the full queue.
-
-## 6. Frontend integration obligations
-
-Show gross amount, 0.5% fee, net wrapped amount, gas on both chains, separate message fees, and the
-two-transaction flow (plus approval when needed) before signing. Provide network switching,
-attestation waiting, explicit destination completion, and a recoverable pending-transfer view. Fee is collected at source success even if remote completion is delayed.
-Validate destination addresses including known endpoint/token contracts; never label a raw token as
-one share. Show metadata freshness and handle UI accessor reverts. Prices are external data with
-explicit units; metadata is not an oracle. Do not advertise instant cross-chain settlement or an
-atomic 100% proof from unsynchronized snapshots.

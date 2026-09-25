@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "scope": "Read-only public latest state. Runtime hashes establish observed identities, not audited implementation equivalence or operator finality behavior.",
+  "chains": {
+    "robinhood": {
+      "rpc": "https://rpc.mainnet.chain.robinhood.com",
+      "chainId": 4663,
+      "latest": {
+        "number": "0x44ef64d",
+        "hash": "0xc5e20cfef9c8933c49af199ab8505a9dc16916973076e7166cb68f0daba96684",
+        "timestamp": "0x6ab67f4e"
+      },
+      "contracts": {
+        "endpoint": {
+          "address": "0x6f475642a6e85809b1c36fa62763669b1b48dd5b",
+          "runtimeKeccak256": "0xcfbbc5787620fd3bc7117ecad89067b17fa445b3e6b7afd724e3a347a9d67763",
+          "bytes": 24005
+        },
+        "sendLibrary": {
+          "address": "0xc39161c743d0307eb9bcc9fef03eeb9dc4802de7",
+          "runtimeKeccak256": "0xcd2121f01434744b27de5bf44d17417ea7478f16068e183b4d3cc061505d832f",
+          "bytes": 22995
+        },
+        "receiveLibrary": {
+          "address": "0xe1844c5d63a9543023008d332bd3d2e6f1fe1043",
+          "runtimeKeccak256": "0x845ea4dac06daac781355bf6790478f2114a7917ec922936d5dbe7e6e2d4979f",
+          "bytes": 11010
+        },
+        "dvnA": {
+          "address": "0xd01ae6905d48315f7be10c7330aecf8360ef5b12",
+          "runtimeKeccak256": "0xf081cb86cbbddae9a95428e38887fdd4061ed98578c2450aa08b8d01c7f3e595",
+          "bytes": 20004
+        },
+        "dvnB": {
+          "address": "0x0ffe02df012299a370d5dd69298a5826eacafdf8",
+          "runtimeKeccak256": "0xf081cb86cbbddae9a95428e38887fdd4061ed98578c2450aa08b8d01c7f3e595",
+          "bytes": 20004
+        }
+      },
+      "finalized": {
+        "number": "0x44ed2fd",
+        "hash": "0x5423132d6e8461a7a3a12467152b94e027017c7cb932461d42e50b2f10ce2ff2",
+        "timestamp": "0x6ab67bc4"
+      },
+      "latestMinusFinalizedSeconds": 906,
+      "endpointEid": 30416
+    },
+    "arc": {
+      "rpc": "https://rpc.mainnet.arc.io",
+      "chainId": 5042,
+      "latest": {
+        "number": "0x15a5c37",
+        "hash": "0xd040ddc7694460f20d85b637d7c3aa95eeca18e7788f45ff00ab3398275f985c",
+        "timestamp": "0x6ab67f54"
+      },
+      "contracts": {
+        "endpoint": {
+          "address": "0x6f475642a6e85809b1c36fa62763669b1b48dd5b",
+          "runtimeKeccak256": "0xffcae3743c8752b3bd96362690d114ef5f4feae487ebab4b2fcf7d7f887d4a7a",
+          "bytes": 24005
+        },
+        "sendLibrary": {
+          "address": "0xc39161c743d0307eb9bcc9fef03eeb9dc4802de7",
+          "runtimeKeccak256": "0xcd2121f01434744b27de5bf44d17417ea7478f16068e183b4d3cc061505d832f",
+          "bytes": 22995
+        },
+        "receiveLibrary": {
+          "address": "0xe1844c5d63a9543023008d332bd3d2e6f1fe1043",
+          "runtimeKeccak256": "0x96c0cb9e0db93ab6afd1fb2ce0846a151997e4f88cc1b485f27bf4baf259856e",
+          "bytes": 11010
+        },
+        "dvnA": {
+          "address": "0xa2447e5b58d357c49bf74b50b14421e6a100e525",
+          "runtimeKeccak256": "0x291783736119ab34c563e1692ee2b9b8d9102420bdfe4ff53e21eec957ce7d49",
+          "bytes": 20004
+        },
+        "dvnB": {
+          "address": "0x9e0e95ede70f680f74480b510ff9f45c70e3da80",
+          "runtimeKeccak256": "0x291783736119ab34c563e1692ee2b9b8d9102420bdfe4ff53e21eec957ce7d49",
+          "bytes": 20004
+        }
+      },
+      "finalized": {
+        "number": "0x15a5c38",
+        "hash": "0xf6065bc889ef1b96c5ac3ddf79986364b5bc22873185149ebb4fb11e0f57dbd9",
+        "timestamp": "0x6ab67f55"
+      },
+      "latestMinusFinalizedSeconds": -1,
+      "endpointEid": 30417
+    }
+  },
+  "registrySha256": "03f28c0bdd12ab63826c96bf443865c5aebc2a794d3bc58aa4fc7e581f53bb98"
+}

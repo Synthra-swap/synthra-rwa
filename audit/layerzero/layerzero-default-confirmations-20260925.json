@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "observedAt": "2026-09-25T16:13:30.626787+00:00",
+  "scope": "Read-only ULN merged defaults for address zero at recorded blocks. Confirmation depths only inform explicit application settings; default DVN identities are not adopted.",
+  "chains": {
+    "robinhood": {
+      "rpc": "https://rpc.mainnet.chain.robinhood.com",
+      "chainId": 4663,
+      "block": {
+        "number": "0x450246e",
+        "hash": "0xad8ee9dd89cb997328617a0991fd9ef349571a3edb121a60d0cec3236e441645",
+        "timestamp": "0x6ab69da8"
+      },
+      "remoteEid": 30417,
+      "sendLibrary": {
+        "address": "0xc39161c743d0307eb9bcc9fef03eeb9dc4802de7",
+        "defaultUlnConfig": "(5, 1, 0, 0, [0x6788f52439ACA6BFF597d3eeC2DC9a44B8FEE842], [])",
+        "confirmations": 5
+      },
+      "receiveLibrary": {
+        "address": "0xe1844c5d63a9543023008d332bd3d2e6f1fe1043",
+        "defaultUlnConfig": "(5, 1, 0, 0, [0x6788f52439ACA6BFF597d3eeC2DC9a44B8FEE842], [])",
+        "confirmations": 5
+      }
+    },
+    "arc": {
+      "rpc": "https://rpc.mainnet.arc.io",
+      "chainId": 5042,
+      "block": {
+        "number": "0x15a97f8",
+        "hash": "0xe2ac533f6f08fe345ee96849bdb639240e475aa04f3c968475fef1e65d159423",
+        "timestamp": "0x6ab69da8"
+      },
+      "remoteEid": 30416,
+      "sendLibrary": {
+        "address": "0xc39161c743d0307eb9bcc9fef03eeb9dc4802de7",
+        "defaultUlnConfig": "(5, 1, 0, 0, [0x6788f52439ACA6BFF597d3eeC2DC9a44B8FEE842], [])",
+        "confirmations": 5
+      },
+      "receiveLibrary": {
+        "address": "0xe1844c5d63a9543023008d332bd3d2e6f1fe1043",
+        "defaultUlnConfig": "(5, 1, 0, 0, [0x6788f52439ACA6BFF597d3eeC2DC9a44B8FEE842], [])",
+        "confirmations": 5
+      }
+    }
+  }
+}

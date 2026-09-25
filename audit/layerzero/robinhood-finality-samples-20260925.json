@@ -1,0 +1,391 @@
+{
+  "schema": 1,
+  "rpc": "https://rpc.mainnet.chain.robinhood.com",
+  "chainId": 4663,
+  "measurement": "Short-window latest-to-finalized head gap, not transaction-finalization latency or a guaranteed confirmation threshold. Sequential reads bracket each finalized sample.",
+  "samples": [
+    {
+      "observedAt": "2026-09-25T14:48:18.478620+00:00",
+      "latestBefore": {
+        "number": 72310248,
+        "timestamp": 1790347698,
+        "hash": "0xdfc1be37cf1e55c2914f7b1527bc191602b9f7b8ce2a6d56979de35aef0fb84b"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72310258,
+        "timestamp": 1790347699,
+        "hash": "0x702f44e6089fc847b006603b58798bf4a72eb42f7421d27c6bfa4f03db9fc122"
+      },
+      "gapBlocksLower": 8671,
+      "gapBlocksUpper": 8681,
+      "gapSecondsLower": 869,
+      "gapSecondsUpper": 870
+    },
+    {
+      "observedAt": "2026-09-25T14:48:38.482577+00:00",
+      "latestBefore": {
+        "number": 72310445,
+        "timestamp": 1790347718,
+        "hash": "0x95361bfc39ae6a9e79ab200c44431a38e485966b9d59f86ef7a005034b0b1b63"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72310456,
+        "timestamp": 1790347719,
+        "hash": "0x15f95ac566418b937410f2b6ca72af297d43efcdb41e0adf0ee96bd1637cd14f"
+      },
+      "gapBlocksLower": 8868,
+      "gapBlocksUpper": 8879,
+      "gapSecondsLower": 889,
+      "gapSecondsUpper": 890
+    },
+    {
+      "observedAt": "2026-09-25T14:48:58.483279+00:00",
+      "latestBefore": {
+        "number": 72310640,
+        "timestamp": 1790347738,
+        "hash": "0xd15ff76732321a2c09be122b9f19f3390d47a715623271e13933e7c79010c48d"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72310656,
+        "timestamp": 1790347739,
+        "hash": "0xeee33df46bb191e93dd836208e0b3e7ccb250aeba7d6ae83ea27af8561dfe033"
+      },
+      "gapBlocksLower": 9063,
+      "gapBlocksUpper": 9079,
+      "gapSecondsLower": 909,
+      "gapSecondsUpper": 910
+    },
+    {
+      "observedAt": "2026-09-25T14:49:18.478727+00:00",
+      "latestBefore": {
+        "number": 72310843,
+        "timestamp": 1790347758,
+        "hash": "0xb3b3256fa89a7130da047dbc1b615eabc5a5da922759a95c5b360605169ce039"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72310858,
+        "timestamp": 1790347760,
+        "hash": "0xd2b807595a9b509608bf3c2c726c6c2ea44de6e2baf51423bae2b0a8fedd49e1"
+      },
+      "gapBlocksLower": 9266,
+      "gapBlocksUpper": 9281,
+      "gapSecondsLower": 929,
+      "gapSecondsUpper": 931
+    },
+    {
+      "observedAt": "2026-09-25T14:49:38.484333+00:00",
+      "latestBefore": {
+        "number": 72311039,
+        "timestamp": 1790347778,
+        "hash": "0x1dcfca29c91d57b030f0ed341c612065b95703a8c133fcdaeb71189810f945e5"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72311049,
+        "timestamp": 1790347779,
+        "hash": "0x1519cc80987c247d1e97a3b23c73ad2d878b7726ad16b8ed32eb330499ee8299"
+      },
+      "gapBlocksLower": 9462,
+      "gapBlocksUpper": 9472,
+      "gapSecondsLower": 949,
+      "gapSecondsUpper": 950
+    },
+    {
+      "observedAt": "2026-09-25T14:49:58.482257+00:00",
+      "latestBefore": {
+        "number": 72311240,
+        "timestamp": 1790347798,
+        "hash": "0x37a1b99bdd3b3d680dd3fa93cade9e88462b75d91e2fa8e91060cf19df11801d"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72311250,
+        "timestamp": 1790347799,
+        "hash": "0xe2d9f74cfa87d75ae094e690adea9b031fad3ed3d39a477a7cd32d6ebbaff302"
+      },
+      "gapBlocksLower": 9663,
+      "gapBlocksUpper": 9673,
+      "gapSecondsLower": 969,
+      "gapSecondsUpper": 970
+    },
+    {
+      "observedAt": "2026-09-25T14:50:18.481956+00:00",
+      "latestBefore": {
+        "number": 72311440,
+        "timestamp": 1790347818,
+        "hash": "0x858a7ee961a8d50b80d6e9ec9c82edce517218bb8976a79ddace3ccdf1973e41"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72311450,
+        "timestamp": 1790347819,
+        "hash": "0xed30c35ef8ed681fb0a8ebf2ed45a3b9867e2763b77841fe5beefa7adc5422d4"
+      },
+      "gapBlocksLower": 9863,
+      "gapBlocksUpper": 9873,
+      "gapSecondsLower": 989,
+      "gapSecondsUpper": 990
+    },
+    {
+      "observedAt": "2026-09-25T14:50:38.480158+00:00",
+      "latestBefore": {
+        "number": 72311636,
+        "timestamp": 1790347838,
+        "hash": "0x73e5b4bf8a13020fe847ba09d6455fc1f6e484296c0b001bbb33cc98bea96986"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72311651,
+        "timestamp": 1790347839,
+        "hash": "0x8141f668dbb93bec052c323f7b61ecb06e57be4bd2df5f52734265a89b2d2618"
+      },
+      "gapBlocksLower": 10059,
+      "gapBlocksUpper": 10074,
+      "gapSecondsLower": 1009,
+      "gapSecondsUpper": 1010
+    },
+    {
+      "observedAt": "2026-09-25T14:50:58.479803+00:00",
+      "latestBefore": {
+        "number": 72311836,
+        "timestamp": 1790347858,
+        "hash": "0xf10048230b14bbf8373e547817d538ad3bfb66633a2f6ad90c6e1a7ff8548702"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72311846,
+        "timestamp": 1790347859,
+        "hash": "0xcd09edf763719e9b5748ce34cf4dda8360a6dad6919d69d9d27b6d9a63d48e5d"
+      },
+      "gapBlocksLower": 10259,
+      "gapBlocksUpper": 10269,
+      "gapSecondsLower": 1029,
+      "gapSecondsUpper": 1030
+    },
+    {
+      "observedAt": "2026-09-25T14:51:18.480944+00:00",
+      "latestBefore": {
+        "number": 72312039,
+        "timestamp": 1790347878,
+        "hash": "0xfe7456e4accea5f2c1a32eebb09d4946a041b9268c3cb72318ea8fede863304f"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72312049,
+        "timestamp": 1790347879,
+        "hash": "0x3b39a869dc9d8121105370d1262acfc231967cb5292a669a36c734f1a4eecb82"
+      },
+      "gapBlocksLower": 10462,
+      "gapBlocksUpper": 10472,
+      "gapSecondsLower": 1049,
+      "gapSecondsUpper": 1050
+    },
+    {
+      "observedAt": "2026-09-25T14:51:38.479660+00:00",
+      "latestBefore": {
+        "number": 72312225,
+        "timestamp": 1790347898,
+        "hash": "0x5eab7f9cd255f6d9450a3d6d4f72f1d0ce83dd0080252fc9e328f18fd6239d6f"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72312235,
+        "timestamp": 1790347899,
+        "hash": "0xf042d0dc822c9c326cb31bb21551a095b9231483ce12f6809751b7943e77788f"
+      },
+      "gapBlocksLower": 10648,
+      "gapBlocksUpper": 10658,
+      "gapSecondsLower": 1069,
+      "gapSecondsUpper": 1070
+    },
+    {
+      "observedAt": "2026-09-25T14:51:58.475848+00:00",
+      "latestBefore": {
+        "number": 72312420,
+        "timestamp": 1790347918,
+        "hash": "0x31d893f402726414f5fc7b4b96b2d5ca8b6b61b5adbcac693f84c78fa11bd52e"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72312435,
+        "timestamp": 1790347919,
+        "hash": "0x80742aa4122cdd6ef6cd5fd81796ff7258f63f5275448e09d71ffe3aea71bf3d"
+      },
+      "gapBlocksLower": 10843,
+      "gapBlocksUpper": 10858,
+      "gapSecondsLower": 1089,
+      "gapSecondsUpper": 1090
+    },
+    {
+      "observedAt": "2026-09-25T14:52:18.479556+00:00",
+      "latestBefore": {
+        "number": 72312619,
+        "timestamp": 1790347938,
+        "hash": "0x3429e1533e0c52731be15d27a9130a9e6a89fb9dbea2cb598f318f2a80a5162a"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72312634,
+        "timestamp": 1790347939,
+        "hash": "0x7b6d2faf23b2dbf0be9502b036c70beb46cb0cbfbbffdbea1537f81441ec6c58"
+      },
+      "gapBlocksLower": 11042,
+      "gapBlocksUpper": 11057,
+      "gapSecondsLower": 1109,
+      "gapSecondsUpper": 1110
+    },
+    {
+      "observedAt": "2026-09-25T14:52:38.479184+00:00",
+      "latestBefore": {
+        "number": 72312821,
+        "timestamp": 1790347958,
+        "hash": "0x6972db4872d4f8771bb00113d0c590fb91b4f752fb28171cc1335770e8609e2f"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72312831,
+        "timestamp": 1790347959,
+        "hash": "0x786f3873576afb5a1e284f6ececb88af6c9cabbd7207690792d1761341bc7a25"
+      },
+      "gapBlocksLower": 11244,
+      "gapBlocksUpper": 11254,
+      "gapSecondsLower": 1129,
+      "gapSecondsUpper": 1130
+    },
+    {
+      "observedAt": "2026-09-25T14:52:58.479516+00:00",
+      "latestBefore": {
+        "number": 72313020,
+        "timestamp": 1790347978,
+        "hash": "0x20d1a26357271f09efd91a6030ba5722ab0d4ddce0d4cfadf177e7d75731b1e9"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72313030,
+        "timestamp": 1790347979,
+        "hash": "0x04b9819dc540fae42d25f70151f549821de77e9ee7c5a42b57df2fa10716399f"
+      },
+      "gapBlocksLower": 11443,
+      "gapBlocksUpper": 11453,
+      "gapSecondsLower": 1149,
+      "gapSecondsUpper": 1150
+    },
+    {
+      "observedAt": "2026-09-25T14:53:18.478179+00:00",
+      "latestBefore": {
+        "number": 72313215,
+        "timestamp": 1790347998,
+        "hash": "0x1884adf000fc61b1d3edb0a99789c2fd514728ba06a825e704ff719287cb3d9c"
+      },
+      "finalized": {
+        "number": 72301577,
+        "timestamp": 1790346829,
+        "hash": "0xd5897c15f97676a55f03815d108887dd93883485fa0ab1d6c2547576c9958016"
+      },
+      "latestAfter": {
+        "number": 72313250,
+        "timestamp": 1790348001,
+        "hash": "0x7ef0a82b8217a17374292d2d185472a4f4f5723064ed1cfc9feaf9535edb7949"
+      },
+      "gapBlocksLower": 11638,
+      "gapBlocksUpper": 11673,
+      "gapSecondsLower": 1169,
+      "gapSecondsUpper": 1172
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "sampleCount": 16,
+    "elapsedSeconds": 304.18,
+    "distinctFinalizedHeads": 1,
+    "gapBlocksLower": {
+      "min": 8671,
+      "mean": 10155.875,
+      "median": 10159.0,
+      "max": 11638
+    },
+    "gapBlocksUpper": {
+      "min": 8681,
+      "mean": 10169.125,
+      "median": 10171.5,
+      "max": 11673
+    },
+    "gapSecondsLower": {
+      "min": 869,
+      "mean": 1019,
+      "median": 1019.0,
+      "max": 1169
+    },
+    "gapSecondsUpper": {
+      "min": 870,
+      "mean": 1020.1875,
+      "median": 1020.0,
+      "max": 1172
+    },
+    "secondsPerL2Block": 0.10093582887700535
+  }
+}
