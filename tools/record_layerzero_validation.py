@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Record completed internal checks only when logs and mutation inputs match the current candidate."""
+from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
@@ -40,7 +41,7 @@ def main():
     inputs=[p for folder in ('src','test','script','integration','tools','docs','vendor','.github') for p in (ROOT/folder).rglob('*')
             if p.is_file() and '__pycache__' not in p.parts]
     inputs += list((ROOT/'config').glob('*.example.json'))+[ROOT/'config/layerzero.stocks.json',ROOT/'config/layerzero.mainnet.json',ROOT/'foundry.toml',ROOT/'README.md']
-    report={'schema':2,'date':'2026-09-25','status':'internal checks recorded for the listed file hashes; deployment observations are separate; external audit pending',
+    report={'schema':2,'date':datetime.now(timezone.utc).isoformat(),'status':'internal checks recorded for the listed file hashes; deployment observations are separate; external audit in progress',
             'solidityTests':unit,'pythonTests':python,'forkTests':forks,'targetedMutations':len(mutation['results']),
             'comparedFunctionAbis':len(abi['comparedFunctions']),
             'staticAnalysis':{'high':0,'medium':0,'reviewedLow':count},

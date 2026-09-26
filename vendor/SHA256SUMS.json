@@ -56,12 +56,5 @@
   "openzeppelin-contracts/contracts/utils/introspection/IERC165.sol": "7c5c3f98ab876991e7dd34b84d41137e836306eb9f36f6386a631f5be3f5d6d4",
   "openzeppelin-contracts/contracts/utils/math/Math.sol": "68cf79a637995d5ed243c4a5856b42a5e134ee8786a05034e24d75927fc40ebc",
   "openzeppelin-contracts/contracts/utils/math/SafeCast.sol": "9769274bf53f26a7c7896c526ea1980dc9bea5bf5c2a5fd04870008c4afc1de9",
-  "openzeppelin-contracts/package.json": "c57ecc49cdadc103b019cf7617c9415d9678c85f329792bb7518a19786a4a23d",
-  "wormhole/LICENSE": "e7fbb242901f0dba28f9395b4406093dacd3f8af4289fe1b99b7c28d56d6bff9",
-  "wormhole/PROVENANCE.json": "47e0f3d0fe91702e51aec281c5206872317f6f254546c576c1861bf6342b12e4",
-  "wormhole/ethereum/contracts/Getters.sol": "eebf99ebf18aefa543387258e03f508b925daddd122bcd1d9c804ffe483b0a92",
-  "wormhole/ethereum/contracts/Messages.sol": "869fd3c21bd81cf8789203b8318aca3fb288f5ff6e99b1949ebd683eaa013d7a",
-  "wormhole/ethereum/contracts/State.sol": "c49e968b20abe9d2f9c804788bdaf6268c1d5406c82d1c5e06cb45555f2aa1a0",
-  "wormhole/ethereum/contracts/Structs.sol": "d6da02e4ddf08e94417e007863b4b8904084481e83587acfe6b134061ee1a98a",
-  "wormhole/ethereum/contracts/libraries/external/BytesLib.sol": "1b6f2ba238f9af311f917ddbf412edc565cfde02398d08727e8bbb98ad14d819"
+  "openzeppelin-contracts/package.json": "c57ecc49cdadc103b019cf7617c9415d9678c85f329792bb7518a19786a4a23d"
 }

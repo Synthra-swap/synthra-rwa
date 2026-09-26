@@ -11,7 +11,7 @@ from pathlib import Path
 
 import layerzero_deploy as deploy
 import layerzero_operate as operate
-from preflight import require
+from evm_rpc import require
 
 
 def deployed_phase(chain, record):

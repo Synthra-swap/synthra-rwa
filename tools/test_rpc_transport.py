@@ -3,12 +3,12 @@ import io
 import json
 import unittest
 from unittest.mock import patch
-from preflight import RPC
+from evm_rpc import RPC
 
 
 class RPCTransportTests(unittest.TestCase):
     def response(self, data):
-        return patch('preflight.urllib.request.urlopen', return_value=io.BytesIO(json.dumps(data).encode()))
+        return patch('evm_rpc.urllib.request.urlopen', return_value=io.BytesIO(json.dumps(data).encode()))
 
     def test_explicit_user_agent_and_json_request(self):
         with self.response({'jsonrpc': '2.0', 'id': 1, 'result': '0x1237'}) as send:
@@ -23,7 +23,7 @@ class RPCTransportTests(unittest.TestCase):
                 RPC('https://example.invalid').request('eth_chainId', [])
 
     def test_transport_error_does_not_expose_rpc_credentials(self):
-        with patch('preflight.urllib.request.urlopen', side_effect=OSError('SECRET_IN_URL')):
+        with patch('evm_rpc.urllib.request.urlopen', side_effect=OSError('SECRET_IN_URL')):
             with self.assertRaises(ValueError) as raised:
                 RPC('https://example.invalid/SECRET_IN_URL').request('eth_chainId', [])
         self.assertNotIn('SECRET', str(raised.exception))

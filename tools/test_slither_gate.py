@@ -6,7 +6,7 @@ from check_slither import fingerprint, validate
 class SlitherGateTests(unittest.TestCase):
     def setUp(self):
         self.finding = {'check': 'timestamp', 'impact': 'Low', 'elements': [
-            {'type': 'function', 'name': 'publishMetadata', 'source_mapping': {'filename_relative': 'src/SourceVault.sol'}},
+            {'type': 'function', 'name': 'publishMetadata', 'source_mapping': {'filename_relative': 'src/layerzero/LayerZeroSourceVault.sol'}},
             {'type': 'node', 'name': 'effective <= block.timestamp'},
         ]}
         self.reviewed = [fingerprint(self.finding)]

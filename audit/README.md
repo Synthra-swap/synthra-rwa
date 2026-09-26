@@ -1,16 +1,14 @@
 # Validation evidence
 
-JSON observations and reports in this directory are dated evidence, not a current audit certificate.
-They include earlier Wormhole checks and the September 25 LayerZero contract review. Check source
-hashes before applying a report to a later commit. Operational tooling and documentation changed
-since the initial LayerZero validation snapshot.
+This directory contains LayerZero evidence and source-asset research. Observations are dated; they
+are not an independent audit certificate. Mainnet deployed identities and transaction references
+are in `config/layerzero.mainnet.json`. The external audit is in progress.
 
-Generated logs, coverage, Slither output, tarballs, release manifests and checksums are excluded from
-Git. `bash tools/check.sh` writes current local reports here. CI uploads the generated reports and
-archive as an artifact. `python3 tools/package_audit.py` packages the available source and explicitly
-selected evidence; it does not rerun tests or certify historical evidence as current.
+`bash tools/check.sh` writes current Python, unit/fuzz/invariant, coverage, gas and static-analysis
+reports. Live-fork and mutation checks run separately. CI uploads generated reports and the audit
+archive. `tools/package_audit.py` packages tracked source, public configuration and explicitly selected
+reports; it does not rerun checks or certify historical evidence as current.
 
-The source repository retains JSON network/provenance observations needed to understand earlier
-findings. Mainnet deployed identities and initial metadata transaction hashes are in
-`config/layerzero.mainnet.json`. Never add private keys, signed raw transactions, authenticated RPC
-URLs or local deployment-run directories to an audit artifact.
+Earlier implementation and mixed-scope evidence are preserved in the archive branch linked in
+`docs/ARCHIVE_HISTORY.md`. Never add private keys, signed raw transactions, authenticated RPC URLs or
+local deployment-run directories to a report or audit artifact.

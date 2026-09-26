@@ -1,7 +1,7 @@
 # Security reporting
 
-This repository is an unaudited release candidate. Do not use it with real assets until deployment
-prerequisites and independent review are complete. Do not publish an exploit or sensitive details in
+This repository contains the deployed LayerZero bridge. The external audit is in progress; no final
+audit approval is claimed. Do not publish an exploit or sensitive details in
 a public issue. Send findings privately to the Synthra maintainers through the agreed audit channel;
 a public security contact/bug-bounty program has not yet been designated.
 

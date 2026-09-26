@@ -21,5 +21,5 @@
   "remoteEid": 30417,
   "sendConfirmations": 0,
   "receiveConfirmations": 0,
-  "notes": "Template intentionally fails until reviewed explicit confirmations and per-asset configuration are supplied. Never reuse a Wormhole bundle."
+  "notes": "Template intentionally fails until reviewed explicit confirmations and per-asset configuration are supplied. Use only this LayerZero configuration schema."
 }

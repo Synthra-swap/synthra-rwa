@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 """Create deterministic audit archive; omit secrets, real deployment configs, caches and binaries."""
 from pathlib import Path
-import gzip,hashlib,io,json,tarfile
+import gzip,hashlib,io,json,tarfile,subprocess
 root=Path(__file__).resolve().parents[1]
 allowed={'src','test','integration','script','tools','docs','vendor','.github'}
 roots={'README.md','foundry.toml','.gitignore','SECURITY.md','LICENSE'}
 public_configs={'config/layerzero.stocks.json','config/layerzero.mainnet.json'}
-reports={'audit-tests.log','unit-tests.log','coverage.log','coverage.lcov','slither.json','slither.log','gas-report.log','demo.log',
-         'python-tests.log','mutation-report.json','mutation.log','dependency-verification.json',
+reports={'audit-tests.log','unit-tests.log','coverage.log','coverage.lcov','slither.json','slither.log','gas-report.log',
+         'python-tests.log','dependency-verification.json',
          'live-fork-tests.log'}
-review_paths = {'audit/current-review-snapshot.json', 'audit/deployment-preparation.json',
-                'audit/layerzero/validation.json', 'audit/layerzero/live-fork-tests.log',
+review_paths = {'audit/layerzero/validation.json', 'audit/layerzero/live-fork-tests.log',
                 'audit/layerzero/check.log', 'audit/layerzero/mutation-report.json',
                 'audit/layerzero/mutation.log', 'audit/layerzero/abi-verification.json',
                 'audit/layerzero/network-review.json', 'audit/layerzero/build-sizes.log'}
@@ -22,16 +21,16 @@ review_paths.update('audit/readiness-review/' + name for name in (
     'initial-asset-candidates.json', 'selection-assets.json', 'selection-prices.json',
     'selection-dex-pairs.json', 'fork-assets-registry-20260924.json', 'fork-pins-20260924.json',
     'twelve-asset-code-identities.json', 'current-fork-pins.json'))
-network_reports={'asset-registry.json','observations-both-finalized.json','observations-robinhood-latest.json',
-                 'robinhood-finalized-rpc.json','arc-finalized-rpc.json','robinhood-latest-rpc.json',
-                 'token-implementation-sourcify.json','token-source-check.json','live-vaa-verification.json',
-                 'free-rpc-validation.json'}
 paths=[]
-for p in sorted(root.rglob('*')):
+source_paths = subprocess.check_output(['git', 'ls-files', '--cached', '--others', '--exclude-standard'], cwd=root, text=True).splitlines()
+source_paths += [str(p.relative_to(root)) for p in (root/'audit').rglob('*')
+                 if p.is_file() and (str(p.relative_to(root)) in review_paths or (p.parent == root/'audit' and p.name in reports))]
+for name in sorted(set(source_paths)):
+    p = root/name
     if not p.is_file():continue
     rel=p.relative_to(root)
     if any(x in rel.parts for x in ('__pycache__','.git','.tools','out','cache','broadcast')):continue
-    if rel.parts[0] in allowed or str(rel) in roots or str(rel) in public_configs or str(rel) in review_paths or (rel.parts[0]=='config' and p.name.endswith('.example.json')) or (rel.parts[0]=='audit' and p.name in reports) or (rel.parent == Path('audit/network') and p.name in network_reports):
+    if rel.parts[0] in allowed or str(rel) in roots or str(rel) in public_configs or str(rel) in review_paths or (rel.parts[0]=='config' and p.name.endswith('.example.json')) or (rel.parts[0]=='audit' and p.name in reports):
         paths.append(p)
 manifest={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
 encoded=(json.dumps({'schema':1,'files':manifest},indent=2)+'\n').encode()

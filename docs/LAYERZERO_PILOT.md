@@ -2,7 +2,7 @@
 
 For the other eleven reviewed stocks, use [Additional stock rollout](LAYERZERO_STOCK_ROLLOUT.md). Its batch commands exclude the existing NVDA deployment by default.
 
-This is the authorized pre-audit pilot. A successful pilot is evidence for the external audit, not an audit result. Keep the existing Wormhole contracts and saved transfer records: their liabilities cannot be redeemed through the new LayerZero pair.
+This is the authorized pre-audit pilot. A successful pilot is evidence for the external audit, not an audit result. Preserve all deployment receipts and transfer records.
 
 Deploy NVDA first as the initial asset of the intended production deployment, with no public announcement. These are real mainnet contracts intended to remain in use if validation and the external audit support that decision. Extend to the other stocks after the live NVDA round trip succeeds. Local forks with impersonated DVNs cannot establish real operator availability or delivery latency; the mainnet test must receive actual LayerZero Labs and Nethermind attestations in both directions.
 
@@ -128,7 +128,7 @@ before retrying. Never republish a source message merely because delivery is del
 
 Freeze the contract and operational-tool revision, attach actual deployment receipts and the verified
 round-trip report, and regenerate the audit manifest. Include the selected DVNs/confirmations and
-legacy Wormhole liabilities. Obtain the independent audit and resolve its findings.
+any liabilities belonging to earlier deployments (see ARCHIVE_HISTORY.md). Obtain the independent audit and resolve its findings.
 
 Local fork verification is reproducible with `tools/check_layerzero_operations_fork.py` against two
 local anvil forks. Its DVN transactions are impersonated locally; they do not measure real mainnet

@@ -14,7 +14,7 @@ import time
 
 import layerzero_deploy as deployment
 from layerzero_deploy import CONFIG, ROOT, SENDER, STATE, inputs, inspect, rpc_for, write
-from preflight import address, cast, require, ZERO
+from evm_rpc import address, cast, require, ZERO
 
 ZERO_HASH='0x'+'00'*32
 

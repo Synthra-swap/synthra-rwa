@@ -3,7 +3,7 @@
 Permissionless stock bridging between **Robinhood Chain (4663)** and **Arc (5042)** using LayerZero V2.
 Each stock has a source vault on Robinhood and a destination bridge with its own wrapped ERC-20 on Arc.
 
-**Mainnet deployment is active; external audit is pending. Use at your own risk.** The twelve pairs
+**Mainnet deployment is active; external audit is in progress. Use at your own risk.** The twelve pairs
 were verified active with initial metadata received on September 25, 2026. Deployment and successful
 transactions do not establish audit approval.
 
@@ -52,11 +52,9 @@ Start with [protocol and security](docs/LAYERZERO.md), [audit scope](docs/AUDIT_
 [deployment operations](docs/LAYERZERO_PILOT.md), [multi-stock rollout](docs/LAYERZERO_STOCK_ROLLOUT.md),
 and [validation and its limits](docs/LAYERZERO_VALIDATION.md).
 
-The older Wormhole contracts and recovery tools remain in this repository to support their separate
-existing deployment and pending claims. LayerZero does not migrate those balances or settle Wormhole
-claims. Their specification is [here](docs/SPECIFICATION.md); recovery instructions are in
-[OPERATIONS.md](docs/OPERATIONS.md). The completed message-only LayerZero experiment is no longer
-part of the source tree; the asset bridge tests and operational tools are the maintained path.
+This branch contains only the LayerZero implementation and its dependencies. Earlier implementations,
+recovery tools and historical evidence are preserved in the [archive branch](https://github.com/Synthra-swap/synthra-rwa/tree/archive/wormhole-20260926).
+Removing historical source does not modify deployed contracts or settle existing claims.
 
 ## Development and verification
 
@@ -79,5 +77,6 @@ Foundry can otherwise obtain the configured compiler. See the runbooks before us
 CI runs the local checks and LayerZero mutation campaign, then publishes an audit artifact. Generated
 logs, coverage, manifests and tarballs are not committed. An archive records exact file hashes; packaging
 alone does not certify that every included historical report applies to the current revision.
-Independent audit, reconciliation of the real asset round-trip evidence, explorer verification and
-resolution of audit findings remain part of the release handoff.
+All 60 deployed Synthra contracts have explorer-verified source. Source verification is not a security
+audit. Independent audit, reconciliation of real asset round-trip evidence and resolution of audit
+findings remain part of the release handoff.

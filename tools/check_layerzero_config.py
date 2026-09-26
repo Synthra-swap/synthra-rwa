@@ -30,7 +30,7 @@ def validate_pair(source,destination,networks):
         n=networks[name]; remote=networks[other]
         if c.get('sourceSide') is not is_source: raise ValueError('sourceSide: wrong side')
         if any(f in c for f in ('core','wormholeChain','remoteWormholeChain','capRaw','rateCapacityRaw','refillSeconds')):
-            raise ValueError('Wormhole/obsolete configuration fields are not LayerZero configuration')
+            raise ValueError('obsolete configuration fields are not LayerZero configuration')
         for field,expected in (('evmChain',n['chainId']),('remoteEvmChain',remote['chainId']),
                                ('localEid',n['localEid']),('remoteEid',remote['localEid'])):
             if integer(c,field)!=int(expected): raise ValueError(f'{field}: wrong chain identity')

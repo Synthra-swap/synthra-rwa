@@ -3,9 +3,9 @@
 ## Current LayerZero deployment
 
 The primary smart-contract scope is **all Solidity files in `src/layerzero/`**, plus
-`script/DeployLayerZero.s.sol` and its transitive OpenZeppelin dependencies. These are the contracts
+`src/interfaces/IScaledUIAmount.sol`, `script/DeployLayerZero.s.sol` and its transitive OpenZeppelin dependencies. These are the contracts
 used by the twelve Robinhood/Arc pairs listed in [the mainnet registry](../config/layerzero.mainnet.json).
-Deployment and initial metadata reception have been verified; the independent audit is pending.
+Deployment and initial metadata reception have been verified; the independent audit is in progress.
 Review an exact commit and file hashes, not a moving branch name or an older evidence archive.
 
 | Contract | Responsibility |
@@ -18,7 +18,7 @@ Review an exact commit and file hashes, not a moving branch name or an older evi
 | ILayerZero.sol | Local interface definitions for the external protocol |
 
 Include `tools/check_layerzero_config.py`, `tools/layerzero_deploy.py`, `tools/layerzero_operate.py`,
-`tools/layerzero_batch.py`, `tools/layerzero_roundtrip.py` and their shared helpers in the operational
+`tools/layerzero_batch.py`, `tools/layerzero_roundtrip.py` and the shared `evm_rpc.py`, `deployment_helpers.py` and `rpc_policy.py` helpers in the operational
 review. They validate deployment identities, handle ambiguous broadcasts and prepare authenticated
 manual delivery. Include the selected configuration templates, stock registry and mainnet registry.
 Tests live in `test/layerzero/` and `integration/LayerZeroLive.t.sol`; mocks are never production contracts.
@@ -65,14 +65,6 @@ See [LAYERZERO.md](LAYERZERO.md) and [the internal review](LAYERZERO_INTERNAL_RE
 Issuer solvency, share custody, eligibility, issuer freeze/seizure/upgrades, chain finality, RPC service
 availability, DVN honesty/liveness and user key security remain external assumptions. Local forks
 impersonate DVNs and do not prove genuine attestation or mainnet end-to-end reliability.
-
-## Earlier Wormhole deployment
-
-The remaining `src/**/*.sol` outside `src/layerzero/`, `script/Deploy.s.sol`, VAA retrieval tools and
-Wormhole fixtures belong to the earlier separate implementation. They remain available for existing
-claims and should be explicitly included if the engagement also covers that deployment. LayerZero
-cannot settle these claims or reuse their reserves. Historical behavior and findings are documented
-in [SPECIFICATION.md](SPECIFICATION.md) and [INTERNAL_AUDIT.md](INTERNAL_AUDIT.md).
 
 ## Reproduction and handoff
 

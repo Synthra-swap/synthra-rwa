@@ -2,7 +2,7 @@
 
 Scope: all `src/layerzero/`, `script/DeployLayerZero.s.sol`, the local ABI, proposed pair-configuration
 validation, and integration with the real Endpoint/ULN implementations. This is an internal review,
-not a third-party audit. No transaction was broadcast and no deployed Wormhole state was changed.
+not a third-party audit. No transaction was broadcast and no deployed state was changed.
 See [validation](LAYERZERO_VALIDATION.md) for exact evidence and source hashes.
 
 ## Findings and disposition
@@ -133,7 +133,7 @@ the pinned interface encoding. Both sources of evidence are retained separately.
 This review predates the operational rollout. The twelve pairs and initial metadata
 have since been verified; see the public registry and LAYERZERO_VALIDATION.md. Independent
 audit, release evidence review and reconciliation of the real asset round trip remain separate steps.
-The old Wormhole redemption cannot be settled using a LayerZero proof or by reallocating its backing.
+Historical recovery information is preserved in ARCHIVE_HISTORY.md.
 
 ## Primary references
 

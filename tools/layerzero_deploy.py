@@ -14,8 +14,8 @@ import subprocess
 import time
 
 from check_layerzero_config import validate_pair
-from deploy_asset import run_logged, simulation_environment
-from preflight import RPC, address, cast, require, ZERO
+from deployment_helpers import run_logged, simulation_environment
+from evm_rpc import RPC, address, cast, require, ZERO
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSET = 'NVDA'

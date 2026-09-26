@@ -40,22 +40,10 @@ def archive(package):
             'verifiedFiles': checked}
 
 
-def wormhole_file(item):
-    path, expected = item
-    provenance = json.loads((ROOT / 'vendor/wormhole/PROVENANCE.json').read_text())
-    url = f"https://raw.githubusercontent.com/wormhole-foundation/wormhole/{provenance['commit']}/{path}"
-    data = fetch(url)
-    if hashlib.sha256(data).hexdigest() != expected or data != (ROOT / 'vendor/wormhole' / path).read_bytes():
-        raise ValueError(f'Wormhole upstream mismatch: {path}')
-    return {'url': url, 'sha256': expected}
-
-
 def main():
     packages = json.loads((ROOT / 'vendor/PROVENANCE.json').read_text())
-    wormhole = json.loads((ROOT / 'vendor/wormhole/PROVENANCE.json').read_text())
     with ThreadPoolExecutor(max_workers=4) as executor:
         futures = [executor.submit(archive, p) for p in packages]
-        futures += [executor.submit(wormhole_file, item) for item in wormhole['files'].items()]
         results = [future.result() for future in futures]
     report = {'schema': 1, 'results': results, 'notice': 'Byte identity establishes provenance, not absence of vulnerabilities.'}
     (ROOT / 'audit/dependency-verification.json').write_text(json.dumps(report, indent=2) + '\n')

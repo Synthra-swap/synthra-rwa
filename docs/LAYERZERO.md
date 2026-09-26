@@ -1,9 +1,8 @@
 # LayerZero bridge implementation
 
 This implementation is deployed on Robinhood and Arc for twelve stocks; the independent audit is
-pending. See [the public deployment registry](../config/layerzero.mainnet.json) for verified identities
-and initial metadata transactions. The earlier Wormhole deployment and pending claims remain separate;
-no balances have been migrated or authorized for LayerZero settlement.
+in progress. See [the public deployment registry](../config/layerzero.mainnet.json) for verified identities
+and initial metadata transactions.
 
 ## Contracts and accounting
 
@@ -14,13 +13,12 @@ The new implementation is under `src/layerzero/`:
 - `LayerZeroDestinationBridge`: mint net deposits, burn the caller's wrapped balance for redemption,
   and receive source-token metadata snapshots.
 - `LayerZeroWrappedAsset`: permissionless ERC-20 with `originEid` as a uint32 LayerZero endpoint ID.
-  Multiplier snapshots affect display conversions only. The implementation preserves the original
-  wrapped token's behavior in a separate contract; it does not change deployed Wormhole tokens.
+  Multiplier snapshots affect display conversions only; raw ERC-20 balances do not rebase.
 - `LayerZeroEndpoint`: authentication, one-time peer binding, lanes, limits, bootstrap, ownership,
   explicit messaging security, native fee payment, and permissionless manual completion.
 - `LayerZeroMessage`: separate `synthra.rwa.bridge.layerzero.v1` domain. Transfer and metadata payloads
   are respectively 320 and 384 bytes. The header binds the action, both EVM chain IDs, receiving EID,
-  receiving bridge and original token. EIDs are uint32, not Wormhole chain IDs.
+  receiving bridge and original token. EIDs are uint32 LayerZero endpoint identifiers.
 - `ILayerZero.sol`: local ABI subset, checked against LayerZero-v2 commit
   `9c741e7f9790639537b1710a203bcdfd73b0b9ac`. See the upstream
   [Endpoint interface](https://github.com/LayerZero-Labs/LayerZero-v2/blob/9c741e7f9790639537b1710a203bcdfd73b0b9ac/packages/layerzero-v2/evm/protocol/contracts/interfaces/ILayerZeroEndpointV2.sol)
@@ -155,12 +153,11 @@ FOUNDRY_PROFILE=deployment forge script script/DeployLayerZero.s.sol:DeployLayer
   --rpc-url "$RPC_URL" --use .tools/solc-0.8.28 --offline
 ```
 
-This command does not broadcast. Existing Wormhole `deploy_asset.py`, `preflight.py`, `fetch_vaa.py`
-and deployment bundles are not LayerZero tooling. Use `tools/layerzero_deploy.py` and
+This command does not broadcast. Use `tools/layerzero_deploy.py` and
 `tools/layerzero_operate.py` for per-stock configuration, receipt reconciliation, runtime/ownership,
 peer, DVN/library, confirmation and limit checks. `tools/layerzero_batch.py` processes the remaining
 stocks sequentially. LayerZero packet recovery and manual completion authenticate source receipts
-and destination protocol state; VAAs cannot be used as LayerZero proofs.
+and destination protocol state.
 See [the deployment runbook](LAYERZERO_PILOT.md) and [multi-stock rollout](LAYERZERO_STOCK_ROLLOUT.md).
 
 ## Validation and remaining release work
@@ -192,9 +189,6 @@ Tests log their actual block heights. Run `bash tools/check.sh` for the local pi
 `python3 tools/layerzero_mutation_check.py` for the finite mutation campaign. The CI workflow runs
 both. `tools/check_layerzero_config.py` validates a proposed pair offline without granting production
 approval. See [the internal review](LAYERZERO_INTERNAL_REVIEW.md) for findings and their disposition.
-Review current evidence in `audit/layerzero/`; previous Wormhole reports and release archives do
-not establish coverage of this change. The twelve pairs are now active in
-the unannounced pre-audit rollout. Independent audit, exact-revision evidence and reconciliation of
-the real asset round trip remain necessary for the release handoff.
-The outstanding Wormhole redemption must be reconciled separately without inventing a LayerZero
-proof or reusing its backing for newly minted tokens.
+Review current evidence in `audit/layerzero/` and reproduce it against the reviewed revision.
+Earlier implementation and recovery materials are available through [the archive](ARCHIVE_HISTORY.md).
+The external audit is in progress; successful tests and source verification do not establish audit approval.

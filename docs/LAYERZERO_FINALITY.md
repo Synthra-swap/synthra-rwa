@@ -46,7 +46,7 @@ independently proven Ethereum-finalized or advertise a guaranteed few-second end
 The selected counts and two-DVN configuration are deployed on all twelve mainnet pairs. Runtime,
 ownership, peers and effective ULN settings were verified after activation;
 see [the deployment registry](../config/layerzero.mainnet.json). Independent audit and review of the
-complete release evidence remain outstanding. The existing Wormhole endpoints and claims are unchanged.
+complete release evidence remain outstanding.
 
 The declarative `config/layerzero.finality-policy.example.json` records this decision. DeployLayerZero
 reads numeric settings from the per-side deployment JSON. Configuration compatibility alone never
